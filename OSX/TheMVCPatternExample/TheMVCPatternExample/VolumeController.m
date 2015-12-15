@@ -19,6 +19,19 @@
     return self;
 }
 
+- (void) awakeFromNib {
+    NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld;
+    [self.volumeData addObserver:self forKeyPath:@"isMuted" options:options context:NULL];
+    [self.volumeData addObserver:self forKeyPath:@"volumeWithoutMute" options:options context:NULL];
+    
+    [self synchronizeWithData];
+}
+
+- (void)dealloc {
+    [self.volumeData removeObserver:self forKeyPath:@"isMuted"];
+    [self.volumeData removeObserver:self forKeyPath:@"volumeWithoutMute"];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -26,14 +39,6 @@
     if (object == self.volumeData) {
         [self synchronizeWithData];
     }
-}
-
-- (void) awakeFromNib {
-    NSKeyValueObservingOptions options = NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld;
-    [self.volumeData addObserver:self forKeyPath:@"isMuted" options:options context:NULL];
-    [self.volumeData addObserver:self forKeyPath:@"volumeWithoutMute" options:options context:NULL];
-    
-    [self synchronizeWithData];
 }
 
 - (void)synchronizeWithData {
