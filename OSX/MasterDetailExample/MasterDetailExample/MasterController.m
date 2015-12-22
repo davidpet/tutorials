@@ -28,4 +28,22 @@
     return self;
 }
 
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return [self.productList countOfProducts];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView
+   viewForTableColumn:(NSTableColumn *)tableColumn
+                  row:(NSInteger)row {
+    // Request a view for the cell
+    NSTableCellView *cellView = [tableView makeViewWithIdentifier:@"ProductNameCell"
+                                                            owner:nil];
+    // Configure the view for the specified row
+    ProductData *product = [self.productList objectInProductsAtIndex:row];
+    cellView.textField.stringValue = product.name;
+    
+    // Return the cell
+    return cellView;
+}
+
 @end
