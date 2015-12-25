@@ -11,6 +11,9 @@
 
 @interface MasterController : NSObject <NSTableViewDataSource, NSTableViewDelegate>
 
+- (IBAction) insertNewProduct:(id)sender;
+- (IBAction) removeSelectedProduct:(id)sender;
+
 @property (nonatomic) ProductListData *productList;
 
 @property (weak) IBOutlet NSTableView *tableView;

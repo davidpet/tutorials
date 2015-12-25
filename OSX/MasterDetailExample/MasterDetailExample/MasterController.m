@@ -60,4 +60,56 @@
     [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
+- (IBAction) insertNewProduct:(id)sender {
+    // Create the new product data
+    ProductData *product = [[ProductData alloc] initWithName:@"New Product"
+                                                       price:[NSDecimalNumber decimalNumberWithString:@"1.99"]];
+    
+    // Figure out the index to insert into (TODO)
+    NSInteger index = self.tableView.selectedRow;
+    if (index == -1) {
+        // No selection, so insert at top of list
+        index = 0;
+    }
+    
+    // Insert it into the model layer
+    [self.productList insertObject:product inProductsAtIndex:index];
+    
+    // Tell the table view it needs updating
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:index]
+                          withAnimation:NSTableViewAnimationSlideDown];
+    [self.tableView scrollRowToVisible:index];
+    [self.tableView endUpdates];
+    
+    // Select the new row
+    [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index]
+                byExtendingSelection:NO];
+}
+
+- (IBAction) removeSelectedProduct:(id)sender {
+    NSInteger index = self.tableView.selectedRow;
+    if (index == -1) {
+        // No selection, so don't do anything
+        return;
+    }
+    [self.productList removeObjectFromProductsAtIndex:index];
+    
+    // Update the table view to match
+    [self.tableView beginUpdates];
+    [self.tableView removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:index]
+                          withAnimation:NSTableViewAnimationEffectFade];
+    [self.tableView scrollRowToVisible:index];
+    [self.tableView endUpdates];
+    
+    // Select a new row, if there are any left
+    if ([self.productList countOfProducts] > 0) {
+        NSInteger newIndex = index-1;
+        if (newIndex < 0) {
+            newIndex = 0;
+        }
+        [self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:newIndex] byExtendingSelection:NO];
+    }
+}
+
 @end
