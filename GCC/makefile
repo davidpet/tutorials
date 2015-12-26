@@ -1,13 +1,22 @@
-all: test.exe
+LINK_TARGET = test.exe
+OBJECT_FILES = main.o MyClass.o
+BUILDABLES = $(LINK_TARGET) $(OBJECT_FILES) $(LINK_TARGET).dSYM
+INCLUDES = -I MyClass
+COMPILE_COMMAND = g++ -Wall -g -c $(INCLUDES) $<
 
-test.exe: main.o MyClass.o
-	g++ -g -o test.exe $^
+all: $(LINK_TARGET) 
 
-main.o: main.cpp MyClass/MyClass.h
-	g++ -Wall -g -c -I MyClass $<
+$(LINK_TARGET):  $(OBJECT_FILES)
+	g++ -g -o $@ $^
 
-MyClass.o: MyClass/MyClass.cpp MyClass/MyClass.h
-	g++ -Wall -g -c $<
+main.o: main.cpp
+	$(COMPILE_COMMAND)
+
+MyClass.o: MyClass/MyClass.cpp
+	$(COMPILE_COMMAND)
+
+MyClass.o: MyClass/MyClass.h
+main.o: MyClass/MyClass.h
 
 clean:
-	rm -rf test.exe test.exe.dSYM main.o MyClass.o
+	rm -rf $(BUILDABLES)
