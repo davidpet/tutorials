@@ -6,5 +6,6 @@ int main() {
   cout << "hi, there!" << endl;
   
   MyClass m;
-  cout << m.DoubleMyStuff(10) << endl;
+  int x = m.DoubleMyStuff(10);
+  cout << x << endl;
 }
