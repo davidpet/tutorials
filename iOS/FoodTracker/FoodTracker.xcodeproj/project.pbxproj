@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B90D8BD91D8917E700E945BB /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90D8BD81D8917E700E945BB /* Meal.swift */; };
 		B97A3FCE1D87A9D50071C1D1 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B97A3FCD1D87A9D50071C1D1 /* RatingControl.swift */; };
 		B9E42CAE1D8552DB006CD9D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E42CAD1D8552DB006CD9D6 /* AppDelegate.swift */; };
 		B9E42CB01D8552DB006CD9D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E42CAF1D8552DB006CD9D6 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B90D8BD81D8917E700E945BB /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		B97A3FCD1D87A9D50071C1D1 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		B9E42CAA1D8552DB006CD9D6 /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E42CAD1D8552DB006CD9D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			children = (
 				B9E42CAD1D8552DB006CD9D6 /* AppDelegate.swift */,
 				B9E42CAF1D8552DB006CD9D6 /* ViewController.swift */,
+				B90D8BD81D8917E700E945BB /* Meal.swift */,
 				B9E42CB11D8552DB006CD9D6 /* Main.storyboard */,
 				B97A3FCD1D87A9D50071C1D1 /* RatingControl.swift */,
 				B9E42CB41D8552DB006CD9D6 /* Assets.xcassets */,
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90D8BD91D8917E700E945BB /* Meal.swift in Sources */,
 				B9E42CB01D8552DB006CD9D6 /* ViewController.swift in Sources */,
 				B97A3FCE1D87A9D50071C1D1 /* RatingControl.swift in Sources */,
 				B9E42CAE1D8552DB006CD9D6 /* AppDelegate.swift in Sources */,
