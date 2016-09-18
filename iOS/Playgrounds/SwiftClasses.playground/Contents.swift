@@ -34,6 +34,9 @@ class Person {
 var person = Person(clothes: "tshirt", shoes: "sneakers")   //construct with name of class and parameters defined by initializer
 person.sing()                                               //calling method like any other language
 
+//PROPERTY OBSERVERS and COMPUTED PROPERTIES
+//see: SwiftStructs playground (syntax is the same)
+
 //INHERITENCE
 class Singer: Person {                          //only ONE base class allowed just like in C#
     override func sing() {                      //OVERRIDE keyword required to change base method (automatically virtual)
