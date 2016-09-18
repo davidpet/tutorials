@@ -63,3 +63,6 @@ let z = x * y               //works for constants as well
 //Use Constants when possible
 //Use Type Inference (instead of explicit types) when possible
 //put : next to variable name (eg. var name: String)
+
+//QUESTIONS
+//Attributes?  Decorators?
