@@ -83,10 +83,23 @@ var ms = MyStruct(x: 5)         //static property not part of initializer
 //ms.doStuff()                  //not allowed to access statics via instances
 MyStruct.doStuff()              //use class name with . to access statics (like C#)
 
+//ACCESS CONTROL
+struct MyOtherStruct {
+    var x: Int
+    
+    func dostuff() {
+        doprivatestuff()        //calling private
+    }
+    
+    private func doprivatestuff() {     //private method can only be called inside the class
+    }
+}
+
 //CONVENTIONS
 //computed properties tend to be more common in Apple code and less common in user code
 
 //QUESTIONS
 //Can a struct have custom initializers?
 //Can you provide a default value in a struct, and how does that affect the initializer?
-
+//Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?
+//What are default access control levels and what are all the options?

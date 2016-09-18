@@ -36,9 +36,11 @@ class Person {
 
 var person = Person(clothes: "tshirt", shoes: "sneakers")   //construct with name of class and parameters defined by initializer
 person.sing()                                               //calling method like any other language
+                                                            //NOTE: members can be accessed outside of the class by default (not locked to private like C++)
 
-//PROPERTY OBSERVERS, COMPUTED PROPERTIES, STATIC
+//PROPERTY OBSERVERS, COMPUTED PROPERTIES, STATIC, and ACCESS CONTROL
 //see: SwiftStructs playground (syntax is the same)
+//in addition, can define a variable with "private" in front
 
 //INHERITENCE
 class Singer: Person {                          //only ONE base class allowed just like in C#
@@ -79,6 +81,7 @@ print(person.clothes)                       //changing the other reference chang
 //POLYMORPHISM
 var b: Person = Singer(clothes: "tshirt", shoes: "sneakers")    //base reference to a more derived class
 b.sing()                                                        //derived version is called (like virtual in C++)
+var a = [heavyMetalSinger, person]      //type inference chooses [Person] because it's common base (could specify it explicitly too)
 
 //CONSTANTS
 let p = Person(clothes: "shirt", shoes: "slippers")     //declaring constant class instance
