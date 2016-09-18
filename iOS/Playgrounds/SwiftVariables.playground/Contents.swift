@@ -23,6 +23,10 @@ var longitude: Double = -18.633333333       //recommended by Apple due to higher
 var altitude = -18.63333                //becomes a Double even though Float would work
 var success: Bool = true
 
+//VARIANTS
+var anyVar: Any = 20       //any is like a variant
+anyVar = "hi"               //can be reassigned to a value of a different type
+
 //EXPRESSIONS
 var x = 5 + 3               //can initialize variables with expressions
 var y = x * 2
@@ -33,3 +37,4 @@ let z = x * y               //works for constants as well
 //Start with lowercase: variables and constants
 //Use Constants when possible
 //Use Type Inference (instead of explicit types) when possible
+//put : next to variable name (eg. var name: String)
