@@ -61,7 +61,7 @@ while true {            //basically like C but don't need ()
 
 //SWITCH
 let myvar = 100
-switch myvar {
+switch myvar {          //NOTE: cases are guaranteed to run in order from top to bottom
 case 0:                 //idiomatic alignment for cases
     print(0)
     print("zero")       //multiple lines in cases fine
@@ -69,18 +69,22 @@ case 10:
     print(10)           //NOTE: no fall-through or breaks
 case 11...99:           //RANGES supported too
     print("woah")
+case 1, 2:              //combining multiple possibilities on one line
+    print("eh")
 default:                //switches must be exhaustive or there will be an error
     print("whatever")
 }
 
 let mystr = "bye"
-switch mystr {          //switches in Swift can be anything and cases can be expressions
+switch mystr {          //switches in Swift can be anything (not just numbers) and cases can be expressions
 case "h":
     print("h")
 case "hi":
     fallthrough         //special operator to make a case fall-through to the next one explicitly
 case "bye":
     print("hi")
+case "cat", "dog":      //multiple on one line works for strings too
+    print("animal")
 default:
     print("default")
 }
