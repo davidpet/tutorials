@@ -22,6 +22,7 @@ s[0] = "cat"    //reassigning existing item
 //s[3] = "dog"  //cannot assign non-existent index like this
 //s[-1]         //no negative indexing
 s[s.count - 1]  //getting last item
+var index : Int? = s.index(of: "bye")   //finding an item in an array (nil if not there)
 
 //INSPECTION
 s.count         //getting array length

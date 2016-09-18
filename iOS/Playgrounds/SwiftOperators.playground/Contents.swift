@@ -46,3 +46,6 @@ s == "hi"       //string comparison with == is CASE SENSITIVE!
 //RANGES
 let r = 1...5   //closed range (1-5 INCLUSIVE) (NOTE: 3 dots)
 let r2 = 1..<5  //half-open range (1-5 EXCLUSIVE of 5)
+
+//OPTIONALS, OPTIONAL CHAINING, and COALESCING are covered in the SwiftVariables playground
+

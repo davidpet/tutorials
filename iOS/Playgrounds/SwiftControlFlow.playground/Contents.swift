@@ -14,6 +14,19 @@ else {              //otherwise acts basically like C
 if x == 4 || x != 2 {   //combining multiple conditions
 }
 
+//OPTIONAL UNWRAPPING CONDITIONALS
+var opt : String?
+if let unwrapped = opt {
+    //this block only executes if opt is not nil
+    //unwrapped is automatically a String (unwrapped)
+}
+var opt2 : Int?
+if let unwrapped = opt, let unwrapped2 = opt2 {
+    //only executes if both unwrappings worked
+}
+//if let x = 5 {    //NOTE: this syntax is specific to unwrapping optionals
+//}
+
 //RANGE LOOPS
 for i in 1...10 {           //Python-like range loops (doesn't support C-style loops anymore)
     print("The value this time is \(i)")

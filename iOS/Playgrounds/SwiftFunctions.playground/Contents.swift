@@ -41,3 +41,13 @@ func getDoubled(string: String) -> String {     //return value specified after -
     return string + string              //return just like any other language
 }
 let s = getDoubled(string: "hi")        //call it to get a value just like any other language
+
+//OPTIONAL VALUES
+func getHaterStatus(weather: String) -> String? {  //could return nil instead of a string
+    if weather == "sunny" {
+        return nil
+    } else {
+        return "Hate"
+    }
+}
+

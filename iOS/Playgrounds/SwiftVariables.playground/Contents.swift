@@ -15,6 +15,27 @@ var name2: String = "Joe"       //declare type and assign at same time
 
 var name3: String = "hi", name4: String = "low" //multiple declarations together
 
+//OPTIONALS
+var opt : String?   //putting ? after type makes it optional (similar to nullable in C# - allows it to be nil)
+//defaults to nil (instead of uninitialized)
+opt = nil           //this was already true but just showing that nil is the empty value
+opt = "hi"          //now the optional has a value
+opt = nil           //can go back
+opt = "hi"
+print(opt!)         //! force unwrap the optional when the pure type is needed (runtime error if nil so only do when SURE)
+//for safer way to unwrap optionals, see SwiftControlFlow playground (if-statement variation)
+var opt2 : String! = "hi"   //using ! instead of ? after optional type makes it implicitly unwrapped optional
+print(opt2!)                //can use implicitly unwrapped optional wherever you would use the raw type - it's like always using ! to unwrap (only safe if not nil)
+                            //mostly only used when have to because of UI stuff (late bound) and old library stuff
+
+//OPTIONAL CHAINING
+let val = opt?.uppercased()     //can insert ? before things like . and [] operators (even multiple times in a long line)
+                                //if anything from left to right turns out nil the whole thing is nil -> if it makes it to the end, you get the result of the whole expression
+                                //type of this value is String?
+
+//COALESCING
+let str = opt ?? ""         //unwrap in a way that nil turns into a valid value (just like C#)
+
 //DATA TYPES
 var thename: String = "Bob"
 var theage: Int = 5

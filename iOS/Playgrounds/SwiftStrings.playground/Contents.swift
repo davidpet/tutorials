@@ -18,3 +18,7 @@ var q = "Your value is less than \(xx + 1)"     //value in \() is an EXPRESSION
 
 //INSPECTING
 s.characters.count          //string length
+
+//MANIPULATION
+s.uppercased()
+s.lowercased()
