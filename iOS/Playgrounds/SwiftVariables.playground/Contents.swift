@@ -3,6 +3,8 @@ import UIKit
 //DECLARATIONS
 var s = "hi"        //string variable
 let t = "hi"        //string constant (optimized and catches programmer error)
+let t2: String    //initializing a constant can be deferred (eg. to select between values)
+t2 = "hi"
 
 s = "bye"           //reassigning
 //var s = "bye"     //cannot re-declare with var

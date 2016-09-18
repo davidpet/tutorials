@@ -4,7 +4,9 @@ class Person {
     var shoes: String
     
     var tie = false                             //DEFAULT value for new instances
-    var watch : String?                         //OPTIONAL value (might be nil)
+    var watch: String?                         //OPTIONAL value (might be nil)
+    
+    let myConst: Int                            //constant values can be deferrred to the initializer for computation
     
     //initializers (constructors) don't use func and don't return anything
     init(clothes: String, shoes: String) {      //REQUIRED for any properties that are not optional or defaulted
@@ -12,6 +14,7 @@ class Person {
         
         self.clothes = clothes                  //NOTE: self like Python but not passed in as a param
         self.shoes = shoes
+        self.myConst = 5
         
         printClothes()                          //ok to call the method now
         
@@ -34,7 +37,7 @@ class Person {
 var person = Person(clothes: "tshirt", shoes: "sneakers")   //construct with name of class and parameters defined by initializer
 person.sing()                                               //calling method like any other language
 
-//PROPERTY OBSERVERS and COMPUTED PROPERTIES
+//PROPERTY OBSERVERS, COMPUTED PROPERTIES, STATIC
 //see: SwiftStructs playground (syntax is the same)
 
 //INHERITENCE
