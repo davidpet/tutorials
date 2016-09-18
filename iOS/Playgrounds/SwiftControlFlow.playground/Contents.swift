@@ -49,6 +49,7 @@ for i in 0..<a.count {      //going through array by index
 for item in [1, 2, 3] {
     print(item * 2)
 }
+//see SwiftClasses playground POLYMORPHISM section for variations that do casting at the array level
 
 //WHILE LOOPS
 var z = 0

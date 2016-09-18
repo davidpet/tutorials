@@ -47,5 +47,11 @@ s == "hi"       //string comparison with == is CASE SENSITIVE!
 let r = 1...5   //closed range (1-5 INCLUSIVE) (NOTE: 3 dots)
 let r2 = 1..<5  //half-open range (1-5 EXCLUSIVE of 5)
 
+//CASTING
+//see SwiftVariables for VARIANTS
+//see SwiftClasses for POLYMORPHISM
+var str = String(5)   //casting string to int
+var int = Int("5")      //casting int to string
+
 //OPTIONALS, OPTIONAL CHAINING, and COALESCING are covered in the SwiftVariables playground
 

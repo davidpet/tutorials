@@ -37,3 +37,6 @@ a + [6]         //can add an item by wrapping it as an array
 a += [4, 5, 6]  //+ and += for concatenation
 a = [1, 2, 3] + [4, 5, 6]   //works with literals
 mixedArray += [10]          //array defined with Any can take more mixed type items
+
+//CLASSES and POLYMORPHISM
+//see SwiftClasses playground

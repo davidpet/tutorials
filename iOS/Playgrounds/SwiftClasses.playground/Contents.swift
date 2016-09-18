@@ -82,6 +82,17 @@ print(person.clothes)                       //changing the other reference chang
 var b: Person = Singer(clothes: "tshirt", shoes: "sneakers")    //base reference to a more derived class
 b.sing()                                                        //derived version is called (like virtual in C++)
 var a = [heavyMetalSinger, person]      //type inference chooses [Person] because it's common base (could specify it explicitly too)
+var a2: [Person] = [heavyMetalSinger]
+var a3 = a2 as! [HeavyMetalSinger]      //can cast whole array polymorphically
+var castedSinger: Singer? = b as? Singer        //cast that will return nil if fails
+var castedSinger2: Singer = b as! Singer        //cast that will CRASH if fails (only use if sure)
+if let singer = b as? Singer {            //idiomatic way of branching based on type
+}
+else if let heavyMetalSinger = b as? HeavyMetalSinger { //NOTE: ok to use these names to hide the outside scope versions
+}
+//not actually a special syntax, everything a and to the right is just an expression that returns a [HeavyMetalSinger]
+for heavyMetalSinger in a as? [HeavyMetalSinger] ?? [HeavyMetalSinger]() {
+}
 
 //CONSTANTS
 let p = Person(clothes: "shirt", shoes: "slippers")     //declaring constant class instance
@@ -99,3 +110,5 @@ print(p.tie)                //the state change is seen back in the constant!!!
 //QUESTIONS
 //How do you clone/copy a class instance?
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
+//Overloading operators, conversions, etc?
+

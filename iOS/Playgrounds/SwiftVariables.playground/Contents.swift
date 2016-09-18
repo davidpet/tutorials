@@ -2,6 +2,7 @@ import UIKit
 
 //DECLARATIONS
 var s = "hi"        //string variable
+var S = "bye"       //symbols are CASE SENSITIVE
 let t = "hi"        //string constant (optimized and catches programmer error)
 let t2: String    //initializing a constant can be deferred (eg. to select between values)
 t2 = "hi"
@@ -49,6 +50,7 @@ var success: Bool = true
 //VARIANTS
 var anyVar: Any = 20       //any is like a variant
 anyVar = "hi"               //can be reassigned to a value of a different type
+var casted = anyVar as! String      //variants can be CASTED to explicit types
 
 //EXPRESSIONS
 var x = 5 + 3               //can initialize variables with expressions
