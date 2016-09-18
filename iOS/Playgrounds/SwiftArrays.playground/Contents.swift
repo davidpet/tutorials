@@ -11,6 +11,10 @@ var mixedArray : [Any] = [1, "abc"]     //by using Any you can do MIXED TYPES
 var emptyArray: [String] = []  //often preferred version
 var emptyArray2 = [String]()    //alternate version
 
+//TYPE
+type(of: a)
+let typedVal: Array<Int> = []    //the [Int] syntax is sugar for this
+
 //INDEXING
 s[0]
 //s[3]          //out of range is illegal

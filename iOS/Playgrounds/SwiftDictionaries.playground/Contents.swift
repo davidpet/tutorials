@@ -26,3 +26,7 @@ d["NewString"] = "Whatever" //can add keys this way
 //dictionary constants
 //m["Name"] = "Joe"     //can't reassign existing key
 //m["NewKey"] = "Joe"     //can't add new key
+
+//TYPING
+type(of: d)
+let typed: Dictionary<String, String> = [:] //explicit version of the sugar [String: String]
