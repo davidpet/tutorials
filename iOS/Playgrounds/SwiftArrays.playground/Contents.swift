@@ -21,6 +21,10 @@ s[0]
 s[0] = "cat"    //reassigning existing item
 //s[3] = "dog"  //cannot assign non-existent index like this
 //s[-1]         //no negative indexing
+s[s.count - 1]  //getting last item
+
+//INSPECTION
+s.count         //getting array length
 
 //ARRAY CONSTANTS
 let cArray = [1, 2, 3]

@@ -25,6 +25,10 @@ a >= b
 a == b      //like C++, cannot use single = for comparison
 a != b
 
+//CONDITIONAL
+a == b && 10 == a
+a == b || 10 == a       //conditions can be combined same as C
+
 //GROUPING AND NEGATION
 //just showing these things all work like other languages
 var flag = a == b
@@ -38,3 +42,7 @@ var u = s + "_" + t     //natural concatenation like other languages
 
 s = "Hi"
 s == "hi"       //string comparison with == is CASE SENSITIVE!
+
+//RANGES
+let r = 1...5   //closed range (1-5 INCLUSIVE) (NOTE: 3 dots)
+let r2 = 1..<5  //half-open range (1-5 EXCLUSIVE of 5)
