@@ -53,7 +53,12 @@ let squares = a.reduce([:]) {   //getting a map like in Clojure
     ret[$1] = $1*$1
     return ret
 }
-squares
+let groups = a.reduce([Int: [Int]]()) {     //GROUP BY even vs. odd
+    var out = $0
+    let key = $1 % 2
+    out[key] = (out[key] ?? []) + [$1]
+    return out
+}
 type(of: doubledA)          //NOTE: these return real arrays, not lazy sequences
 
 //CAPTURING
@@ -77,6 +82,7 @@ counter2()                              //closures are a REFERENCE type
 //Use trailing closures when possible (defining and calling)
 
 //QUESTIONS
+//Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
 //@selector still a thing?
 //Lazy sequences?
 //methods on dictionary?

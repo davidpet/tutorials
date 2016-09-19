@@ -22,6 +22,11 @@ var n: [String: Any] = [:]     //empty dictionary literals have a :
 d["FirstName"]
 d["FirstName"] = "Joe"      //reassignment
 d["NewString"] = "Whatever" //can add keys this way
+d["NotHere"]            //not a crash, just returns an OPTIONAL (nil in thise case)
+
+var f: [String: [Int]] = [
+    "0": [1, 2]
+]
 
 //dictionary constants
 //m["Name"] = "Joe"     //can't reassign existing key
