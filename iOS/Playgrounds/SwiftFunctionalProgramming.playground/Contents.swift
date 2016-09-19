@@ -47,6 +47,13 @@ let sortedA = a.sorted {$0 > $1}    //takes a trailing closure that says how eac
 let doubledA = a.map {$0 * 2}       //get new array of transformed items of original
 let stringedA = a.map {String($0)}  //map() allows you to return a different type (like Select in C#)
 let filteredA = a.filter {$0 > 5}   //getting array of items that match a condition
+let sum = a.reduce(0, +)        //like in Clojure, takes seed value and function of that type and new item that returns the cumulative result
+let squares = a.reduce([:]) {   //getting a map like in Clojure
+    var ret = $0                //have to change it to mutable (without this it refuses to set the value)
+    ret[$1] = $1*$1
+    return ret
+}
+squares
 type(of: doubledA)          //NOTE: these return real arrays, not lazy sequences
 
 //CAPTURING
@@ -77,3 +84,5 @@ counter2()                              //closures are a REFERENCE type
 //Is there a typedef in Swift for things like closures?
 //Look up escaping closures when it comes up (@escaping)
 //Look up autoclosures when it comes up (@autoclosure)
+//Is there a way to lock objects (not variables) as constant so that you can safely pass them into functions?
+
