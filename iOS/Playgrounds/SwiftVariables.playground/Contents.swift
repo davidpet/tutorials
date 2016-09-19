@@ -6,6 +6,9 @@ var S = "bye"       //symbols are CASE SENSITIVE
 let t = "hi"        //string constant (optimized and catches programmer error)
 let t2: String    //initializing a constant can be deferred (eg. to select between values)
 t2 = "hi"
+let xx = 5, yy = 10     //multiple declarations on 1 line allowed
+print(xx)
+print(yy)
 
 s = "bye"           //reassigning
 //var s = "bye"     //cannot re-declare with var
@@ -30,6 +33,7 @@ print(opt!)         //! force unwrap the optional when the pure type is needed (
 var opt2 : String! = "hi"   //using ! instead of ? after optional type makes it implicitly unwrapped optional
 print(opt2!)                //can use implicitly unwrapped optional wherever you would use the raw type - it's like always using ! to unwrap (only safe if not nil)
                             //mostly only used when have to because of UI stuff (late bound) and old library stuff
+print((opt2)!)      //! is an operator that takes an EXPRESSION
 
 //OPTIONAL CHAINING
 let val = opt?.uppercased()     //can insert ? before things like . and [] operators (even multiple times in a long line)
@@ -66,3 +70,5 @@ let z = x * y               //works for constants as well
 
 //QUESTIONS
 //Attributes?  Decorators?
+//Weak references?
+//Passing value typed by reference?

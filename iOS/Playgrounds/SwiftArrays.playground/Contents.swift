@@ -24,6 +24,9 @@ s[0] = "cat"    //reassigning existing item
 s[s.count - 1]  //getting last item
 var index : Int? = s.index(of: "bye")   //finding an item in an array (nil if not there)
 
+//SLICING
+s[0...1]        //range operator can be passed to get an array from a portion of the array
+
 //INSPECTION
 s.count         //getting array length  (NOTE: property not method)
 s.isEmpty       //gesting for emptiness (NOTE: property not method)
@@ -50,3 +53,5 @@ mixedArray += [10]          //array defined with Any can take more mixed type it
 
 //QUESTIONS
 //How to convert whole array (eg. like Where and Select in C#)
+//How to do multidimensional array?
+

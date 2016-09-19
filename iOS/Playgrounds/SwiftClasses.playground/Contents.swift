@@ -1,4 +1,9 @@
 //DECLARING
+class Basic {
+    var x: Int?
+}
+var basic = Basic()                             //if no non-default or non-optional properties, class has default initializer
+
 class Person {
     var clothes: String                         //defining properties just like with struct
     var shoes: String
@@ -9,7 +14,7 @@ class Person {
     let myConst: Int                            //constant values can be deferrred to the initializer for computation
     
     //initializers (constructors) don't use func and don't return anything
-    init(clothes: String, shoes: String) {      //REQUIRED for any properties that are not optional or defaulted
+    init(clothes: String, shoes: String) {      //REQUIRED for any properties that are not optional or defaulted (can't create without params anymore)
         //printClothes()                        //ILLEGAL to call any methods before all values are initialized
         
         self.clothes = clothes                  //NOTE: self like Python but not passed in as a param
@@ -86,6 +91,7 @@ var a2: [Person] = [heavyMetalSinger]
 var a3 = a2 as! [HeavyMetalSinger]      //can cast whole array polymorphically
 var castedSinger: Singer? = b as? Singer        //cast that will return nil if fails
 var castedSinger2: Singer = b as! Singer        //cast that will CRASH if fails (only use if sure)
+var castedPerson = castedSinger2 as Person      //casting to base is GUARANTEED and therefore you can use 'as'
 if let singer = b as? Singer {            //idiomatic way of branching based on type
 }
 else if let heavyMetalSinger = b as? HeavyMetalSinger { //NOTE: ok to use these names to hide the outside scope versions
@@ -103,6 +109,24 @@ var q = p
 q.changeTie(tie: true)      //storing a variable reference to a constant allows us to change state
 print(p.tie)                //the state change is seen back in the constant!!!
 
+//PROTOCOLS
+protocol MyProtocol {                       //protocol is like an interface in C#
+    var description: String { get set } //just an interface, so you say get and/or set for property
+    
+    func adjust()                       //specify methods that must be implemented
+}
+class MyBaseClass {
+}
+class MyClass: MyBaseClass, MyProtocol {        //can only use 1 base class but UNLIMITED protocols
+    func adjust() {
+    }
+
+    var description: String = "my description"  //must implement AT LEAST what is in the protocols
+}
+class MySubClass: MyClass {             //inherited classes automatically conform to the protocol as well
+}
+var mp: MyProtocol = MySubClass()     //can basically treat a protocol like a REAL CLASS in code (casting, etc.)
+
 //CONVENTIONS
 //class names start with capital and methods/properties start with lowercase
 //use structs unless you need to use classes (structs = safety, classes = flexibility)
@@ -112,4 +136,10 @@ print(p.tie)                //the state change is seen back in the constant!!!
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
 //Overloading operators, conversions, etc?
 //How to do generics and extension methods (or whatever joined() of Array<String> is)
+//Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.
+//Are there still convenience and designated initializers?
+//Can you delegate to other initializers in the same class?
+//How to do optional items in protocols like the libraries have?
+//How to check multiple protocols in class like <> in objective-c?
+
 

@@ -58,4 +58,5 @@ case .wind, .snow:                          //can still check without the extra 
 //How would you set the extra value (eg. speed for wind)?
 //Other variations of that syntax like multiple extra values, using other names, etc?
 //Can you still change the raw type of an enum and do those other tricks from the Swift 2.2 tutorial?
+//How to OR values together and/or do bitfields?
 

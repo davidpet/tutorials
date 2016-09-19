@@ -51,3 +51,6 @@ func getHaterStatus(weather: String) -> String? {  //could return nil instead of
     }
 }
 
+//QUESTIONS
+//What is the full official name of a function/method?
+

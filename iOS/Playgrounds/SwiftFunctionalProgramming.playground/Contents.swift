@@ -20,3 +20,4 @@ UIView.animate(withDuration: 0.5) { //if closure is LAST parameter, can ommit it
 //Declaring and passing closures of various types as parameters?
 //Using closures as events, delegates, etc?
 //@selector still a thing?
+//Lazy sequences?

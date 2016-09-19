@@ -23,9 +23,9 @@ if let unwrapped = opt {
     //unwrapped is automatically a String (unwrapped)
 }
 var opt2 : Int?
-if let unwrapped = opt, let unwrapped2 = opt2 {
-    //only executes if both unwrappings worked
+if let unwrapped = opt, let unwrapped2 = opt2 {     //only executes if both unwrappings worked
 }
+
 //if let x = 5 {    //NOTE: this syntax is specific to unwrapping optionals
 //}
 
