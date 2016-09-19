@@ -17,18 +17,22 @@ func favoriteAlbum(name: String, year: Int) {
 }
 favoriteAlbum(name: "Sgt. Pepper", year: 1967)
 
-//EXTERNAL PARAMETER NAME (only one allowed, at front)
+//EXTERNAL PARAMETER NAME (multiple allowed)
 func countLettersInString(myString str: String) {       //str is the name inside the function while myString is the name when you call it
     print("There are \(str.characters.count) characters.")
 }
 countLettersInString(myString: "hello")
 //countLettersInString(str: "hello")        //ILLEGAL to use the internal parameter name
 
-//UNNAMED EXTERNAL PARAMETER NAME (only one allowed, at front)
+//UNNAMED EXTERNAL PARAMETER NAMES (multiple allowed)
 func countLettersInString(_ str: String) {  //using _ as the external name means no name needed
     countLettersInString(myString : str)    //NOTE: overloading one with and without external name works
 }
 countLettersInString("hello")       //calling without parameter name
+
+func countLettersInString(_ str: String, _ str2: String) {
+}
+countLettersInString("a", "b")      //can have multiple
 
 //SWIFTY NAMING (Swift naming to take advantage of external names gramatically)
 func countLetters(in string: String) {
@@ -53,4 +57,5 @@ func getHaterStatus(weather: String) -> String? {  //could return nil instead of
 
 //QUESTIONS
 //What is the full official name of a function/method?
+//Can you intermix externally named parameters inside normal ones?  (try it)
 

@@ -20,6 +20,7 @@ name = "Bob"        //assigning the value (type must match)
 var name2: String = "Joe"       //declare type and assign at same time
 
 var name3: String = "hi", name4: String = "low" //multiple declarations together
+var name5: String = "hi", name6: String = name5     //earlier declarations can be seen by later ones
 
 //OPTIONALS
 var opt : String?   //putting ? after type makes it optional (similar to nullable in C# - allows it to be nil)

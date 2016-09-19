@@ -23,8 +23,8 @@ s.hasPrefix("pre")
 s.hasSuffix("post")         //checking text before and after
 
 //MANIPULATION
-s.uppercased()
-s.lowercased()
+let uppercased = s.uppercased()
+let lowercased = s.lowercased()
 
 //JOINING
 var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
@@ -33,3 +33,5 @@ var joinedWithSpace = ["1", "2", "3"].joined(separator: " ")    //can specify se
 //QUESTIONS
 //How to do case INSENSITIVE stuff?
 //How to do multiline strings?
+//How to do mutable string/strinbuilder?
+//What is string.characters?  Seems to have array-like things but be readonly

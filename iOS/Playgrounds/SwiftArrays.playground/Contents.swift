@@ -41,6 +41,14 @@ m.append(4)     //adding an item dynamically (1st param is _)
 m.insert(0, at: 0)      //inserting new element at index position (1st param is _)
 m.remove(at: 0)     //removing item at index position
 
+//TRANSFORMATIONS
+//see SwiftFunctionalProgramming for closure syntax and ADDITIONAL METHODS
+m.reverse()         //reverses the actual array in-place
+let reversed = m.reversed()     //returns a reversed copy (as LAZY SEQUENCE)
+m.sort()            //sort in-place using default sorting
+m.sort(by: >)   //sort in-place using closure
+let sorted = m.sorted(by: >)        //copy
+
 //CONCATENATION
 //a + 6         //cannot add an item like this
 a + [6]         //can add an item by wrapping it as an array

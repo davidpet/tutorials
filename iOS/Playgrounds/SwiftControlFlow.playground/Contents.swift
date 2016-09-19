@@ -61,6 +61,10 @@ while true {            //basically like C but don't need ()
     }
     z += 2
 }
+repeat {                //equivalent of DO in C uses REPEAT instead
+    print("hi")
+    break
+} while true
 
 //SWITCH
 let myvar = 100
