@@ -7,6 +7,9 @@ a = 5 / 2       //division and modulo same as C++
 a = 5 % 2
 //a = 5 \ 2     //not a thing in Swift
 
+//TERNARY OPERATOR
+a = true ? 0 : 1
+
 //AUGMENTED ASSIGNMENT
 a += 5
 a *= 10
@@ -28,6 +31,11 @@ a != b
 //CONDITIONAL
 a == b && 10 == a
 a == b || 10 == a       //conditions can be combined same as C
+
+//BOOLEAN
+//var b: Bool = 6 % 2     //ILLEGAL unlike C - have to use an operator like == 0
+//var b: Bool = Bool(6 % 2)   //also no good
+//if (1) {}                 //NOPE
 
 //GROUPING AND NEGATION
 //just showing these things all work like other languages

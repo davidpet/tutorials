@@ -25,11 +25,18 @@ s[s.count - 1]  //getting last item
 var index : Int? = s.index(of: "bye")   //finding an item in an array (nil if not there)
 
 //INSPECTION
-s.count         //getting array length
+s.count         //getting array length  (NOTE: property not method)
+s.isEmpty       //gesting for emptiness (NOTE: property not method)
 
 //ARRAY CONSTANTS
 let cArray = [1, 2, 3]
 //cArray[0] = 10        //cannot reassign an item in constant array
+
+//MODIFYING
+var m = [1, 2, 3]
+m.append(4)     //adding an item dynamically (1st param is _)
+m.insert(0, at: 0)      //inserting new element at index position (1st param is _)
+m.remove(at: 0)     //removing item at index position
 
 //CONCATENATION
 //a + 6         //cannot add an item like this
@@ -40,3 +47,6 @@ mixedArray += [10]          //array defined with Any can take more mixed type it
 
 //CLASSES and POLYMORPHISM
 //see SwiftClasses playground
+
+//QUESTIONS
+//How to convert whole array (eg. like Where and Select in C#)

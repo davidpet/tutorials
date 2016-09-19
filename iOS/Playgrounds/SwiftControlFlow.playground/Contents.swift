@@ -14,6 +14,8 @@ else {              //otherwise acts basically like C
 if x == 4 || x != 2 {   //combining multiple conditions
 }
 
+if x == 4 {}            //allowed to put {} on any lines you want like C (just not to OMMIT them)
+
 //OPTIONAL UNWRAPPING CONDITIONALS
 var opt : String?
 if let unwrapped = opt {

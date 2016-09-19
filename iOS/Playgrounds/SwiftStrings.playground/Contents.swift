@@ -22,3 +22,8 @@ s.characters.count          //string length
 //MANIPULATION
 s.uppercased()
 s.lowercased()
+
+//JOINING
+var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
+var joinedWithSpace = ["1", "2", "3"].joined(separator: " ")    //can specify separator instead of cramming directly together
+

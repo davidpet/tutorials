@@ -111,4 +111,5 @@ print(p.tie)                //the state change is seen back in the constant!!!
 //How do you clone/copy a class instance?
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
 //Overloading operators, conversions, etc?
+//How to do generics and extension methods (or whatever joined() of Array<String> is)
 
