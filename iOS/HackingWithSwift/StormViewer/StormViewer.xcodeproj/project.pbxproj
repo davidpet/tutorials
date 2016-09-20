@@ -311,6 +311,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = StormViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarofgoblins.StormViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -324,6 +325,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = StormViewer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jarofgoblins.StormViewer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,6 +352,7 @@
 				B9A765B31D907E920080C2F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
