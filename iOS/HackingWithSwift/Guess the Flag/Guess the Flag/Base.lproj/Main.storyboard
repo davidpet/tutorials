@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,14 +37,28 @@
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HbY-se-z7x"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uo-37-Ky4">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXq-80-jsB">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jXq-80-jsB" secondAttribute="bottom" constant="50" id="4MS-4K-cNe"/>
                             <constraint firstItem="mBl-A7-Q2i" firstAttribute="top" secondItem="zvd-mH-PIU" secondAttribute="bottom" constant="30" id="4lY-Qf-hAa"/>
                             <constraint firstItem="zvd-mH-PIU" firstAttribute="centerX" secondItem="vhq-Fk-b3U" secondAttribute="centerX" id="D5r-wM-go5"/>
                             <constraint firstItem="vhq-Fk-b3U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="E7R-eK-DIC"/>
+                            <constraint firstItem="8uo-37-Ky4" firstAttribute="leading" secondItem="jXq-80-jsB" secondAttribute="trailing" constant="8" id="FWQ-ex-alm"/>
                             <constraint firstItem="zvd-mH-PIU" firstAttribute="top" secondItem="vhq-Fk-b3U" secondAttribute="bottom" constant="30" id="IAM-8q-X4f"/>
+                            <constraint firstItem="jXq-80-jsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="SpY-PJ-RGD"/>
                             <constraint firstItem="mBl-A7-Q2i" firstAttribute="centerX" secondItem="zvd-mH-PIU" secondAttribute="centerX" id="e8q-O0-RZC"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8uo-37-Ky4" secondAttribute="bottom" constant="50" id="l4p-k2-IyA"/>
                             <constraint firstItem="vhq-Fk-b3U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zMk-XP-AFt"/>
                         </constraints>
                     </view>
@@ -52,6 +67,7 @@
                         <outlet property="button1" destination="vhq-Fk-b3U" id="0MU-VF-1c4"/>
                         <outlet property="button2" destination="zvd-mH-PIU" id="SQF-iM-gAO"/>
                         <outlet property="button3" destination="mBl-A7-Q2i" id="yeE-2V-oPv"/>
+                        <outlet property="scoreField" destination="8uo-37-Ky4" id="upm-5z-ga0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
