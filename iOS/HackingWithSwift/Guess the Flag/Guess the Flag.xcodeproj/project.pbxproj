@@ -263,7 +263,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = "Guess the Flag/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jarofgoblins.Guess-the-Flag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -277,7 +277,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = "Guess the Flag/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jarofgoblins.Guess-the-Flag";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -304,6 +304,7 @@
 				B9D946BC1D93828A003B22B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
