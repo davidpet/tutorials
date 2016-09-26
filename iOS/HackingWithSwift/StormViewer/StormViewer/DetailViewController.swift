@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Social
 
 class DetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -35,9 +36,20 @@ class DetailViewController: UIViewController {
     }
     
     func shareTapped() {
+         //alternative method body that uses UIActivityController instead of Social framework
         let vc = UIActivityViewController(activityItems: [imageView.image!], applicationActivities: [])
         vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
+ 
+        /*
+        //alternative method body that uses Social framework
+        if let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook) {
+            vc.setInitialText("Look at this great picture!")
+            vc.add(imageView.image!)
+            vc.add(URL(string: "http://www.photolib.noaa.gov/nssl"))
+            present(vc, animated: true)
+        }
+        */
     }
     
     override func didReceiveMemoryWarning() {
