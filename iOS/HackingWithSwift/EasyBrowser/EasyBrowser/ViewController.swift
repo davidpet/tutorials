@@ -70,6 +70,18 @@ class ViewController: UIViewController, WKNavigationDelegate {
         title = webView.title
     }
     
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+        if let host = url!.host {
+            for website in websites {
+                if host.range(of: website) != nil {
+                    decisionHandler(.allow)
+                    return
+                } }
+        }
+        decisionHandler(.cancel)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
