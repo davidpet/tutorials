@@ -77,7 +77,8 @@ class ViewController: UIViewController, WKNavigationDelegate {
                 if host.range(of: website) != nil {
                     decisionHandler(.allow)
                     return
-                } }
+                }
+            }
         }
         decisionHandler(.cancel)
     }
