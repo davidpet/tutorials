@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 class ViewController: UITableViewController {
     var allWords = [String]()
@@ -22,6 +23,8 @@ class ViewController: UITableViewController {
         } else {
             allWords = ["silkworm"]
         }
+        
+        startGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +32,11 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func startGame() {
+        allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
+        title = allWords[0]
+        usedWords.removeAll(keepingCapacity: true)
+        tableView.reloadData()
+    }
 }
 

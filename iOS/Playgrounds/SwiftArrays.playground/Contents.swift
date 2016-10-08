@@ -40,6 +40,9 @@ var m = [1, 2, 3]
 m.append(4)     //adding an item dynamically (1st param is _)
 m.insert(0, at: 0)      //inserting new element at index position (1st param is _)
 m.remove(at: 0)     //removing item at index position
+m.removeAll(keepingCapacity: true)      //empties the array with possibility of keeping storage as optimization (if going to refill)
+m.removeAll()                       //can do without capacity too
+m += [1, 2, 3, 4]
 
 //TRANSFORMATIONS
 //see SwiftFunctionalProgramming for closure syntax and ADDITIONAL METHODS
