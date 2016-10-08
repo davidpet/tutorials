@@ -27,8 +27,9 @@ class ViewController: UITableViewController {
                 allWords = startWords.components(separatedBy: "\n")
                 allWords = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: allWords) as! [String]
             }
-        } else {
-            allWords = ["silkworm"]
+        }
+        if allWords.isEmpty {
+            allWords = ["ERROR"]
         }
         
         startGame()
