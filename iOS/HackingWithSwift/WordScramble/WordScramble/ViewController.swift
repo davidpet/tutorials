@@ -16,6 +16,9 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self,
+                            action: #selector(promptForAnswer))
+        
         if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
             if let startWords = try? String(contentsOfFile: startWordsPath) {
                 allWords = startWords.components(separatedBy: "\n")
@@ -47,6 +50,39 @@ class ViewController: UITableViewController {
         title = allWords[0]
         usedWords.removeAll(keepingCapacity: true)
         tableView.reloadData()
+    }
+    
+    func promptForAnswer() {
+        let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        let submitAction = UIAlertAction(title: "Submit", style: .default) {
+                                            [unowned self, ac] (action: UIAlertAction!)
+                                            in
+                                            let answer = ac.textFields![0]
+                                            self.submit(answer: answer.text!)
+        }
+        ac.addAction(submitAction)
+        present(ac, animated: true)
+    }
+    
+    func submit(answer: String) {
+        let lowerAnswer = answer.lowercased()
+        
+        if isPossible(word: lowerAnswer) && isOriginal(word: lowerAnswer) && isReal(word: lowerAnswer) {
+            usedWords.insert(lowerAnswer, at: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
+            tableView.insertRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    func isPossible(word: String) -> Bool {
+        return true
+    }
+    func isOriginal(word: String) -> Bool {
+        return true
+    }
+    func isReal(word: String) -> Bool {
+        return true
     }
 }
 

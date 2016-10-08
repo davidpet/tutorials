@@ -78,10 +78,14 @@ class HeavyMetalSinger: Singer {
 var heavyMetalSinger = HeavyMetalSinger(clothes: "leather", shoes: "boots", volume: 99)
 heavyMetalSinger.sing()
 
-//REFERENCE TYPE
+//REFERENCE
 var personRef = person                      //unlike struct, class is a reference type
 personRef.clothes = "kimono"
 print(person.clothes)                       //changing the other reference changed the original
+weak var personRef2 = person                //weak reference (won't prevent garbage collection)
+personRef2?.clothes                     //weak references act like optionals because they can be nil if the object has been DESTROYED
+unowned var personRef3 = person         //unowned is like weak but doesn't make the thing optional (up to you to guarantee app doesn't blow up)
+personRef3.clothes
 
 //POLYMORPHISM
 var b: Person = Singer(clothes: "tshirt", shoes: "sneakers")    //base reference to a more derived class

@@ -17,6 +17,10 @@ let multiplied = transform(array1: [1, 2, 3], array2: [4, 5, 6], with: multiply)
 let multiplied2 = transform(array1: [1, 2, 3], array2: [4, 5, 6], with: {(s1: Int, s2: Int) -> Int in       //closures have (args) -> ret in code
     return s1 * s2
 })
+let multiplied2b = transform(array1: [1, 2, 3], array2: [4, 5, 6], with: {(s1: Int, s2: Int) -> Int in       //closures have (args) -> ret in code
+    let multiplied = s1 * s2
+    return multiplied               //everything after the "in" is part of closure, so can be multiline
+})
 
 //TYPE INFERENCE IN CLOSURES
 let a1 = [1, 2, 3]
@@ -93,6 +97,12 @@ counter()
 let counter2 = counter
 counter2()                              //closures are a REFERENCE type
 //WARNING: if you capture a class property of a class that owns a closure, you might create a CYCLE
+class MyClass {var x: String = "hi"}
+let local = MyClass()
+let local2 = MyClass()
+let mylambda = { [unowned local, local2] (param: String) -> String in       //capture specification: local and local2 are both unowned
+    return local.x + local2.x + param                           //NOTE: this is useful for things like adding a UIAlertController action that references the controller itself
+}
 
 //FUNCTORS and MONADS
 //Functor = type that implements map (such as array)
@@ -101,6 +111,8 @@ counter2()                              //closures are a REFERENCE type
 
 //CONVENTIONS
 //Use trailing closures when possible (defining and calling)
+//Consider only using self explicitly when in a closure so that you can find all closure references easily
+//Also consider whether you should capture self as unowned to avoid cycles
 
 //QUESTIONS
 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
@@ -114,3 +126,4 @@ counter2()                              //closures are a REFERENCE type
 //Give examples of Equatable and Comparable protocol implementations to customize complex sorting
 //max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)
 //consider defining >>> function composition operator like the author does in chapter 6
+//more capture specification syntax?
