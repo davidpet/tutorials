@@ -68,11 +68,23 @@ class ViewController: UITableViewController {
     func submit(answer: String) {
         let lowerAnswer = answer.lowercased()
         
-        if isPossible(word: lowerAnswer) && isOriginal(word: lowerAnswer) && isReal(word: lowerAnswer) {
-            usedWords.insert(lowerAnswer, at: 0)
-            let indexPath = IndexPath(row: 0, section: 0)
-            tableView.insertRows(at: [indexPath], with: .automatic)
+        //tutorial used standard if/else nested structure but I wanted it to be more compact
+        if !isPossible(word: lowerAnswer) {
+            displayError(title: "Word not possible", message: "You can't spell that from \(title!.lowercased())!")
+            return
         }
+        if !isOriginal(word: lowerAnswer) {
+            displayError(title: "Word used already", message: "Be more original!")
+            return
+        }
+        if !isReal(word: lowerAnswer) {
+            displayError(title: "Word is not recognized", message: "You can't just make stuff up!")
+            return
+        }
+        
+        usedWords.insert(lowerAnswer, at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
     }
     
     func isPossible(word: String) -> Bool {
@@ -100,6 +112,12 @@ class ViewController: UITableViewController {
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0,
                                                             wrap: false, language: "en")
         return misspelledRange.location == NSNotFound
+    }
+    
+    func displayError(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 }
 
