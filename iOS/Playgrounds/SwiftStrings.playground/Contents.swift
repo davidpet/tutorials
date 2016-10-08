@@ -1,3 +1,5 @@
+import Foundation       //required for some things like range()
+
 //DECLARATIONS
 var s : String = "hi"
 
@@ -21,6 +23,7 @@ s.characters.count          //string length
 s.isEmpty                   //no characters
 s.hasPrefix("pre")
 s.hasSuffix("post")         //checking text before and after
+s.range(of: "i")            //check if one string CONTAINS another (nil if doesn't)
 
 //MANIPULATION
 let uppercased = s.uppercased()
