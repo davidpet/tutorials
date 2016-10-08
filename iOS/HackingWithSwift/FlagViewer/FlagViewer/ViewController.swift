@@ -29,6 +29,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Flag")
         cell?.imageView?.image = UIImage(named: flags[indexPath.row])
+        cell?.textLabel?.text = flags[indexPath.row]
         return cell!
     }
 }
