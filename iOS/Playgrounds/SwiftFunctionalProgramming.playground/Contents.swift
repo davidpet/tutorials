@@ -44,8 +44,9 @@ closure2()              //callable like a function
 //FUNCTIONAL SEQUENCE METHODS (available for array, for instance)
 let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 let sortedA = a.sorted {$0 > $1}    //takes a trailing closure that says how each pair of adjacent elements should be related [(Int, Int) -> Bool]
-let doubledA = a.map {$0 * 2}       //get new array of transformed items of original
+let doubledA = a.map {$0 * 2}       //get new array of transformed items of original (could be multithreaded, etc.)
 let stringedA = a.map {String($0)}  //map() allows you to return a different type (like Select in C#)
+a.forEach {print($0 * 12)}          //like map() but returns nothing and guaranteed to be called in sequence
 let filteredA = a.filter {$0 > 5}   //getting array of items that match a condition
 let sum = a.reduce(0, +)        //like in Clojure, takes seed value and function of that type and new item that returns the cumulative result
 let squares = a.reduce([:]) {   //getting a map like in Clojure
@@ -60,6 +61,21 @@ let groups = a.reduce([Int: [Int]]()) {     //GROUP BY even vs. odd
     return out
 }
 type(of: doubledA)          //NOTE: these return real arrays, not lazy sequences
+
+//OPTIONALS and FLATMAP
+//NOTE: optionals act like containers with regard to FP functions
+let optInt: Int? = 5
+let mapped = optInt.map {$0 * 10}       //can call map on optional (nil if the thing was nil, transformed value otherwise)
+let mixedSeq: [Any?] = ["a", nil, 3, nil, "b"]
+let flatMapped = mixedSeq.flatMap {$0}          //flatMap() is like map() but it throws away nil values (like filter) and then makes non-optional type
+print(flatMapped)
+let flatMapped2 = mixedSeq.flatMap {$0 ?? "cat"}
+print(flatMapped2)                              //flatMap() filters out nil AFTER the mapping
+//NOTE: name implies philosophically similar to joined() on a multidimensional array
+//NOTE: to throw away nil but maintain optional type, use filter()
+let multiArray = [[1, 2], [3, 4], []]
+let flatMapped3 = multiArray.flatMap {$0}       //flatMap() also concats by 1 level like joined() if called on multidimensional
+print(flatMapped3)
 
 //CAPTURING
 func getCounter() -> () -> Int {        //returning closure from function
@@ -78,17 +94,23 @@ let counter2 = counter
 counter2()                              //closures are a REFERENCE type
 //WARNING: if you capture a class property of a class that owns a closure, you might create a CYCLE
 
+//FUNCTORS and MONADS
+//Functor = type that implements map (such as array)
+//Monad = functor that also implements flatMap (such as array)
+//full definition of monad is more extensive, but this is the Swifty one
+
 //CONVENTIONS
 //Use trailing closures when possible (defining and calling)
 
 //QUESTIONS
 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
 //@selector still a thing?
-//Lazy sequences?
 //methods on dictionary?
 //Partial applications?  Unbound methods?
 //Is there a typedef in Swift for things like closures?
 //Look up escaping closures when it comes up (@escaping)
 //Look up autoclosures when it comes up (@autoclosure)
 //Is there a way to lock objects (not variables) as constant so that you can safely pass them into functions?
-
+//Give examples of Equatable and Comparable protocol implementations to customize complex sorting
+//max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)
+//consider defining >>> function composition operator like the author does in chapter 6

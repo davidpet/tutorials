@@ -56,10 +56,9 @@ a += [4, 5, 6]  //+ and += for concatenation
 a = [1, 2, 3] + [4, 5, 6]   //works with literals
 mixedArray += [10]          //array defined with Any can take more mixed type items
 
+//MULTIDIMENSIONAL
+let multi = [[1, 2], [3, 4], [5, 6]]    //arrays can be multidimensional (not flattened like Perl)
+let flattened = Array(multi.joined())   //joined() flattens (1 level only) as a sequence and this line converts back to array
+
 //CLASSES and POLYMORPHISM
 //see SwiftClasses playground
-
-//QUESTIONS
-//How to convert whole array (eg. like Where and Select in C#)
-//How to do multidimensional array?
-
