@@ -81,6 +81,10 @@ class ViewController: UITableViewController {
             displayError(title: "Word is not recognized", message: "You can't just make stuff up!")
             return
         }
+        if lowerAnswer == title!.lowercased() {
+            displayError(title: "Prompt word used", message: "Cannot use prompt word as answer word!")
+            return
+        }
         
         usedWords.insert(lowerAnswer, at: 0)
         let indexPath = IndexPath(row: 0, section: 0)
