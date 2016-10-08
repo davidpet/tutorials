@@ -30,6 +30,7 @@ s[0...1]        //range operator can be passed to get an array from a portion of
 //INSPECTION
 s.count         //getting array length  (NOTE: property not method)
 s.isEmpty       //gesting for emptiness (NOTE: property not method)
+s.contains("cat")       //checking if element is in array
 
 //ARRAY CONSTANTS
 let cArray = [1, 2, 3]
