@@ -12,6 +12,7 @@
 		B961DBE81DA8A973008C84FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B961DBE61DA8A973008C84FD /* Main.storyboard */; };
 		B961DBEA1DA8A973008C84FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B961DBE91DA8A973008C84FD /* Assets.xcassets */; };
 		B961DBED1DA8A973008C84FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B961DBEB1DA8A973008C84FD /* LaunchScreen.storyboard */; };
+		B961DBF51DA8B388008C84FD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B961DBF41DA8B388008C84FD /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B961DBE91DA8A973008C84FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B961DBEC1DA8A973008C84FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B961DBEE1DA8A973008C84FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B961DBF41DA8B388008C84FD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				B961DBE21DA8A973008C84FD /* AppDelegate.swift */,
 				B961DBE41DA8A973008C84FD /* ViewController.swift */,
 				B961DBE61DA8A973008C84FD /* Main.storyboard */,
+				B961DBF41DA8B388008C84FD /* DetailViewController.swift */,
 				B961DBE91DA8A973008C84FD /* Assets.xcassets */,
 				B961DBEB1DA8A973008C84FD /* LaunchScreen.storyboard */,
 				B961DBEE1DA8A973008C84FD /* Info.plist */,
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B961DBF51DA8B388008C84FD /* DetailViewController.swift in Sources */,
 				B961DBE51DA8A973008C84FD /* ViewController.swift in Sources */,
 				B961DBE31DA8A973008C84FD /* AppDelegate.swift in Sources */,
 			);
