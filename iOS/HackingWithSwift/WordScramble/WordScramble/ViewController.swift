@@ -9,10 +9,19 @@
 import UIKit
 
 class ViewController: UITableViewController {
-
+    var allWords = [String]()
+    var usedWords = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        if let startWordsPath = Bundle.main.path(forResource: "start", ofType: "txt") {
+            if let startWords = try? String(contentsOfFile: startWordsPath) {
+                allWords = startWords.components(separatedBy: "\n")
+            }
+        } else {
+            allWords = ["silkworm"]
+        }
     }
 
     override func didReceiveMemoryWarning() {

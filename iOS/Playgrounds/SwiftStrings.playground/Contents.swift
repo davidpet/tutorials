@@ -33,6 +33,14 @@ let lowercased = s.lowercased()
 var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
 var joinedWithSpace = ["1", "2", "3"].joined(separator: " ")    //can specify separator instead of cramming directly together
 
+//SPLITTING
+let multiline = "\nabc\ndef\nghi\n"
+let split = multiline.components(separatedBy: "\n")     //split into array (beginning and end separators become empty strings)
+
+//LOADING FILES
+if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this file existed, it would be loaded as a string here
+//other overloads of this initializer that take encodings, etc.
+
 //QUESTIONS
 //How to do case INSENSITIVE stuff?
 //How to do multiline strings?
