@@ -9,13 +9,27 @@ func favoriteAlbum(name: String) {
     print("My favorite album is \(name)")
 }
 favoriteAlbum(name: "Revolver") //NOTE: the parameter must be named even if there's only one (new to Swift 3)
-favoriteAlbum()             //NOTE: overloading is allowed
+favoriteAlbum()             //NOTE: OVERLOADING is allowed
 
 //MULTIPLE PARAMETERS
 func favoriteAlbum(name: String, year: Int) {
     print("My favorite album is \(name) and it was released in \(year).")
 }
 favoriteAlbum(name: "Sgt. Pepper", year: 1967)
+
+//DEFAULT ARGUMENTS
+func myfunc(a: Int) -> Int {
+    return a
+}
+func myfunc(a: Int, b: Int, c: Int = 0, d: Int = 0) -> Int {
+    return myfunc(a: a) + b + c + d
+}
+myfunc(a: 1, b: 2, d: 4)        //works here just like other languages
+//NOTE: cannot change order of parameters but can leave optional ones out
+func myfunc(a: Int = 0, b: Int) -> Int {
+    return a + b
+}
+myfunc(a: 10, b: 20)  //NOTE: unlike other languages, the optional args can go in front of non-optional ones too
 
 //EXTERNAL PARAMETER NAME (multiple allowed)
 func countLettersInString(myString str: String) {       //str is the name inside the function while myString is the name when you call it
@@ -26,13 +40,17 @@ countLettersInString(myString: "hello")
 
 //UNNAMED EXTERNAL PARAMETER NAMES (multiple allowed)
 func countLettersInString(_ str: String) {  //using _ as the external name means no name needed
-    countLettersInString(myString : str)    //NOTE: overloading one with and without external name works
+    countLettersInString(myString : str)    //NOTE: OVERLOADING one with and without external name works
 }
 countLettersInString("hello")       //calling without parameter name
 
 func countLettersInString(_ str: String, _ str2: String) {
 }
 countLettersInString("a", "b")      //can have multiple
+
+func countLettersInString(str: String, _ str2: String) {        //can freely INTERMIX named and unnamed
+        countLettersInString(str, str)          //can also freely call other overloads
+}
 
 //SWIFTY NAMING (Swift naming to take advantage of external names gramatically)
 func countLetters(in string: String) {
@@ -46,7 +64,7 @@ func getDoubled(string: String) -> String {     //return value specified after -
 }
 let s = getDoubled(string: "hi")        //call it to get a value just like any other language
 
-//OPTIONAL VALUES
+//OPTIONAL RETURN VALUES
 func getHaterStatus(weather: String) -> String? {  //could return nil instead of a string
     if weather == "sunny" {
         return nil
@@ -55,7 +73,33 @@ func getHaterStatus(weather: String) -> String? {  //could return nil instead of
     }
 }
 
+//VARIADIC
+func addNumbers(nums: Int...) -> Int {      //put ... after the type to make an argument variadic (can supply as many as want)
+    print(type(of: nums))           //the variadic parameter is actually an ARRAY
+    return nums.reduce(0, +)                //treat the variadic arg like a container
+}
+addNumbers(nums: 1, 2, 3)               //pass in variadic parameter like this
+//addNumbers(nums: [1, 2, 3])           //NOT ALLOWED to pass in array directly
+func addNumbers(_ nums: Int...) -> Int {
+    return nums.reduce(0, +)
+}
+addNumbers(1, 2, 3)                     //using _ to eliminate need for param label (like print())
+func addNumbers(_ nums: Int..., seed: Int) -> Int {     //can have other parameters as usual
+    return nums.reduce(0, +) + seed
+}
+addNumbers(1, 2, 3, seed: 10)
+func addNumbers(seed: Int, _ nums: Int...) -> Int {         //can go ANYWHERE in the list but ONLY ALLOWED ONE
+    return nums.reduce(0, +) + seed
+}
+addNumbers(seed: 10, 1, 2, 3)           //how you call it with external at end
+
+//NESTING
+func outerfunc() {
+    func innerFunc() {      //nesting is allowed (could even return this as a CLOSURE)
+    }
+}
+
 //QUESTIONS
 //What is the full official name of a function/method?
-//Can you intermix externally named parameters inside normal ones?  (try it)
-
+//In, Out, Ref parameters?
+//Forwarding variadic args?
