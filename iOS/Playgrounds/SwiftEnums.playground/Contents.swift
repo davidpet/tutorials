@@ -42,6 +42,7 @@ enum WeatherType3 {
     case snow
 }
 var wt3 = WeatherType3.cloud
+var tw4 = WeatherType3.wind(speed: 5)
 switch wt3 {
 case .sun, .cloud, .rain:
     print("a")

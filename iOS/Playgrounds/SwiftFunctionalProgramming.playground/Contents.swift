@@ -120,6 +120,14 @@ func shortCircuit(_ lhs: @autoclosure () -> Bool, _ rhs: @autoclosure () -> Bool
 }
 print(shortCircuit(1 == 1, 2 == 1))     //the code is not evaluated until the closure is called
 //NOTE: this kind of mechanism is how == can be properly implemented
+func autoTest(_ closure: @autoclosure () -> String) {
+    print(closure())
+}
+autoTest("hi")      //expressions automatically become return value of autoclosure
+func autoTest2(_ closure: @autoclosure () -> String = String()) {       //default parameters can be arbitrary expressions
+    print(closure())
+}
+autoTest2()
 
 //FUNCTORS and MONADS
 //Functor = type that implements map (such as array)
@@ -143,3 +151,6 @@ print(shortCircuit(1 == 1, 2 == 1))     //the code is not evaluated until the cl
 //max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)
 //consider defining >>> function composition operator like the author does in chapter 6
 //more capture specification syntax?
+//Is there a version of map that takes multilpe collections like in clojure?
+//Is there an apply function like in Clojure?  (maybe variadic args)
+

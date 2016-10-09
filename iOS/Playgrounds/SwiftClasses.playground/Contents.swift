@@ -130,6 +130,7 @@ class MyClass: MyBaseClass, MyProtocol {        //can only use 1 base class but 
 class MySubClass: MyClass {             //inherited classes automatically conform to the protocol as well
 }
 var mp: MyProtocol = MySubClass()     //can basically treat a protocol like a REAL CLASS in code (casting, etc.)
+//NOTE: protocols can be used for structs and enums as well
 
 //CONVENTIONS
 //class names start with capital and methods/properties start with lowercase

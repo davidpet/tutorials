@@ -14,7 +14,28 @@ print(1, 2, 3, "cat", separator: ",", terminator: "\n")      //can specify both 
 //print(1, 2, 3, terminator: "\n", separator: ",")      //order needs to be right
 
 //ASSERTING
+assert(1 == 1)  //failure message is optional
 assert(1 == 1, "Numbers don't work")
 //assert(1 == 2, "Oopsies")     //HALTS the program like other languages
 //NOTE: only happens in debug mode like other languages
 //NOTE: condition will not even be evaluated in release mode (due to low-level magic)
+
+//CODE INSPECTION (compile-time values)
+let file = #file        //name of the currently executed file
+let line = #line        //line number of the code
+func test(line: UInt = #line) {
+    print(line)
+}
+test()              //default function args are executed at the caller (line 29) not the function (line 25)
+
+//CONDITIONAL COMPILATION
+if _isDebugAssertConfiguration() {
+    print("debug mode")
+}
+
+//QUESTIONS
+//Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?
+//_branchHint in CONDITIONAL COMPILATION
+//_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION
+//precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)
+//When to use precondition() [tutorial shows in * operator that has been extended for arrays, if arrays aren't same size]

@@ -104,3 +104,4 @@ func outerfunc() {
 //In, Out, Ref parameters?
 //Forwarding variadic args?
 //Can you use the internal name externally, or when _ is used?
+//Extension methods?

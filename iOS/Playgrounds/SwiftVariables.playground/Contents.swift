@@ -47,6 +47,7 @@ let str = opt ?? ""         //unwrap in a way that nil turns into a valid value 
 //DATA TYPES
 var thename: String = "Bob"
 var theage: Int = 5
+var theage2: UInt = 5                   //unsigned integer
 var latitude: Float = -18.633333333
 var longitude: Double = -18.633333333       //recommended by Apple due to higher accuracy
 var altitude = -18.63333                //becomes a Double even though Float would work

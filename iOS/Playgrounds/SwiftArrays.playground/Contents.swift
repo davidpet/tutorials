@@ -23,6 +23,7 @@ s[0] = "cat"    //reassigning existing item
 //s[-1]         //no negative indexing
 s[s.count - 1]  //getting last item
 var index : Int? = s.index(of: "bye")   //finding an item in an array (nil if not there)
+//s[100]        //runtime error going beyond last index
 
 //SLICING
 s[0...1]        //range operator can be passed to get an array from a portion of the array

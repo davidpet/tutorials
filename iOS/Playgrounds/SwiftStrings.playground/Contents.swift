@@ -2,6 +2,7 @@ import Foundation       //required for some things like range()
 
 //DECLARATIONS
 var s : String = "hi"
+var ss : StaticString = "yo"        //IMMUTABLE string (more optimal than constant strings for reading)
 
 //CONCATENATION
 var t = s + "_" + s
@@ -52,9 +53,10 @@ var joinedWithSpace = ["1", "2", "3"].joined(separator: " ")    //can specify se
 let multiline = "\nabc\ndef\nghi\n"
 let split = multiline.components(separatedBy: "\n")     //split into array (beginning and end separators become empty strings)
 
-//LOADING FILES
+//FILE I/O
 if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this file existed, it would be loaded as a string here
 //other overloads of this initializer that take encodings, etc.
+try? "s".write(toFile: "myfile.txt", atomically: true, encoding: .ascii)    //writing to a file
 
 //CONVENTIONS
 //Use 'characters.count' for your own code and 'utf16.count' for Apple library code
