@@ -101,15 +101,16 @@ func getPoint() -> (x: Int, y: Int, z: Int) {       //specify tuple type here (c
     return (x: 10, y: 20, z: 30)
 }
 let newpoint = getPoint()               //getting tuple directly as an object
-let (a, b, c) = getPoint()              //DESTRUCTURING tuple as indvidual items (NOTE: worked positionall instead of using field names here)
+var (a, b, c) = getPoint()              //DESTRUCTURING tuple as indvidual items (NOTE: worked positionall instead of using field names here)
 print(c)                                //c became the z member
 
-//marshalling
+//destructuring
 let (d, e) = (10, 20)       //can do this like in Python as long as the counts perfectly match on both sides
 //let (f, g) = (10)
 //let (h, i) = (10, 20, 30)
 let (j, _) = (10, 20)       //can use _ to make match on left side
 //let (k, l) = (_, 20)      //other side doesn't work or make sense
+(a, b) = (b, a)     //can do this arbitrarily (in this case performs a SWAP)
 
 //NOTE: cannot do PROTOCOLS or METHODS in tuples
 
