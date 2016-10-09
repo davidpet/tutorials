@@ -65,5 +65,11 @@ mixedArray += [10]          //array defined with Any can take more mixed type it
 let multi = [[1, 2], [3, 4], [5, 6]]    //arrays can be multidimensional (not flattened like Perl)
 let flattened = Array(multi.joined())   //joined() flattens (1 level only) as a sequence and this line converts back to array
 
+//VALUE TYPE
+var b = a           //assigning an array makes a copy (NOTE: this greatly differs from other ref based languages)
+b.remove(at: 0)
+print(a)
+print(b)
+
 //CLASSES and POLYMORPHISM
 //see SwiftClasses playground

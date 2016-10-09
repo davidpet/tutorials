@@ -63,6 +63,11 @@ var x = 5 + 3               //can initialize variables with expressions
 var y = x * 2
 let z = x * y               //works for constants as well
 
+//VALUE TYPES
+var ageCopy = theage
+var successCopy = success       //NUMBERS and BOOLEANS are value types
+//NOTE: built-in stuff like tuples, arrays, dictionaries, etc. are actually value types in Swift
+
 //CONVENTIONS
 //Start with Capital: data types
 //Start with lowercase: variables and constants

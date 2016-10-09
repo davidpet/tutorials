@@ -52,6 +52,9 @@ case .wind, .snow:                          //can still check without the extra 
     print("c")
 }
 
+//VALUE TYPE
+//NOTE: enums are value types
+
 //CONVENTIONS
 //enum types start with capitalize while enum values inside the type start with lowercase
 

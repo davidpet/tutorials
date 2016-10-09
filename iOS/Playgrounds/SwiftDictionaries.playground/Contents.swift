@@ -35,3 +35,6 @@ var f: [String: [Int]] = [
 //TYPING
 type(of: d)
 let typed: Dictionary<String, String> = [:] //explicit version of the sugar [String: String]
+
+//VALUE TYPE
+//dictionary is a value type (not a reference type like other languages)

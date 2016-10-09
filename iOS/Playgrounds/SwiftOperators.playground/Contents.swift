@@ -27,6 +27,7 @@ a > b
 a >= b
 a == b      //like C++, cannot use single = for comparison
 a != b
+//NOTE: for VALUE TYPE, == works (checks value, not address), for REFERNECE TYPE == is not allowed by default
 
 //CONDITIONAL
 a == b && 10 == a

@@ -103,6 +103,7 @@ let local2 = MyClass()
 let mylambda = { [unowned local, local2] (param: String) -> String in       //capture specification: local and local2 are both unowned
     return local.x + local2.x + param                           //NOTE: this is useful for things like adding a UIAlertController action that references the controller itself
 }
+//NOTE: closures are REFERENCE TYPES and taking multiple references will refer to same captures variables
 
 //ESCAPING
 //NOTE: by default, closures passed into functions are non-escaping (which means they can't be used after function ends) [compile optimization]
@@ -153,4 +154,5 @@ autoTest2()
 //more capture specification syntax?
 //Is there a version of map that takes multilpe collections like in clojure?
 //Is there an apply function like in Clojure?  (maybe variadic args)
+//How can you capture by value?
 

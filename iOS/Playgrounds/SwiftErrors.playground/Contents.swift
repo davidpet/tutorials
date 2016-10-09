@@ -72,4 +72,4 @@ try? encrypt(name: "Bob", password: "blank")                                    
 //Can you rethrow (eg. with empty throw)?
 //What does rethrows do?  (maybe the video for the course makes it clearer)
 //Can you specify specific types that are thrown in throws like in C++?
-
+//Using the 'defer' keyword (equiv. of 'finally')

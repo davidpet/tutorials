@@ -14,6 +14,9 @@ joe.clothes = "jacket"      //just like C++
 //CONSTANTS
 let bob = Person(clothes: "sweatshirt", shoes: "boots")
 //bob.clothes = "t-shirt"     //can't change the members of a constant struct
+var bob2 = bob
+bob2.clothes = "t-shirt"      //since independent copy, does not matter if you change it
+print(bob.clothes)
 
 //VALUE TYPE
 var person1 = Person(clothes: "t-shirt", shoes: "sneakers")
@@ -22,6 +25,9 @@ var personCopy = person1        //because structs are value types, personCopy is
 person1.clothes = "robe"
 person1
 personCopy                      //changing person1 did not affect personCopy
+
+//BOXING
+//to do boxing/unboxing (or nullable) make your own class which holds the value type as a member
 
 //INHERITENCE
 //struct Singer: Person {       //a struct CANNOT inhert
@@ -97,6 +103,11 @@ struct MyOtherStruct {
 
 //CONVENTIONS
 //computed properties tend to be more common in Apple code and less common in user code
+//Use structs instead of classes to eliminate relationships that might cause things like race conditions
+//Use classes when need inheritence or shared object
+//Mark classes as constants and/or final when possible
+//Also use structs if you want convenience of automatically generated init
+//Prefer structs to classes when possible
 
 //QUESTIONS
 //Can a struct have custom initializers?

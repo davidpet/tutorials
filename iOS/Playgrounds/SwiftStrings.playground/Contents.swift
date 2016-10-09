@@ -1,8 +1,13 @@
 import Foundation       //required for some things like range()
 
 //DECLARATIONS
-var s : String = "hi"
+var s : String = "hi"               //MUTABLE string
 var ss : StaticString = "yo"        //IMMUTABLE string (more optimal than constant strings for reading)
+
+//VALUE TYPE
+var sCopy = s
+sCopy.remove(at: sCopy.startIndex)      //assigning a string to another string makes a copy
+print(s)
 
 //CONCATENATION
 var t = s + "_" + s

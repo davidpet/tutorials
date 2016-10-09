@@ -86,6 +86,7 @@ weak var personRef2 = person                //weak reference (won't prevent garb
 personRef2?.clothes                     //weak references act like optionals because they can be nil if the object has been DESTROYED
 unowned var personRef3 = person         //unowned is like weak but doesn't make the thing optional (up to you to guarantee app doesn't blow up)
 personRef3.clothes
+personRef = Person(clothes: "", shoes: "")      //allowed to REBIND reference even if not optional
 
 //POLYMORPHISM
 var b: Person = Singer(clothes: "tshirt", shoes: "sneakers")    //base reference to a more derived class
@@ -104,14 +105,12 @@ else if let heavyMetalSinger = b as? HeavyMetalSinger { //NOTE: ok to use these 
 for heavyMetalSinger in a as? [HeavyMetalSinger] ?? [HeavyMetalSinger]() {
 }
 
-//CONSTANTS
+//CONSTANTS (behave differently from STRUCT constants)
 let p = Person(clothes: "shirt", shoes: "slippers")     //declaring constant class instance
-p.sing()                    //ok to read and cal methods on constants
-//p.shoes = "other"         //can't change member of constant
-//p.changeTie(true)         //can't call method that changes member of a constant
-var q = p
-q.changeTie(tie: true)      //storing a variable reference to a constant allows us to change state
-print(p.tie)                //the state change is seen back in the constant!!!
+p.sing()                    //ok to read and call methods on constants
+p.shoes = "other"         //CAN change member of constant
+p.changeTie(tie: true)         //CAN call method that changes member of a constant
+//p = Person(clothes: "", shoes: "")    //the only thing that makes it constant is you can't assign to another instance
 
 //PROTOCOLS
 protocol MyProtocol {                       //protocol is like an interface in C#
@@ -132,9 +131,17 @@ class MySubClass: MyClass {             //inherited classes automatically confor
 var mp: MyProtocol = MySubClass()     //can basically treat a protocol like a REAL CLASS in code (casting, etc.)
 //NOTE: protocols can be used for structs and enums as well
 
+//FINAL
+final class MyFinalClass {var x = 5}
+//class MyFinalClass2: MyFinalClass {}      //can't inherit a final class
+MyFinalClass().x = 10
+class MyOpenClass {final func x() -> Int { return 10}}
+//class MyOpenClass2 : MyOpenClass { override func x() -> Int { return 20 }}     //can't override a final method
+
 //CONVENTIONS
 //class names start with capital and methods/properties start with lowercase
 //use structs unless you need to use classes (structs = safety, classes = flexibility)
+//Mark things as final whenever you can - it provides a compiler optimization boost and reduces complexity
 
 //QUESTIONS
 //How do you clone/copy a class instance?
@@ -146,5 +153,6 @@ var mp: MyProtocol = MySubClass()     //can basically treat a protocol like a RE
 //Can you delegate to other initializers in the same class?
 //How to do optional items in protocols like the libraries have?
 //How to check multiple protocols in class like <> in objective-c?
+//Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?
 
 
