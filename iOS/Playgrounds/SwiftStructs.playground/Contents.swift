@@ -41,6 +41,10 @@ struct Singer {
     func sing() {           //can have methods just like a class (with implicit vs. explicit self and everything)
         print("singing at \(volume) volume.")
     }
+    
+    mutating func changeName() {        //for value types like enums and structs, you need 'mutating' keyword on method if going to change a property
+        name = "changed"        //NOTE: could also assign self to change the whole structure in a mutating method
+    }
 }
 
 //PROPERTY OBSERVERS
@@ -114,3 +118,4 @@ struct MyOtherStruct {
 //Can you provide a default value in a struct, and how does that affect the initializer?
 //Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?
 //What are default access control levels and what are all the options?
+//Check out "Type methods" section of Methods document on apple.com (a bit complicated)

@@ -117,19 +117,34 @@ protocol MyProtocol {                       //protocol is like an interface in C
     var description: String { get set } //just an interface, so you say get and/or set for property
     
     func adjust()                       //specify methods that must be implemented
+    static func s()             //unlike with interfaces, statics are allowed in protocols (and force statics in the class)
 }
 class MyBaseClass {
 }
 class MyClass: MyBaseClass, MyProtocol {        //can only use 1 base class but UNLIMITED protocols
     func adjust() {
     }
-
+    static func s() {
+    }
+    
     var description: String = "my description"  //must implement AT LEAST what is in the protocols
 }
 class MySubClass: MyClass {             //inherited classes automatically conform to the protocol as well
 }
 var mp: MyProtocol = MySubClass()     //can basically treat a protocol like a REAL CLASS in code (casting, etc.)
+class MyFloatingClass {
+    func adjust() {
+    }
+    static func s() {
+    }
+    
+    var description: String = "my description"  //must implement AT LEAST what is in the protocols
+}
+extension MyFloatingClass: MyProtocol {}        //adding protocol to class after the fact (could add more members in the {}) (NOTE: works for built-in types too)
+var mp2: MyProtocol = MyFloatingClass()         //within the scope of the extension, can treat the class as if the protocol were declared in the class statement
 //NOTE: protocols can be used for structs and enums as well
+//NOTE: built-in types already conform to protocols (eg. ints are equatable and Integer)
+//NOTE: see Swift Generics playground for Self keyword in protocols
 
 //FINAL
 final class MyFinalClass {var x = 5}
@@ -147,12 +162,13 @@ class MyOpenClass {final func x() -> Int { return 10}}
 //How do you clone/copy a class instance?
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
 //Overloading operators, conversions, etc?
-//How to do generics and extension methods (or whatever joined() of Array<String> is)
+//How to do extension methods (or whatever joined() of Array<String> is)
 //Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.
 //Are there still convenience and designated initializers?
 //Can you delegate to other initializers in the same class?
 //How to do optional items in protocols like the libraries have?
 //How to check multiple protocols in class like <> in objective-c?
+//How to make protocol conform dynamically instead of doing extension
 //Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?
 
 
