@@ -12,3 +12,9 @@ print(1, 2, 3, separator: "_")      //can specify separator and/or terminator li
 print(1, 2, 3, terminator: ".")         //NOTE: no newline this time because specified another terminator
 print(1, 2, 3, "cat", separator: ",", terminator: "\n")      //can specify both and multiple types
 //print(1, 2, 3, terminator: "\n", separator: ",")      //order needs to be right
+
+//ASSERTING
+assert(1 == 1, "Numbers don't work")
+//assert(1 == 2, "Oopsies")     //HALTS the program like other languages
+//NOTE: only happens in debug mode like other languages
+//NOTE: condition will not even be evaluated in release mode (due to low-level magic)

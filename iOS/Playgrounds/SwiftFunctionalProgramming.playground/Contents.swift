@@ -104,6 +104,23 @@ let mylambda = { [unowned local, local2] (param: String) -> String in       //ca
     return local.x + local2.x + param                           //NOTE: this is useful for things like adding a UIAlertController action that references the controller itself
 }
 
+//ESCAPING
+//NOTE: by default, closures passed into functions are non-escaping (which means they can't be used after function ends) [compile optimization]
+func takeMyLambda(closure: @escaping () -> Void) -> (() -> Void) {      //need the @escaping attribute to allow this closure to be used after return
+    return closure
+}
+let mystoredlambda = takeMyLambda {print("yay!")}
+mystoredlambda()
+//NOTE: could also use for storing an array, etc., not just returning
+
+//AUTOCLOSURES
+//code provided in the parameter is automatically turned into a closure
+func shortCircuit(_ lhs: @autoclosure () -> Bool, _ rhs: @autoclosure () -> Bool) -> Bool {
+    return lhs() && rhs()
+}
+print(shortCircuit(1 == 1, 2 == 1))     //the code is not evaluated until the closure is called
+//NOTE: this kind of mechanism is how == can be properly implemented
+
 //FUNCTORS and MONADS
 //Functor = type that implements map (such as array)
 //Monad = functor that also implements flatMap (such as array)
@@ -113,6 +130,7 @@ let mylambda = { [unowned local, local2] (param: String) -> String in       //ca
 //Use trailing closures when possible (defining and calling)
 //Consider only using self explicitly when in a closure so that you can find all closure references easily
 //Also consider whether you should capture self as unowned to avoid cycles
+//Only use autoclosures when really need them since they can make your code complicated
 
 //QUESTIONS
 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
@@ -120,8 +138,6 @@ let mylambda = { [unowned local, local2] (param: String) -> String in       //ca
 //methods on dictionary?
 //Partial applications?  Unbound methods?
 //Is there a typedef in Swift for things like closures?
-//Look up escaping closures when it comes up (@escaping)
-//Look up autoclosures when it comes up (@autoclosure)
 //Is there a way to lock objects (not variables) as constant so that you can safely pass them into functions?
 //Give examples of Equatable and Comparable protocol implementations to customize complex sorting
 //max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)

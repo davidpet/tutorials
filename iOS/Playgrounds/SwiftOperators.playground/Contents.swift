@@ -64,3 +64,15 @@ var int = Int("5")      //casting int to string
 
 //OPTIONALS, OPTIONAL CHAINING, and COALESCING are covered in the SwiftVariables playground
 
+//PATTERN MATCHING
+//version1: EQUATABLE types
+"cat" ~= "cat"      //NOT good for substrings
+1 ~= 1
+//version2: OPTIONALS
+//version3: INTERVALS
+1...10 ~= 4             //like calling contains() for the interval
+//version4: RANGES
+//[1, 2, 3] ~= 1        //surprisingly, DOES NOT WORK
+
+//QUESTIONS
+//Fill in OPTIONALS and RANGES versions of PATTERN MATCHING

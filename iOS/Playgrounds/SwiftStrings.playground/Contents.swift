@@ -65,3 +65,6 @@ if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this fi
 //How to do mutable string/strinbuilder?
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)
 //String.remove() and why it works with pos.lowerBound [didn't include that part for now but saw in tutorial]
+//Regular expression literals? functions?  operators?
+//Raw literals?
+
