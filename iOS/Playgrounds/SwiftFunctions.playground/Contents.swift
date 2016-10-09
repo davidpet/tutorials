@@ -101,7 +101,7 @@ func outerfunc() {
 
 //QUESTIONS
 //What is the full official name of a function/method?
-//In, Out, Ref parameters?
+//In, Out, Ref parameters?  inout?
 //Forwarding variadic args?
 //Can you use the internal name externally, or when _ is used?
 //Extension methods?

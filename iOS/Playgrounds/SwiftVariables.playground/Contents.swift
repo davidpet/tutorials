@@ -54,6 +54,14 @@ var longitude: Double = -18.633333333       //recommended by Apple due to higher
 var altitude = -18.63333                //becomes a Double even though Float would work
 var success: Bool = true
 
+//TYPDEFS
+typealias MyType = String
+typealias MyOtherType = Array<String>       //typelias is the equivalent of using in C# or typedef in C++
+let mot = MyOtherType()                     //use the type just like it were a real type
+let mt: MyType? = nil                       //can also use modifiers like ? on it
+typealias MyOtherType2 = MyOtherType?       //can refer to other typealiases and can also include the ? in the type
+let mot2: MyOtherType2? = nil               //still somehow allows this (discards the extra ?)
+
 //DEFAULT VALUES
 Int.max
 Int.min

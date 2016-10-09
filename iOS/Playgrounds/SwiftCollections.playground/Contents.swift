@@ -46,7 +46,72 @@ cs.allObjects as! [Int]
 //--------------
 //TUPLES (value type)
 //--------------
-//creating
+//void returns
+func dostuff() {}
+type(of:dostuff())      //return of void function is actually EMPTY tuple
+
+//single elements
+let singleInt = (val: 5)    //single element tuples automatically stripped of label and made single element itself
+let singleInt2 = (5)        //without the label, it is a tuple instead of a single value (strangely)
+//let singleInt2: (val: Int) = 5        //not allowed to define a tuple with a single field
+//NOTE: according to the tutorial, single values are basically tuples underneath somehow
+
+//creation
+var point = (1, 2, 3)           //unnamed elements (like Python tuple)
+var person = (first: "Taylor", last: "Swift")       //named elements (like C# anonymous class)
+var nested = (person: (first: "bob", last: "johnson"))      //tuples within tuples
+var optional: (Int, Int)?       //tuples can be optional just like anything else (and so can their members)
+
+//typing
+print(type(of: point))
+print(type(of: person))     //field names aren't part of the type
+if type(of: (1, 2)) == type(of: (x: 1, y: 2)) {
+    print("same")
+}
+typealias Person = (first: String, last: String)
+var person2: Person? = nil      //can name the type of a tuple by structure
+
+//reassigning
+person = (first: "Bob", last: "Johnson")        //allowed to reassign as long as types and names match (tuples are STRONGLY TYPED)
+//person = (x: "Bob", last: "Joe")          //names have to match
+//person = (first: 5, last: 10)             //violating the type not allowed
+//NOTE: when it comes to assignment, the field names act as part of the type even though type(of:) does not show this
+
+//reading members
+print(person.first)
+print(person.0)
+print(point.0)          //indexing allowed for NAMED or UNNAMED fields
+
+//manipulation
+person.first = "Jill"       //can reassign the members
+print(person)
+
+//comparison
+if (x: 1, y: 2) == (a: 1, b: 2) {       //when it comes to comparison, only positions, types, and values matter (not field names)
+    print("sameish")
+}
+
+//closures
+var myperson = (first: "bob", sing: {(song: String) in print("la la la \(song)")})
+myperson.sing("Norwegian Wood")     //NOTE: this is a way to fake methods on tuples
+//NOTE: closures on tuples can't access tuple members by name like real methods would
+
+//multiple return values
+func getPoint() -> (x: Int, y: Int, z: Int) {       //specify tuple type here (could have a tuple without field names too)
+    return (x: 10, y: 20, z: 30)
+}
+let newpoint = getPoint()               //getting tuple directly as an object
+let (a, b, c) = getPoint()              //DESTRUCTURING tuple as indvidual items (NOTE: worked positionall instead of using field names here)
+print(c)                                //c became the z member
+
+//marshalling
+let (d, e) = (10, 20)       //can do this like in Python as long as the counts perfectly match on both sides
+//let (f, g) = (10)
+//let (h, i) = (10, 20, 30)
+let (j, _) = (10, 20)       //can use _ to make match on left side
+//let (k, l) = (_, 20)      //other side doesn't work or make sense
+
+//NOTE: cannot do PROTOCOLS or METHODS in tuples
 
 //--------------
 //GENERAL
@@ -57,3 +122,4 @@ cs.allObjects as! [Int]
 //QUESTIONS
 //Set literals?
 //Set operations?
+//tuple counts, enumerating?
