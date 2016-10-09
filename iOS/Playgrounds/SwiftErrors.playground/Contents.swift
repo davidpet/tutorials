@@ -1,3 +1,18 @@
+//GUARDS
+func myfunc(val: String) {  //verify that an input matches something you want
+    guard !val.isEmpty else {   //similar to if-else but a bit more OPTIMIZED and EXPLICIT
+        print("bad input")
+        return                  //compiler won't let you not return explicitly
+    }
+    print("good input")
+}
+for i in 0...100 {
+    print("hi")         //code is allowed before the guard
+    guard i < 10 else {     //work in lots of different block types
+        continue        //always must have something that breaks out of the scope on the false condition (continue, break, return, etc.)
+    }
+}
+
 //to provide your own errors, implement Error protocol in enum like this
 enum PasswordError: Error {
     case empty      //your own fields
