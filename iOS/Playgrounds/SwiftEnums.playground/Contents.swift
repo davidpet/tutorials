@@ -33,7 +33,7 @@ func getValue(weather: WeatherType) -> String {
 }
 getValue(weather: .cloud)   //even passing into functions can use type inference for enums
 
-//ADDITIONAL VALUES
+//ASSOCIATED VALUES
 enum WeatherType3 {
     case sun
     case cloud
@@ -52,15 +52,68 @@ case .wind, .snow:                          //can still check without the extra 
     print("c")
 }
 
+//RAW VALUES
+enum Color {
+    case red
+    case green
+    case blue
+}
+//Color.red.rawValue    //by default, enums have no raw value - they are pure values
+enum NumericColor: Int {       //defining raw type behind enum is like inheritence
+    case red
+    case green
+    case blue
+}
+NumericColor.red.rawValue       //can access raw value on instance or value
+let c = NumericColor.red
+c.rawValue
+enum Planet: Int {
+    case mercury = 1        //default is 0 (works like other languages)
+    case venus
+    case earth
+}
+let p = Planet(rawValue: 1) ?? Planet.earth     //converting raw value to enum (coalesce since OPTIONAL)
+enum PrintableColor: String {
+    case red
+    case green
+    case blue
+}
+print(PrintableColor.red.rawValue)      //using String as rawValue automatically makes values string as defined in code
+
+//STRING VALUES
+//NOTE: see above for using string as the raw value
+print("\(Color.red)")           //string interpolation automatically makes the name a string too (but can't treat as string INSIDE)
+
+//PROPERTIES AND METHODS
+enum MyEnum {
+    case red, green, blue
+    
+    //var x = 5             //no non-computed properties allowed
+    
+    var description: String {       //computed property (NOTE: don't need to specify get because that's all you can do in enums)
+        switch self {
+        case .blue:
+            return "blue"
+        default:
+            return "whatever"
+        }
+    }
+    
+    func otherdescription() -> String {     //method
+        return description      //using the property
+    }
+}
+let myenum = MyEnum.blue
+print(myenum.description)       //use methods and properties like with classes and structs
+
 //VALUE TYPE
 //NOTE: enums are value types
 
 //CONVENTIONS
 //enum types start with capitalize while enum values inside the type start with lowercase
+//use 'unknown' as the unset type for an enum
 
 //QUESTIONS
-//How would you set the extra value (eg. speed for wind)?
 //Other variations of that syntax like multiple extra values, using other names, etc?
-//Can you still change the raw type of an enum and do those other tricks from the Swift 2.2 tutorial?
 //How to OR values together and/or do bitfields?
 

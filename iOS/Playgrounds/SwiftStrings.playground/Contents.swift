@@ -4,6 +4,18 @@ import Foundation       //required for some things like range()
 var s : String = "hi"               //MUTABLE string
 var ss : StaticString = "yo"        //IMMUTABLE string (more optimal than constant strings for reading)
 
+//SPECIAL INITIALIZERS
+var sep = String(repeating: "=", count: 100)    //100 = signs put together
+var num = String(10)                //NUMBER
+var num2 = String(10, radix: 16)    //HEX
+var num3 = String(10, radix: 16, uppercase: true)
+
+//CONVERSION
+let val: Int? = Int("100")      //int initializer/convertor is optional in case invalid number string
+let val2: Int? = Int("cat")
+let val3: Int? = Int("  100   ")    //spacing DOES matter
+let val4 = Int("100", radix: 16)    //converting from HEX
+
 //VALUE TYPE
 var sCopy = s
 sCopy.remove(at: sCopy.startIndex)      //assigning a string to another string makes a copy

@@ -11,6 +11,11 @@ var mixedArray : [Any] = [1, "abc"]     //by using Any you can do MIXED TYPES
 var emptyArray: [String] = []  //often preferred version
 var emptyArray2 = [String]()    //alternate version
 
+//SPECIAL INITIALIZERS
+let zeroes = [Int](repeating: 0, count: 100)        //array of 100 0s
+let matrix = [[Int]](repeating: [Int](repeating: 0, count: 100), count: 100)    //2D array of 0s
+let myArray = Array(1...3)      //construcitng array from another sequence type (NOTE the lack of type needed in the Array initializer here)
+
 //TYPE
 type(of: a)
 let typedVal: Array<Int> = []    //the [Int] syntax is sugar for this

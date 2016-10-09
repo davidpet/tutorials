@@ -43,6 +43,7 @@ let val = opt?.uppercased()     //can insert ? before things like . and [] opera
 
 //COALESCING
 let str = opt ?? ""         //unwrap in a way that nil turns into a valid value (just like C#)
+let val2 = Int("100") ?? 0  
 
 //DATA TYPES
 var thename: String = "Bob"

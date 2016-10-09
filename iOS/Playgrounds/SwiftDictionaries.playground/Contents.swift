@@ -15,8 +15,10 @@ let m: [String: Any] = [     //have to declare the type as with arrays
     "Age": 30
 ]
 
-//empty dictionaries
+//initializing and empty dictionaries
 var n: [String: Any] = [:]     //empty dictionary literals have a :
+var o = Dictionary<String, Any>()       //full formal way
+var p = Dictionary<String, String>(minimumCapacity: 100)        //pre-reserve space for performance reasons
 
 //accessing items
 d["FirstName"]
