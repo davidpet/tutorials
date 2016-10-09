@@ -43,7 +43,7 @@ let val = opt?.uppercased()     //can insert ? before things like . and [] opera
 
 //COALESCING
 let str = opt ?? ""         //unwrap in a way that nil turns into a valid value (just like C#)
-let val2 = Int("100") ?? 0  
+let val2 = Int("100") ?? 0
 
 //DATA TYPES
 var thename: String = "Bob"
@@ -53,6 +53,11 @@ var latitude: Float = -18.633333333
 var longitude: Double = -18.633333333       //recommended by Apple due to higher accuracy
 var altitude = -18.63333                //becomes a Double even though Float would work
 var success: Bool = true
+
+//DEFAULT VALUES
+Int.max
+Int.min
+Int.allZeros
 
 //VARIANTS
 var anyVar: Any = 20       //any is like a variant

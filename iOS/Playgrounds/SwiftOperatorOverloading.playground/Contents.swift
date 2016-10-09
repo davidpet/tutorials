@@ -21,4 +21,19 @@ func **(lhs: Double, rhs: Double) -> Double {       //syntax for defining operat
 2**5**2 //same as 2**(5**2) due to associativity
 
 //NOTE: can overload existing operators by redefining any of these pieces for it or adding new function, etc.
+//NOTE: operators can be static methods on classes too (some protocols use that)
+
 //EXAMPLE: tutorial shows redefining precedence group for ... and then making 1...2...3 work
+
+//COMPARABLE
+struct Dog: Comparable {      //comparable protocol lets you make an item support min(), max(), sorted() for arrays of them
+    var breed: String
+    var age: Int
+    
+    static func <(lhs: Dog, rhs: Dog) -> Bool {
+        return lhs.breed < rhs.breed
+    }
+    static func ==(lhs: Dog, rhs: Dog) -> Bool {
+        return lhs.age == rhs.age
+    }
+}

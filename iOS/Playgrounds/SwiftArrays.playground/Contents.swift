@@ -10,6 +10,7 @@ var mixedArray : [Any] = [1, "abc"]     //by using Any you can do MIXED TYPES
 //empty arrays
 var emptyArray: [String] = []  //often preferred version
 var emptyArray2 = [String]()    //alternate version
+emptyArray.reserveCapacity(100)     //OPTIMIZATION like other languages
 
 //SPECIAL INITIALIZERS
 let zeroes = [Int](repeating: 0, count: 100)        //array of 100 0s
@@ -37,6 +38,7 @@ s[0...1]        //range operator can be passed to get an array from a portion of
 s.count         //getting array length  (NOTE: property not method)
 s.isEmpty       //gesting for emptiness (NOTE: property not method)
 s.contains("cat")       //checking if element is in array
+[1, 2, 3, 4].max() ?? Int.max  //max() and min() available (work on built-in types and Comparable protocol elements)
 
 //ARRAY CONSTANTS
 let cArray = [1, 2, 3]
@@ -50,6 +52,11 @@ m.remove(at: 0)     //removing item at index position
 m.removeAll(keepingCapacity: true)      //empties the array with possibility of keeping storage as optimization (if going to refill)
 m.removeAll()                       //can do without capacity too
 m += [1, 2, 3, 4]
+var first = m.removeFirst() //can shrink array from the ends and get the value
+var last = m.removeLast()
+last = m.popLast()!         //popLast() is like removeLast() but returns optional value
+m = [1] + m + [3, 4]
+//NOTE: use the versions of removeFirst and removeLast that take n parameter to remove MULTIPLE
 
 //TRANSFORMATIONS
 //see SwiftFunctionalProgramming for closure syntax and ADDITIONAL METHODS
@@ -58,6 +65,7 @@ let reversed = m.reversed()     //returns a reversed copy (as LAZY SEQUENCE)
 m.sort()            //sort in-place using default sorting
 m.sort(by: >)   //sort in-place using closure
 let sorted = m.sorted(by: >)        //copy
+//NOTE: methods like min(), max(), sort() can be made to work for NON-DEFAULT types by conforming to Comparable protocol (see Operator Overloading playground)
 
 //CONCATENATION
 //a + 6         //cannot add an item like this
@@ -78,3 +86,6 @@ print(b)
 
 //CLASSES and POLYMORPHISM
 //see SwiftClasses playground
+
+//QUESTIONS
+//ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)
