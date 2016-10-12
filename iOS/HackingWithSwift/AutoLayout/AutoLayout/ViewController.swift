@@ -22,6 +22,16 @@ class ViewController: UIViewController {
         labels["label3"] = addLabel(backgroundColor: .yellow, text: "SOME")
         labels["label4"] = addLabel(backgroundColor: .green, text: "AWESOME")
         labels["label5"] = addLabel(backgroundColor: .orange, text: "LABELS")
+        
+        //horizontal layout
+        for label in labels.keys {
+            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|", options: [], metrics: nil,
+                                                    views: labels))
+        }
+        //vertical layout
+        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat:
+                                                            "V:|[label1]-[label2]-[label3]-[label4]-[label5]",
+                                                           options: [], metrics: nil, views: labels))
     }
 
     override func didReceiveMemoryWarning() {
