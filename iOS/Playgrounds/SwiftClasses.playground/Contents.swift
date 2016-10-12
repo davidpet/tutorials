@@ -69,7 +69,7 @@ class HeavyMetalSinger: Singer {
         if volume < 100 {
             super.sing()                                //calling base class method from overridden method
         }
-        else {
+        else {                              //NOTE: you can override computed properties too
             print("ahhhh")
         }
     }

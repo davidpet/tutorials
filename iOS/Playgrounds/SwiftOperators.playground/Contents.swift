@@ -6,6 +6,7 @@ a = a * 1
 a = 5 / 2       //division and modulo same as C++
 a = 5 % 2
 //a = 5 \ 2     //not a thing in Swift
+var a2 = Double(a) + 0.5            //oddly, Double and Int can't be mixed without conversion (no implicit casting)
 
 //TERNARY OPERATOR
 a = true ? 0 : 1
@@ -62,6 +63,7 @@ let r2 = 1..<5  //half-open range (1-5 EXCLUSIVE of 5)
 //see SwiftClasses for POLYMORPHISM
 var str = String(5)   //casting string to int
 var int = Int("5")      //casting int to string
+var int2 = Int(3.14)    //casting float to int automatically rounds
 
 //OPTIONALS, OPTIONAL CHAINING, and COALESCING are covered in the SwiftVariables playground
 

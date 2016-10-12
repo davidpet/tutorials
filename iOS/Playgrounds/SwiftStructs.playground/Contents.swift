@@ -75,6 +75,10 @@ struct Circle {
             radius = newValue / 2   //newValue for set
         }
     }
+    
+    var area: Int {             //implicit readonly property (don't need to specify get)
+        return Int(3.14 * (Double(diameter / 2)) * (Double(diameter / 2)))
+    }
 }
 
 //STATIC
