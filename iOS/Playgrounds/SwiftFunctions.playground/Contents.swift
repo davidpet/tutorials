@@ -17,6 +17,18 @@ func favoriteAlbum(name: String, year: Int) {
 }
 favoriteAlbum(name: "Sgt. Pepper", year: 1967)
 
+//OVERLOADING
+func myfunc1() {
+}
+func myfunc1(name: String) {        //overloading is allowed as in other languages
+    print(name + name)
+}
+func myfunc1(text: String) {        //in addition, you can overload by names of same-typed parameters
+    print(text + text + text)
+}
+myfunc1(text: "goat")
+myfunc1(name: "sheep")
+
 //DEFAULT ARGUMENTS
 func myfunc(a: Int) -> Int {
     return a

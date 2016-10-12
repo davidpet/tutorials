@@ -52,6 +52,11 @@ for item in [1, 2, 3] {
     print(item * 2)
 }
 //see SwiftClasses playground POLYMORPHISM section for variations that do casting at the array level
+let item1 = 1
+let item2 = 2
+let item3 = 3
+for item in [item1, item2, item3] {         //useful if you want to loop through a bunch of local variables
+}
 
 //WHILE LOOPS
 var z = 0
