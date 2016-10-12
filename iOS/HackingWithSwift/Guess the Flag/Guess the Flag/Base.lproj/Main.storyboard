@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,18 +21,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvd-mH-PIU">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zvd-mH-PIU" secondAttribute="height" multiplier="2:1" id="csG-sL-MuN"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V3S-sh-oYO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhq-Fk-b3U">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vhq-Fk-b3U" secondAttribute="height" multiplier="2:1" id="Ynf-nX-4YG"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vpg-pH-rdB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBl-A7-Q2i">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mBl-A7-Q2i" secondAttribute="height" multiplier="2:1" id="tkm-gm-MHR"/>
+                                </constraints>
                                 <state key="normal" image="us"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HbY-se-z7x"/>
@@ -50,15 +60,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jXq-80-jsB" secondAttribute="bottom" constant="50" id="4MS-4K-cNe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jXq-80-jsB" secondAttribute="bottom" constant="25" id="4MS-4K-cNe"/>
                             <constraint firstItem="mBl-A7-Q2i" firstAttribute="top" secondItem="zvd-mH-PIU" secondAttribute="bottom" constant="30" id="4lY-Qf-hAa"/>
                             <constraint firstItem="zvd-mH-PIU" firstAttribute="centerX" secondItem="vhq-Fk-b3U" secondAttribute="centerX" id="D5r-wM-go5"/>
+                            <constraint firstItem="zvd-mH-PIU" firstAttribute="height" secondItem="mBl-A7-Q2i" secondAttribute="height" id="DIE-02-Lko"/>
                             <constraint firstItem="vhq-Fk-b3U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="E7R-eK-DIC"/>
                             <constraint firstItem="8uo-37-Ky4" firstAttribute="leading" secondItem="jXq-80-jsB" secondAttribute="trailing" constant="8" id="FWQ-ex-alm"/>
                             <constraint firstItem="zvd-mH-PIU" firstAttribute="top" secondItem="vhq-Fk-b3U" secondAttribute="bottom" constant="30" id="IAM-8q-X4f"/>
+                            <constraint firstItem="vhq-Fk-b3U" firstAttribute="height" secondItem="mBl-A7-Q2i" secondAttribute="height" id="Onb-MA-CgI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mBl-A7-Q2i" secondAttribute="bottom" constant="20" id="QBZ-dW-xBR"/>
                             <constraint firstItem="jXq-80-jsB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="56" id="SpY-PJ-RGD"/>
                             <constraint firstItem="mBl-A7-Q2i" firstAttribute="centerX" secondItem="zvd-mH-PIU" secondAttribute="centerX" id="e8q-O0-RZC"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8uo-37-Ky4" secondAttribute="bottom" constant="50" id="l4p-k2-IyA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8uo-37-Ky4" secondAttribute="bottom" constant="25" id="l4p-k2-IyA"/>
                             <constraint firstItem="vhq-Fk-b3U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zMk-XP-AFt"/>
                         </constraints>
                     </view>
