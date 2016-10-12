@@ -30,7 +30,7 @@ class ViewController: UIViewController {
             if previous != nil {
                 // we have a previous label – create a height constraint
                 label.topAnchor.constraint(equalTo: previous.bottomAnchor).isActive = true
-            } 
+            }
             // set the previous label to be the current one, for the next loop iteration
             previous = label
         }
