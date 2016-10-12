@@ -30,6 +30,11 @@ var f: [String: [Int]] = [
     "0": [1, 2]
 ]
 
+//iterating
+for key in d.keys {}
+for val in d.values {}
+for (key, val) in d {print(key + ":" + val)}
+
 //dictionary constants
 //m["Name"] = "Joe"     //can't reassign existing key
 //m["NewKey"] = "Joe"     //can't add new key
