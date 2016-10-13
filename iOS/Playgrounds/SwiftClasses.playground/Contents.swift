@@ -11,6 +11,9 @@ class Person {
     var tie = false                             //DEFAULT value for new instances
     var watch: String?                         //OPTIONAL value (might be nil)
     
+    var calculatedAtStart = 10 + 5              //initializers can do math and things like that
+    var calculatedAtStart2 = { return 10 }()    //creating a closure and calling it at the same time in-place immediately
+    
     let myConst: Int                            //constant values can be deferrred to the initializer for computation
     
     //initializers (constructors) don't use func and don't return anything

@@ -45,6 +45,9 @@ let closure2: () -> Void = {print("hi")}        //NOTE: no params looks like () 
 var closure3: (() -> Void)?             //OPTIONAL
 closure2()              //callable like a function
 
+//CALLING INLINE
+let hi = { return "hi" }()      //creating temporary closure and calling it immediately (type inference used)
+
 //FUNCTIONAL SEQUENCE METHODS (available for array, for instance)
 let a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 let sortedA = a.sorted {$0 > $1}    //takes a trailing closure that says how each pair of adjacent elements should be related [(Int, Int) -> Bool]
@@ -135,11 +138,50 @@ autoTest2()
 //Monad = functor that also implements flatMap (such as array)
 //full definition of monad is more extensive, but this is the Swifty one
 
+//LAZY PROPERTIES
+class MyNode {
+    init() {
+        print("MyNode initialized")
+    }
+}
+class MyCollection {
+    var array = [1, 2, 3, 4, 5]
+    
+    lazy var mynode = MyNode()        //stored property, initializer not used until first time property is retrieved
+    lazy var reversed2: [Int] = {       //also a stored property but stores a closure that gets evaluated on first initialization
+        print("getting closure stored property")
+        return self.array.reversed()    //have to use 'self' explicitly inside (implicitly becomes unowned in a lazy property)(non-escaping)
+    }()     //calling the closure
+    static let mynode = MyNode()        //static constants like this on a class are automatically computed lazily
+}
+print("creating mc")
+var mc = MyCollection()                 //even though it looks like it, MyNode initializer isn't called yet
+print("getting stored property")
+print(mc.mynode)                      //this is where the property actually gets initialized (and stays that way)
+//NOTE: if multiple threads retrieve the stored proprety the first time, it may end up getting called multiple times
+print(mc.reversed2)         //closure is not evaluated until now
+print("getting static let")
+print(MyCollection.mynode)
+//NOTE: the property is only calculated the first time and is then cached like a normal property (MEMOIZATION)
+
+//LAZY SEQUENCES
+var lazySequence = Array(0...199).lazy     //the non-lazy collections contain a lazy property that gives you a lazy sequence on that collection
+lazySequence[5]                           //you can still do the same kind of access (in this case random)
+var lazySquares = lazySequence.map { (val: Int) -> Int  in         //lazy sequences have the same functional extension methods, but they return another lazy sequence
+    print("squares computed for \(val)")
+    return val * val
+}
+print(lazySquares[5])                    //the square is only computed for the value 5 here (not 0 to 4 or anything above 5)
+print(lazySquares[5])                    //lazy sequences DO NOT use MEMOIZATION
+//NOTE: lazy sequences are just special types that act like the non-lazy equivalents
+//NOTE: fibonacci lazy sequence would recursively add two previous values (but without memoization will be rather inefficient for repeated calls)
+
 //CONVENTIONS
 //Use trailing closures when possible (defining and calling)
 //Consider only using self explicitly when in a closure so that you can find all closure references easily
 //Also consider whether you should capture self as unowned to avoid cycles
 //Only use autoclosures when really need them since they can make your code complicated
+//Consider using a private method to compute a transformation that a lazy property will call
 
 //QUESTIONS
 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
@@ -155,4 +197,8 @@ autoTest2()
 //Is there a version of map that takes multilpe collections like in clojure?
 //Is there an apply function like in Clojure?  (maybe variadic args)
 //How can you capture by value?
+//Do non-escaping closures automatically capture "self" and other things as unowned?  (Do all lazy closures do that?)
+//Is there a way to add memorization support to a lazy sequence?
+//How to create your own lazy sequence type?
+//Other special lazy sequence things like realizing the tail and all that?
 

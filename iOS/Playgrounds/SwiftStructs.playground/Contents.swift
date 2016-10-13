@@ -80,6 +80,7 @@ struct Circle {
         return Int(3.14 * (Double(diameter / 2)) * (Double(diameter / 2)))
     }
 }
+//NOTE: the other kind of properties (that act like variables) are called STORED PROPERTIES
 
 //STATIC
 struct MyStruct {

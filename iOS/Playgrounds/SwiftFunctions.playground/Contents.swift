@@ -105,6 +105,15 @@ func addNumbers(seed: Int, _ nums: Int...) -> Int {         //can go ANYWHERE in
 }
 addNumbers(seed: 10, 1, 2, 3)           //how you call it with external at end
 
+//RECURSION
+func factorial(of num: Int) -> Int {
+    if num <= 1 {
+        return 1
+    }
+    return num * factorial(of: num - 1)     //function can call itself recursively just like in any other language
+}
+//NOTE: Swift may do tail recursion optimization but you can't rely on it
+
 //NESTING
 func outerfunc() {
     func innerFunc() {      //nesting is allowed (could even return this as a CLOSURE)
