@@ -23,6 +23,10 @@ Changes\
 	git commit -am \'93[message\'94]	stages all modifications (but not new files), then commits the staging area with a message (use just -a for using Vim for the log message)\
 \
 	git push		send the new commits, trees, etc. to the tracked branch in the remote repository (eg. GitHub)\
+Reverting\
+	git reset HEAD [file]		unstage file from the index (but leave the change in the working directory) [like undoing git add]\
+	git reset HEAD		unstage all changes in the index (but leave working directory alone)\
+	\
 Branches\
 	git status		convenient way to see which branch you\'92re on (and how it compares to remote)\
 	git branch		find out which branches you have locally\
