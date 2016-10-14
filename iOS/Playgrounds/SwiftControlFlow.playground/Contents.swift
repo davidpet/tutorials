@@ -25,6 +25,8 @@ if let unwrapped = opt {
 var opt2 : Int?
 if let unwrapped = opt, let unwrapped2 = opt2 {     //only executes if both unwrappings worked
 }
+//if let unwrapped = opt, unwrapped2 = opt {    //unlike with normal declarations, you HAVE to use a 2nd let here
+//}
 
 //if let x = 5 {    //NOTE: this syntax is specific to unwrapping optionals
 //}

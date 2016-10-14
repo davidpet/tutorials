@@ -6,7 +6,8 @@ var S = "bye"       //symbols are CASE SENSITIVE
 let t = "hi"        //string constant (optimized and catches programmer error)
 let t2: String    //initializing a constant can be deferred (eg. to select between values)
 t2 = "hi"
-let xx = 5, yy = 10     //multiple declarations on 1 line allowed
+let xx = 5, yy = 10, zz = "hi"    //multiple declarations on 1 line allowed (even mixed types)
+//let xy = 100, let xz = 100       //let can only go out front
 print(xx)
 print(yy)
 
