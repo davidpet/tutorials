@@ -82,6 +82,7 @@ try? encrypt(name: "Bob", password: "blank")                                    
 
 //CONVENTIONS
 //Order of preference should be try, try?, try!
+//Use guards to test positive conditions instead of negative (while avoiding deeply nested loops) and to be explicit
 
 //QUESTIONS
 //Can you rethrow (eg. with empty throw)?

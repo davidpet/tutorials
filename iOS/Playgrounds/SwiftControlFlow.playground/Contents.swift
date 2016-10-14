@@ -58,6 +58,11 @@ let item3 = 3
 for item in [item1, item2, item3] {         //useful if you want to loop through a bunch of local variables
 }
 
+//ENUMERATED ARRAY LOOPS
+for (index, item) in [1, 2, 3, 4, 5].enumerated() {     //special enumerated() member of collection returns tuple(index, item)
+    print(item)
+}
+
 //WHILE LOOPS
 var z = 0
 while true {            //basically like C but don't need ()
@@ -70,6 +75,29 @@ repeat {                //equivalent of DO in C uses REPEAT instead
     print("hi")
     break
 } while true
+
+//LOOP LABELS
+outerLoop: for x in [1, 2, 3, 4, 5] {       //can label any loop statement (for, while, etc.) with a name
+    for y in [1, 2, 3, 4, 5] {
+        if y == 3 && x == 2 {
+            break outerLoop                 //can break or continue by loop name (otherwise this would only break the INNER loop)
+        }
+        else {
+            print("\(x),\(y)")
+        }
+    }
+}
+//NOTE: there are no gotos (the old-fashioned reason labels are thought of badly)
+
+//CONDITIONAL LABELS
+let temp = 5
+let temp2 = 10
+outerConditional: if temp == 5 {        //can apply labels on conditionals too
+    if temp2 != 10 {break outerConditional}             //can break out of the whole conditional instantly (helps to avoid deeply nested conditions)
+    guard temp2 == 10 else {break outerConditional}         //also useful to combine with multiple guards
+    
+    print("success")
+}
 
 //SWITCH
 let myvar = 100
