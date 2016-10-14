@@ -4,6 +4,31 @@
 \margl1440\margr1440\vieww28600\viewh15040\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 TODO: read Git chapter in Beyond Code\
+\f0\fs24 \cf0 Basic Setup\
+	git config --global user.name "Paul Hudson"\
+	git config --global user.email "paul@hackingwithswift.com"\
+	it config --global color.ui true						possibly already colored on your system\
+\
+Repositories\
+	git init			create a new .git folder in the current folder (which turns it into a repo)\
+Diffing\
+	git status		status of the repo (new untracked files, changed files, etc.) with hints about what you can do\
+				NOTE: a file can have unstaged modifications and staged ones at the same time\
+Changes\
+	git add [file] ..		stage changes in the index by file/folder name(s) and/or wildcards (adding a new untracked file is also a change)\
+	git add .		stage all changes in current folder\
+\
+	git commit				launch your text editor (for the log message) and commit the changes in the index to the actual repository\
+	git commit -m \'93[message]		specify commit message and commit in one operation\
+	git commit -am \'93[message\'94]	stages all modifications, then commits the staging area with a message (use just -a for using Vim for the log message)\
+\
+	git push		send the new commits, trees, etc. to the tracked branch in the remote repository (eg. GitHub)\
+Git Objects\
+	Repository		stored in .git folder in local copy (contains change history for repo)\
+	Index/Staging	where you build up your changes which will be commited next time you commit\
+	Working Copy	Your source tree\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: read Git chapter in Beyond Code\
 TODO: watch Git videos in Beyond Code\
 }
