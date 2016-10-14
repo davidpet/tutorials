@@ -131,3 +131,58 @@ default:
     print("default")
 }
 
+//SWITCH - MULTIPLE VARIABLES
+switch (temp, temp2) {  //can switch on a tuple and have the cases be tuples
+case (5, 10):
+    print("5,10")
+default:
+    print("nothing")
+}
+let tuple = (val1: temp, val2: temp2)
+switch tuple {          //can switch on a tuple and use dynamic tuple cases (NOTE: positions can match against names)
+case (5, 10):
+    print("5 or 10")
+default:
+    print("whatever")
+}
+
+//SWITCH - PARTIAL MATCHES
+switch (temp, temp2) {
+case (4, _):            //cases can use _ to mean if the other values match, I don't care what this value is (multiple allowed)
+    print("5!")             //NOTE: since cases happen in order, more specific cases should happen first
+case (5, let second):   //can also capture the values you don't care about in the match using 'let'
+    print(second)
+default:
+    print("else")
+}
+
+//SWITCH - CALCULATED TUPLES
+func fizzbuzz(number: Int) -> String {
+    switch (number % 3 == 0, number % 5 == 0) {     //mapping number space into truth table
+    case (true, false):
+        return "Fizz"
+    case (false, true):
+        return "Buzz"
+    case (true, true):                              //individual truth table combinations
+        return "FizzBuzz"
+    case (false, false):
+        return String(number)
+    }
+}
+
+//SWITCH LOOPS
+for case (2) in [1, 2, 3, 4, 5] {            //specifying switch case as loop variable
+    print("2")
+}
+for case (let x) in [1, 2, 3, 4, 5] {        //can also define variables like this
+    print(x)
+}
+for case (5, let x) in [(5, 10), (5, 12)] {  //matching tuples (with a don't-care value that you capture)
+    print(x)
+}
+for case let (x, y) in [(5, 10), (5, 12)] {  //preferred syntax for doing multiple let (also shows using all lets to iterate tuples)
+    print(x)
+}
+for case let (5, y) in [(5, 10), (5, 12)] { //can still use the let version when specific values are included
+    print(y)
+}
