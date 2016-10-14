@@ -1,0 +1,269 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww28600\viewh14980\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Alt vs. Option: same thing (don\'92t have to hold a function modifier or anything)\
+right-click on two button mouse == two-finger click on trackpad == control-click on single-button mouse (or old trackpad)\
+Delete: acts like backspace on Windows unless hold fn to make it act like Windows Delete\
+fn key: alters behavior of some keys in unindicated ways as well as makes the function keys act like Fn instead of the special Mac pictures\
+ctrl, alt, command = like ctrl and alt in Windows (but 1 extra and not straight mapping of shortcuts)\
+\
+^ = ctrl\
+swirly grid = command\
+up arrow = shift\
+\
+To record video: open QuickTime Player and use the file menu (webcam will turn green) (if screen goes to sleep, camera keeps recording) [also supports recording from screen]\
+To take still photo: open Photo Boot application (that\'92s the one people use to apply strange effects as well)\
+\
+Command line\
+	NOTE: only the most commonly used and easiest options are shown, but most have super big option lists that you can look up (including less, find, grep, ls, etc.)\
+\
+	Prompt format: [computername]:[foldername] [username]$\
+	Switches\
+		switches are case sensitive, single letter switches can be combined into single - word, and must generally come before positional parameters like filenames\
+			(some special cases like find where - is used for whole word and comes after the directory parameter)\
+		word switches are usually specified with double dash\
+		order tends to be flexible between dash and doubledash but positional args should usually come in a certain place\
+	Special Folders\
+		~ = your home directory (an alias)\
+	Wildcards\
+		many commands (especially ones that take multiple files) also support wildcards to pass in the files (even multiple wildcard strings)\
+		be careful because wildcards are a feature of the terminal, not the command (for instance, if you put them in \'93\'94 it will mean it literally)\
+		wildcards are case sensitive (eg. *.txt and *.TXT are different)\
+		a?.txt					? matches single character (not 0 or more)\
+		*.txt					all txt files\
+		a*b*.txt				multiple * allowed in name\
+		name.\{text,xml,md\}			expands to name.text name.xml name.md (combine with *, use for things that take multiple files, etc.)\
+	Basic Navigation\
+		cd, pwd, ls				already been using\
+		cd -					returns to previous directory in history\
+		cd					with no param, automatically defaults to ~\
+		pushd [directory]			switch to directory and push current one on stack\
+		pops					return to top directory on pushd stack\
+		up and down arrows, tab key\
+	File Listing\
+		ls					list contents of current directory\
+		ls [folder]				list contents of folder\
+		ls [wildcard]				list all files (or folders) that match the wildcard\
+		ls [token1] [token2]			can list multiple folders, wildcards, etc. at same time\
+		ls -a					include hidden items (start with .)\
+		ls -l					list in long format (permissions, stats, etc.)\
+							permissions start with - or d for file or directory, then 3 permissions (user, group, everyone), each containing 3 slots (read, write, execute)\
+		ls -lh					use letters like KB for sizes\
+		ls -R					recursive (print directory, then child directories, recursively)\
+		ls -S					sort by size (largest first)\
+		ls -t					sort by modified time (newest first)\
+		ls -Sr					r switch reverses sort order\
+	Searching\
+		find [folder] -iname [name]		recursively search within folder, case insensitive, for something called [name] (full match - can be file or folder)\
+		find [folder] -name [name]		same but case sensitive\
+		find . -name [name]			use . for current directory\
+		find [folder] -iname \'93*.txt\'94		to use wildcards, you need \'93\'94 or it will expand to files in the current directory (need to sneak past terminal and get wildcard into the tool)\
+		find . -iname \'93*.txt\'94 \'93*.xml\'94		find all xml and txt files in the current directory\
+		\
+		find . -size 10k			find files exactly 10 KB (note small k)\
+		find . -size +10G			find files greater than 10 GB (large G)\
+		find . -size -10M			find files smaller than 10 MB (large M)\
+\
+		find . -type f				find files (rather than folders)\
+		find . -type d				find directories\
+\
+		find . -mtime 0			find things modified within last 24 hours\
+\
+		find . -iname \'93*.swift\'94 -size +10k	combining criteria (in this case all swift files greater than 10 KB) [can do arbitrary combos as long as specify in correct pairs\
+\
+		find . -iname \'93*.txt\'94 -exec [cmd] \\;	Execute a command on each file found (use \{\} to represent the filename [safely quoted]) (command is terminated by \\;)(can safely use > and stuff like that after the \\;)\
+		find . -iname \'93*.txt\'94 -exec cat \{\} \\;	Prints the contents of all text files in current directory\
+		find . -name \'93*.txt\'94 -ok cat \{\} \\;	Same thing but ok asks you whether to run command on each file instead of just doing it like exec\
+		\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+		grep \'93posts\'94 *			find all lines within files that contain the string \'93posts\'94 (without the quotes) and print filenames and lines (non-recursive) (case sensitive)[quotes needed for some reason]\
+							(unlike with find, you don\'92t need \'93\'94 around the wildcard)\
+		grep -r \'93posts\'94 .			recursive search [param is folder instead of file pattern]\
+		grep -i \'93posts\'94 *			case insensitive search\
+		grep -ir \'93posts\'94 .			can combine flags as usual\
+		grep -r --include \'93*.txt\'94 .		use the \'91include\'92 option (can be before or after pattern) to filter the directory results by filename pattern\
+		grep -r \'93posts\'94 folder1 folder2	recursive grep supports multiple folders too\
+		grep --color \'93posts\'94 *		colorize the match text (can go before or after the switches)\
+		grep -n \'93posts\'94 *			include line numbers\
+		grep -l \'93posts\'94 *			include only names of matching files (???)\
+		grep -c \'93posts\'94 *			include only names of matching files and number of matches in each (???)\
+		grep -v \'93posts\'94 *			inverts the search (find only lines that do not contain \'93posts\'94)\
+\
+		grep \'93posts\'94 *.txt			search for \'93posts\'94 within text files in current directory\
+		ls | grep \'93myfile\'94			data piped into grep replaces the wildcard/filename part at the end\
+		grep \'93posts\'94 *.txt | grep -v \'93the\'94	popular to pipe grep into itself to refine a search even more\
+\
+		grep \'93a.*b\'94 *.txt			the thing in \'93\'94 is actually a REGEX\
+		grep -o \'93a.*b\'94 *.txt			only show the text that matches on each line (useful if complicated regex)\
+		\
+		grep -E \'93[regex]\'94 [file]		by default grep only supports a small subset of regex and some weird escaping rules\
+							the -E option turns on the full power of regex in grep\
+		egrep \'93[regex]\'94 [file]			egrep is an alias for grep -E\
+							probably better to just always use this one unless it\'92s for some reason not installed (eg. an older grep) [highly unlikely these days]\
+	File System\
+		open [file]				opens a file with the default application based on file type\
+		dirname [file]				get the parent directory of a file or directory\
+\
+		mkdir\
+		cp [file1] [file2]			create a copy of file1 named file2\
+		cp [file1] [file2] \'85 [directory]	copies a list of files (names, wildcards, etc.) into a target directory with original name\
+		cp -R [folder1] [folder2]		recursively copy a folder\
+		mv [file1] [file2]			rename/move a file\
+		mv [file1] [file2] \'85 [directory]	move multiple files\
+		rm [file]				delete a file\
+		rm -rf [directory]			recursively delete a directory (which doesn\'92t have to be empty)\
+		rmdir [directory]			delete an empty directory\
+	File Content\
+		file [file]				get the type of a file (based on its content) [for .swift files just says ascii text][looks at identifiers, shebangs, etc.]\
+		\'97\'97\'97\'97\'97\'97\'97\'97\
+		cat [file]				print the contents of the file (if no newline, prompt will continue on same line)\
+		cat [file1] [file2] \'85			print multiple file contents one after the other\
+		cat -s [file]				print without blank lines\
+		cat -n [file]				print with line numbers (repeats if multiple files)\
+		\'97\'97\'97\'97\'97\'97\'97\'97\
+		less [file]				print contents of long file with paging [q to quit, arrow keys to scroll]\
+							less commands are similar to Vim commands but you don\'92t have to hit enter after : commands\
+							other commands include /[word] to search, / to find next, ? to find previous, 50g to go to line 50, 50p to go to 50% mark, m[letter] to set a marker (for current session), \'91[letter] to jump to marker\
+							to use terminal in less, use ![enter] to launch and ctrl-d to exit, use ![command] to run the command immediately and return, use % to represent current filename\
+		less -N [file]				show line numbers\
+		less -M [file]				show status information instead of colon (eg. how far through file you are)\
+		less +[command] [file]		rest of token after + gets run in less after the file is opened (eg. less +/the myfile.txt - /the is run which finds the first \'91the\'92)\
+		less [file1] [file2] \'85			less can work with multiple files\
+							within less, use :p and :n to navigate between files, :d to remove a file, :e to add a file\
+							/* to do multi-file search (instead of /), escape n or escape N to get next or previous hit\
+		\'97\'97\'97\'97\'97\'97\'97\
+		head [file]				print first 10 lines of file\
+		head -n [number] [file]		print first [number] lines of file\
+		tail [file]				print last 10 lines of file\
+		tail -n [number] [file]			print last [number] lines of file\
+		tail -f [file1] [file2] \'85			follow mode: keep watching for changes to the files and print the last lines when they change\
+		\'97\'97\'97\'97\'97\'97\
+		wc [file]				print lines, words, characters in file (in that order)\
+		wc [file1] [file2] \'85			print stats for multiple files and a sum row too\
+		wc -l [file]				print only lines (and filename)\
+		wc -w [file]				print only words (and filename)\
+		wc -c [file]				print only characters (and filename)\
+		\'97\'97\'97\'97\'97\'97\'97\'97\
+		sort [file]				print the lines of a file sorted alphabetically\
+		ls | sort				supports piping as well\
+		sort -r [file]				reverse the order\
+		sort -n [file]				numeric sort\
+		sort -u [file]				dedupe same line (like piping to uniq)\
+		sort [file1] \'85				merge multiple files together and then sort the result\
+		\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+		uniq [file]				show lines of file with adjacent matching lines deduped\
+		sort [file] | uniq			handy to sort input first so that all matches will be deduped\
+		uniq -i [file]				case insensitive dedupe\
+		uniq -u [file]				only print lines that didn\'92t have dupes in the first place\
+		uniq -c [file]				count the occurence of each unique line (in addition to printing it)\
+	Help\
+		whatis [command]			get super short description of command (instead of verbose incoherent man page)\
+		man [command]			get the full man page (interact like using \'91less\'92)\
+		which [command]			get the path to the binary for a command\
+	Redirection\
+		[command] > [file]			overwrite output file with standard out\
+		[command] >> [file]			append output file with standard out\
+		[command] | [command]		standard out of one command piped to standard in of next one\
+							many commands that take files will also take stdin from pipe (eg. the File Content commands above)\
+		[command] | [command] \'85		can pipe as much together as you want and data will flow through the chain\
+\
+		[command] | tee [file1] \'85		tee takes stdin and prints it to both stdout and to the file(s) given\
+							can put tees in between steps of a pipeline with | to save results of intermediate steps while performing the algorithm\
+		[command] | tee -a [file1] \'85	-a switch appends rather than overwriting the file\
+		\
+		[command] `[command]`		use backtick to execute a command in-place and give it in another command (can nest if want to)\
+							useful for commands that don\'92t support piping or where you want to provide an arg other than stdin\
+		[command] $([command])		use $() instead of backtick in cases where it\'92s easier to see (such as nesting)\
+\
+		mkfifo [pipename]			create a new FIFO pipe with a given name (acts as file that you can redirect to)\
+		echo hi > [pipename]		for output, treat FIFO pipe like any other file\
+		tail -f fifo_pipe			some commands have special input parameters for FIFO pipes\
+							if try to use directly as stdin, might hang\
+	Printing\
+		echo hi				just prints hi to the terminal (with newline)\
+		echo \'93hi\'94				same thing (quotes ignored)\
+		echo hi there				spaces fine\
+		echo hi there > test.txt		can print to a file (spaces around > ignored here)\
+		echo -n hi				prints without newline\
+		echo \'93[multiple lines]\'94		can echo multiline strings using quotes around the block\
+		> test.txt				can redirect emptiness without commands too (in this case, clears the file)\
+	Logging\
+		script					start a terminal session where commands and output are logged\
+		exit					end the script session\
+		less typescript			print the last session that used script/exit\
+	Terminal\
+		reset					if terminal gets screwed up (eg. outputting binary file), use this\
+		up and down arrays			command history from current session\
+		history					print history of commands\
+		#[command]				make a line a comment (useful if you type a long command and realize you\'92re not ready to run it yet)[still ends up in your history]\
+		time [command]			wrap a commandline with timing info about it by putting time in front\
+		sleep [seconds]			delay for given amount of time (can be fractional like 0.1)\
+		Ctrl-c					abort a command (eg. if it will never return because you screwed up)\
+		^[oldtext]^[newtext]			rerun last command but replace oldtext with newtext (useful if you had a typo in a command)\
+	Multiple Commands\
+		echo \'93hi\'94; echo \'93bye\'94		can run multiple commands (in sequence) with semicolons\
+		(echo \'93hi\'94; echo \'93bye\'94)		can use () to group where might be ambiguous (eg. with piping and redirecting)\
+		echo \'93hi\'94 | (sort; cat)			only the cat gets the piped input (I think)(???)\
+		cat somefile.txt | (sleep 0.1; tee somefile.txt)			trick to avoid race condition with tee onto same file\
+	Asynchronous\
+		& at end of command		run in background while you do other stuff at terminal\
+	Administrator\
+		sudo [cmdline]			run the command as superuser (if you have permission to do so)(will prompt for password, then cache it for a time)\
+		sudo !!				repeat last command as admin (because presumably it failed)\
+		sudo -K				clear the sudo password cache (eg. if someone else uses your comp)\
+	Web\
+		python -m SimpleHTTPServer	call python module that shares the current directory as http://127.0.0.1:8000 so you can access files [use your external IP outside of your machine]\
+\
+		curl www.apple.com			print html content returned by a url (in this case figures out the http or https part on its own)\
+		curl http://www.apple.com		explicitly specifying http\
+		curl https://www.yahoo.com	able to do ssl transparently too\
+	Remoting\
+		NOTE: have to install ssh somehow (different depending on OS and distro)(stands for secure shell)(Putty on windows)\
+		ssh username@machinename	start an encrypted/authenticated session on a remote server (where, depending on your permissions, you can use all the other stuff you know about terminals)(uses the shell of the server)\
+		ssh machinename			can ommit username if same as local machine\
+		ssh -p 220 machinename		defaults to port 20 but you can change it\
+		Ctrl-d					to close the ssh session\
+\
+		scp myfile myuser@myserver:/home/documents		utilizes ssh to copy a file from the current system to the remote system\
+		sftp myuser@myserver		opens up FTP share with remote server where you can use commands like get and put to send/receive files interactively (faster than scp for large amounts of files)\
+\
+		screen				for loading multiple terminals in one remote session (eg. ssh) [has its own commands for switching][only need to learn it if ever need it]\
+							also has the ability to save sessions so you can continue later\
+	Installation\
+		sudo apt-get install openssh-server		install an apt package called openssh-server (eg. to get ssh on the system)\
+	Useful Combinations\
+		ls -lS | head				show 10 biggest files in long format\
+		ls | wc -l				get number of files in current directory (works even though pure ls doesn\'92t look like that)\
+		ls -l | grep \'9323 May\'94			useful for finding files modified on a certain date\
+		find . -size +1G | wc -l		get number of files greater than 1 GB in current directory\
+		grep \'93posts\'94 * | wc -l			counting number of matches\
+		dirname `which ls`			get folder containing the ls command binary\
+		sort file1 file1 file2 | uniq -u		print all lines of file2 than aren\'92t in file1\
+		history | grep \'93ls\'94			print all ls commands you\'92ve done\
+		grep -o \'93[regex]\'94 [file] | sort | uniq -c		find all unique matches of a pattern in a file along with counts of how many times each match appears\
+\
+TODO: look up recursive wildcards (and any folder vs. filename differences)\
+TODO: look up executing simple loops and conditionals (like do all the time in DOS)\
+TODO: look up general mac shortcuts, look up differences for key apps like photoshop and vim\
+TODO: find out if you can provide value to a switch when combining that switch into single token\
+TODO: clarify -l and -c in grep\
+TODO: how to do case insensitive wildcard (eg. for file extensions)\
+TODO: bring in grep, sed, etc. text from years ago\
+TODO: bring in stuff from Anki\
+TODO: quoting and escaping\
+TODO: environment variables\
+TODO: making batch file / shell script\
+TODO: shebangs\
+TODO: clarify piping into (;) construct\
+TODO: more advanced curl stuff (eg. post, put, ssl certificates, etc.)\
+TODO: learn about apt\
+TODO: possibly give ssh access to macbook from PC to play with it (putty?)\
+TODO: learn difference between Telnet and SSH\
+TODO: how to do reverse scp\
+TODO: look into ssh port forwarding (or mac built-in) for watching European Netflix (-vND)\
+TODO: learn xwindows and stuff like that\
+TODO: watch Unit terminal videos and regex grep video from Beyond Code\
+TODO: how to make grep match across multiple lines\
+}
