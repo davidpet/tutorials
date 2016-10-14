@@ -20,13 +20,24 @@ Changes\
 \
 	git commit				launch your text editor (for the log message) and commit the changes in the index to the actual repository\
 	git commit -m \'93[message]		specify commit message and commit in one operation\
-	git commit -am \'93[message\'94]	stages all modifications, then commits the staging area with a message (use just -a for using Vim for the log message)\
+	git commit -am \'93[message\'94]	stages all modifications (but not new files), then commits the staging area with a message (use just -a for using Vim for the log message)\
 \
 	git push		send the new commits, trees, etc. to the tracked branch in the remote repository (eg. GitHub)\
+Branches\
+	git status		convenient way to see which branch you\'92re on\
+	git branch		find out which branches you have locally\
+\
+	git branch [name]		create a new branch from the current state of the repository (don\'92t switch to it yet)\
+	git checkout [name]		switch to branch\
+	git checkout -b [name]	create new branch and switch to it at the same time\
+\
+	git merge [fromBranch]		merge changes from a branch into the current one (based on common ancestry) [can continue adding to the branch and merging as desired]\
 Git Objects\
 	Repository		stored in .git folder in local copy (contains change history for repo)\
 	Index/Staging	where you build up your changes which will be commited next time you commit\
 	Working Copy	Your source tree\
+	Branch		stream of development\
+	master		default initial branch name\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 TODO: read Git chapter in Beyond Code\
