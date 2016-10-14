@@ -4,29 +4,50 @@
 \margl1440\margr1440\vieww28600\viewh15040\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Basic Setup\
+\f0\fs24 \cf0 NOTE: commands that take files can take multiple files and wildcards (eg. git add)\
+\
+Basic Setup\
 	git config --global user.name "Paul Hudson"\
 	git config --global user.email "paul@hackingwithswift.com"\
 	it config --global color.ui true						possibly already colored on your system\
-\
 Repositories\
 	git init			create a new .git folder in the current folder (which turns it into a repo)\
 Diffing\
-	git status		status of the repo (new untracked files, changed files, etc.) with hints about what you can do\
-				NOTE: a file can have unstaged modifications and staged ones at the same time\
 Changes\
 	git add [file] ..		stage changes in the index by file/folder name(s) and/or wildcards (adding a new untracked file is also a change)\
 	git add .		stage all changes in current folder\
+				NOTE: you can stage the same file multiple times in a commit and the final state is in the commit (keep adding same file after changes)\
+	git add -p [file]	patch add (interactively select which changes in file to stage)\
+	git add -p		same thing but more general\
+\
+	git rm [file] ..			delete files and stage the change (only if unmodified)\
+	git add [folder]		if deleted a file outside of git, can use this to have it detect that and stage the delete change\
+	git rm -f [file]			force deletion even if file is modified\
+	git rm --cached [file]		delete the file as an index change, but leave the file on disk in the working copy\
 \
 	git commit				launch your text editor (for the log message) and commit the changes in the index to the actual repository\
 	git commit -m \'93[message]		specify commit message and commit in one operation\
 	git commit -am \'93[message\'94]	stages all modifications (but not new files), then commits the staging area with a message (use just -a for using Vim for the log message)\
 \
 	git push		send the new commits, trees, etc. to the tracked branch in the remote repository (eg. GitHub)\
+Diffing\
+	git status		status of the repo (new untracked files, changed files, etc.) with hints about what you can do\
+				NOTE: a file can have unstaged modifications and staged ones at the same time\
+	git status -s		get short status (just list of files with special characters)\
+\
+	git diff			show line-by-line changes that are not yet staged\
+				unified diff format (shows 2 ranges with index and count on a line, then shows + and - lines)\
+	git diff [file]		same but for individual files (or wildcards)\
+	git diff --staged	show line-by-line changes that are staged\
+	git diff --staged [file] same thing with specific file\
 Reverting\
 	git reset HEAD [file]		unstage file from the index (but leave the change in the working directory) [like undoing git add]\
 	git reset HEAD		unstage all changes in the index (but leave working directory alone)\
-	\
+	git reset			can leave out HEAD (not sure why other tutorial didn\'92t mention that)\
+	git reset [file]			see above\
+\
+	git reset --hard 		the \'91hard\'92 option adds the additional step of reverting the working copy changes (can\'92t do on individual files)\
+					for newly created files, if they have been staged, they will be deleted, otherwise left alone\
 Branches\
 	git status		convenient way to see which branch you\'92re on (and how it compares to remote)\
 	git branch		find out which branches you have locally\
@@ -52,6 +73,11 @@ Subversion\
 	Merging		more easy and automatic in Git (eg. fast-forward merges)\
 	Modifications		extra indexing step\
 \
-TODO: read Git chapter in Beyond Code (resume at p. 119)\
+TODO: read Git chapter in Beyond Code (resume at p. 131)\
 TODO: watch Git videos in Beyond Code\
+TODO: setup Beyond Compare diffing/merging\
+TODO: try git add -p and record the options here\
+TODO: record equivalent to Subversion operations here\
+TODO: how to use hard reset on individual files?\
+TODO: learn git status -s symbols\
 }
