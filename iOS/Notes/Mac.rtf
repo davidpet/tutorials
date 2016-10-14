@@ -104,6 +104,10 @@ Command line\
 							probably better to just always use this one unless it\'92s for some reason not installed (eg. an older grep) [highly unlikely these days]\
 	File System\
 		open [file]				opens a file with the default application based on file type\
+							sometimes this works on folders that have extensions and act like files (eg. .playground folders for XCode)\
+		open [file] \'85				can open multiple files at the same time (eg. multiple text documents with TextEdit or multiple Swift playgrounds)\
+		open [wildcard]			wildcard patterns work too (eg. *.txt)\
+		\
 		dirname [file]				get the parent directory of a file or directory\
 \
 		mkdir\
