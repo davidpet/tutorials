@@ -60,7 +60,10 @@ let firstwidechar = widechars.first!        //similar to 'characters' but not qu
 
 //MANIPULATION
 let uppercased = s.uppercased()
-let lowercased = s.lowercased()
+let lowercased = s.lowercased()         //upper casing and lower casing
+let spacey = "    hi you    "
+let trimmed = spacey.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)  //trimming leading and trailing whitespace
+//NOTE: there are other character sets in NSCharacterSet and you can also create your own
 
 //JOINING
 var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
