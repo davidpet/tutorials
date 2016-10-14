@@ -243,6 +243,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i insertRows
 \i0 : for adding individual rows without the need to do a full reload (with animation) [.automatic is a good animation option to use]\
+\ls4\ilvl1{\listtext	\uc0\u8259 	}NOTE: make sure you add to the data that your table view loads from before calling a method like insertRows\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UIProgressView\ulnone  - progress bar\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -320,7 +321,7 @@ Controls/views start with UI\
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul IndexPath
 \i \ulnone  - 
 \i0 row and section number for table view operations and things like that\
-\ls4\ilvl0{\listtext	\'95	}\ul \ulc0 NSLayoutConstraint\ulnone  - an Auto Layout constraint [in UIKit even though starts with NS]\
+{\listtext	\'95	}\ul NSLayoutConstraint\ulnone  - an Auto Layout constraint [in UIKit even though starts with NS]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i constraints
@@ -361,7 +362,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}must not contradict each other (eg. items overlap coordinates)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}If your layout contradicts itself, you will get unpredictable results (eg. one of the constraints violated, views smushed, etc.)\
-\ls4\ilvl1{\listtext	\uc0\u8259 	}To do in code instead of in Interface Builder, do (for example) view.addConstraints() in viewDidLoad() and use VFL to constrain all the controls\
+{\listtext	\uc0\u8259 	}To do in code instead of in Interface Builder, do (for example) view.addConstraints() in viewDidLoad() and use VFL to constrain all the controls\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}just keep adding horizontal and vertical constraints as desired until done\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
