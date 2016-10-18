@@ -144,6 +144,7 @@ Command line\
 		cp [file1] [file2]			create a copy of file1 named file2\
 		cp [file1] [file2] \'85 [directory]	copies a list of files (names, wildcards, etc.) into a target directory with original name\
 		cp -R [folder1] [folder2]		recursively copy a folder\
+							NOTE: if you specify a folder and it isn\'92t there, your file will get renamed (eg. if usr/local/bin is not on your installation and you try to copy a program there, that program will be called /usr/local/bin)\
 		mv [file1] [file2]			rename/move a file\
 		mv [file1] [file2] \'85 [directory]	move multiple files\
 		rm [file]				delete a file\
@@ -303,4 +304,6 @@ TODO: how to make grep match across multiple lines\
 TODO: grep techniques for duplicating files with missing lines, interposing lines, whatever\
 TODO: grep and sed file editing\
 TODO: learn KeyNote more fully (animations, other slide types, customization, hotkeys, etc.) [is there a key to play a video or animated gif?  will it work with the advancer?  maybe a way to have it show and then 2nd click plays? autoplay?]  How does audio work?  can you loop it?  can you set endpoints?  can you add sound effects? does it play to hdmi or speakers or both? when does it start and end?\
+TODO: try / at end of copy paths to avoid usr/local/bin issue\
+TODO: symbolic links and hard links (windows shortcuts?)\
 }

@@ -11,7 +11,9 @@ NOTE: git commands that print more than a page worth will use \'91less\'92 autom
 Basic Setup\
 	git config --global user.name "Paul Hudson"\
 	git config --global user.email "paul@hackingwithswift.com"\
-	it config --global color.ui true						possibly already colored on your system\
+	git config --global color.ui true						possibly already colored on your system\
+	git config --global diff.tool bc3						set Beyond Compare 3 or 4 (both aliased as bc3 in git) as your external diff tool (bc3 is an internal git thing, it is not a real shell command)\
+											NOTE: merge.tool is same thing but for merge tool, and both may have extra options (see the installation instructions for your tool)\
 Help\
 	git help [command]		Get help for a git command\
 Repositories\
@@ -45,6 +47,9 @@ Diffing\
 	git diff [file]		same but for individual files (or wildcards)\
 	git diff --staged	show line-by-line changes that are staged\
 	git diff --staged [file] same thing with specific file\
+\
+	git difftool [file]	same options as git diff but sends it to your external merge tool (configure with \'91git config\'92)\
+				prompts you to open each file in your (probably GUI) diff tool one by one\
 Reverting\
 	git reset HEAD [file]		unstage file from the index (but leave the change in the working directory) [like undoing git add]\
 	git reset HEAD		unstage all changes in the index (but leave working directory alone)\
@@ -63,6 +68,7 @@ Branches\
 	git checkout -b [name]	create new branch and switch to it at the same time\
 \
 	git merge [fromBranch]		merge changes from a branch into the current one (based on common ancestry) [can continue adding to the branch and merging as desired]\
+						NOTE: can use git mergetool in place of git merge to use external program like Beyond Compare\
 History\
 	git log					print basic info about last 4 commits (hash, author, comment, date) [most recent = top] (since using less, it will stay at the top until you advance)((the hash goes BEFORE the metadata))\
 	git log -1				can specify number of commits to show\
