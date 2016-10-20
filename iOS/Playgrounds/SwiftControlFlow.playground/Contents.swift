@@ -16,6 +16,7 @@ if x == 4 || x != 2 {   //combining multiple conditions
 
 if x == 4 {}            //allowed to put {} on any lines you want like C (just not to OMMIT them)
 
+
 //OPTIONAL UNWRAPPING CONDITIONALS
 var opt : String?
 if let unwrapped = opt {
@@ -170,6 +171,18 @@ func fizzbuzz(number: Int) -> String {
     }
 }
 
+//SWITCH - OPTIONALS
+let myopt: String? = "hi"
+let myopt2: String? = nil
+switch (myopt, myopt2) {
+case let (.some(opt), .some(opt2Matched)):      //.some(localName) lets you match if the optional is not nil (and use localName to refer to it)
+    print("hi")                                 //note that you can use the same name or another one
+case let (.none, .some(opt2)):                  //use .none to match nil
+    print(opt2)
+default:
+    print("else")
+}
+
 //SWITCH LOOPS
 for case (2) in [1, 2, 3, 4, 5] {            //specifying switch case as loop variable
     print("2")
@@ -185,4 +198,11 @@ for case let (x, y) in [(5, 10), (5, 12)] {  //preferred syntax for doing multip
 }
 for case let (5, y) in [(5, 10), (5, 12)] { //can still use the let version when specific values are included
     print(y)
+}
+let anyArray: [Any?] = [1, "hi", nil, 10]
+for case let .some(datum) in anyArray {     //syntax for iterating over non-nil optional values in array
+    print(datum)
+}
+for case let datum? in anyArray {           //same meaning as above
+    print(datum)
 }
