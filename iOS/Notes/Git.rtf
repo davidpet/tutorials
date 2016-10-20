@@ -58,7 +58,11 @@ Reverting\
 \
 	git reset --hard 		the \'91hard\'92 option adds the additional step of reverting the working copy changes (can\'92t do on individual files)\
 					for newly created files, if they have been staged, they will be deleted, otherwise left alone\
+\
+	git checkout [file]		revert working copy of file to the state in the index\
 Branches\
+	NOTE: branches in Git are cheap so it\'92s common to make them freely for features, etc. (like save points)\
+\
 	git status		convenient way to see which branch you\'92re on (and how it compares to remote)\
 	git branch		find out which branches you have locally\
 \
@@ -69,6 +73,23 @@ Branches\
 \
 	git merge [fromBranch]		merge changes from a branch into the current one (based on common ancestry) [can continue adding to the branch and merging as desired]\
 						NOTE: can use git mergetool in place of git merge to use external program like Beyond Compare\
+						NOTE: if merge conflicts, you must edit them (by editing the file which contains both versions in special notation), then stage the file(s), then commit\
+						NOTE: by default Git tries to do a fast-forward merge (moving pointer of target branch to last commit of source branch - works if no changes in source branch - such as when have feature branch)\
+						NOTE: if it can\'92t do fast-forward, it will do a text merge and ask you for a commit message\
+	git merge --no-ff [branch]		force a text merge and commit message (default on GitHub)\
+\
+	git branch -d [branch]		delete a branch when you\'92re done with it (with error if unmerged changes)\
+	git branch -D [branch]		same as above but suppresses error on unmerged changes\
+						NOTE: you are not allowed to delete the branch you\'92re on\
+	git branch -m [newname]		rename the current branch\
+\
+	git branch -v				show latest commit on each branch\
+	git branch --merged			show branches that have been merged into the current one\
+	git branch --no-merged		show branches that have not been merged into the current one\
+\
+	git rebase [branch]			change the history so that it looks like the current branch was based on \'91branch\'92 instead of whatever it was based on\
+						This is accomplished by rewinding to common ancestor then applying diffs\
+	git cherry-pick [hash]		merge a single commit from a different branch\
 History\
 	git log					print basic info about last 4 commits (hash, author, comment, date) [most recent = top] (since using less, it will stay at the top until you advance)((the hash goes BEFORE the metadata))\
 	git log -1				can specify number of commits to show\
@@ -82,7 +103,15 @@ History\
 	git log i --grep=\'93text\'94			case insensitive search through commit messages\
 						NOTE: -G option is available to search within changes themselves\
 \
+	git log [branch]			get log for a specific branch\
+	git log [branch] ^[excludeBranch]	get commits in branch that are not in excludeBranch\
+\
 	git diff [hash]				can see the diff of what was checked in in a commit (using the hash from git log)\
+Tags\
+	git tag 1.0 -m \'93Tag version 1.0 from master\'94			create a tag called 1.0 of the current state of the current branch with a given description\
+	git tag									list your tags without the messages\
+	git tag -n								list your tags with the message\
+	git tag -ln 1.*								list all tags that start with 1.\
 Git Objects\
 	Repository		stored in .git folder in local copy (contains change history for repo)\
 	Index/Staging	where you build up your changes which will be commited next time you commit\
@@ -92,6 +121,8 @@ Git Objects\
 	Hash			SHA1 hashes used (security bonus = can download a repo from untrusted source and as long as hashes match you know it\'92s right)\
 				NOTE: when using the hashes as parameters to git commands, can usually specify 5 or 6 characters (just has to be unique in the repo)\
 	HEAD			the last commit\
+	origin			default name of a remote\
+	origin/master		default main branch on remote names\
 Subversion\
 	Loss of server	screwed in Subversion (CVCS) but everyone has the repo data in Git (DVCS)\
 	Peers			can push/pull to each other in Git (don\'92t even need a central server)\
@@ -114,10 +145,10 @@ Update shopping.txt to remove Eggs\
 	git commit --amend -m \'93revised message\'94		rewrite the previous commit message if you made a mistake\
 									NOTE: if you stage files before using \'97amend, the new changes will be amended in the previous commit too\
 \
-TODO: read Git chapter in Beyond Code (resume at p. 136)\
+TODO: read Git chapter in Beyond Code (resume at p. 147)\
 TODO: watch Git videos in Beyond Code\
 TODO: setup Beyond Compare diffing/merging on Mac and PC (document in cloud setup steps) [need to resolve issue with tech support]\
-TODO: How to revert unstaged changes?\
+TODO: How to revert unstaged changes to whole repo?\
 TODO: Revert a revision you checked in or revert to a revision?  Revert changes from revision?\
 TODO: try git add -p and record the options here\
 TODO: record equivalent to Subversion operations here\
