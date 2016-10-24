@@ -46,9 +46,9 @@ var tw4 = WeatherType3.wind(speed: 5)
 switch wt3 {
 case .sun, .cloud, .rain:
     print("a")
-case .wind(let speed) where speed < 10:     //special syntax for checking the extra value
+case .wind(let speed) where speed < 10:     //special syntax for checking the extra value  //NOTE: can also use things like a range with contains
     print("b")
-case .wind, .snow:                          //can still check without the extra value if that one didn't match
+case .wind, .snow:                          //can still check without the extra value if that one didn't match (or if don't care)
     print("c")
 }
 

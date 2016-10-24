@@ -79,6 +79,11 @@ repeat {                //equivalent of DO in C uses REPEAT instead
     break
 } while true
 
+//EXTRA CONDITIONS
+for item in [1, 2, 3, 4, 5, 6] where item % 2 == 0 {        //loop body only executed when condition is true
+    print(item)                                             //NOTE: you can use && and || just like any other conditional
+}
+
 //LOOP LABELS
 outerLoop: for x in [1, 2, 3, 4, 5] {       //can label any loop statement (for, while, etc.) with a name
     for y in [1, 2, 3, 4, 5] {
@@ -206,3 +211,22 @@ for case let .some(datum) in anyArray {     //syntax for iterating over non-nil 
 for case let datum? in anyArray {           //same meaning as above
     print(datum)
 }
+//for case .cloudy(40) in forecast {}       //example of matching enum with associated value in a loop
+
+//TYPE CHECKING
+let myobj = "hello"
+if myobj is String {            //"is" operator works in conditionals
+    print("it's a string")
+}
+switch myobj {
+case is String:
+    print("It's still a string")        //"is" operator syntax in switches
+default:
+    print("it's something else")
+}
+//for label in view.subviews where label is UILabel {       //useful way to iterate controls of a certain type
+    //print("Found a label with frame \(label.frame)")
+//}
+//for case let label as UILabel in view.subviews {          //syntax for filtering and casting at the same time
+    //print("Found a label with text \(label.text)")
+//}
