@@ -14,9 +14,15 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let urlString: String
+        if navigationController?.tabBarItem.tag == 0 {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        } else {
+            urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=10000&limit=100"
+        }
+        
         //this shouldn't be done here because it will lock up the app on load waiting for json to download
         //will be fixed in Project 9
-        let urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
         if let url = URL(string: urlString) {
             if let data = try? Data(contentsOf: url) {
                 let json = JSON(data: data)
