@@ -19,7 +19,6 @@ Help\
 Repositories\
 	git init			create a new .git folder in the current folder (which turns it into a repo)\
 	git clone [repoPath]	clone a repository into a folder in the working directory (for cloning local paths give the full path of the .git folder)\
-Diffing\
 Changes\
 	git add [file] ..		stage changes in the index by file/folder name(s) and/or wildcards (adding a new untracked file is also a change)\
 	git add .		stage all changes in current folder\
@@ -100,7 +99,7 @@ History\
 	git log --since=4.years\
 	git log --author David		get messages for specific authors (partial match)\
 	git log --grep=\'93text\'94			search through commit messages\
-	git log i --grep=\'93text\'94			case insensitive search through commit messages\
+	git log -i --grep=\'93text\'94		case insensitive search through commit messages\
 						NOTE: -G option is available to search within changes themselves\
 \
 	git log [branch]			get log for a specific branch\
