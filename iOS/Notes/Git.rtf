@@ -89,6 +89,29 @@ Branches\
 	git rebase [branch]			change the history so that it looks like the current branch was based on \'91branch\'92 instead of whatever it was based on\
 						This is accomplished by rewinding to common ancestor then applying diffs\
 	git cherry-pick [hash]		merge a single commit from a different branch\
+Stashing\
+	git stash				pushes current working directory and index state to stash item 0\
+						resets working directory and index to state of commit you were working from (shown in the stash message)\
+						NOTE: WIP = work in progress\
+						NOTE: stash is for saving work that you can come back to later (eg. asked to work on something higher priority but not in a commitable state)\
+						NOTE: will not stash untracked files (but will stash unstaged tracked files)\
+	git stash -u				stash untracked files\
+	git stash --keep-index		stash only unstaged changes\
+	git stash save \'93message\'94		like git stash but lets you provide your own message instead of the default WIP hash one\
+	\
+	git stash list				show the stashed items (like a stack with 0 at the top)\
+	git stash show			show more detail (eg. files and lines changed) about stash item 0\
+	git stash show stash@\{1\}		show more detail about particular stash item\
+	git stash show -p			show unified diff for more detail\
+	\
+	git stash pop				remove item 0 from stash and apply it to working directory and index\
+						NOTE: it does not have to be the same state the stash item was created in (eg. you can be on a different branch with other changes, etc.)\
+	git stash apply			like pop but leaves the item in the stash too (eg. if want to apply to multiple branches)\
+	git stash pop stash@\{1\}		way to specify a specific index instead of take the top\
+	git stash apply stash@\{1\}		works for apply too\
+	\
+	git stash drop stash@\{1\}		remove an item from the stash (can leave out the item to have it use 0)\
+	git stash clear			drop all items from the stash\
 History\
 	git log					print basic info about last 4 commits (hash, author, comment, date) [most recent = top] (since using less, it will stay at the top until you advance)((the hash goes BEFORE the metadata))\
 	git log -1				can specify number of commits to show\
@@ -157,4 +180,7 @@ TODO: what happens if you checkout a directory with unstaged and/or staged chang
 TODO: add stuff from previous notes (maybe only in Anki form)\
 TODO: clarify what git does from subfolders\
 TODO: look at git shortlog -10 -n -sn and compare to git log\
+TODO: does git stash -u stash tracked files too?\
+TODO: using difftool w/ commands that do unified diffs (eg. stash show -p)\
+TODO: sending stash to remotes?\
 }
