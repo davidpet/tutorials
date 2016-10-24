@@ -19,6 +19,7 @@ let m: [String: Any] = [     //have to declare the type as with arrays
 var n: [String: Any] = [:]     //empty dictionary literals have a :
 var o = Dictionary<String, Any>()       //full formal way
 var p = Dictionary<String, String>(minimumCapacity: 100)        //pre-reserve space for performance reasons
+var q = [String: String]()              //default initializer just like with arrays
 
 //accessing items
 d["FirstName"]
