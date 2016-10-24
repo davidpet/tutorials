@@ -213,7 +213,7 @@ Controls/views start with UI\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UINavigationController\ulnone  - wraps navigation between scenes in storyboard and adds navigation bar to the scenes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}pushViewController() to push an instantiated view controller onto stack and display it\
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}pushViewController() to push an instantiated view controller onto stack and display it [instantiated directly or with storyboard methods]\
 {\listtext	\uc0\u8259 	}has a stack of scenes that can be layered and unwound\
 {\listtext	\uc0\u8259 	}by default, newly stacked scenes will get a bar with a Back button and also support swiping back\
 {\listtext	\uc0\u8259 	}to allow for tapping to go to full screen, set 
@@ -490,7 +490,7 @@ WebKit\
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls7\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul WKWebView\ulnone  - web browser view\
+\fs28 \ul WKWebView\ulnone  - web browser view (render web page or raw html content)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}can set 
 \i view
@@ -527,11 +527,14 @@ WebKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls7\ilvl1
 \f0\fs28 \cf0 \CocoaLigature1 {\listtext	\uc0\u8259 	}
-\i reload
-\i0 : for refreshing\
+\i loadHtmlString
+\i0 : for loading HTML content directly (instead of from the web)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls7\ilvl1
-\i \cf0 {\listtext	\uc0\u8259 	}allowsBackForwardNavigationGestures
+\i \cf0 {\listtext	\uc0\u8259 	}reload
+\i0 : for refreshing\
+\ls7\ilvl1
+\i {\listtext	\uc0\u8259 	}allowsBackForwardNavigationGestures
 \i0  - set to true to support swiping back and forth to navigate\
 {\listtext	\uc0\u8259 	}
 \i title
