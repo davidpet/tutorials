@@ -43,6 +43,20 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
             return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let person = people[indexPath.item]
+        let ac = UIAlertController(title: "Rename person", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        ac.addAction(UIAlertAction(title: "OK", style: .default)
+        { [unowned self, ac] _ in
+            let newName = ac.textFields![0]
+            person.name = newName.text!
+            self.collectionView?.reloadData()
+        })
+        present(ac, animated: true)
+    }
+    
     func addNewPerson() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true

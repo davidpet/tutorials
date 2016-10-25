@@ -39,6 +39,13 @@ let multiplied7 = transform(array1: a1, array2: a2) {       //normal closure syn
 let sorted1 = a1.sorted(){$0 > $1}      //sorting array using built-in sorted() function that takes closure
 let sorted2 = a1.sorted {$0 > $1}        //if the () after a call is empty, you can even ommit it entirely
 
+//IGNORING ARGUMENTS
+func takeALambda(closure: (Int, Int, Int) -> Int) {
+}
+takeALambda {_ in           //the _ says we don't care about any of the args (could also specify for individual args)
+    return 10
+}
+
 //CLOSURES AS DATA
 let closure1: (Int, Int) -> Int = {$0 * $1}     //NOTE: type inference worked here
 let closure2: () -> Void = {print("hi")}        //NOTE: no params looks like () and void return is Void (with capital) [also expression can be void]
