@@ -835,7 +835,7 @@ SpriteKit\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsBody\ulnone  - representation of physics properties within SpriteKit (set as properties of nodes)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}once you set a node to have a physics body, the behavior is handled automatically including gravity, animation, etc.\
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}once you set a node to have a physics body, the behavior is handled automatically including gravity, animation, collision reaction, etc.\
 {\listtext	\uc0\u8259 	}by default, things will accelerate with gravity to the bottom of the screen, bounce off each other, stack, tip each other over, etc.\
 {\listtext	\uc0\u8259 	}balls will even roll!\
 {\listtext	\uc0\u8259 	}HINT: if you set node to a picture of a ball with a transparent background and give it a circular physics body of the right radius, it will make a bouncing ball (but no smushing)\
@@ -865,7 +865,8 @@ SpriteKit\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsContactDelegate\ulnone  - protocol to conform to in order to detect collisions (eg. conform your scene to this)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}for just having objects bounce off each other, you don\'92t need collision detection, but for detecting when collisions happen you do\
+{\listtext	\uc0\u8259 	}
 \i didBegin(_ contact: SKPhysicsContact)
 \i0  - implement this to detect collisions between two objects\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
