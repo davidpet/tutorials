@@ -198,8 +198,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}can instantiate classes directly (eg. UILabel) and insert via methods like view.addSubview()\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}viewDidAppear, viewWillAppear, viewDidDissappear, viewWillDissappear: more life cycle hooks (make sure to call base with params)\
-\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}loadView: for customizing which view to load (eg. to bypass storyboard and instantiate your own)[set 
+{\listtext	\uc0\u8259 	}loadView: for customizing which view to load (eg. to bypass storyboard and instantiate your own)[set 
 \i view
 \i0  member]((can still have navigation controller from storyboard))\
 {\listtext	\uc0\u8259 	}storyboard: optional property UIStoryboard? (should use optional chaining just in case) representing the parent storyboard\
@@ -298,8 +297,7 @@ Controls/views start with UI\
 \i0  to pop up as normal\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul SLComposeViewController\ulnone  - (import Social package) alternative to UIActivityViewController (the full popup with album description, etc.)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIImagePickerController\ulnone  - can instantiate to let you pick images from camera roll, take pictures with camera, etc. (by default does not give you camera option)\
+{\listtext	\uc0\u8259 	}\ul UIImagePickerController\ulnone  - can instantiate to let you pick images from camera roll, take pictures with camera, etc. (by default does not give you camera option)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i allowsEditing
@@ -489,7 +487,7 @@ Controls/views start with UI\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}default: static instance to help manage the system\
 {\listtext	\uc0\u8259 	}contentsOfDirectory: list of filenames (shallow) in the given directory\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}urls: get URL instances representing given paths (for instance use urls(for: .documentDirectory, in: .userDomainMask) to get documents directory for app(array of 1 URL))\
+{\listtext	\uc0\u8259 	}urls: get URL instances representing given paths (for instance use urls(for: .documentDirectory, in: .userDomainMask) to get documents directory for app(array of 1 URL))\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}this directory is private to the app and synced with iCloud for the user\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -618,8 +616,7 @@ Core Animation\
 {\listtext	\uc0\u8259 	}
 \i borderColor
 \i0 : for setting a color other than black on the border of a view\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i cornerRadius
 \i0 : for creating rounded corners\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -726,7 +723,7 @@ WebKit\
 SpriteKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 2d Games
+\fs24 \cf0 2d Games (inc. sprites, fonts, physics, particle effects, etc.)
 \fs36 \
 \
 SceneKit\
