@@ -123,6 +123,7 @@ struct MyOtherStruct {
 //Mark classes as constants and/or final when possible
 //Also use structs if you want convenience of automatically generated init
 //Prefer structs to classes when possible
+//Use property observers for updating UI controls based on a change in a value (eg. score)
 
 //QUESTIONS
 //Can a struct have custom initializers?
