@@ -45,13 +45,14 @@ if let pos = s.range(of: "i") {          //check if one string CONTAINS another 
     print(pos.lowerBound)           //examining the range
     print(pos.upperBound)           //EXCLUSIVE
 }
+"hi".contains("h")
 
 //CHARACTERS
 let chars = s.characters            //getting sequence of characters
 let firstchar = chars.first!            //not an array but has methods to get stuff
 for char in chars {                         //iterable by character
     print(type(of: char))                   //Character is a distinct type
-    let pos = s.range(of: String(char))         //have to convert back to string to search in a string
+    let pos = s.range(of: String(char))         //have to convert back to string to search in a string (or to use it as a string any other way such as contains())
     print(pos?.lowerBound)              //indexing the character found in the string
 }
 let char2: Character = "H"          //LITERAL (only ok if single character)
