@@ -58,6 +58,12 @@ struct Car {
             print("Just repainted from \(oldValue) to \(color).")           //oldValue is a special value for what used to be the value
         }
     }
+    /*
+    var myval: Int = 0 {        //NOTE: can set a default value like this
+        didSet {
+            print(myval)
+        }
+    }*/
 }
 var car = Car(color: "blue")
 car.color = "red"           //the observers are automatically triggered when changing the property like this

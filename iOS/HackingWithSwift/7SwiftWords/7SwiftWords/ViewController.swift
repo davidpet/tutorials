@@ -9,6 +9,10 @@
 import UIKit
 import GameplayKit
 
+//possible improvements:
+////take off points if they guess wrong
+////don't allow the user to enter text directly
+////handle the last level better
 class ViewController: UIViewController {
     @IBOutlet weak var cluesLabel: UILabel!
     @IBOutlet weak var answersLabel: UILabel!
