@@ -103,7 +103,7 @@
 \i async()
 \i0 : dispatch a closure to the queue and return immediately\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}probably want to use [unowned self]\
+\ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}probably want to use [unowned self] unless dispatching to main thread\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: it is NEVER ok to do UI changes in a background thread: to do that you need to dispatch a task to the 
 \i main
