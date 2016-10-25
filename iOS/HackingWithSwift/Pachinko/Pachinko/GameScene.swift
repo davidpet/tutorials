@@ -18,7 +18,13 @@ class GameScene: SKScene {
         addChild(background)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with
-        event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let location = touch.location(in: self)
+            let box = SKSpriteNode(color: UIColor.red, size: CGSize(width: 64, height: 64))
+            box.position = location
+            
+            addChild(box)
+        }
     }
 }

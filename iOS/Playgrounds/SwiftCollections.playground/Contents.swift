@@ -21,6 +21,7 @@ for item in s {         //normal iteration and functional operators supported fo
 }
 s.forEach {print($0)}
 s.count
+s.first                 //1st item in set (though you don't know what the order is) (use if you just want anything from the set)
 
 //set operations
 let set1 = Set([1, 2, 3])

@@ -596,6 +596,12 @@ Controls/views start with UI\
 \i rootViewController
 \i0  - the top-level view controller of the storyboard (eg. tab bar or nav bar or main view)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITouch\ulnone  - information about screen touches (used by UIKit and SpriteKit)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i location(in:)
+\i0  - CGPoint representing the location of the touch relative to the given container\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImageJPEGRepresentation()\ulnone  - function to create a 
 \i Data
 \i0  containing a UIImage (input) compressed to jpeg (quality in input as well)\
@@ -745,6 +751,15 @@ SpriteKit\
 \i viewDidLoad
 \i0  from UIKIt (the place to do initialization)\
 {\listtext	\uc0\u8259 	}
+\i touchesBegan()
+\i0  - override this to handle when the user touches the screen\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}you get a set of UITouch (from UIKit) describing the places that are being touched\
+{\listtext	\uc0\u8259 	}use 
+\i self
+\i0  (the scene) as the reference point for locations\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
 \i0  - add a node (such as SKSpriteNode) to the scene\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -757,6 +772,9 @@ SpriteKit\
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}probably will want to change other properties like position once you have instance\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(color:size:)
+\i0  - load a rectangle with the given color (UIColor) and size (CGSize)\
+{\listtext	\uc0\u8259 	}
 \i position
 \i0  - CGPoint representing the position of the center of the image in its container\
 {\listtext	\uc0\u8259 	}
@@ -788,7 +806,8 @@ Core Graphics\
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul CGPoint\ulnone  - struct representing a point in space\ul \
+\fs28 \ul CGPoint\ulnone  - struct representing a point in space\
+{\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
