@@ -803,6 +803,9 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}
 \i physicsBody
 \i0  - set this to an SKPhysicsBody if you want it to have physics act on it instead of it being static on the screen\
+{\listtext	\uc0\u8259 	}
+\i run()
+\i0  - add an SKAction to the execution list for the node\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsBody\ulnone  - representation of physics properties within SpriteKit (set as properties of nodes)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -833,7 +836,8 @@ SpriteKit\
 \i0  - factory method to create an SKAction that represents a rotation (radians and seconds)\
 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
-\i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\ul \ulc0 \
+\i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
+{\listtext	\uc0\u8259 	}the action is executed by putting it into the execution list for a node (such as SKSpriteNode)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -899,4 +903,5 @@ TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
 TODO: how to prevent user from entering text into text edit while still using it for display\
 TODO: create a URL\
 TODO: What are the defaults for SKSpriteNodes and physics bodies?\
+TODO: can you run multiple actions for the same node simultaneously or is it a synchronous list?  (what happens if one repeats forever?)\
 }
