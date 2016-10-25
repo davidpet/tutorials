@@ -1,9 +1,12 @@
 //GUARDS
+let myval: Int? = 100
 func myfunc(val: String) {  //verify that an input matches something you want
     guard !val.isEmpty else {   //similar to if-else but a bit more OPTIMIZED and EXPLICIT
         print("bad input")
         return                  //compiler won't let you not return explicitly
     }
+    guard let x = myval else { return }     //can define a variable with a guard as well
+    print(x)
     print("good input")
 }
 for i in 0...100 {
@@ -83,6 +86,7 @@ try? encrypt(name: "Bob", password: "blank")                                    
 //CONVENTIONS
 //Order of preference should be try, try?, try!
 //Use guards to test positive conditions instead of negative (while avoiding deeply nested loops) and to be explicit
+//guards typically all on one line (including the {})
 
 //QUESTIONS
 //Can you rethrow (eg. with empty throw)?
