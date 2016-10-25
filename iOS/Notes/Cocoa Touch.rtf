@@ -759,6 +759,7 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}use 
 \i self
 \i0  (the scene) as the reference point for locations\
+{\listtext	\uc0\u8259 	}good place to detect label/button taps as well\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
@@ -775,6 +776,9 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i frame
 \i0  - CGRect describing the rectangle containing the scene\'92s content\
+{\listtext	\uc0\u8259 	}
+\i nodes(atLocation:)
+\i0  - get an array of nodes at a given position (eg. when detected a tap)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -883,7 +887,7 @@ SpriteKit\
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
 {\listtext	\uc0\u8259 	}the action is executed by putting it into the execution list for a node (such as SKSpriteNode)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel\
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fontNamed:)
