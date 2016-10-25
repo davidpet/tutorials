@@ -762,6 +762,12 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
 \i0  - add a node (such as SKSpriteNode) to the scene\
+{\listtext	\uc0\u8259 	}
+\i physicsBody
+\i0  - set this to an SKPhysicsBody if you want to have physics act on it (eg. have SKSpriteNodes inside react with the edges)\
+{\listtext	\uc0\u8259 	}
+\i frame
+\i0  - CGRect describing the rectangle containing the scene\'92s content\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -785,7 +791,21 @@ SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zPosition
-\i0  - the z-order number of the item (use -1 for background)\ul \ulc0 \
+\i0  - the z-order number of the item (use -1 for background)\
+{\listtext	\uc0\u8259 	}
+\i physicsBody
+\i0  - set this to an SKPhysicsBody if you want it to have physics act on it instead of it being static on the screen\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsBody\ulnone  - representation of physics properties within SpriteKit (set as properties of nodes)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}once you set a node to have a physics body, the behavior is handled automatically including gravity, animation, etc.\
+{\listtext	\uc0\u8259 	}by default, things will accelerate with gravity to the bottom of the screen, bounce off each other, stack, tip each other over, etc.\
+{\listtext	\uc0\u8259 	}
+\i init(rectangeOf:)
+\i0  - simple initializer to set a rectangular physics body (eg. set to the same size as your SKSpriteNode)\
+{\listtext	\uc0\u8259 	}
+\i init(edgeLoopFrom:)
+\i0  - initialize an edge loop (something that just bounces things off - for instance set to frame member of scene to contain things inside the scene)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -807,7 +827,8 @@ Core Graphics\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0\cf0 {\listtext	\'95	}
 \fs28 \ul CGPoint\ulnone  - struct representing a point in space\
-{\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height)\ul \
+{\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height)\
+{\listtext	\'95	}\ul CGRect\ulnone  - a rectangle\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
