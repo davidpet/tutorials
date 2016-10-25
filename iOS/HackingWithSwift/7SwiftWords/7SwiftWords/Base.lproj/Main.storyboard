@@ -182,11 +182,17 @@
                                 <frame key="frameInset" minX="425" minY="390" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SUBMIT"/>
+                                <connections>
+                                    <action selector="submitTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cfu-qg-VEa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emb-f6-QQ5">
                                 <frame key="frameInset" minX="525" minY="390" width="75" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="CLEAR"/>
+                                <connections>
+                                    <action selector="clearTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l5S-NS-OUI"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Tap letters to guess" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tte-Mp-OVW">
                                 <frame key="frameInset" minX="245" minY="315" width="535" height="80"/>
@@ -219,6 +225,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="answersLabel" destination="mjx-X2-rTE" id="rsM-kw-8Ru"/>
+                        <outlet property="cluesLabel" destination="97R-Gg-fyC" id="6Xa-LH-dgc"/>
+                        <outlet property="currentAnswer" destination="tte-Mp-OVW" id="vMW-lj-Uxz"/>
+                        <outlet property="scoreLabel" destination="emJ-AR-inW" id="FsV-5a-Rwr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

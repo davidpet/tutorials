@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var cluesLabel: UILabel!
+    @IBOutlet weak var answersLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var currentAnswer: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +24,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func submitTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func clearTapped(_ sender: AnyObject) {
+    }
 }
 
