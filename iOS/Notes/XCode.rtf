@@ -176,6 +176,21 @@ Interface Builder
 		can use inspectors, mouse, or array keys\
 		arrow key = 1 point (blue lines still appear to help guide as needed)\
 		remember that things that hold text also have fonts, alignments, text colors, etc.\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 Scene Editor\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 	SpriteKit equivalent of Interface Builder\
+	A lot of things are very similar but a bit different (eg. inspectors are still here but they use different icons and slightly different behavior for some things)\
+	\
+	Coordinates\
+		Y coordinates are from bottom up instead of top down like normal\
+	Anchor Point\
+		accessed via Attributes Inspector\
+		sets which point in the object is the target point for positioning (defaults to 0.5, 0.5 which means the center point.  set to 0 if want bottom left)\
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 Playgrounds
@@ -192,7 +207,7 @@ Interface Builder
 \fs24 \
 	Single View Application (UIKit app)\
 		Default app just has blank white screen\
-		Storyboard w/ single scene\
+		Storyboard w/ single scene (edited by Interface Builder)\
 		AppDelegate swift file\
 		ViewController swift file\
 		Assets folder\
@@ -204,12 +219,14 @@ Interface Builder
 		Storyboard w/ single scene (still)(presentation set to Full Screen)\
 		GameViewController swift file (the view controller used by the storyboard)\
 			unlike in ordinary apps, this view controller has a lot of code in it already\
-		GameScene.Swift?\
-		GameScene.sks?\
-		Actions.sks?\
+		GameScene.Swift\
+			also contains a lot of code (the tutorial blows it all away)\
+		GameScene.sks (edited by Scene Editor)\
+		Actions.sks? (deleted in tutorial so not sure what it is)\
 		Assets folder (pre-populated with a spaceship - you can delete it)\
 		Info.plist\
 		*some others same as UIKit apps?\
+		Resetting to Vanilla State: delete spaceship, replace code in GameScene.Swift with just didMove and touchesBegan, delete Actions.sks, remove label from GameScene.sks and set Anchor Point and size attributes\
 \
 
 \fs36 Project Settings
