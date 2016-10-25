@@ -69,6 +69,8 @@
 \i0  - loads data from url (can throw) [blocking call]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
+{\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
+{\listtext	\'95	}\ul performSelector(onMainThread:)\ulnone  - runs a method in the main UI thread\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -106,6 +108,11 @@
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: it is NEVER ok to do UI changes in a background thread: to do that you need to dispatch a task to the 
 \i main
 \i0  queue\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls2\ilvl0\cf0 {\listtext	\'95	}\ul performSelector\ulnone  - as an alternative if you just want to run a whole method in the simplest way, use performSelector function overloads (see Foundation)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}advantage of not having to worry about closure capturing\
+{\listtext	\uc0\u8259 	}have to use #selector() syntax and pass in a method name\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
