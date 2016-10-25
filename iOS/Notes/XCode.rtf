@@ -190,12 +190,26 @@ Interface Builder
 
 \fs36 Project Types
 \fs24 \
-	Single View Application\
+	Single View Application (UIKit app)\
+		Default app just has blank white screen\
 		Storyboard w/ single scene\
 		AppDelegate swift file\
 		ViewController swift file\
 		Assets folder\
+		Info.plist (key-value configuration)\
 		*some others?\
+	Game: starting point for a game (lets you select the base technology such as SpriteKit or SceneKit)\
+		Default app has grey screen with \'93Hello, World\'94 and you can click and drag to animate loopy things of different colors (frame rate in lower right corner)\
+		AppDelegate swift file (basically same as regular app - still uses UIKit)\
+		Storyboard w/ single scene (still)(presentation set to Full Screen)\
+		GameViewController swift file (the view controller used by the storyboard)\
+			unlike in ordinary apps, this view controller has a lot of code in it already\
+		GameScene.Swift?\
+		GameScene.sks?\
+		Actions.sks?\
+		Assets folder (pre-populated with a spaceship - you can delete it)\
+		Info.plist\
+		*some others same as UIKit apps?\
 \
 
 \fs36 Project Settings
