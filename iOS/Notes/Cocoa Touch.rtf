@@ -314,6 +314,12 @@ Controls/views start with UI\
 \i present
 \i0  in the view controller just like you do for UIAlertController (the delegate class, usually the view controller, will be called as appropriate)\
 {\listtext	\uc0\u8259 	}NOTE: you will need to set \'93Privacy - Photo Library Usage Description\'94 key in Info.plist or this will crash\
+{\listtext	\uc0\u8259 	}
+\i sourceType
+\i0  - can set to .camera to specify to take from camera\
+{\listtext	\uc0\u8259 	}
+\i isSourceTypeAvailable
+\i0  - call to check whether a source type such as .camera is available before setting it (eg. not available on simulator)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIImagePickerControllerDelegate\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
