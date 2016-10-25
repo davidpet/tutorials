@@ -55,6 +55,10 @@ var longitude: Double = -18.633333333       //recommended by Apple due to higher
 var altitude = -18.63333                //becomes a Double even though Float would work
 var success: Bool = true
 
+//BUILT-IN CONSTANTS
+Double.pi
+Float.pi
+
 //TYPDEFS
 typealias MyType = String
 typealias MyOtherType = Array<String>       //typelias is the equivalent of using in C# or typedef in C++
