@@ -57,7 +57,7 @@ class ViewController: UIViewController {
                     clueString += "\(index + 1). \(clue)\n"
                     
                     let solutionWord = answer.replacingOccurrences(of: "|", with: "")
-                    solutionString += "\(solutionWord.characters.count)"
+                    solutionString += "\(solutionWord.characters.count)\n"
                     solutions.append(solutionWord)
                     
                     let bits = answer.components(separatedBy: "|")
@@ -77,13 +77,49 @@ class ViewController: UIViewController {
         }
     }
     
+    func levelUp(action: UIAlertAction!) {
+        level += 1
+        solutions.removeAll(keepingCapacity: true)
+        loadLevel()
+        
+        for btn in letterButtons {
+            btn.isHidden = false
+        }
+    }
+    
     func letterTapped(btn: UIButton) {
+        currentAnswer.text  = currentAnswer.text! + btn.titleLabel!.text!
+        activatedBUttons.append(btn)
+        btn.isHidden = true
     }
     
     @IBAction func submitTapped(_ sender: UIButton) {
+        if let solutionPosition = solutions.index(of: currentAnswer.text!) {
+            activatedBUttons.removeAll()
+            
+            var splitClues = answersLabel.text!.components(separatedBy: "\n")
+            splitClues[solutionPosition] = currentAnswer.text!
+            answersLabel.text = splitClues.joined(separator: "\n")
+            currentAnswer.text = ""
+            score += 1
+            
+            if score % 7 == 0 {
+                let ac = UIAlertController(title: "Well done!",
+                                           message: "Are you ready for the next level?",
+                                           preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "Let's go!",
+                                           style: .default, handler: levelUp))
+                present(ac, animated: true)
+            }
+        }
     }
     
     @IBAction func clearTapped(_ sender: AnyObject) {
+        currentAnswer.text = ""
+        for btn in activatedBUttons {
+            btn.isHidden = false
+        }
+        activatedBUttons.removeAll()
     }
 }
 
