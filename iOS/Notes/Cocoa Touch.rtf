@@ -30,10 +30,12 @@
 \fs24 \cf0 basic stuff used by the rest of the frameworks\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0
-\fs28 \cf0 {\listtext	\'95	}\ul NSObject\ulnone  - basic object for Cocoa Touch framework (but not for all of Swift)\
+\fs28 \cf0 {\listtext	\'95	}\ul NSObject\ulnone  - basic object for Cocoa Touch framework and Objective-C (but not for all of Swift)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i addObserver(observer, keyPath, options, context)
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}consider inheriting class from this if going to use certain functionality from Cocoa Touch on that class\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1
+\i \cf0 {\listtext	\uc0\u8259 	}addObserver(observer, keyPath, options, context)
 \i0 : use #keyPath() format to choose property chain, use context if need to identify origin points\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}
@@ -493,7 +495,7 @@ Controls/views start with UI\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul IndexPath
 \i \ulnone  - 
-\i0 row and section number for table view operations and things like that\
+\i0 row and section number (or item number) for table view operations and things like that\
 {\listtext	\'95	}\ul NSLayoutConstraint\ulnone  - an Auto Layout constraint [in UIKit even though starts with NS]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
@@ -610,6 +612,10 @@ Core Animation\
 {\listtext	\uc0\u8259 	}
 \i borderColor
 \i0 : for setting a color other than black on the border of a view\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i cornerRadius
+\i0 : for creating rounded corners\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
