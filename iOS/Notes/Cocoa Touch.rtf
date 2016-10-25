@@ -787,15 +787,18 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}
 \i position
 \i0  - CGPoint representing the position of the center of the image in its container\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}it\'92s ok to have it go off screen\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i blendMode
 \i0  - how the image combines with other images at the same positions (like in Photoshop)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}.replace = simple pixel override (fastest way) [definitely use this for background]\
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}.replace = simple pixel override (fastest way) [definitely use this for background][don\'92t usually have to set if using physics]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zPosition
-\i0  - the z-order number of the item (use -1 for background)\
+\i0  - the z-order number of the item (use -1 for background)(don\'92t usually HAVE to set if using physics)\
 {\listtext	\uc0\u8259 	}
 \i physicsBody
 \i0  - set this to an SKPhysicsBody if you want it to have physics act on it instead of it being static on the screen\
@@ -817,7 +820,10 @@ SpriteKit\
 \i0  - initialize a circular physics body\
 {\listtext	\uc0\u8259 	}
 \i restitution
-\i0  - how bouncy the item is (from 0 bounciest to 1 no bounce) [default seems to be 1]\ul \ulc0 \
+\i0  - how bouncy the item is (from 0 bounciest to 1 no bounce) [default seems to be 1]\
+{\listtext	\uc0\u8259 	}
+\i isDynamic
+\i0  - if true (the default) object will be moved by other objects (set to false to make it stationary and then it will just affect objects that hit it)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -878,4 +884,5 @@ TODO: be able to translate anything from anchors method into VFL and IB methods\
 TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
 TODO: how to prevent user from entering text into text edit while still using it for display\
 TODO: create a URL\
+TODO: What are the defaults for SKSpriteNodes and physics bodies?\
 }
