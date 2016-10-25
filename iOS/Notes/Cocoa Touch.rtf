@@ -273,6 +273,22 @@ Controls/views start with UI\
 \i0  to pop up as normal\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul SLComposeViewController\ulnone  - (import Social package) alternative to UIActivityViewController (the full popup with album description, etc.)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIImagePickerController\ulnone  - can instantiate to let you pick images from camera roll, take pictures with camera, etc.\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i allowsEditing
+\i0  - if true, user can do things like crop, etc.\
+{\listtext	\uc0\u8259 	}
+\i delegate
+\i0  - in order to react to the result of the user selection, you need to set delegate to a class that conforms to UIImagePickerControllerDelegate and UINavigationControllerDelegate\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}all methods of these protocols are optional, so just declaring them makes the project build\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}use 
+\i present
+\i0  in the view controller just like you do for UIAlertController (the delegate class, usually the view controller, will be called as appropriate)\
+{\listtext	\uc0\u8259 	}NOTE: you will need to set \'93Privacy - Photo Library Usage Description\'94 key in Info.plist or this will crash\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIStoryboard\ulnone  - storyboard type\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
