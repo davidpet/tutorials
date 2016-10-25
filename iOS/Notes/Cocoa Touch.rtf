@@ -662,7 +662,19 @@ GameplayKit\
 \ls7\ilvl1
 \fs36 {\listtext	\uc0\u8259 	}
 \i\fs28 nextInt(upperBound:)
-\i0  - next integer from 0 to upperBound, exclusive
+\i0  - next integer from 0 to upperBound, exclusive\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls7\ilvl0
+\fs36 \cf0 {\listtext	\'95	}
+\fs28 \ul GKRandomDistribution\ulnone  - random number distribution functionality\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls7\ilvl1
+\fs36 \cf0 {\listtext	\uc0\u8259 	}
+\i\fs28 init(lowestValue:highestValue:)
+\i0  - gets a distribution between two inclusive endpoints\
+{\listtext	\uc0\u8259 	}
+\i nextInt()
+\i0  - a number from the random distribution instance
 \fs36 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -812,6 +824,9 @@ SpriteKit\
 \i zPosition
 \i0  - the z-order number of the item (use -1 for background)(don\'92t usually HAVE to set if using physics)\
 {\listtext	\uc0\u8259 	}
+\i zRotation
+\i0  - rotation about the z-axis in radians (counterclockwise on the screen)\
+{\listtext	\uc0\u8259 	}
 \i physicsBody
 \i0  - set this to an SKPhysicsBody if you want it to have physics act on it instead of it being static on the screen\
 {\listtext	\uc0\u8259 	}
@@ -857,7 +872,7 @@ SpriteKit\
 \i0  - how bouncy the item is (from 0 bounciest to 1 no bounce) [default seems to be 1]\
 {\listtext	\uc0\u8259 	}
 \i isDynamic
-\i0  - if true (the default) object will be moved by other objects (set to false to make it stationary and then it will just affect objects that hit it)\
+\i0  - if true (the default) object will be moved by gravity and other objects (set to false to make it stationary and then it will just affect objects that hit it)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
