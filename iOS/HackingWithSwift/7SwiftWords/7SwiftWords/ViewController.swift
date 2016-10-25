@@ -14,9 +14,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var currentAnswer: UITextField!
 
+    var letterButtons = [UIButton]()
+    var activatedBUttons = [UIButton]()
+    var solutions = [String]()
+    
+    var score = 0
+    var level = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        for subview in view.subviews where subview.tag == 1001 {
+            let btn = subview as! UIButton
+            letterButtons.append(btn)
+            btn.addTarget(self, action: #selector(letterTapped), for: .touchUpInside)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,6 +36,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func letterTapped(btn: UIButton) {
+    }
+    
     @IBAction func submitTapped(_ sender: UIButton) {
     }
     

@@ -94,7 +94,7 @@ Controls/views start with UI\
 \ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}try to check for properties of view itself first (like backgroundColor)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul backgroundColor\ulnone  - background color of the control (UIColor)\
-{\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)\
+{\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
 {\listtext	\uc0\u8259 	}\ul toolbarItems\ulnone  - array of 
 \i UIToolBarItem
 \i0  to load as the bottom toolbar when active in a navigation controller (separate from rightToolBarItem)\
@@ -116,6 +116,12 @@ Controls/views start with UI\
 \i0 : has to be set at runtime (not same one in IB) - sets the navigation bar title (if have one) and the Back button text if have a back button in bar\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}since it\'92s optional, you can assign an optional to it without unwrapping\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i subviews
+\i0  - views that are inside the view (child controls)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}hint: use tags to distinguish ones that you want to be able to find this way (such as when too many to make outlets one by one)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}viewDidLoad: called after UI loaded from storyboard but before displayed\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -327,6 +333,11 @@ Controls/views start with UI\
 \ls4\ilvl1{\listtext	\uc0\u8259 	}by default, has border in IB but not at runtime\
 {\listtext	\uc0\u8259 	}disable default animation (and showing of text) by giving it Custom type\
 {\listtext	\uc0\u8259 	}Hint: if set type to custom and set a size, it will be respected at runtime\
+{\listtext	\uc0\u8259 	}
+\i addTarget
+\i0  - for adding a method to handle taps at runtime (.touchUpInside is normal option to use)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: this might be a method of UIView instead of UIButton (move later if is)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UILabel\ulnone  - text label\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
