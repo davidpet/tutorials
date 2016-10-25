@@ -191,7 +191,7 @@ Interface Builder
 		tutorial uses 1024x768 for an iPad app\
 	Anchor Point\
 		accessed via Attributes Inspector\
-		sets which point in the object is the target point for positioning (defaults to 0.5, 0.5 which means the center point.  set to 0 if want bottom left)\
+		???sets which point in the object is the target point for positioning (defaults to 0.5, 0.5 which means the center point.  set to 0 if want bottom left)\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -223,6 +223,7 @@ Interface Builder
 			unlike in ordinary apps, this view controller has a lot of code in it already\
 		GameScene.Swift\
 			also contains a lot of code (the tutorial blows it all away)\
+			this is the main class to start editing (roughly equivalent to the view controller for a UIKit app even though you have one here)\
 		GameScene.sks (edited by Scene Editor)\
 		Actions.sks? (deleted in tutorial so not sure what it is)\
 		Assets folder (pre-populated with a spaceship - you can delete it)\
@@ -321,6 +322,8 @@ APPLE DEVELOPER
 \
 	Organization Identifier: usually made of your website in reverse (eg. com.jarofgoblins) [needs to be valid for shipping to app store]\
 \
+TODO: resolve the ambiguity with how he describes anchor points in Scene Editor and why we set it to 0,0\
+TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\
 TODO: how to deploy to phone quicker (not have to run it?), how to build and test release mode?  how to deploy release mode on phone?  how to submit to app store?  (scheme checkboxes?)\
 TODO: How to add tutorial/description text to playgrounds?\
 TODO: watches, immediate window, data breakpoints, callstack\
