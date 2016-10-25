@@ -218,7 +218,7 @@ Controls/views start with UI\
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}instantiate as 
 \f1\fs22 \cf3 \CocoaLigature0 UIStoryboard\cf4 (name: \cf5 "Main"\cf4 , bundle: \cf6 nil\cf4 ) 
 \f0\fs28 \cf0 \CocoaLigature1 to get access to storyboard (eg. from AppDelegate) [nil = current app bundle]\
-\ls4\ilvl1{\listtext	\uc0\u8259 	}instantiateViewController: can instantiate another view in the storyboard by storyboard ID string (identity inspector of view controllers)\
+{\listtext	\uc0\u8259 	}instantiateViewController: can instantiate another view in the storyboard by storyboard ID string (identity inspector of view controllers)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}can instantiate multiple of same and they will have their own separate state but same behavior\
 {\listtext	\uc0\u8259 	}can instantiate things like nav controllers (and duplicate them) as well\
@@ -256,7 +256,7 @@ Controls/views start with UI\
 \i0  initializer to create a view (eg. UIProgressView) to use as the button\
 {\listtext	\uc0\u8259 	}can use built-in ones (eg. + and refresh icons) or provide own text, image, etc.\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls4\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 UITabBarController\ulnone  - wraps tab bar functionality (tab bar at bottom of screen)\
+\ls4\ilvl0\cf0 {\listtext	\'95	}\ul UITabBarController\ulnone  - wraps tab bar functionality (tab bar at bottom of screen)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}manages an array of view controllers that user can tap between\
 {\listtext	\uc0\u8259 	}can do it all in Interface Builder but often better to do 1 controller in IB and then leverage in multiple tabs via code (eg. instantiate more copies of storyboard view controller to dynamically insert)\
@@ -324,18 +324,25 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i Events: 
 \i0 touchUpInside = user tapped and released (clicked)\
+\ls4\ilvl1{\listtext	\uc0\u8259 	}by default, has border in IB but not at runtime\
+{\listtext	\uc0\u8259 	}disable default animation (and showing of text) by giving it Custom type\
+{\listtext	\uc0\u8259 	}Hint: if set type to custom and set a size, it will be respected at runtime\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UILabel\ulnone  - text label\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property for setting text at design time or runtime\
+\ls4\ilvl1{\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
+{\listtext	\uc0\u8259 	}set lines to 0 to let text go over as many lines as needed\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UITextField\ulnone  - editable text field\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property representing the actual text\
+\ls4\ilvl1{\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
+{\listtext	\uc0\u8259 	}placeholder text in IB sets initial text that will go away when user clicks into the field\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls4\ilvl0\cf0 {\listtext	\'95	}\ul UITextChecker\ulnone  - for spell checking text (eg. user input)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -603,9 +610,8 @@ Core Graphics\
 \fs36 \
 \
 SwiftyJSON\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 3rd party library for handling Json on GitHub (not a Cocoa Touch Library) [several ways to install - the tutorial uses dragging the .swift file into your project directly, which is one of the official ways]\
+\fs24 3rd party library for handling Json on GitHub (not a Cocoa Touch Library) [several ways to install - the tutorial uses dragging the .swift file into your project directly, which is one of the official ways]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
@@ -624,8 +630,9 @@ SwiftyJSON\
 {\listtext	\uc0\u8259 	}conversions are done automatically (eg. if you read an int field with the .stringValue property)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs36 TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
+\fs36 \cf0 TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
 TODO: Get better at Auto Layout in IB (via Attributes Inspector, popups, outline, etc.)\
 TODO: Understand the correlation of features between IB and VFL for Auto Layout\
 TODO: How to do offsets/ratios/etc with anchors\
