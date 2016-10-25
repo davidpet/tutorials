@@ -63,7 +63,9 @@ let uppercased = s.uppercased()
 let lowercased = s.lowercased()         //upper casing and lower casing
 let spacey = "    hi you    "
 let trimmed = spacey.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)  //trimming leading and trailing whitespace
+let trimmed2 = spacey.trimmingCharacters(in: .whitespacesAndNewlines)               //don't forget you can ommit the parent
 //NOTE: there are other character sets in NSCharacterSet and you can also create your own
+let replaced = spacey.replacingOccurrences(of: " ", with: "")
 
 //JOINING
 var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
