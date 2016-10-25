@@ -767,12 +767,19 @@ SpriteKit\
 \i physicsBody
 \i0  - set this to an SKPhysicsBody if you want to have physics act on it (eg. have SKSpriteNodes inside react with the edges)\
 {\listtext	\uc0\u8259 	}
+\i physicsWorld
+\i0  - SKPhysicsWorld representing overall physics behavior that affects all the bodies, such as gravity and collision detection\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}to make the scene detect its own collisions, set physicsWorld.contactDelegate to self\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i frame
 \i0  - CGRect describing the rectangle containing the scene\'92s content\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}most of the methods below are actually on SKNode (refactor this later)\
+{\listtext	\uc0\u8259 	}
 \i init(imageNamed:)
 \i0  - load an image from the assets by name and wrap it in an SKSpriteNode\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -804,8 +811,27 @@ SpriteKit\
 \i physicsBody
 \i0  - set this to an SKPhysicsBody if you want it to have physics act on it instead of it being static on the screen\
 {\listtext	\uc0\u8259 	}
+\i name
+\i0  - optionally set this to a string that will be used to identify the object (for instance in collision detection) [can give multiple objects same name to name them by type]\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: this is the preferred way rather than storing references to objects or whatever\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i run()
 \i0  - add an SKAction to the execution list for the node\
+{\listtext	\uc0\u8259 	}
+\i collisionBitMask
+\i0  - which nodes this thing can collide with (defaults to everything)\
+{\listtext	\uc0\u8259 	}
+\i contactTestBitMask
+\i0  - which collisions should the contact delegate be notified about (defaults to none)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: setting it to collsionBitMask makes it notify of everything (hack for now)\
+{\listtext	\uc0\u8259 	}make sure to set it on both objects of the collision\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i removeFromParent()
+\i0  - removes the node from its parent node (eg. remove a sprite from a scene after the character dies)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsBody\ulnone  - representation of physics properties within SpriteKit (set as properties of nodes)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -828,6 +854,23 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}
 \i isDynamic
 \i0  - if true (the default) object will be moved by other objects (set to false to make it stationary and then it will just affect objects that hit it)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i contactDelegate
+\i0  - set to something that conforms to SKPhysicsContactDelegate protocol in order to enable collision detection\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}remember to also set the nodes\'92 collisionBitMask and contactTestBitMask as needed\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsContactDelegate\ulnone  - protocol to conform to in order to detect collisions (eg. conform your scene to this)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i didBegin(_ contact: SKPhysicsContact)
+\i0  - implement this to detect collisions between two objects\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
+{\listtext	\uc0\u8259 	}use node names to determine types of objects\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
