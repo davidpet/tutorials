@@ -84,8 +84,9 @@
 \fs28 \cf0 {\listtext	\'95	}\ul DispatchQueue\ulnone  - work management queue (like a prioritized thread pool)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}like many Cocoa Touch classes, you can use static methods to get existing instances\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1
-\i {\listtext	\uc0\u8259 	}global()
+\i \cf0 {\listtext	\uc0\u8259 	}global()
 \i0 : get default queue (middle QoS priority in between .userInitiated and .utility)\
 {\listtext	\uc0\u8259 	}
 \i global(qos:)
@@ -228,6 +229,10 @@ Controls/views start with UI\
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
 \i0  can be used to create or reuse an already-created cell\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UICollectionViewController\ulnone  - \
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul \ulc0 UIAlertController\ulnone  - equivalent of MsgBox in the iOS world\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -378,7 +383,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i Events: 
 \i0 touchUpInside = user tapped and released (clicked)\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}by default, has border in IB but not at runtime\
+{\listtext	\uc0\u8259 	}by default, has border in IB but not at runtime\
 {\listtext	\uc0\u8259 	}disable default animation (and showing of text) by giving it Custom type\
 {\listtext	\uc0\u8259 	}Hint: if set type to custom and set a size, it will be respected at runtime\
 {\listtext	\uc0\u8259 	}
@@ -392,7 +397,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property for setting text at design time or runtime\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
+{\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
 {\listtext	\uc0\u8259 	}set lines to 0 to let text go over as many lines as needed\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextField\ulnone  - editable text field\
@@ -400,7 +405,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property representing the actual text\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
+{\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
 {\listtext	\uc0\u8259 	}placeholder text in IB sets initial text that will go away when user clicks into the field\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextChecker\ulnone  - for spell checking text (eg. user input)\
