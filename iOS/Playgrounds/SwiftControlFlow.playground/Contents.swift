@@ -31,6 +31,8 @@ if let unwrapped = opt, let unwrapped2 = opt2 {     //only executes if both unwr
 
 //if let x = 5 {    //NOTE: this syntax is specific to unwrapping optionals
 //}
+if let opt = opt {      //as cheesey as this is, it's allowed
+}
 
 //RANGE LOOPS
 for i in 1...10 {           //Python-like range loops (doesn't support C-style loops anymore)

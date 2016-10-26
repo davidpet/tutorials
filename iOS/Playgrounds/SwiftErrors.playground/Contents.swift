@@ -22,6 +22,7 @@ enum PasswordError: Error {
     case short          //each value of the enum is a reason for the error to have been thrown
     case obvious(message: String)
 }
+//NOTE: Error protocol itself has methods like localizedDescription that can be checked when the core libraries give you errors
 
 //defining a function that throws errors
 func encrypt(name: String, password: String) throws -> String {     //specify throws before return value (or lack thereof)
