@@ -386,6 +386,7 @@ Controls/views start with UI\
 \i0  to add buttons (takes closure so you can say what to do when button pressed)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}can also take UIAlertAction instance that you can create locally\
+\ls4\ilvl3{\listtext	\uc0\u8259 	}the title of the action is readable in the handler\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i addTextField
@@ -1102,7 +1103,7 @@ Core Graphics\
 CoreImage\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 Image filtering functionality
+\fs24 \cf0 Image filtering functionality (not pure pixel filters - things like gaussian blur, distortion, and vignette as well)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}
@@ -1118,6 +1119,9 @@ CoreImage\
 {\listtext	\uc0\u8259 	}this method is what does the actual work of applying the filter and creating a new image\
 {\listtext	\uc0\u8259 	}the new image is independent of the original\
 {\listtext	\uc0\u8259 	}will often want to construct a new UIImage from the CGImage\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}it is possible to chain filters together too for complex processing\
+{\listtext	\uc0\u8259 	}NOTE: sometimes filters will run slowly in simulator, but always quickly on devices because CoreImage is very FAST\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
@@ -1139,10 +1143,17 @@ CoreImage\
 \ls11\ilvl2
 \i {\listtext	\uc0\u8259 	}setValue(float, forKey: kCIInputIntensityKey)
 \i0  will set the intensity of the filter (0 to 1) [like Photoshop opacity]\
+{\listtext	\uc0\u8259 	}WARNING: if you set a key that the filter doesn\'92t support, it will crash (use 
+\i inputKeys
+\i0  to check, or specifically code for each filter)\
+{\listtext	\uc0\u8259 	}see Apple documentation for supported keys by filter\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1
 \i \cf0 {\listtext	\uc0\u8259 	}outputImage
-\i0  - property that gives you a CIImage which represents the output image of the filter (but the work isn\'92t done just yet when you get it)
+\i0  - property that gives you a CIImage which represents the output image of the filter (but the work isn\'92t done just yet when you get it)\
+\ls11\ilvl1
+\i {\listtext	\uc0\u8259 	}inputKeys
+\i0  - array of string keys supported by the current filter
 \i \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0
