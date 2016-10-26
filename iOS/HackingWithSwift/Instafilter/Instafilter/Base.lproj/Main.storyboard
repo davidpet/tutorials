@@ -41,12 +41,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-9j-9aL">
+                            <slider opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-9j-9aL">
                                 <connections>
                                     <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ago-0A-c0T"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZO-Za-IZ2">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZO-Za-IZ2">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="M1b-ST-ywE"/>
                                     <constraint firstAttribute="height" constant="44" id="PoY-Iz-YOX"/>
@@ -87,6 +87,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Tk-zT-a8W"/>
                     <connections>
+                        <outlet property="filterButton" destination="nZO-Za-IZ2" id="SVB-st-yZF"/>
                         <outlet property="imageView" destination="dnn-fn-WX7" id="nhz-QQ-nFH"/>
                         <outlet property="intensity" destination="fZ1-9j-9aL" id="lDJ-wI-aDP"/>
                         <outlet property="saveButton" destination="BRQ-F0-5c3" id="hIo-5b-U4H"/>

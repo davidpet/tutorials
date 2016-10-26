@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var intensity: UISlider!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var filterButton: UIButton!
 
     var currentImage: UIImage!
     var context: CIContext!
@@ -50,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.delegate = self
         present(picker, animated: true)
         saveButton.isEnabled = true
+        filterButton.isEnabled = true
+        intensity.isEnabled = true
     }
     
     func applyProcessing() {
