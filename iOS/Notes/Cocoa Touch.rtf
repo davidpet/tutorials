@@ -93,6 +93,15 @@
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
 {\listtext	\'95	}\ul performSelector(onMainThread:)\ulnone  - runs a method in the main UI thread\
+{\listtext	\'95	}\ul arc4random()\ulnone  - random integer over the whole range (C standard lib) [not sure if this is actually in Foundation or just always in Swift]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}to get a random float, divide by Float(UInt32.max)\
+{\listtext	\uc0\u8259 	}to get a random float in a range, do the same but multiply by the size of the range and add to minimum\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul arc4random_uniform(_:)\ulnone  - same thing but more uniform?  takes an upper bound\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: the arc4random functions take UInt32 instead of Int\
+{\listtext	\uc0\u8259 	}to pick a number from a to b inclusive, can use arc4random_uniform of the difference plus 1, then add to a\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -484,7 +493,9 @@ Controls/views start with UI\
 \i0  property to read the color as a 
 \i CGColor
 \i0  (see Core Animation) [NOTE: can use for your own custom UIColor too]\
-{\listtext	\uc0\u8259 	}initializer that takes red, green, blue, alpha as doubles from 0 to 1.0 for custom color [can use cgColor to pass to CA layer]\
+{\listtext	\uc0\u8259 	}initializer that takes red, green, blue, alpha as CGFloat from 0 to 1.0 for custom color [can use cgColor to pass to CA layer]\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}alpha 1.0 = fully opaque\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul FileManager\ulnone  - helps deal with file system\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -950,9 +961,10 @@ Core Graphics\
 \fs28 \ul CGPoint\ulnone  - struct representing a point in space\
 {\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height) [stored as CGFloat]\
 {\listtext	\'95	}\ul CGRect\ulnone  - a rectangle\
-{\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)\
+{\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions that take CGFloat)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}easy to cast other things like ints, floats, etc. just by using CGFloat(value)\
+{\listtext	\uc0\u8259 	}
 \i pi
 \i0 : static member, the value of pi (also available as members of Double and Float)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -998,5 +1010,6 @@ TODO: learn about particle effects (smoke, explosions, etc.)\
 TODO: learn about multiple frame sprites, how to better interleave the explosions with the sprites, etc.\
 TODO: figure out if the FPS thing goes away in release mode or if you\'92re supposed to manually take it out (tutorial so far ignored it and left it in)\
 TODO: find out about autolayout, adaptive layouts, etc. for SpriteKit apps\
+TODO: learn about arc4random and arc4random_uniform (and what Darwin is and different ways of doing random numbers in Swift)\
 \
 }

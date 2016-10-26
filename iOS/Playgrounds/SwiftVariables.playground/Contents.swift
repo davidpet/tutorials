@@ -50,6 +50,7 @@ let val2 = Int("100") ?? 0
 var thename: String = "Bob"
 var theage: Int = 5
 var theage2: UInt = 5                   //unsigned integer
+var theage3: UInt32 = 5                 //int types like these available for interop with things like C standard lib functions
 var latitude: Float = -18.633333333
 var longitude: Double = -18.633333333       //recommended by Apple due to higher accuracy
 var altitude = -18.63333                //becomes a Double even though Float would work
@@ -58,6 +59,8 @@ var success: Bool = true
 //BUILT-IN CONSTANTS
 Double.pi
 Float.pi
+Int.max
+UInt.min
 
 //TYPDEFS
 typealias MyType = String
