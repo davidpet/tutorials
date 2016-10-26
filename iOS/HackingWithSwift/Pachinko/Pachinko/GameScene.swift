@@ -14,6 +14,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var scoreLabel: SKLabelNode!
     var editLabel: SKLabelNode!
+    var ballsLabel: SKLabelNode!
     
     var score: Int = 0 {
         didSet {
@@ -28,6 +29,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             } else {
                 editLabel.text = "Edit"
             }
+        }
+    }
+    
+    var balls: Int = 5 {
+        didSet {
+            ballsLabel.text = "Balls: \(balls)"
         }
     }
     
@@ -65,6 +72,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         editLabel.position = CGPoint(x: 80, y: 700)
         
         addChild(editLabel)
+        
+        ballsLabel = SKLabelNode(fontNamed: "Chalkduster")
+        ballsLabel.text = "Balls: 5"
+        ballsLabel.horizontalAlignmentMode = .right
+        ballsLabel.position = CGPoint(x: 980, y: CGFloat(700) + scoreLabel.fontSize)
+        
+        addChild(ballsLabel)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,7 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         let topBlock = blocks.sorted{ $0.zPosition < $1.zPosition }.last
                         topBlock!.removeFromParent()
                     }
-                } else {
+                } else if balls > 0 {
                     let ballColor = ballColors[GKRandomSource.sharedRandom().nextInt(upperBound: ballColors.count)]
                     let ball = SKSpriteNode(imageNamed: "ball\(ballColor)")
                     ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.size.width / 2.0)
@@ -158,9 +172,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if object.name == "good" {
             destroy(ball: ball)
             score += 1
+            balls += 1
         } else if object.name == "bad" {
             destroy(ball: ball)
-            score -= 1
+            if score > 0 {
+                score -= 1
+            }
+            balls -= 1
         }
     }
     
