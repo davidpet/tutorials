@@ -77,14 +77,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             else {
                 if editingMode {
-                    let size = CGSize(width: GKRandomDistribution(lowestValue: 16,                                                        highestValue: 128).nextInt(), height: 16)
-                    let box = SKSpriteNode(color: RandomColor(), size: size)
-                    box.zRotation = RandomCGFloat(min: 0, max: 3)
-                    box.position = location
-                    box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
-                    box.physicsBody!.isDynamic = false
-                    
-                    addChild(box)
+                    let blocks = objects.filter { $0.name == "block" }
+                    if blocks.isEmpty {
+                        let size = CGSize(width: GKRandomDistribution(lowestValue: 16,                                                        highestValue: 128).nextInt(), height: 16)
+                        let box = SKSpriteNode(color: RandomColor(), size: size)
+                        box.zRotation = RandomCGFloat(min: 0, max: 3)
+                        box.position = location
+                        box.physicsBody = SKPhysicsBody(rectangleOf: box.size)
+                        box.physicsBody!.isDynamic = false
+                        box.name = "block"
+                        
+                        addChild(box)
+                    }
+                    else {
+                        let topBlock = blocks.sorted{ $0.zPosition < $1.zPosition }.last
+                        topBlock!.removeFromParent()
+                    }
                 } else {
                     let ballColor = ballColors[GKRandomSource.sharedRandom().nextInt(upperBound: ballColors.count)]
                     let ball = SKSpriteNode(imageNamed: "ball\(ballColor)")
