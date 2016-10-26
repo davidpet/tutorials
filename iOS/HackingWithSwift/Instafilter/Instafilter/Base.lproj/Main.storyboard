@@ -3,6 +3,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,40 +21,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-fs-6iK">
-                                <frame key="frameInset" minY="64" width="375" height="470"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-fs-6iK">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-fn-WX7">
-                                        <frame key="frameInset" minX="10" minY="10" width="355" height="450"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-fn-WX7"/>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="dnn-fn-WX7" firstAttribute="leading" secondItem="hGN-fs-6iK" secondAttribute="leading" constant="10" id="3YE-FK-xXx"/>
+                                    <constraint firstItem="dnn-fn-WX7" firstAttribute="centerX" secondItem="hGN-fs-6iK" secondAttribute="centerX" id="8sv-vm-nqh"/>
+                                    <constraint firstItem="dnn-fn-WX7" firstAttribute="top" secondItem="hGN-fs-6iK" secondAttribute="top" constant="10" id="Zuj-SO-0Yf"/>
+                                    <constraint firstItem="dnn-fn-WX7" firstAttribute="centerY" secondItem="hGN-fs-6iK" secondAttribute="centerY" id="shD-Vq-aRv"/>
+                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Intensity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Sy-RJ1">
-                                <frame key="frameInset" minX="16" minY="562" width="72" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Sy-RJ1">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="ZSB-Jj-I0z"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-9j-9aL">
-                                <frame key="frameInset" minX="96" minY="558" width="262" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZO-Za-IZ2">
-                                <frame key="frameInset" minX="16" minY="605" width="120" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fZ1-9j-9aL"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nZO-Za-IZ2">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="M1b-ST-ywE"/>
+                                    <constraint firstAttribute="height" constant="44" id="PoY-Iz-YOX"/>
+                                </constraints>
                                 <state key="normal" title="Change Filter"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-F0-5c3">
-                                <frame key="frameInset" minX="300" minY="605" width="60" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-F0-5c3">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Ecp-I6-IAc"/>
+                                </constraints>
                                 <state key="normal" title="Save"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fZ1-9j-9aL" secondAttribute="trailing" constant="3" id="0Ny-tO-c7V"/>
+                            <constraint firstItem="fZ1-9j-9aL" firstAttribute="top" secondItem="hGN-fs-6iK" secondAttribute="bottom" constant="24" id="3KR-hK-RD5"/>
+                            <constraint firstItem="nZO-Za-IZ2" firstAttribute="top" secondItem="fZ1-9j-9aL" secondAttribute="bottom" constant="17" id="8T2-Yk-NGM"/>
+                            <constraint firstItem="bda-Sy-RJ1" firstAttribute="centerY" secondItem="fZ1-9j-9aL" secondAttribute="centerY" id="Fmm-HW-4d7"/>
+                            <constraint firstItem="nZO-Za-IZ2" firstAttribute="top" secondItem="BRQ-F0-5c3" secondAttribute="top" id="LAD-vw-FyB"/>
+                            <constraint firstItem="hGN-fs-6iK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="RFN-tK-cg1"/>
+                            <constraint firstItem="fZ1-9j-9aL" firstAttribute="leading" secondItem="bda-Sy-RJ1" secondAttribute="trailing" constant="10" id="Tm2-nC-DF9"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nZO-Za-IZ2" secondAttribute="bottom" constant="18" id="Ys7-77-erd"/>
+                            <constraint firstAttribute="trailing" secondItem="hGN-fs-6iK" secondAttribute="trailing" id="cmg-ck-MAy"/>
+                            <constraint firstItem="bda-Sy-RJ1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gFv-pW-Dkd"/>
+                            <constraint firstItem="bda-Sy-RJ1" firstAttribute="leading" secondItem="nZO-Za-IZ2" secondAttribute="leading" id="gVH-QI-YLY"/>
+                            <constraint firstItem="hGN-fs-6iK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jmr-r1-IGr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BRQ-F0-5c3" secondAttribute="trailing" constant="-1" id="qdH-3f-p31"/>
+                            <constraint firstItem="nZO-Za-IZ2" firstAttribute="baseline" secondItem="BRQ-F0-5c3" secondAttribute="firstBaseline" id="yZz-uF-vZm"/>
+                            <constraint firstItem="BRQ-F0-5c3" firstAttribute="baseline" secondItem="nZO-Za-IZ2" secondAttribute="firstBaseline" id="zcS-Of-HMw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2Tk-zT-a8W"/>
                 </viewController>
