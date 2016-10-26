@@ -99,7 +99,14 @@
 \i standard
 \i0  - property that represents the UserDefaults instance you should normally use\
 {\listtext	\uc0\u8259 	}don\'92t put more than about 100 KB of data in here or it will slow down your app loading\
-{\listtext	\uc0\u8259 	}supports a huge range of types by default (Int, Bool, arrays, dictionaries, URL, Date, etc.)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you use 
+\i NSCoding
+\i0  to transform the object to 
+\i Data
+\i0 , you can read/write directly to disk if too big for the 100 KB limit\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}supports a huge range of types by default (Int, Bool, arrays, dictionaries, URL, Date, etc.)\
 {\listtext	\uc0\u8259 	}
 \i set(value, forKey: keyname)
 \i0  - create or update a value in the defaults with a given keyname\
@@ -137,6 +144,11 @@
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}the object must be either one of the built-in types automatically supported, or implement NSCoding protocol\
 {\listtext	\uc0\u8259 	}if an array or dictionary, all members must be one of the built-in types or implement NSCoding\
 {\listtext	\uc0\u8259 	}can archive and unarchive arrays and dictionaries of NSCoding types and the array/dictionary portion will be handled transparently\
+{\listtext	\uc0\u8259 	}NOTE: you can read/write the 
+\i Data
+\i0  object directly to disk if it\'92s too big to put in 
+\i UserDefaults
+\i0 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSKeyedUnarchiver\ulnone  - static class for transforming a 
 \i Data
