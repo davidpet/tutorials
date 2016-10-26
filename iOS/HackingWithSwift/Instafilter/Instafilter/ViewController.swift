@@ -12,6 +12,7 @@ import CoreImage
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var intensity: UISlider!
+    @IBOutlet weak var saveButton: UIButton!
 
     var currentImage: UIImage!
     var context: CIContext!
@@ -48,6 +49,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+        saveButton.isEnabled = true
     }
     
     func applyProcessing() {

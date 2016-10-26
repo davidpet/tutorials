@@ -56,7 +56,7 @@
                                     <action selector="changeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zso-va-itV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-F0-5c3">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRQ-F0-5c3">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="Ecp-I6-IAc"/>
                                 </constraints>
@@ -89,6 +89,7 @@
                     <connections>
                         <outlet property="imageView" destination="dnn-fn-WX7" id="nhz-QQ-nFH"/>
                         <outlet property="intensity" destination="fZ1-9j-9aL" id="lDJ-wI-aDP"/>
+                        <outlet property="saveButton" destination="BRQ-F0-5c3" id="hIo-5b-U4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
