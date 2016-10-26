@@ -156,6 +156,15 @@ MyFinalClass().x = 10
 class MyOpenClass {final func x() -> Int { return 10}}
 //class MyOpenClass2 : MyOpenClass { override func x() -> Int { return 20 }}     //can't override a final method
 
+//REQUIRED
+class MyRequiredBaseClass {
+    required init(x: Int, y: Int) {     //in theory this forces the subclass to implement this method (although it's not doing that to me)
+    }                                       //can mark init as required in protocols too
+}
+class MyRequiredClass: MyRequiredBaseClass {
+}
+let mrc = MyRequiredClass(x: 100, y: 200)
+
 //CONVENTIONS
 //class names start with capital and methods/properties start with lowercase
 //use structs unless you need to use classes (structs = safety, classes = flexibility)

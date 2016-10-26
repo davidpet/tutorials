@@ -90,6 +90,98 @@
 \i appendingPathComponent()
 \i0  - adds a component to the url path\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul UserDefaults\ulnone  - data store where you can place key-value data as long as the app is installed\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}this store is 
+\b not safe for private data
+\b0 \
+{\listtext	\uc0\u8259 	}
+\i standard
+\i0  - property that represents the UserDefaults instance you should normally use\
+{\listtext	\uc0\u8259 	}don\'92t put more than about 100 KB of data in here or it will slow down your app loading\
+{\listtext	\uc0\u8259 	}supports a huge range of types by default (Int, Bool, arrays, dictionaries, URL, Date, etc.)\
+{\listtext	\uc0\u8259 	}
+\i set(value, forKey: keyname)
+\i0  - create or update a value in the defaults with a given keyname\
+{\listtext	\uc0\u8259 	}retrieval methods look like this: bool(forKey:), object(forKey:), etc.\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}return default values instead of optionals\
+{\listtext	\uc0\u8259 	}object() returns Any? instead of a default (should use ?? operator)\
+{\listtext	\uc0\u8259 	}the examples use object() to get arrays and dictionaries\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}if working with custom types, you have to conform to 
+\i NSCoding
+\i0  protocol and use 
+\i NSKeyedArchiver
+\i0  and 
+\i NSKeyedUnarchiver
+\i0  classes to get and set a 
+\i Data
+\i0 , which you can then write with 
+\i set\
+\ls1\ilvl1
+\i0 {\listtext	\uc0\u8259 	}NOTE: the tutorial shows resaving the whole array instead of just the pieces that changed (or instead of making a key for each person or whatever)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSKeyedArchiver\ulnone  - static class for transforming an object graph (object and all the objects it references, etc.) into a 
+\i Data
+\i0  for use with 
+\i UserDefaults
+\i0 \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i archivedData(withRootObject:)
+\i0  - static method to obtain a 
+\i Data
+\i0  for an object graph\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}the object must be either one of the built-in types automatically supported, or implement NSCoding protocol\
+{\listtext	\uc0\u8259 	}if an array or dictionary, all members must be one of the built-in types or implement NSCoding\
+{\listtext	\uc0\u8259 	}can archive and unarchive arrays and dictionaries of NSCoding types and the array/dictionary portion will be handled transparently\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSKeyedUnarchiver\ulnone  - static class for transforming a 
+\i Data
+\i0  into an object (assuming it was transformed originally using 
+\i NSKeyedArchiver
+\i0 )\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i unarchiveObject(with:)
+\i0  - takes the 
+\i Data
+\i0  object (eg. from 
+\i UserDefaults
+\i0 ) and transforms it back to the original object using NSCoding protocol\
+{\listtext	\uc0\u8259 	}you must cast the object from Any?\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSCoding\ulnone  - protocol to allow for serializing object graph as 
+\i Data
+\i0 \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}many of Apple\'92s library types in UIKit, SpriteKit, etc. conform to this protocol\
+{\listtext	\uc0\u8259 	}WARNING: you also have to inherit from NSObject or your app will crash\
+{\listtext	\uc0\u8259 	}
+\i required init(NSCoder)
+\i0  for creating an instance of the class from a coder\
+{\listtext	\uc0\u8259 	}
+\i encode(NSCoder) 
+\i0 for creating a 
+\i Data
+\i0  from a coder\
+{\listtext	\uc0\u8259 	}both the init and encode methods use methods of the coder to serialize/deserialize members of the class (don\'92t need to add a header for the class or anything like that)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSCoder\ulnone  - a type that is passed into 
+\i init
+\i0  and 
+\i encode
+\i0  methods for NSCoding protocol\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i decodeObject(forKey:)
+\i0  - get an object with the given key as Any? (which you can cast - safe if you are the one who did it)\
+{\listtext	\uc0\u8259 	}
+\i encodeObject(_:forKey:)
+\i0  - add a value with a keyname to the storage for the class\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
 {\listtext	\'95	}\ul performSelector(onMainThread:)\ulnone  - runs a method in the main UI thread\
@@ -762,11 +854,11 @@ SpriteKit\
 \fs28 \ul Coordinates\ulnone  \
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}Y axis is flipped from normal (0 is bottom of screen)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}Coordinates of an object are coordinates of the center\
+{\listtext	\uc0\u8259 	}Coordinates of an object are coordinates of the center\
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in scene editor -> aiming for 60 FPS for games\
-\ls9\ilvl0{\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
+{\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
@@ -942,7 +1034,7 @@ SpriteKit\
 \i position
 \i0  - like all other nodes, you can position it (eg. to where your object to get blown up is/was)\
 {\listtext	\uc0\u8259 	}just use addChild() and then remove the child it\'92s replacing and it will look like the object is being blown up (or whatever)\
-{\listtext	\uc0\u8259 	}animation happens automatically and then node goes away\ul \ulc0 \
+{\listtext	\uc0\u8259 	}animation happens automatically and then node goes away\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -1018,4 +1110,5 @@ TODO: learn about arc4random and arc4random_uniform (and what Darwin is and diff
 TODO: find out if names/paths are case sensitive (eg. with assets)\
 TODO: what happens if you create an object over another object when using dynamic physics on both or either?\
 TODO: is there a quick way to get nodes in their z-order instead of added order?\
+TODO: clarify interchangeability of NSString and other objective-C types with Swift counterparts\
 }
