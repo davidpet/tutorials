@@ -896,6 +896,9 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}SKNode objects form a tree of ownership\
 {\listtext	\uc0\u8259 	}you can SUBCLASS SKNode yourself even if not rendering (eg. hole that owns hole image and mole image in whack-a-mole game) [stuff you don\'92t need like size can be ignored as well]\
 {\listtext	\uc0\u8259 	}NOTE: often want to store your nodes directly in scene instead of finding in tree every time\
+{\listtext	\uc0\u8259 	}coordinates, zPositions, etc. are relative to the node\'92s parent (including things like crop nodes)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}very useful because objects can be repositioned without knowing where they are exactly\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -955,6 +958,7 @@ SpriteKit\
 \i0  - CGPoint representing the position of the center of the image in its container\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}it\'92s ok to have it go off screen\
+\ls9\ilvl2{\listtext	\uc0\u8259 	}negative numbers are also fine\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i blendMode
@@ -965,7 +969,10 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zPosition
 \i0  - the z-order number of the item (use -1 for background)(don\'92t usually HAVE to set if using physics)\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}defaults to 0 (so setting to 1 makes something pop in front of default items)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zRotation
 \i0  - rotation about the z-axis in radians (counterclockwise on the screen)\
 {\listtext	\uc0\u8259 	}
@@ -1073,7 +1080,19 @@ SpriteKit\
 \i position
 \i0  - like all other nodes, you can position it (eg. to where your object to get blown up is/was)\
 {\listtext	\uc0\u8259 	}just use addChild() and then remove the child it\'92s replacing and it will look like the object is being blown up (or whatever)\
-{\listtext	\uc0\u8259 	}animation happens automatically and then node goes away\ul \
+{\listtext	\uc0\u8259 	}animation happens automatically and then node goes away\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKCropNode\ulnone  - SKNode that crops its children\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i maskNode
+\i0  - SKNode representing the image to use for cropping\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}the mask node (for instance an SKSpriteNode, or a tree) is rendered, and then any transparent pixels in that mask become cropped in the output of the crop node\
+{\listtext	\uc0\u8259 	}default is nil which means no cropping\
+{\listtext	\uc0\u8259 	}HINT: for penguin whacking game, the mask consisted of the visible hole plus a rectangle above it to account for going above ground\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}eg. SKNode that has hole image, crop node, and penguin image (where penguin is child of crop node)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
