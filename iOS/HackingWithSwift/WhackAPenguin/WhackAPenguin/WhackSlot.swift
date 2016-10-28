@@ -37,7 +37,15 @@ class WhackSlot: SKNode {
         charNode.xScale = 1.0
         charNode.yScale = 1.0
         
-        charNode.run(SKAction.moveBy(x: 0, y: 80, duration: 0.05))
+        let mud = SKEmitterNode(fileNamed: "Mud")!
+        mud.zPosition = 1
+        addChild(mud)
+        
+        let move = SKAction.moveBy(x: 0, y: 80, duration: 0.05)
+        let delay = SKAction.wait(forDuration: 0.25)
+        let mudStop = SKAction.run { mud.removeFromParent() }
+        
+        charNode.run(SKAction.sequence([move, delay, mudStop]))
         isVisible = true
         isHit = false
         

@@ -32,6 +32,7 @@
 		B96BE33B1DC30D6000487603 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96BE33A1DC30D6000487603 /* WhackSlot.swift */; };
 		B96BE33E1DC331D900487603 /* Smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = B96BE33C1DC331D900487603 /* Smoke.sks */; };
 		B96BE33F1DC331D900487603 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = B96BE33D1DC331D900487603 /* spark.png */; };
+		B96BE3411DC3378A00487603 /* Mud.sks in Resources */ = {isa = PBXBuildFile; fileRef = B96BE3401DC3378A00487603 /* Mud.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		B96BE33A1DC30D6000487603 /* WhackSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 		B96BE33C1DC331D900487603 /* Smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Smoke.sks; sourceTree = "<group>"; };
 		B96BE33D1DC331D900487603 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		B96BE3401DC3378A00487603 /* Mud.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Mud.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				B96BE3051DC3091E00487603 /* GameScene.sks */,
 				B96BE3091DC3091E00487603 /* GameScene.swift */,
 				B96BE33A1DC30D6000487603 /* WhackSlot.swift */,
+				B96BE3401DC3378A00487603 /* Mud.sks */,
 				B96BE33C1DC331D900487603 /* Smoke.sks */,
 				B96BE33D1DC331D900487603 /* spark.png */,
 				B96BE30B1DC3091E00487603 /* GameViewController.swift */,
@@ -207,6 +210,7 @@
 				B96BE32C1DC30BD200487603 /* penguinEvil.png in Resources */,
 				B96BE3141DC3091E00487603 /* LaunchScreen.storyboard in Resources */,
 				B96BE3371DC30BD200487603 /* whackMask@2x.png in Resources */,
+				B96BE3411DC3378A00487603 /* Mud.sks in Resources */,
 				B96BE33E1DC331D900487603 /* Smoke.sks in Resources */,
 				B96BE3301DC30BD200487603 /* whack.caf in Resources */,
 				B96BE32F1DC30BD200487603 /* penguinGood@2x.png in Resources */,
