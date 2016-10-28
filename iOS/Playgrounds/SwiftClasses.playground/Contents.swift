@@ -158,11 +158,11 @@ class MyOpenClass {final func x() -> Int { return 10}}
 
 //REQUIRED
 class MyRequiredBaseClass {
-    required init(x: Int, y: Int) {     //in theory this forces the subclass to implement this method (although it's not doing that to me)
+    required init(x: Int, y: Int) {     //in theory this forces the subclass to implement this method (although there is an exception if you don't specify ANY inits in the subclass)
     }                                       //can mark init as required in protocols too
 }
 class MyRequiredClass: MyRequiredBaseClass {
-}
+}                                                   //inits of base automatically included here (even required) since not providing own inits
 let mrc = MyRequiredClass(x: 100, y: 200)
 
 //CONVENTIONS
@@ -182,5 +182,5 @@ let mrc = MyRequiredClass(x: 100, y: 200)
 //How to check multiple protocols in class like <> in objective-c?
 //How to make protocol conform dynamically instead of doing extension
 //Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?
-
+//Does providing your own init hide the base inits for your class (and did I already cover that above?)
 

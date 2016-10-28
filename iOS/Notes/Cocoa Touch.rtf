@@ -387,7 +387,7 @@ Controls/views start with UI\
 \i0  to add buttons (takes closure so you can say what to do when button pressed)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}can also take UIAlertAction instance that you can create locally\
-\ls4\ilvl3{\listtext	\uc0\u8259 	}the title of the action is readable in the handler\
+{\listtext	\uc0\u8259 	}the title of the action is readable in the handler\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i addTextField
@@ -548,8 +548,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}use the initializer with 
 \i named
 \i0  to load an image with the given name from your app bundle\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}can initialize form a CGImage as well\
+{\listtext	\uc0\u8259 	}can initialize form a CGImage as well\
 {\listtext	\uc0\u8259 	}Content Mode: Aspect Fit = show whole image with correct aspectt ratio, Aspect Fill = fill whole space without distorting (some will get cropped off - but may need to tell it to clip in AI)\
 {\listtext	\uc0\u8259 	}
 \i setImage(_:for:)
@@ -738,8 +737,7 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImageJPEGRepresentation()\ulnone  - function to create a 
 \i Data
 \i0  containing a UIImage (input) compressed to jpeg (quality in input as well)\
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImageWriteToSavedPhotosAlbum()\ulnone  - write a UIImage (including a UIImageView.image for instance) to the user\'92s photo library (camera roll if has camera, else saved photos) and call method (selector syntax) when done\
+{\listtext	\'95	}\ul UIImageWriteToSavedPhotosAlbum()\ulnone  - write a UIImage (including a UIImageView.image for instance) to the user\'92s photo library (camera roll if has camera, else saved photos) and call method (selector syntax) when done\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: even if this is a filtered version of an existing image, it should end up as a copy\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -892,7 +890,14 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in scene editor -> aiming for 60 FPS for games\
-{\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
+{\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: most of what I put under SKSpriteNode below actually belongs here (will fix later) [see below]\
+{\listtext	\uc0\u8259 	}SKNode objects form a tree of ownership\
+{\listtext	\uc0\u8259 	}you can SUBCLASS SKNode yourself even if not rendering (eg. hole that owns hole image and mole image in whack-a-mole game) [stuff you don\'92t need like size can be ignored as well]\
+{\listtext	\uc0\u8259 	}NOTE: often want to store your nodes directly in scene instead of finding in tree every time\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
@@ -1101,7 +1106,7 @@ Core Graphics\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0\cf0 {\listtext	\'95	}\ul CGImage
 \i \ulnone  - 
-\i0 an image\ul \ulc0 \
+\i0 an image\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -1130,7 +1135,7 @@ CoreImage\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 CIFilter\ulnone  - an image filter (takes input image and some filter settings and creates output image)\
+\fs28 \ul CIFilter\ulnone  - an image filter (takes input image and some filter settings and creates output image)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(name:)
@@ -1218,4 +1223,5 @@ TODO: find out if names/paths are case sensitive (eg. with assets)\
 TODO: what happens if you create an object over another object when using dynamic physics on both or either?\
 TODO: is there a quick way to get nodes in their z-order instead of added order?\
 TODO: clarify interchangeability of NSString and other objective-C types with Swift counterparts\
+TODO: move SKSpriteNode stuff that belongs in SKNode\
 }

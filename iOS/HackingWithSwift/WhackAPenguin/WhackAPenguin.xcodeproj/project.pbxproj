@@ -29,6 +29,7 @@
 		B96BE3361DC30BD200487603 /* whackMask.png in Resources */ = {isa = PBXBuildFile; fileRef = B96BE3281DC30BD200487603 /* whackMask.png */; };
 		B96BE3371DC30BD200487603 /* whackMask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B96BE3291DC30BD200487603 /* whackMask@2x.png */; };
 		B96BE3391DC30BE700487603 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96BE3381DC30BE700487603 /* Helper.swift */; };
+		B96BE33B1DC30D6000487603 /* WhackSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96BE33A1DC30D6000487603 /* WhackSlot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B96BE3281DC30BD200487603 /* whackMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = whackMask.png; sourceTree = "<group>"; };
 		B96BE3291DC30BD200487603 /* whackMask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "whackMask@2x.png"; sourceTree = "<group>"; };
 		B96BE3381DC30BE700487603 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		B96BE33A1DC30D6000487603 /* WhackSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhackSlot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				B96BE3031DC3091E00487603 /* AppDelegate.swift */,
 				B96BE3051DC3091E00487603 /* GameScene.sks */,
 				B96BE3091DC3091E00487603 /* GameScene.swift */,
+				B96BE33A1DC30D6000487603 /* WhackSlot.swift */,
 				B96BE30B1DC3091E00487603 /* GameViewController.swift */,
 				B96BE30D1DC3091E00487603 /* Main.storyboard */,
 				B96BE3101DC3091E00487603 /* Assets.xcassets */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96BE30A1DC3091E00487603 /* GameScene.swift in Sources */,
+				B96BE33B1DC30D6000487603 /* WhackSlot.swift in Sources */,
 				B96BE30C1DC3091E00487603 /* GameViewController.swift in Sources */,
 				B96BE3041DC3091E00487603 /* AppDelegate.swift in Sources */,
 				B96BE3391DC30BE700487603 /* Helper.swift in Sources */,
