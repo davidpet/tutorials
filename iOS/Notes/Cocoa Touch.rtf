@@ -242,9 +242,19 @@
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}probably want to use [unowned self] unless dispatching to main thread\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i asyncAfter(deadline:closure:)
+\i0  - execute a closure at a certain time (or after a delay)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls2\ilvl2\cf0 {\listtext	\uc0\u8259 	}to execute 1 second from now, use 
+\i .now() + 1
+\i0  as the deadline\
+{\listtext	\uc0\u8259 	}HINT: queue up a method and then have that method queue itself up again when done (or something like that)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: it is NEVER ok to do UI changes in a background thread: to do that you need to dispatch a task to the 
 \i main
 \i0  queue\
+{\listtext	\uc0\u8259 	}NOTE: it\'92s ok to manipulate SKNode objects in a background thread (not the same as UI objects)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls2\ilvl0\cf0 {\listtext	\'95	}\ul performSelector\ulnone  - as an alternative if you just want to run a whole method in the simplest way, use performSelector function overloads (see Foundation)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -879,7 +889,9 @@ WebKit\
 SpriteKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 2d Games (inc. sprites, fonts, physics, particle effects, etc.)
+\fs24 \cf0 2d Games (inc. sprites, fonts, physics, particle effects, etc.)\
+See Plachinko project for dropping balls into animated slots and having them explode with a score\
+See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), etc.
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}
@@ -890,7 +902,7 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in scene editor -> aiming for 60 FPS for games\
-{\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes\
+{\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: most of what I put under SKSpriteNode below actually belongs here (will fix later) [see below]\
 {\listtext	\uc0\u8259 	}SKNode objects form a tree of ownership\
@@ -899,6 +911,8 @@ SpriteKit\
 {\listtext	\uc0\u8259 	}coordinates, zPositions, etc. are relative to the node\'92s parent (including things like crop nodes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}very useful because objects can be repositioned without knowing where they are exactly\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}good idea to encapsulate behavior in SKNode subclasses that other classes or the game scene can make use of\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -950,6 +964,9 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(color:size:)
 \i0  - load a rectangle with the given color (UIColor) and size (CGSize)\
+\ls9\ilvl1{\listtext	\uc0\u8259 	}
+\i texture
+\i0  - SKTexture property, can use it to reassign the image after creation (eg. flipping between states of a character)\
 {\listtext	\uc0\u8259 	}
 \i size
 \i0  - CGSize with size information for the node\
@@ -983,11 +1000,15 @@ SpriteKit\
 \i0  - optionally set this to a string that will be used to identify the object (for instance in collision detection) [can give multiple objects same name to name them by type]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: this is the preferred way rather than storing references to objects or whatever\
+\ls9\ilvl2{\listtext	\uc0\u8259 	}can reassign name according to state if want\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i run()
-\i0  - add an SKAction to the execution list for the node\
-{\listtext	\uc0\u8259 	}
+\i0  - add an SKAction to the execution list for the node (in other words execute the action)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}ok to swap image after doing it in same function on main loop (because won\'92t get to the rendering until after that)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
 \i0  - which nodes this thing can collide with (defaults to everything)\
 {\listtext	\uc0\u8259 	}
@@ -1000,6 +1021,15 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i removeFromParent()
 \i0  - removes the node from its parent node (eg. remove a sprite from a scene after the character dies)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKTexture\ulnone  - an image, more basic than SKSpriteNode\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}SKTexture is to SKSprite Node as UIImage is to UIImageView\
+{\listtext	\uc0\u8259 	}
+\i init(imageNamed:)
+\i0  - create an image from a resource\
+{\listtext	\uc0\u8259 	}probably other similar initializers and methods as sprite node\
+{\listtext	\uc0\u8259 	}NOTE: this is not an SKNode\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsBody\ulnone  - representation of physics properties within SpriteKit (set as properties of nodes)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1046,6 +1076,9 @@ SpriteKit\
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i rotate(byAngle:duration:)
 \i0  - factory method to create an SKAction that represents a rotation (radians and seconds)\
+\ls9\ilvl1{\listtext	\uc0\u8259 	}
+\i moveBy(x:y:duration:)
+\i0  - linear movement over a duration in seconds (floating point)\
 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\

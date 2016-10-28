@@ -101,3 +101,5 @@ var successCopy = success       //NUMBERS and BOOLEANS are value types
 //Attributes?  Decorators?
 //Weak references?
 //Passing value typed by reference?
+//When can conversions be done implicitly vs. explicitly?  What about for custom types?
+
