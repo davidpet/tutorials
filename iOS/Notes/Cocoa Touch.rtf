@@ -981,6 +981,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}it\'92s ok to have it go off screen\
 \ls9\ilvl2{\listtext	\uc0\u8259 	}negative numbers are also fine\
+{\listtext	\uc0\u8259 	}defaults to 0,0 (center)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i blendMode
@@ -1143,6 +1144,8 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \i0  - like all other nodes, you can position it (eg. to where your object to get blown up is/was)\
 {\listtext	\uc0\u8259 	}just use addChild() and then remove the child it\'92s replacing and it will look like the object is being blown up (or whatever)\
 {\listtext	\uc0\u8259 	}animation happens automatically and then node goes away\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}the length of the animation is part of the particle effect itself\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKCropNode\ulnone  - SKNode that crops its children\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1308,4 +1311,5 @@ TODO: move SKSpriteNode stuff that belongs in SKNode\
 TODO: are SKAction instances one-shot deals or are they reusable?\
 TODO: is action order for SKNode guaranteed if not done with sequence()?\
 TODO: will nodes(at:) method of SKNode return nodes that are hidden, cropped, etc?\
+TODO: figure out how to smoothly wind down particle effects and remove them (apparently they don\'92t go away after all??? and how to set lifetime?)\
 }
