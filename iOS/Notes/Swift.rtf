@@ -14,14 +14,23 @@
 *questions inside the playgrounds to resolve over time\
 **also want to fit in almost-empty playgrounds like Modules, Functional Programming. etc.\
 \
+Nesting: you are allowed to nest enums in enums, structs in structs, functions in functions, etc. for logical grouping (eg. MyEnum.MyOtherEnum.value)\
+	HINT: can make things only exist to nest other things (eg. Resources enum that contains Pictures and Documents enums)\
+	-can nest mixed types too (eg. enum in struct) which is like namespacing it\
+	-nested functions are restricted to their enclosing function but automatically capture and can be returned as closures (just like Python)\
+	HINT: nesting functions that capture variables is a possible way to return partially applied functions\
+Access Control:\
+	can use private on nested things so only the parent can use it (NOTE: you cannot expose a private type as a property, but you can have a private property of that type)\
+\
 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/\
 	*has API reference and language guide\
 \
-Pro Swift: sections left = 1: nesting, markup; 7: OOP, POP, MVC, MVVM, command-line\
+Pro Swift: sections left = 1: markup; 7: OOP, POP, MVC, MVVM, command-line\
 	***remember the videos also (none watched)\
 \
 on project 16 of Hacking with Swift\
 \
+TODO: put stuff in this document in the appropriate playgrounds if applicable\
 TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)\
 TODO: is there a list type like in clojure that can be lazy, etc. or do you use array for that?\
 TODO: Is there a way to declare a reference variable (like int& in C++)?\
