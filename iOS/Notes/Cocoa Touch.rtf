@@ -291,6 +291,7 @@ Controls/views start with UI\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul backgroundColor\ulnone  - background color of the control (UIColor)\
 {\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
+{\listtext	\uc0\u8259 	}\ul center\ulnone  - a CGPoint representing the center coordinates of the view within its superview\
 {\listtext	\uc0\u8259 	}\ul isHidden
 \i \ulnone  - 
 \i0 used for hiding a view\
@@ -551,6 +552,9 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImageView\ulnone  - for displaying images\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(image:)
+\i0  - create an instance from a UIImage instance (eg. in viewDidLoad when you don\'92t have in storyboard)\
+{\listtext	\uc0\u8259 	}
 \i image
 \i0  property set to a UIImage instance to display\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -562,7 +566,7 @@ Controls/views start with UI\
 \i named
 \i0  to load an image with the given name from your app bundle\
 {\listtext	\uc0\u8259 	}can initialize form a CGImage as well\
-{\listtext	\uc0\u8259 	}Content Mode: Aspect Fit = show whole image with correct aspectt ratio, Aspect Fill = fill whole space without distorting (some will get cropped off - but may need to tell it to clip in AI)\
+{\listtext	\uc0\u8259 	}Content Mode: Aspect Fit = show whole image with correct aspect ratio, Aspect Fill = fill whole space without distorting (some will get cropped off - but may need to tell it to clip in AI)\
 {\listtext	\uc0\u8259 	}
 \i setImage(_:for:)
 \i0  = change button image to a UIImage for given state(s) (.normal is good default)\
