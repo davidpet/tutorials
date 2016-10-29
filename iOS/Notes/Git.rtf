@@ -136,17 +136,6 @@ Tags\
 	git tag									list your tags without the messages\
 	git tag -n								list your tags with the message\
 	git tag -ln 1.*								list all tags that start with 1.\
-Git Objects\
-	Repository		stored in .git folder in local copy (contains change history for repo)\
-	Index/Staging	where you build up your changes which will be commited next time you commit\
-	Working Copy	Your source tree\
-	Branch		stream of development\
-	master		default initial branch name\
-	Hash			SHA1 hashes used (security bonus = can download a repo from untrusted source and as long as hashes match you know it\'92s right)\
-				NOTE: when using the hashes as parameters to git commands, can usually specify 5 or 6 characters (just has to be unique in the repo)\
-	HEAD			the last commit\
-	origin			default name of a remote\
-	origin/master		default main branch on remote names\
 Remotes\
 	git remote									list remotes you have configured\
 	git remote -v									list remotes you have configured with URLs\
@@ -179,12 +168,6 @@ Remotes\
 											NOTE: if others want to commit something for you to incorporate in your repo, they will use Pull Requests on GitHub\
 	git pull --rebase origin							rebase local branch onto the remote version so you don\'92t have to merge\
 	git fetch									Like pull but doesn\'92t merge (you can do that manually once the changes have been downloaded)\
-Subversion\
-	Loss of server	screwed in Subversion (CVCS) but everyone has the repo data in Git (DVCS)\
-	Peers			can push/pull to each other in Git (don\'92t even need a central server)\
-	Revision Numbers	not needed in Git because hashes identify things\
-	Merging		more easy and automatic in Git (eg. fast-forward merges)\
-	Modifications		extra indexing step\
 Commit Messages\
 	Preferred format (used by some tools even) is < 50 char first line summary then 2 returns then longer description (see below).\
 	One-liners are ok for very simple changes though.\
@@ -200,6 +183,23 @@ Update shopping.txt to remove Eggs\
 \f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
 	git commit --amend -m \'93revised message\'94		rewrite the previous commit message if you made a mistake\
 									NOTE: if you stage files before using \'97amend, the new changes will be amended in the previous commit too\
+Git Objects\
+	Repository		stored in .git folder in local copy (contains change history for repo)\
+	Index/Staging	where you build up your changes which will be commited next time you commit\
+	Working Copy	Your source tree\
+	Branch		stream of development\
+	master		default initial branch name\
+	Hash			SHA1 hashes used (security bonus = can download a repo from untrusted source and as long as hashes match you know it\'92s right)\
+				NOTE: when using the hashes as parameters to git commands, can usually specify 5 or 6 characters (just has to be unique in the repo)\
+	HEAD			the last commit\
+	origin			default name of a remote\
+	origin/master		default main branch on remote names\
+Subversion\
+	Loss of server	screwed in Subversion (CVCS) but everyone has the repo data in Git (DVCS)\
+	Peers			can push/pull to each other in Git (don\'92t even need a central server)\
+	Revision Numbers	not needed in Git because hashes identify things\
+	Merging		more easy and automatic in Git (eg. fast-forward merges)\
+	Modifications		extra indexing step\
 \
 TODO: read Git chapter in Beyond Code (resume at p. 151)\
 TODO: watch Git videos in Beyond Code\
