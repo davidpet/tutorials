@@ -49,6 +49,7 @@ person.sing()                                               //calling method lik
 //PROPERTY OBSERVERS, COMPUTED PROPERTIES, STATIC, and ACCESS CONTROL
 //see: SwiftStructs playground (syntax is the same)
 //in addition, can define a variable with "private" in front
+//NOTE: can declare a static method as 'class' instead of 'static' if want subclasses to be able to override it (static methods are automatically 'final')
 
 //INHERITENCE
 class Singer: Person {                          //only ONE base class allowed just like in C#
@@ -57,15 +58,17 @@ class Singer: Person {                          //only ONE base class allowed ju
     }
 }
 
-var singer = Singer(clothes: "tshirt", shoes: "sneakers")       //base INITIALIZER has been inherited
+var singer = Singer(clothes: "tshirt", shoes: "sneakers")       //base INITIALIZER has been INHERITED
 singer.sing()                                                   //overridden method is called here
 
 class HeavyMetalSinger: Singer {
     var volume: Int             //adding a member that isn't on the base is fine
     
+    //NOTE: initializers in subclasses have special rules (see comments within this initializer)
     init(clothes: String, shoes: String, volume: Int) {     //adding a new non-optional and non-defaulted property triggered need for a new initializer
-        self.volume = volume
-        super.init(clothes: clothes, shoes: shoes)      //calling base class initializer with SUPER
+        self.volume = volume                        //required to initialize your own properties before calling superclass init
+        super.init(clothes: clothes, shoes: shoes)      //calling base class initializer with SUPER (required or the base won't be constructed) (can't use superclass stuff until after this)
+        //can't call any methods until after super.init()
     }
     
     override func sing() {

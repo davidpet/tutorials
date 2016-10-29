@@ -21,6 +21,15 @@ Nesting: you are allowed to nest enums in enums, structs in structs, functions i
 	HINT: nesting functions that capture variables is a possible way to return partially applied functions\
 Access Control:\
 	can use private on nested things so only the parent can use it (NOTE: you cannot expose a private type as a property, but you can have a private property of that type)\
+	put modifiers in front of things (like C#)\
+	members, classes, global variables, etc. can have these \
+\
+	private: only used internally in same class or struct\
+	fileprivate: only used in same .Swift file\
+	internal: only used in same module (eg. your app) [DEFAULT]\
+	public: anyone\
+\
+	special syntax to allow public read but private write on a property: private(set) var x = 0\
 \
 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/\
 	*has API reference and language guide\
@@ -63,4 +72,7 @@ TODO: figure out layout issue with AutoLayout project (worked in simular but not
 TODO: make sure cover that lines can be split up across =, (), etc.\
 TODO: find out if UIImage and stuff like that support vector graphics (or else what resolutions you should make things at)\
 TODO: how to do underlined letters (like hangman)\
-TODO: what is the .now() when calling asyncAfter (why the dot and what is it getting and what else can you use?)}
+TODO: what is the .now() when calling asyncAfter (why the dot and what is it getting and what else can you use?)\
+TODO: look into global variables\
+TODO: look into other notes about access modifiers\
+}

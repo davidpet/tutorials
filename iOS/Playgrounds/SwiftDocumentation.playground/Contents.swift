@@ -71,3 +71,5 @@ func dostuff3(x: Int, y: Int) -> String {
 //QUESTIONS
 //Can you link within the comment, to other types/functions that are documented, etc?
 //Can you document member variables, local variables, etc?
+//Check out documentation for other formats (eg. ///) and other important things
+
