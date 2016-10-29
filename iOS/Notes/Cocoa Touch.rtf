@@ -294,6 +294,14 @@ Controls/views start with UI\
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}try to check for properties of view itself first (like backgroundColor)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul backgroundColor\ulnone  - background color of the control (UIColor)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}defaults different for different things (eg. for UIImage and UIImageView it\'92s 
+\i clear
+\i0  for transparent)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul alpha
+\i \ulnone  - 
+\i0 0 = transparent, 1 = normal (floating point value)\
 {\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
 {\listtext	\uc0\u8259 	}\ul center\ulnone  - a CGPoint representing the center coordinates of the view within its superview\
 {\listtext	\uc0\u8259 	}\ul isHidden
@@ -320,6 +328,11 @@ Controls/views start with UI\
 \i0 {\listtext	\uc0\u8259 	}by default, UIKit animations have an \'93ease in ease out\'94 curve (starts slow, gets faster, slows down at end, rather than straight linear timing)\
 {\listtext	\uc0\u8259 	}if you apply an identical transformation to what\'92s already applied, UIKit knows it and goes straight to the completion closure\
 {\listtext	\uc0\u8259 	}to transform back to normal, use CGAffineTransform.identity\
+{\listtext	\uc0\u8259 	}in addition to transforms, you can change properties of the view (like background color, etc.) as you normally would and UIKIt is smart enough to animate it\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}obviously when you do this, you won\'92t have the benefit of using the 
+\i identity
+\i0  transform to put it back\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i transform
@@ -647,7 +660,12 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIColor\ulnone  - represent colors in the UIKit layer\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}static properties (of type UIColor) with names of standard colors\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i clear
+\i0  = transparent\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i cgColor
 \i0  property to read the color as a 
 \i CGColor
