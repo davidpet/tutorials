@@ -28,7 +28,8 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1, delay: 0, options: [],
                        animations: { [unowned self] in
                         switch self.currentAnimation {
-                        case 0: break
+                        case 0:
+                            self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
                         default:
                             break
                         }
