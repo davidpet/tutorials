@@ -3,6 +3,7 @@
 //hotkey to bring up documentation quick help pane: alt-cmd-2
 //description also pops up with auto-complete
 //almost like block comment but extra start in the start /*, placed before object being documented
+//the examples below use functions, but you can document TYPES as well
 
 //BASICS
 /**
@@ -69,3 +70,4 @@ func dostuff3(x: Int, y: Int) -> String {
 
 //QUESTIONS
 //Can you link within the comment, to other types/functions that are documented, etc?
+//Can you document member variables, local variables, etc?
