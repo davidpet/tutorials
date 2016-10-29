@@ -305,7 +305,11 @@ Controls/views start with UI\
 \i0 0 = transparent, 1 = normal (floating point value)\
 {\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
 {\listtext	\uc0\u8259 	}\ul center\ulnone  - a CGPoint representing the center coordinates of the view within its superview\
-{\listtext	\uc0\u8259 	}\ul isHidden
+{\listtext	\uc0\u8259 	}\ul frame\ulnone  - CGRect describing the view\'92s rectangle within its parent coordinate system\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}this is a good way to determine the size of the display you\'92re working with at runtime - within viewController (eg. viewDidLoad) use view.frame.height and view.frame.width\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul isHidden
 \i \ulnone  - 
 \i0 used for hiding a view\
 {\listtext	\uc0\u8259 	}\ul isEnabled\ulnone  - used for greying out view (eg. a button)\
