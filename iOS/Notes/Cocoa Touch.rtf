@@ -271,6 +271,10 @@
 \fs24 \cf0 Interface stuff like buttons, text boxes, etc.\
 \
 TIP: animations are important (not just silly) because they make it clear what is changing and what the state is (eg. a panel sliding over existing one tells them the other one is still there underneath when they\'92re done)\
+TIP: you don\'92t have to do animations yourself by manipulating attributes -> use methods like 
+\i animate()
+\i0  that figure it all out for you and are easy to reset\
+NOTE: coordinates are the usual for computers (0,0 = top left) [unlike SpriteKit]\
 \
 Controls/views start with UI\
 \
@@ -1233,10 +1237,13 @@ Core Graphics\
 \ls10\ilvl3\cf0 {\listtext	\uc0\u8259 	}in other words, these are not cumulative\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(translationX:y:)
+\i0  - basic movement\
+{\listtext	\uc0\u8259 	}
 \i identity
 \i0  - static property to get the transform representing no transform\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}use this if you\'92ve applied other transforms and want to put it back\ul \ulc0 \
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}use this if you\'92ve applied other transforms and want to put it back (inc. movements, resizing, etc.)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
