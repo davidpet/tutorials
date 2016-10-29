@@ -1240,6 +1240,13 @@ Core Graphics\
 \i init(translationX:y:)
 \i0  - basic movement\
 {\listtext	\uc0\u8259 	}
+\i init(rotationAngle:)
+\i0  - rotate within the X way plane\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}angle is in RADIANS (use CGFloat.pi if needed)\
+{\listtext	\uc0\u8259 	}rotation will take shortest path (eg. 360 = don\'92t move, 270 = 90 degrees counterclockwise, 90 = 90 degrees clockwise) [note that I used degrees here but you cannot]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i identity
 \i0  - static property to get the transform representing no transform\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
