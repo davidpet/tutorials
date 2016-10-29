@@ -275,7 +275,7 @@ TIP: animations are important (not just silly) because they make it clear what i
 TIP: you don\'92t have to do animations yourself by manipulating attributes -> use methods like 
 \i animate()
 \i0  that figure it all out for you and are easy to reset\
-NOTE: coordinates are the usual for computers (0,0 = top left) [unlike SpriteKit]\
+NOTE: coordinates are the usual for computers (0,0 = top left) [unlike SpriteKit] ((clipping offscreen and negative coordinates allowed))\
 \
 Controls/views start with UI\
 \
@@ -305,7 +305,10 @@ Controls/views start with UI\
 \i0 0 = transparent, 1 = normal (floating point value)\
 {\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
 {\listtext	\uc0\u8259 	}\ul center\ulnone  - a CGPoint representing the center coordinates of the view within its superview\
-{\listtext	\uc0\u8259 	}\ul frame\ulnone  - CGRect describing the view\'92s rectangle within its parent coordinate system\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}WARNING: if the orientation of the device changes, this stays locked into hard coordinates (which can have really weird effects)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul frame\ulnone  - CGRect describing the view\'92s rectangle within its parent coordinate system\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}this is a good way to determine the size of the display you\'92re working with at runtime - within viewController (eg. viewDidLoad) use view.frame.height and view.frame.width\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1407,4 +1410,5 @@ TODO: can you arbitrarily use
 \i transform
 \i0  on UIView when not animating (I assume yes) and does that affect other properties?  AutoLayout?\
 TODO: if you set the alpha of a control to 0, and it\'92s something like a button, is it unclickable?\
+TODO: figure out how to scale a UIImage down the right way (eg. if want to make it a little smaller for iphone)\
 }

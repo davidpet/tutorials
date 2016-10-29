@@ -29,11 +29,11 @@ class ViewController: UIViewController {
                        animations: { [unowned self] in
                         switch self.currentAnimation {
                         case 0:
-                            self.imageView.transform = CGAffineTransform(scaleX: 2, y: 2)
+                            self.imageView.transform = CGAffineTransform(scaleX: 1.4, y: 1.4)
                         case 1:
                             self.imageView.transform = CGAffineTransform.identity
                         case 2:
-                            let delta = -(self.view.frame.width / 4)
+                            let delta = -(self.view.frame.width / 6)
                             self.imageView.transform = CGAffineTransform(translationX: delta, y: delta)
                         case 3:
                             self.imageView.transform = CGAffineTransform.identity
