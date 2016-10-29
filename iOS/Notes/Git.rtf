@@ -8,7 +8,7 @@
 \f0\fs24 \cf0 NOTE: commands that take files can take multiple files and wildcards (eg. git add)\
 NOTE: git commands that print more than a page worth will use \'91less\'92 automatically\
 \
-Basic Setup\
+Configuration\
 	git config --global user.name "Paul Hudson"\
 	git config --global user.email "paul@hackingwithswift.com"\
 	git config --global color.ui true						possibly already colored on your system\
@@ -16,11 +16,23 @@ Basic Setup\
 											NOTE: merge.tool is same thing but for merge tool, and both may have extra options (see the installation instructions for your tool)\
 \
 	git config --global push.default simple					can do this if you get a bunch of messages about changed behavior in git push\
+	git config --global alias.co checkout					create an alias (from now on can use co instead of checkout)\
+	git config --global alias.nuke \'93reset --hard\'94				create an alias with switches\
 Help\
 	git help [command]		Get help for a git command\
 Repositories\
 	git init			create a new .git folder in the current folder (which turns it into a repo)\
 	git clone [repoPath]	clone a repository into a folder in the working directory (for cloning local paths give the full path of the .git folder)\
+\
+	.gitignore		file that tells your repository what to ignore (at root of directory causes it to apply to that tree - doesn\'92t have to be root of repo)\
+				folders and files with possible wildcards, one per line\
+				use ! before a pattern to NOT ignore it (eg. if already ignored by another line)\
+				use # for comments\
+				NOTE: can use .gitignore file to check in an empty folder (since that usually isn\'92t allowed)\
+\
+	git clean -f		Delete all untracked files (that are not ignored) in the repo (-f required because destructive)\
+	git clean -x		Delete all untracked files (even ignored ones) in the repo\
+	git clean -n		List what untracked files would be deleted (good to test before you do it for real)\
 Changes\
 	git add [file] ..		stage changes in the index by file/folder name(s) and/or wildcards (adding a new untracked file is also a change)\
 	git add .		stage all changes in current folder\
@@ -200,8 +212,11 @@ Subversion\
 	Revision Numbers	not needed in Git because hashes identify things\
 	Merging		more easy and automatic in Git (eg. fast-forward merges)\
 	Modifications		extra indexing step\
+Workflows\
+	Small Teams	(<5)		pushing and pulling to central remote\
+	Medium Teams (5-20)	pull requests to designated person (can also use for mixed experience levels)\
+	Large Teams (>20)		multiple level version of the medium model (eg. Linux kernel = Linus has lieutenants to funnel merges to him)\
 \
-TODO: read Git chapter in Beyond Code (resume at p. 151)\
 TODO: watch Git videos in Beyond Code\
 TODO: setup Beyond Compare diffing/merging on Mac and PC (document in cloud setup steps) [need to resolve issue with tech support]\
 TODO: How to revert unstaged changes to whole repo?\
