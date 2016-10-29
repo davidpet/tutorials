@@ -14,6 +14,8 @@ Basic Setup\
 	git config --global color.ui true						possibly already colored on your system\
 	git config --global diff.tool bc3						set Beyond Compare 3 or 4 (both aliased as bc3 in git) as your external diff tool (bc3 is an internal git thing, it is not a real shell command)\
 											NOTE: merge.tool is same thing but for merge tool, and both may have extra options (see the installation instructions for your tool)\
+\
+	git config --global push.default simple					can do this if you get a bunch of messages about changed behavior in git push\
 Help\
 	git help [command]		Get help for a git command\
 Repositories\
@@ -145,6 +147,38 @@ Git Objects\
 	HEAD			the last commit\
 	origin			default name of a remote\
 	origin/master		default main branch on remote names\
+Remotes\
+	git remote									list remotes you have configured\
+	git remote -v									list remotes you have configured with URLs\
+	git remote show origin							get information about a specific remote\
+\
+	git branch -r									get list of branches on the remote server (don\'92t see them with git branch normally unless you have them locally)\
+	git branch -a									list all branches (local and remote)\
+											NOTE: git does not automatically have local branches for remote branches until you check them out (except the one you clone/add)\
+	git branch -avv								get all branches (local and remote) and which branches track what changes\
+\
+	git remote add origin https://github.com/user/repo.git			Add a remote for the given repo with the given name (in this case origin) to an existing local repository\
+	git clone https://github.com/user/repo.git					Clone (and set up tracking for) a remote branch into local directory (in this case a folder called 
+\i repo
+\i0  will be created)\
+	git checkout newfeature							Check out a branch from the remote (create local branch for it, set up tracking, switch to it)\
+\
+	git remote remove origin							Remove a remote from the local repo\
+\
+	git push -u origin master							Push local branch to remote and add tracking reference (eg. if you used git remote add for a new GitHub repo)\
+											NOTE: from now on, you can ommit origin and master when on master branch and want to push\
+	git push									Push local changes to the default remote and branch (the tracking branch for the current branch)\
+											NOTE: if there are changes that will result in anything but a fast-forward merge, git will refuse\
+	git push --force								Force the push even if non fast forward changes (absolute last resort -> try to avoid)\
+	git push origin newfeature							Explicit push to remote and branch (doesn\'92t have to be the tracking branch of current branch)\
+											NOTE: git does not automatically push branches or tags (so those are private, but both can be manually pushed if desired)\
+	git push origin --delete newfeature					Delete remote branch from remote server\
+	git push origin --tags							Push tags to the remote server	\
+	git pull										Download and merge changes from default remote and branch (eg. tacking branch of the current branch)\
+											NOTE: git might create merge commits\
+											NOTE: if others want to commit something for you to incorporate in your repo, they will use Pull Requests on GitHub\
+	git pull --rebase origin							rebase local branch onto the remote version so you don\'92t have to merge\
+	git fetch									Like pull but doesn\'92t merge (you can do that manually once the changes have been downloaded)\
 Subversion\
 	Loss of server	screwed in Subversion (CVCS) but everyone has the repo data in Git (DVCS)\
 	Peers			can push/pull to each other in Git (don\'92t even need a central server)\
