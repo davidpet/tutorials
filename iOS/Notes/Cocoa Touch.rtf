@@ -270,6 +270,8 @@
 
 \fs24 \cf0 Interface stuff like buttons, text boxes, etc.\
 \
+TIP: animations are important (not just silly) because they make it clear what is changing and what the state is (eg. a panel sliding over existing one tells them the other one is still there underneath when they\'92re done)\
+\
 Controls/views start with UI\
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -919,7 +921,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \i parent
 \i0  - the parent node of this node (optional)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
@@ -969,7 +971,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(color:size:)
 \i0  - load a rectangle with the given color (UIColor) and size (CGSize)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i texture
 \i0  - SKTexture property, can use it to reassign the image after creation (eg. flipping between states of a character)\
 {\listtext	\uc0\u8259 	}
@@ -980,7 +982,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \i0  - CGPoint representing the position of the center of the image in its container\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}it\'92s ok to have it go off screen\
-\ls9\ilvl2{\listtext	\uc0\u8259 	}negative numbers are also fine\
+{\listtext	\uc0\u8259 	}negative numbers are also fine\
 {\listtext	\uc0\u8259 	}defaults to 0,0 (center)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
@@ -998,7 +1000,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zRotation
 \i0  - rotation about the z-axis in radians (counterclockwise on the screen)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i xScale
 \i0  and 
 \i yScale
@@ -1094,13 +1096,13 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 {\listtext	\uc0\u8259 	}
 \i rotate(byAngle:duration:)
 \i0  - factory method to create an SKAction that represents a rotation (radians and seconds)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i moveBy(x:y:duration:)
 \i0  - linear movement over a duration in seconds (floating point)\
 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i wait(forDuration:)
 \i0  - wait for a specified number of (float) seconds [introduces a delay between/before other queued actions]\
 {\listtext	\uc0\u8259 	}
@@ -1158,7 +1160,7 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 {\listtext	\uc0\u8259 	}default is nil which means no cropping\
 {\listtext	\uc0\u8259 	}HINT: for penguin whacking game, the mask consisted of the visible hole plus a rectangle above it to account for going above ground\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}eg. SKNode that has hole image, crop node, and penguin image (where penguin is child of crop node)\ul \ulc0 \
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}eg. SKNode that has hole image, crop node, and penguin image (where penguin is child of crop node)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
