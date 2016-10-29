@@ -315,6 +315,7 @@ Controls/views start with UI\
 \ls3\ilvl2
 \i0 {\listtext	\uc0\u8259 	}by default, UIKit animations have an \'93ease in ease out\'94 curve (starts slow, gets faster, slows down at end, rather than straight linear timing)\
 {\listtext	\uc0\u8259 	}if you apply an identical transformation to what\'92s already applied, UIKit knows it and goes straight to the completion closure\
+{\listtext	\uc0\u8259 	}to transform back to normal, use CGAffineTransform.identity\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i transform
@@ -1229,7 +1230,13 @@ Core Graphics\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: if you apply this transform again in the future it will have no effect because the system will know the thing already has been scaled (and thus the scale factor remains the same)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
-\ls10\ilvl3\cf0 {\listtext	\uc0\u8259 	}in other words, these are not cumulative\ul \ulc0 \
+\ls10\ilvl3\cf0 {\listtext	\uc0\u8259 	}in other words, these are not cumulative\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i identity
+\i0  - static property to get the transform representing no transform\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}use this if you\'92ve applied other transforms and want to put it back\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
