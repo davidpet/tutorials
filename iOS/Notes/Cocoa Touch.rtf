@@ -326,7 +326,14 @@ Controls/views start with UI\
 \i animate()\
 \ls3\ilvl2
 \i0 {\listtext	\uc0\u8259 	}by default, UIKit animations have an \'93ease in ease out\'94 curve (starts slow, gets faster, slows down at end, rather than straight linear timing)\
-{\listtext	\uc0\u8259 	}if you apply an identical transformation to what\'92s already applied, UIKit knows it and goes straight to the completion closure\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}to use other curves (eg. springs), just use other overloads of 
+\i animate
+\i0  (eg. the one with 
+\i initialSpringVelocity
+\i0  to have it behave like a spring that overshoots and comes back)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you apply an identical transformation to what\'92s already applied, UIKit knows it and goes straight to the completion closure\
 {\listtext	\uc0\u8259 	}to transform back to normal, use CGAffineTransform.identity\
 {\listtext	\uc0\u8259 	}in addition to transforms, you can change properties of the view (like background color, etc.) as you normally would and UIKIt is smart enough to animate it\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
