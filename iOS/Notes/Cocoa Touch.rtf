@@ -305,7 +305,11 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}\ul addSubview\ulnone  - add a view (eg. a control like UILabel) to the view (if didn\'92t specify position, etc. it will go at top left on top of other subviews)[constraints generated as appropriate]\
 {\listtext	\uc0\u8259 	}\ul translatesAutoresizingMaskIntoConstraints\ulnone  - set to false to disable automatic generation of constraints (if you want to do auto layout yourself in code)\
 {\listtext	\uc0\u8259 	}\ul addConstraints\ulnone  - add array of Auto Layout constraints (NSLayoutConstraint) to the view\
-{\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
+{\listtext	\uc0\u8259 	}\ul animate()\ulnone  - perform an animation on the view (lots of options like duration (in float seconds), delay, closure with what animations to perform, and closure to call when done)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you don\'92t perform any animation, UIKit detects it and calls the completion closure right away despite your duration setting (keep this in mind when iteratively coding)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i tabBarItem

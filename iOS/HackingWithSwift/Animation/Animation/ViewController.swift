@@ -23,6 +23,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func tapped(_ sender: AnyObject) {
+        tap.isHidden = true
+        
+        UIView.animate(withDuration: 1, delay: 0, options: [],
+                       animations: { [unowned self] in
+                        switch self.currentAnimation {
+                        case 0: break
+                        default:
+                            break
+                        }
+        }) { [unowned self] (finished: Bool) in
+            self.tap.isHidden = false
+        }
+        
         currentAnimation = (currentAnimation + 1) % 8
     }
 }
