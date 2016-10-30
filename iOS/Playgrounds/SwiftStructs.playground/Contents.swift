@@ -117,6 +117,10 @@ struct MyOtherStruct {
 }
 //NOTE: there is no protected in Swift
 
+//PROTOCOLS
+//see SwiftClasses for explanation of protocols
+//NOTE: structs automatically get initializer that sets all the fields by name, and this counts towards a protocol that needs it (eg. in bitfields - see SwiftEnums)
+
 //CONVENTIONS
 //computed properties tend to be more common in Apple code and less common in user code
 //Use structs instead of classes to eliminate relationships that might cause things like race conditions

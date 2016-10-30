@@ -106,6 +106,30 @@ enum MyEnum {
 let myenum = MyEnum.blue
 print(myenum.description)       //use methods and properties like with classes and structs
 
+//BITFIELDS
+//NOTE: Cocoa Touch functions that take combinable options use this
+struct MyBitField: OptionSet {          //NOTE that bitfields are STRUCTS intead of enums in Swift, but I included them here because it's more intuitive
+    let rawValue: Int               //to make a struct a bitfield, conform to OptionSet protocol which requires a rawValue field of numeric type
+    
+    static let value1 = MyBitField(rawValue: 1)     //define static constants of the type of the struct itself with powers of 2 as raw values
+    static let value2 = MyBitField(rawValue: 2)     //the apple documentation shows it doing 1 << 0 and so on instead but I like it this way
+    static let value3 = MyBitField(rawValue: 4)
+    
+    static let values1And2: MyBitField = [.value1, .value2]     //this is how you would define special values that represent multiple values combined
+}
+let mbf: MyBitField = []                //automatically allowed to treat like an array because system knows it's a bit set (in this case no options)
+let mbf2: MyBitField = [.value1, .value2]       //this is how you "OR" multiple values together
+let mbf3: MyBitField = [.values1And2, .value3]  //can interop combined values and single values and the result will be what you expect
+var mbf4: MyBitField = .value1              //can also treat it like a straight enum
+//adding and testing values
+mbf4.insert(.value2)                //inserting [ORing in] single values (must not be constant) [fine if already set]
+mbf4.contains(.value2)              //testing for single values
+mbf4.insert([.value2, .value3])     //inserting multiple values (OK if some of them already present)
+mbf4.contains([.value1, .value2])   //testing for multiple values
+mbf4.rawValue                       //getting the combined numeric value directly
+//set operations
+let unionbf = mbf4.union(mbf3)      //lets of set operations like this supported which return new instance
+
 //VALUE TYPE
 //NOTE: enums are value types
 
@@ -115,5 +139,4 @@ print(myenum.description)       //use methods and properties like with classes a
 
 //QUESTIONS
 //Other variations of that syntax like multiple extra values, using other names, etc?
-//How to OR values together and/or do bitfields?
-
+//How does OptionSet impart so much functionality when it's only a protocol?

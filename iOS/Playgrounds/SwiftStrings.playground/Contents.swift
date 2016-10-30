@@ -84,7 +84,7 @@ try? "s".write(toFile: "myfile.txt", atomically: true, encoding: .ascii)    //wr
 
 //REGULAR EXPRESSIONS
 let input = "This is a string with some text."
-let regex = try! NSRegularExpression(pattern: "(wi)(th)", options: .init(rawValue: 0))
+let regex = try! NSRegularExpression(pattern: "(wi)(th)", options: [])
 let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
 for match in matches {
 }
