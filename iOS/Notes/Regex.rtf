@@ -46,6 +46,8 @@ Quantifiers\
 	\{n\}		match exactly n of the previous item\
 	\{n,m\}		match n to m (inclusive) of previous item\
 	\{n,\}		match at least n of the previous item (the other unbounded doesn\'92t work)\
+\
+	?		non-greedy (eg. *? or +?) [match as little as possible instead of the default of as much as possible]\
 Meta Characters\
 	.		match any single character other than line break (often with a quantifier coming next)\
 \
@@ -79,6 +81,7 @@ Back References\
 \
 	\\k<groupname>		backreference to a named capture group called groupname\
 	\\k\'92groupname\'92		same as above\
+	NOTE: backreferences do not count as capture groups themselves (ie. they do not get a capture number)\
 Lookahead\
 	NOTE: These are computationally very expensive and should only be used if needed\
 \
@@ -92,7 +95,7 @@ Modifiers\
 	i		case insensitive (sensitive is the default)\
 	m		multiline mode (match across multiple lines) (default is to match only within 1 line)\
 	s		single line (. includes newline) (default is for it not to) (NOTE: this sounds like opposite of m but it is not)\
-	U (capital)	ungreedy (non-greedy matching) (default is greedy, meaning quantifiers match the longest string possible)\
+	U (capital)	ungreedy (non-greedy matching) (default is greedy, meaning quantifiers match the longest string possible)[this applies to all quantifiers, use ? for individual ones]\
 Examples\
 	colou?r		match color or colour\
 	\\d\{3\}-\\d\{4\}	match 7-digit phone number (in exact xxx-xxxx format)\
@@ -119,4 +122,6 @@ TODO: watch Regular Expressions Videos in Beyond Code (except grep)\
 TODO: can you mix ^ and not ^ in same []?\
 TODO: bring in notes from Anki, etc.\
 TODO: possibly some notes on PCRE vs. JavaScript vs. Python, etc.\
+TODO: comments (and in Swift)\
+TODO: more advanced character classes like unicode characters, etc. (named characters ets) (and in Swift)\
 }

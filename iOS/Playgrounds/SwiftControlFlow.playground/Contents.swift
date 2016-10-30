@@ -51,6 +51,8 @@ let a = [1, 2, 3]
 for i in 0..<a.count {      //going through array by index
     print(a[i])
 }
+//for i in 10..<2 {         //starting beyond end of range not allowed (so be careful when dealing with possibly empty things
+//}
 
 //ARRAY LOOPS
 for item in [1, 2, 3] {

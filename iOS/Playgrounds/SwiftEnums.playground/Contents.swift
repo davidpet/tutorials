@@ -136,6 +136,7 @@ let unionbf = mbf4.union(mbf3)      //lets of set operations like this supported
 //CONVENTIONS
 //enum types start with capitalize while enum values inside the type start with lowercase
 //use 'unknown' as the unset type for an enum
+//Might want to provide a none or default value for enums, but do not do that for bitfields because [] means that
 
 //QUESTIONS
 //Other variations of that syntax like multiple extra values, using other names, etc?

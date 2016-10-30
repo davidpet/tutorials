@@ -57,8 +57,30 @@ for char in chars {                         //iterable by character
     print(pos?.lowerBound)              //indexing the character found in the string
 }
 let char2: Character = "H"          //LITERAL (only ok if single character)
+let eq = char2 == "H"                   //can TEST value of character this way
 let widechars = s.utf16                 //legacy version for compatibility with apple libraries (objective-c)
 let firstwidechar = widechars.first!        //similar to 'characters' but not quite the same
+//see SUBSTRINGS section below for more about indexing strings
+
+//SUBSTRINGS
+let longstring = "hi, this is a long string for testing substring extraction"
+let startIndex: String.Index = longstring.startIndex        //strings have their own index type and a start index property representing the beginning
+let endIndex = longstring.endIndex              //the index of the "past the end" position of the string
+let secondIndex = longstring.index(after: startIndex)       //convenience method to get an index after a given index
+//let secondIndex2 = startIndex + 1                     //no direct math allowed!!!
+let lastChar = longstring.index(before: endIndex)           //get index right before given index
+let sixthChar = longstring.index(startIndex, offsetBy: 5)           //this is how you do math
+let actualSixthChar: Character = longstring[sixthChar]      //can treat string like an array of Character using String.Index (but not integer)
+//longstring[5]             //not allowed
+let prefix = longstring.substring(to: sixthChar)            //prefix string to exclusive upper bound
+let suffix = longstring.substring(from: sixthChar)          //suffix string from start position
+let middle = longstring[startIndex...sixthChar]         //use a range with [] to get middle substrings (NOTE: it is smart enough to know closed vs. open range)
+let middleOpen = longstring[startIndex..<sixthChar]         //different result
+//dealing with NSRange
+let nsRange = NSRange(location: 0, length: 5)           //will often get an NSRange from an API (created here for demonstration purposes)
+let convertedRange = longstring.index(startIndex, offsetBy: nsRange.location) ..< longstring.index(startIndex, offsetBy: nsRange.location + nsRange.length)
+let middleOpen2 = longstring[convertedRange]        //could of course provide the range inline but it's a bit long and ugly
+//see below for replacing substrings by range
 
 //MANIPULATION
 let uppercased = s.uppercased()
@@ -68,6 +90,11 @@ let trimmed = spacey.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewline
 let trimmed2 = spacey.trimmingCharacters(in: .whitespacesAndNewlines)               //don't forget you can ommit the parent
 //NOTE: there are other character sets in NSCharacterSet and you can also create your own
 let replaced = spacey.replacingOccurrences(of: " ", with: "")
+let replaced2 = spacey.replacingCharacters(in: spacey.startIndex..<spacey.index(spacey.startIndex, offsetBy: 4), with: "")  //using ugly range syntax to do range replacement
+//NOTE: will only compile with open range for some reason
+var spacey2 = spacey
+spacey2.replaceSubrange(spacey.startIndex...spacey.index(spacey.startIndex, offsetBy: 3), with: "")     //mutable version that operates on original
+//NOTE: there are many other overloads of replacing subranges to make it even more complicated
 
 //JOINING
 var joined = ["1", "2", "3"].joined()       //only works for Array<String> (inc. in code completion popup)
@@ -83,11 +110,32 @@ if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this fi
 try? "s".write(toFile: "myfile.txt", atomically: true, encoding: .ascii)    //writing to a file
 
 //REGULAR EXPRESSIONS
+//this is covered in the Cocoa Touch API reference too, but I wanted to show usage here because it's a bit obscure
 let input = "This is a string with some text."
-let regex = try! NSRegularExpression(pattern: "(wi)(th)", options: [])
-let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
+let regex = try! NSRegularExpression(pattern: "(wi)(th)", options: [])          //there is no regex literal in swift
+let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))     //using utf16 because calling apple library code
 for match in matches {
+    var ranges = [NSRange]()
+    let wholeMatch = match.rangeAt(0)           //capture groups (including 0 for whole match) are indexed through this method (if you didn't have groups, still need this)
+    let wholeMatch2 = match.range               //same thing as above (a quicker way to get the whole match)
+    ranges += [wholeMatch, wholeMatch2]
+    
+    for i in 1 ..< match.numberOfRanges {           //safe because we know we had groups in the regex
+        let groupMatch = match.rangeAt(i)
+        ranges.append(groupMatch)
+    }
+    
+    print("Beginning regex printout")
+    for range in ranges {                   //use the NSRange instances to index into the original string to see what the text is
+        let start = input.index(input.startIndex, offsetBy: range.location)
+        let end = input.index(input.startIndex, offsetBy: range.location + range.length)
+        print(input[start..<end])
+    }
+    print("Ending regex printout")
 }
+let replacement = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count), withTemplate: "$1")
+//for other available operations (eg. executing blocks for each match), see Cocoa Touch reference
+//for specific flags, options, regex metacharacters, etc. see the Cocoa Touch Reference for NSRegularExpression
 
 //CONVENTIONS
 //Use 'characters.count' for your own code and 'utf16.count' for Apple library code
@@ -98,5 +146,5 @@ for match in matches {
 //How to do mutable string/strinbuilder?
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)
 //String.remove() and why it works with pos.lowerBound [didn't include that part for now but saw in tutorial]
-//Finish filling in the REGULAR EXPESSIONS section above and mirror to Cocoa Touch document
-//Figure out these things (either here or in Cocoa Touch doc) for NSRegularExpression: can you do non-compiled? modifiers? capture groups (numbered and named)? backreferences and lookaheads? metacharacters and character classes? replacements?
+//What do I need to know about multiple character characters (eg. emojis) when it comes to normal strings, character indexing, regular indexing, substrings, and NSRange?
+//NSString?
