@@ -3,6 +3,7 @@ import Foundation       //required for some things like range()
 //DECLARATIONS
 var s : String = "hi"               //MUTABLE string
 var ss : StaticString = "yo"        //IMMUTABLE string (more optimal than constant strings for reading)
+//NOTE: there are no raw string literals yet in Swift
 
 //SPECIAL INITIALIZERS
 var sep = String(repeating: "=", count: 100)    //100 = signs put together
@@ -81,6 +82,13 @@ if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this fi
 //other overloads of this initializer that take encodings, etc.
 try? "s".write(toFile: "myfile.txt", atomically: true, encoding: .ascii)    //writing to a file
 
+//REGULAR EXPRESSIONS
+let input = "This is a string with some text."
+let regex = try! NSRegularExpression(pattern: "(wi)(th)", options: .init(rawValue: 0))
+let matches = regex.matches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count))
+for match in matches {
+}
+
 //CONVENTIONS
 //Use 'characters.count' for your own code and 'utf16.count' for Apple library code
 
@@ -90,6 +98,5 @@ try? "s".write(toFile: "myfile.txt", atomically: true, encoding: .ascii)    //wr
 //How to do mutable string/strinbuilder?
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)
 //String.remove() and why it works with pos.lowerBound [didn't include that part for now but saw in tutorial]
-//Regular expression literals? functions?  operators?
-//Raw literals?
-
+//Finish filling in the REGULAR EXPESSIONS section above and mirror to Cocoa Touch document
+//Figure out these things (either here or in Cocoa Touch doc) for NSRegularExpression: can you do non-compiled? modifiers? capture groups (numbered and named)? backreferences and lookaheads? metacharacters and character classes? replacements?

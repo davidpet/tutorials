@@ -115,6 +115,7 @@ struct MyOtherStruct {
     private func doprivatestuff() {     //private method can only be called inside the class
     }
 }
+//NOTE: there is no protected in Swift
 
 //CONVENTIONS
 //computed properties tend to be more common in Apple code and less common in user code
