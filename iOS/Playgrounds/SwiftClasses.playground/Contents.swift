@@ -40,6 +40,10 @@ class Person {
     func changeTie(tie: Bool) {                 //method that changes state
         self.tie = tie
     }
+    
+    deinit {                        //deinitializer (DESTRUCTOR) syntax (only available for CLASSES, not STRUCTS or ENUMS)
+                                //keep in mind that objects are refcounted (but at least not garbage collected)
+    }
 }
 
 var person = Person(clothes: "tshirt", shoes: "sneakers")   //construct with name of class and parameters defined by initializer
