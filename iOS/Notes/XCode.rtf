@@ -253,6 +253,7 @@ Interface Builder
 		dynamic library\
 		iOS 8 onwards\
 		Swift or Objective-C\
+		Add .swift files to it and the ones that are public automatically become available to whoever imports the package\
 	Cocoa Touch Static Library\
 		iOS 6 onwards\
 		Objective-C only\
@@ -281,8 +282,78 @@ Interface Builder
 \fs36 Xcode Hierarchy
 \fs24 \
 	Workspace = like a Visual Studio solution (contains multiple projects/apps/libraries)\
+		all projects in a workspace share an output directory\
+		a project can belong to multiple workspaces\
+		project settings and files are independent of the workspace (eg. can remove it from workspace without affecting the project itself)\
+		dependencies should be detected automatically (eg. if you refer to another project in the same workspace, it should automatically get built when you build)\
+		you can have a shared library in multiple workspaces rather and the changes will be shared between them\
+		an online resource claims that it doesn\'92t make sense to put unrelated projects in the same workspace even if they share common libraries\
+		.xcworkspace file (don\'92t place files under this)\
 	Project = a single library or app (like a Visual Studio Project)\
 	Target = a build of a project (eg. can have targets for free and paid versions, Mac and iOS versions, etc.)\
+		Many of the settings thought of (and described in this doc as) project settings are actually target settings\
+		Scheme = all the settings like running, debugging, profiling stuff\
+			can have multiple schemes in the same target\
+\
+
+\fs36 Creating/Managing Workspace
+\fs24 \
+	Creating a new workspace\
+		File -> New -> Workspace, pick a folder (might want to make one manually if putting projects in it because this will only create .xcworkspace file) and name\
+	Creating a new Project in a Workspace\
+		File -> New -> Project, pick a folder (eg. the parent folder of the .xcworkspace file, it may try to trick you) and name, select the workspace in the bottom of the dialog (select the right group too as it may try to trick you)\
+	Adding an existing project to a workspace\
+		Within the Project Navigator (top level), right-click and select Add Files option, navigate to and select the xcodeproj file\
+		This will add the project to the workspace (by reference)\
+	Selecting the current project for building and debugging\
+		Select the project in the toolbar to the left of where you select the device\
+		hotkey: ctrl-command-[ and ctrl-command-] to cycle\
+	Project Dependencies\
+		If you manually build a library in the same workspace and then reference it from another project by importing and using the types, it will magically work, but it won\'92t build the dependency automatically later\
+		To set up the dependency formally so building the dependency will happen automatically, go to project settings (target -> General tab), add it in linked frameworks and libraries at the bottom\
+		To access the library within your module, import the library by name\
+\
+
+\fs36 Release Mode
+\fs24 \
+	the default for building and running is Debug mode\
+	to switch to release mode without profiling or anything, select Product -> Scheme -> Edit Scheme and change the Run configuration to Release and not debug executable\
+	This changes where the binaries are linked from in the project navigator (and in theory should change what\'92s deployed on devices)\
+	Someone online suggested duplicating the scheme and making one be debug and the other release, so that you don\'92t have to edit the scheme to switch\
+	Running in profile mode (cmd-i) also uses release, but it makes you pick a profiler and then profiles the app\
+\
+
+\fs36 Archiving
+\fs24 \
+	Archiving creates an app bundle (release mode, signed) that is ready for distribution\
+	To archive:\
+		1. set the target device to generic ios device (build only target)\
+		2. click Product -> Archive\
+		3. the Archives window will pop up showing the archives you have (including the one you just made)\
+		4. You can deal with it now or close this window and come back later\
+	To see and take action on your archives: Window -> Organizer (Archives tab)\
+	From the Organizer you can export, submit to iTunes, etc.\
+\
+
+\fs36 Submitting to App Store
+\fs24 \
+	Guidelines: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/app-store/review/"}}{\fldrslt https://developer.apple.com/app-store/review/}}\
+	Things to Make Sure: you have signing/provisioning set up properly, you have tested on physical devices, you have tested on minimum supported things in simulator, you have app icon and splash image\
+	iTunes Connect will be your portal for what\'92s happening on the app store with your stuff\
+	Steps:\
+		1. Create an archive ready to be released to the app store (see above)\
+		2. On iTunes Connect website, click Manage Your Apps\
+		3. Click \'93Add New App\'94 and fill in fields (skew is for your own purposes)\
+		4. Set availability date and pricing info\
+		5. Fill in all the other metadata (version should match the binary)\
+		6. click the Ready for Upload blue button and answer questions (status should change from Prepare for Upload to Waiting for Upload)\
+		7. Use the Upload to App Store button in Xcode Organizer, after validation/uploading, status should now be Waiting for Review\
+		8. You\'92ll get an email when the app enters review (a few days to a couple of weeks)\
+		9.  If it fails, fix what they tell you and submit with a new version number\
+		10. If it passes, it should appear on the app store on the availability date\
+		11.  Use iTunes Connect to monitor your app\'92s performance\
+	Updating existing app: use iTunes Connect to add a version to the app and then go through a similar process for the rest of it\
+		The update will go through a review but it should be quicker than the initial version\
 \
 
 \fs36 Line numbers
@@ -404,12 +475,10 @@ TODO: learn how to do particle effects (get to know the settings) manually\
 TODO: what happens if the biggest image you have is 2x and you load on a Retina HD device?\
 TODO: other project types when create new project\
 TODO: figure out how to add app icon(s) (app store version, ipad version, iphone version, etc.)\
-TODO: learn Cocoa Touch framework projects (how to define, import in other projects, have it deployed, distributed, etc.)\
 TODO: learn Targets in XCode\
-TODO: learn Workspaces in XCode\
-TODO: learn how to access, build, deploy, and run different configurations (release vs. debug)\
 TODO: learn all the project settings in XCode (eg. Build Settings, phases, etc.)\
-TODO: learn all the details of building, deployment, configurations, etc.\
+TODO: learn all the details of building, deployment, configurations, archiving, installing, etc.\
 TODO: learn Swift package installation (including online package managers)\
 TODO: learn the different appliation types in the New Project dialog\
+TODO: learn profiling\
 }

@@ -1,5 +1,6 @@
 //IMPORTING
 import UIKit        //symbols in this module now available
+//import MyLibrary  //if you had a library project with this name, this is how you'd import the types into a .swift file
 
 //DECLARATION ORDER
 //var x = MyClass()     //type (or variable) must be declared first
@@ -23,8 +24,13 @@ class MyClass {
 //One thing to keep in mind is EXTENSIONS will be automatically available to every file if there is an extension with right access level somewhere in the project
 
 //COCOA TOUCH FRAMEWORK (library)
-//TBD
+//when you build a cocaa touch framework project, if the binaries are in the same folder as the application binaries, it will be able to access the public members
+//if you put the library and the application in the same workspace and configure the library as a dependecy for the application, it will work seamlessly like they're in the same project
+//to use types from the library in a given module of the application, use import with the name of the library
+//NOTE: automatically generated members tend to be internal instead of public (eg. struct member-wise initializer), so currently you have to redefine/reimplement those to make them public
 
 //WAYS TO SHARE CODE
 //1. Include files directly via File menu, drag-and-drop etc. (can tell it to copy)
-//2. Use a Cocoa Touch Framework (TBD)
+//2. Use a Cocoa Touch Framework
+//    A. Directly
+//    B. From within workspace
