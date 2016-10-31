@@ -114,6 +114,18 @@ struct MyOtherStruct {
     
     private func doprivatestuff() {     //private method can only be called inside the class
     }
+    
+    private(set) var myproperty: Int        //can use private(set) [or another access modifier] to say that the setter is more restricted than the getter
+                                                    //getter has same access level as the property itself
+                                                //NOTE: this is equally true of stored and computed properties
+    private(set) var myproperty2: Int {
+        get {
+            return 5            //accessible wherever the property is
+        }
+        set {
+            //this is only accessible inside the class
+        }
+    }
 }
 //NOTE: there is no protected in Swift
 
