@@ -92,6 +92,9 @@ var ageCopy = theage
 var successCopy = success       //NUMBERS and BOOLEANS are value types
 //NOTE: built-in stuff like tuples, arrays, dictionaries, etc. are actually value types in Swift
 
+//GLOBAL VARIABLES
+//allowed
+
 //CONVENTIONS
 //Start with Capital: data types
 //Start with lowercase: variables and constants

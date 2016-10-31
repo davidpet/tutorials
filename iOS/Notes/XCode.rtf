@@ -249,6 +249,16 @@ Interface Builder
 		Info.plist\
 		*some others same as UIKit apps?\
 		Resetting to Vanilla State: delete spaceship, replace code in GameScene.Swift with just didMove and touchesBegan (empty bodies), delete Actions.sks, remove label from GameScene.sks and set Anchor Point and size attributes, remove FPS and node counts from view controller\
+	Cocoa Touch Framework\
+		dynamic library\
+		iOS 8 onwards\
+		Swift or Objective-C\
+	Cocoa Touch Static Library\
+		iOS 6 onwards\
+		Objective-C only\
+		***going to ignore this for now until Swift supports it\
+	Library\
+		C/C++ type stuff (not Swift and Objective-C)\
 \
 	\ul Things to do when creating any project:\ulnone  check the output device, portrait/landscape, iOS version, device type, and Interface Builder / Scene Editor sizes\
 \
@@ -266,6 +276,13 @@ Interface Builder
 	contains project configuration settings as key-value pairs\
 	to add a setting, hover over any row in the key column and click the + icon to add a new row, then select the key from the dropdown	one useful example is \'93Privacy - Photo Library Usage Description\'94 to give user a reason you need to access the camera (without this the image picker will crash)\
 	double-click in the value cell to add a value for the key\
+\
+
+\fs36 Xcode Hierarchy
+\fs24 \
+	Workspace = like a Visual Studio solution (contains multiple projects/apps/libraries)\
+	Project = a single library or app (like a Visual Studio Project)\
+	Target = a build of a project (eg. can have targets for free and paid versions, Mac and iOS versions, etc.)\
 \
 
 \fs36 Line numbers
@@ -387,4 +404,12 @@ TODO: learn how to do particle effects (get to know the settings) manually\
 TODO: what happens if the biggest image you have is 2x and you load on a Retina HD device?\
 TODO: other project types when create new project\
 TODO: figure out how to add app icon(s) (app store version, ipad version, iphone version, etc.)\
+TODO: learn Cocoa Touch framework projects (how to define, import in other projects, have it deployed, distributed, etc.)\
+TODO: learn Targets in XCode\
+TODO: learn Workspaces in XCode\
+TODO: learn how to access, build, deploy, and run different configurations (release vs. debug)\
+TODO: learn all the project settings in XCode (eg. Build Settings, phases, etc.)\
+TODO: learn all the details of building, deployment, configurations, etc.\
+TODO: learn Swift package installation (including online package managers)\
+TODO: learn the different appliation types in the New Project dialog\
 }
