@@ -66,6 +66,9 @@ var str = String(5)   //casting string to int
 var int = Int("5")      //casting int to string
 var int2 = Int(3.14)    //casting float to int automatically rounds
 
+//IMPLICIT CASTING
+//DOES NOT EXIST IN SWIFT (even for function calls)
+
 //TYPE CHECK
 "hi" is String      //boolean type check
 

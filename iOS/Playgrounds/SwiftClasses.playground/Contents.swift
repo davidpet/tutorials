@@ -176,7 +176,6 @@ let mrc = MyRequiredClass(x: 100, y: 200)
 //QUESTIONS
 //How do you clone/copy a class instance?
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
-//Overloading operators, conversions, subscripting, etc?  Implicit conversions?
 //How to do extension methods (or whatever joined() of Array<String> is)
 //Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.
 //Are there still convenience and designated initializers?

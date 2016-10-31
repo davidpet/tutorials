@@ -37,3 +37,29 @@ struct Dog: Comparable {      //comparable protocol lets you make an item suppor
         return lhs.age == rhs.age
     }
 }
+
+//OPERATOR METHODS
+struct MyStruct {
+    var value: Int
+    
+    static func +(lhs: MyStruct, rhs: MyStruct) -> MyStruct {       //binary operator between two of the type
+        return MyStruct(value: lhs.value + rhs.value)
+    }
+    
+    static func +(lhs: MyStruct, rhs: Int) -> MyStruct {            //binary operator between the type and something else
+        return MyStruct(value: lhs.value + rhs)
+    }
+    
+    static func +(lhs: Int, rhs: MyStruct) -> MyStruct {            //other polarity is required explicitly to support that direction
+        return MyStruct(value: lhs + rhs.value)
+    }
+    
+    //NOTE: for operators like += can use inout parameters
+}
+let mystruct = MyStruct(value: 10)
+let mystruct2 = MyStruct(value: 20)
+(mystruct + mystruct2).value
+(10 + mystruct2).value
+
+//QUESTIONS
+//Can you oerload operators for enums?

@@ -55,6 +55,8 @@ var latitude: Float = -18.633333333
 var longitude: Double = -18.633333333       //recommended by Apple due to higher accuracy
 var altitude = -18.63333                //becomes a Double even though Float would work
 var success: Bool = true
+var convertedDouble: Double = 5             //assigning an int literal to a float value is fine because it knows what you mean
+var convertedDouble2: Double = Double(Int(5))           //assigning something that is bound as Int is not ok unless you cast it back
 
 //BUILT-IN CONSTANTS
 Double.pi
