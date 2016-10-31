@@ -61,5 +61,5 @@ let mystruct2 = MyStruct(value: 20)
 (mystruct + mystruct2).value
 (10 + mystruct2).value
 
-//QUESTIONS
-//Can you oerload operators for enums?
+//CLASSES, STRUCTS, METHODS
+//all support operator overloading
