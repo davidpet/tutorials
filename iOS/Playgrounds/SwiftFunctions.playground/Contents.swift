@@ -64,6 +64,19 @@ func countLettersInString(str: String, _ str2: String) {        //can freely INT
         countLettersInString(str, str)          //can also freely call other overloads
 }
 
+//PASSING BY REFERENCE
+func refFunc(x: Int, y: inout Int) {        //mark a reference parameter with inout
+    //x = 5     //parameters are constants (this is a compile error)
+    y = 5       //this is fine because it's an inout parameter (not required to change it like out parameters in C#, more like ref in C#)
+}
+var myrefy = 2              //anything passed in as inout must be a variable, not a constant
+refFunc(x: 1, y: &myrefy)       //must use & and pass in a variable, not a literal
+print(myrefy)
+//refFunc(x: 1, y: &(Int(5)))       //no temporary values either
+//NOTE: inout parameters cannot be variadic and cannot have 
+//NOTE: if the value is a property with a setter and getter, the getter will be called to pass in, and the value on exiting will be passed into the setter
+//In general, you should code as if the value will be copied and then copied back and don't rely on the pass by reference optimization (but be assured it will try to happen)
+
 //SWIFTY NAMING (Swift naming to take advantage of external names gramatically)
 func countLetters(in string: String) {
     print(string.characters.count)      //inside function we can use a sensible name
@@ -127,3 +140,4 @@ func outerfunc() {
 //Can you use the internal name externally, or when _ is used?
 //Extension methods?
 //Constant parameters and/or methods?
+//What is a mutating method?
