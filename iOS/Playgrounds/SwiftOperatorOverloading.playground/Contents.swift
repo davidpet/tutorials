@@ -61,5 +61,32 @@ let mystruct2 = MyStruct(value: 20)
 (mystruct + mystruct2).value
 (10 + mystruct2).value
 
+//SUBSCRIPT OPERATORS
+struct Square {
+    subscript(index: Int) -> Int {          //no func keyword, no static (because it operates on instance), acts like a property except for the parameter list
+        return index * index
+    }
+    
+    subscript(keyword: String) -> String {      //can have multiple subscripts and have any input and output types
+        get {
+            return keyword + keyword
+        }
+    }
+    
+    subscript(index1: Int, index2: Int) -> Int {        //can even have multiple input parameters
+        get {
+            return index1 * index2
+        }
+        set {
+            print(index1 * index2 * newValue)               //can be read-only or have a setter too
+        }
+    }
+}
+var square = Square()
+square[10]
+square[10, 11]                  //calling with multiple indices does not use parameter names, and is comma separated
+square["hi"]
+square[10, 11] = 100
+
 //CLASSES, STRUCTS, METHODS
 //all support operator overloading
