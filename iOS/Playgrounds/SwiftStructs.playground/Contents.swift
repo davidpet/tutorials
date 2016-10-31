@@ -117,6 +117,9 @@ struct MyOtherStruct {
 }
 //NOTE: there is no protected in Swift
 
+//CONVERSIONS
+//see SwiftExtensions for how to add conversion operators to convert your type to another type (like Int)
+
 //PROTOCOLS
 //see SwiftClasses for explanation of protocols
 //NOTE: structs automatically get initializer that sets all the fields by name, and this counts towards a protocol that needs it (eg. in bitfields - see SwiftEnums)
