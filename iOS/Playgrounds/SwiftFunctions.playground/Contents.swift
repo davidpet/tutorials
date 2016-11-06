@@ -73,7 +73,7 @@ var myrefy = 2              //anything passed in as inout must be a variable, no
 refFunc(x: 1, y: &myrefy)       //must use & and pass in a variable, not a literal
 print(myrefy)
 //refFunc(x: 1, y: &(Int(5)))       //no temporary values either
-//NOTE: inout parameters cannot be variadic and cannot have 
+//NOTE: inout parameters cannot be variadic and cannot have default args
 //NOTE: if the value is a property with a setter and getter, the getter will be called to pass in, and the value on exiting will be passed into the setter
 //In general, you should code as if the value will be copied and then copied back and don't rely on the pass by reference optimization (but be assured it will try to happen)
 
