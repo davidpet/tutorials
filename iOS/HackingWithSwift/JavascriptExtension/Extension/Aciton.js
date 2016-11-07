@@ -1,8 +1,8 @@
-var Action = function() {};
-Action.prototype = {
+var Aciton = function() {};
+Aciton.prototype = {
     run: function(parameters) {
     },
     finalize: function(parameters) {
     }
 };
-var ExtensionPreprocessingJS = new Action
+var ExtensionPreprocessingJS = new Aciton
