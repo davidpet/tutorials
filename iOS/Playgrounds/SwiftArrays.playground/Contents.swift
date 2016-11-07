@@ -32,6 +32,7 @@ var index : Int? = s.index(of: "bye")   //finding an item in an array (nil if no
 //s[100]        //runtime error going beyond last index
 s.first
 s.last          //convenience methods for first and last items
+emptyArray.first        //first and last are optionals (this is not a crash even though emptyArray[0] would be)
 
 //SLICING
 s[0...1]        //range operator can be passed to get an array from a portion of the array

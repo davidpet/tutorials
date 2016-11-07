@@ -1,10 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fnil\fcharset0 Monaco;
 }
-{\colortbl;\red255\green255\blue255;\red92\green38\blue153;\red92\green38\blue153;\red0\green0\blue0;
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red92\green38\blue153;\red92\green38\blue153;
 \red196\green26\blue22;\red170\green13\blue145;\red170\green13\blue145;\red63\green110\blue116;\red46\green13\blue110;
 }
-{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c36078\c14902\c60000;\csgenericrgb\c35900\c14900\c60100;\csgenericrgb\c0\c0\c0;
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c0\c0;\csgenericrgb\c36078\c14902\c60000;\csgenericrgb\c35900\c14900\c60100;
 \csgenericrgb\c77000\c10200\c8600;\csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c66667\c5098\c56863;\csgenericrgb\c24706\c43137\c45490;\csgenericrgb\c18039\c5098\c43137;
 }
 {\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid3\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid4\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li2880\lin2880 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid5\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li3600\lin3600 }{\listname ;}\listid1}
@@ -264,14 +264,41 @@
 \i0 {\listtext	\uc0\u8259 	}
 \i range
 \i0  - NSRange representing the whole match\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1
-\i {\listtext	\uc0\u8259 	}numberOfRanges
+\i \cf0 {\listtext	\uc0\u8259 	}numberOfRanges
 \i0  - how many ranges are included in the match (for regex means number of groups, including 0 = the whole match)\
 {\listtext	\uc0\u8259 	}
 \i rangeAt()
 \i0  - get NSRange describing group with given index number (for regex, 0 = whole match)\
 {\listtext	\uc0\u8259 	}returns ranges instead of strings (use the range on the original string to extract the text)\
 {\listtext	\uc0\u8259 	}NOTE: named capture groups not supported by iOS regexes\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionContext\ulnone  - configuration for extension behavior\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i inputItems
+\i0  - [Any] that contains inputs to the extension from the parent app (empty if none) [parent app = the app you\'92re extending, not the one in your project]\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}try casting to 
+\i NSExtensionItem
+\i0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionItem\ulnone  - an item for an extension to act on from an extended app\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i attachments
+\i0  - [Any]? of attachments given to the item (always can be casted to NSItemProvider)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSItemProvider\ulnone  - asynchronous data provider\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i loadItem(forTypeIdentifier:)
+\i0  - takes a type and a closure (which takes a dictionary and an error) to act on the result asynchronously\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}type identifier is a String (can use constants like 
+\f1\fs22 \cf2 \CocoaLigature0 kUTTypePropertyList 
+\f0\fs28 \cf0 \CocoaLigature1 from MobileCoreServices package (may have to declare)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
@@ -473,6 +500,11 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i prefersStatusBarHidden
 \i0 : boolean computed property (readonly) you can override (defaults to false) [if true, the bar with clock, battery, etc. will be hidden when possible]\
+{\listtext	\uc0\u8259 	}
+\i extensionContext
+\i0 : NSExtensionContext member used to control extension behavior for a view controller for an extension target within a project\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}safe to use ! if you know your app is an extension\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}anchors for Auto Layout: widthAnchor, heightAnchor, topAnchor, bottomAnchor, leftAnchor, rightAnchor, leadingAnchor, trailingAnchor, centerXAnchor, and centerYAnchor\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -550,7 +582,7 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}initialize with list of items and optional list of services (empty if none)\
 {\listtext	\uc0\u8259 	}set 
-\f1\fs22 \cf2 \CocoaLigature0 popoverPresentationController\cf0 ?.\cf2 barButtonItem 
+\f1\fs22 \cf3 \CocoaLigature0 popoverPresentationController\cf0 ?.\cf3 barButtonItem 
 \f0\fs28 \cf0 \CocoaLigature1 to anchor the popover to a button on iPad (ignored on iPhone)\
 {\listtext	\uc0\u8259 	}use 
 \i present
@@ -593,7 +625,7 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIStoryboard\ulnone  - storyboard type\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}instantiate as 
-\f1\fs22 \cf3 \CocoaLigature0 UIStoryboard\cf4 (name: \cf5 "Main"\cf4 , bundle: \cf6 nil\cf4 ) 
+\f1\fs22 \cf4 \CocoaLigature0 UIStoryboard\cf2 (name: \cf5 "Main"\cf2 , bundle: \cf6 nil\cf2 ) 
 \f0\fs28 \cf0 \CocoaLigature1 to get access to storyboard (eg. from AppDelegate) [nil = current app bundle]\
 {\listtext	\uc0\u8259 	}instantiateViewController: can instantiate another view in the storyboard by storyboard ID string (identity inspector of view controllers)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -975,7 +1007,7 @@ WebKit\
 {\listtext	\uc0\u8259 	}
 \i navigationDelegate
 \i0 : set to class (eg. view controller) that will handle browsing actions for the view [must implement 
-\f1\fs22 \cf2 \CocoaLigature0 WKNavigationDelegate protocol]\
+\f1\fs22 \cf3 \CocoaLigature0 WKNavigationDelegate protocol]\
 \ls8\ilvl1
 \f0\fs28 \cf0 \CocoaLigature1 {\listtext	\uc0\u8259 	}\ul WKNavigationDelegate\ulnone  - protocol that implements navigation functions for WKWebView\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -987,7 +1019,7 @@ WebKit\
 \i webView(_:didFinishNavigation)
 \i0 : for responding to navigation to a url (eg. to set title)\
 {\listtext	\uc0\u8259 	}
-\f1\fs22 \CocoaLigature0 webView(\cf7 _\cf0  webView: \cf2 WKWebView\cf0 , decidePolicyFor navigationAction: \cf2 WKNavigationAction\cf0 , decisionHandler: \cf7 @escaping\cf0  (\cf2 WKNavigationActionPolicy\cf0 ) -> \cf2 Void\cf0 )\
+\f1\fs22 \CocoaLigature0 webView(\cf7 _\cf0  webView: \cf3 WKWebView\cf0 , decidePolicyFor navigationAction: \cf3 WKNavigationAction\cf0 , decisionHandler: \cf7 @escaping\cf0  (\cf3 WKNavigationActionPolicy\cf0 ) -> \cf3 Void\cf0 )\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls8\ilvl3
 \f0\fs28 \cf0 \CocoaLigature1 {\listtext	\uc0\u8259 	}for deciding whether to allow navigation to a given url\
@@ -996,7 +1028,7 @@ WebKit\
 \ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i load
 \i0 : for loading a web page (eg. 
-\f1\fs22 \cf8 \CocoaLigature0 webView\cf0 .\cf9 load\cf0 (\cf2 URLRequest\cf0 (url: url)))\
+\f1\fs22 \cf8 \CocoaLigature0 webView\cf0 .\cf9 load\cf0 (\cf3 URLRequest\cf0 (url: url)))\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls8\ilvl2\cf0 \CocoaLigature1 {\listtext	
 \f2 \uc0\u8259 

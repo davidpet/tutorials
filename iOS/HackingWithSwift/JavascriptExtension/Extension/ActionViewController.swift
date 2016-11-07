@@ -15,6 +15,15 @@ class ActionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let inputItem = extensionContext!.inputItems.first as? NSExtensionItem {
+            if let itemProvider = inputItem.attachments?.first as? NSItemProvider {
+                itemProvider.loadItem(forTypeIdentifier: kUTTypePropertyList as String) { [unowned self] (dict, error)
+                    in
+                    // do stuff!
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
