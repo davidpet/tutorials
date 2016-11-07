@@ -113,6 +113,8 @@ let local2 = MyClass()
 let mylambda = { [unowned local, local2] (param: String) -> String in       //capture specification: local and local2 are both unowned
     return local.x + local2.x + param                           //NOTE: this is useful for things like adding a UIAlertController action that references the controller itself
 }
+//NOTE: if you already captured something (eg. unowned self) in a closure, then closures inside it don't need that explicitly (can just use self directly)
+
 //NOTE: closures are REFERENCE TYPES and taking multiple references will refer to same capture variables
 //NOTE: closures that capture class members must explicitly refer to them with 'self'
 

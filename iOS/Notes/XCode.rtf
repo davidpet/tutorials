@@ -148,6 +148,7 @@ Interface Builder
 {\listtext	\uc0\u8259 	}also can ctrl drag within the document outline to the object you want to constrain something inside (gives more options because not directional)\
 {\listtext	\uc0\u8259 	}NOTE: another thing to know for making adaptive layouts is to use view.frame.width and view.frame.height in the view controller to get the size at runtime (eg. in viewDidLoad)\
 {\listtext	\uc0\u8259 	}Orange dashed line shows you where your view will be when the app runs (if you haven\'92t updated frames yet)\
+{\listtext	\uc0\u8259 	}NOTE: if you extend an object underneath the navigation bar in IB and set the constraints, it will probably go to just the non title bar area magically\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 	Adding Outlet\
 		Ctrl-drag a control onto source code where you want the outlet declaration and use the box that pops up to configure name, type, etc. (use Assistant Editor)\
@@ -248,7 +249,10 @@ Interface Builder
 		*some others?\
 	Action Extension: extension for apps like safari extensions (generally must be embedded as a separate target within an app)\
 		ActionViewController.Swift: a UIViewController subclass with some default code in it\
-		MainInterface.storyboard: default UI for the extension that has navigation bar and image view (and layout constraints)\
+		MainInterface.storyboard: default UI for the extension that has navigation bar and image view (and layout constraints) [both can be deleted - default navigation bar is terrible and you might want to do navigation same way as normal apps instead]\
+			if you delete the navigation bar item, the 
+\i done
+\i0  action will be orphaned, but you can reuse it in your own navigation bars\
 		Info.plist (same as usual): has NSExtension fields\
 	Game: starting point for a game (lets you select the base technology such as SpriteKit or SceneKit)\
 		Default app has grey screen with \'93Hello, World\'94 and you can click and drag to animate loopy things of different colors (frame rate in lower right corner)\
@@ -498,7 +502,8 @@ NSExtensionJavaScriptPreprocessingFile
 {\listtext	\uc0\u8259 	}WARNING: make sure the JavaScript is under Copy Bundle Resources in Build Phases tab of target (rather than Compile Resources)\
 {\listtext	\uc0\u8259 	}NOTE: this is useful to have data passed into your extension (by running the javascript which sends that data in) [see JavaScriptExtension project for how]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls12\ilvl2\cf0 {\listtext	\uc0\u8259 	}\ul Running Extensions\ulnone \
+\ls12\ilvl2\cf0 {\listtext	\uc0\u8259 	}must call completeRequest() to end the extension and return control to the parent\
+{\listtext	\uc0\u8259 	}\ul Running Extensions\ulnone \
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls12\ilvl3\cf0 {\listtext	\uc0\u8259 	}when you run the extension, the simulator will be launched and you\'92ll be prompted about which app to launch\
 {\listtext	\uc0\u8259 	}when you launch the app and have data to send, click the action button (up arrow) and find the extension (may need to swipe and/or use More button)\

@@ -274,21 +274,31 @@
 {\listtext	\uc0\u8259 	}returns ranges instead of strings (use the range on the original string to extract the text)\
 {\listtext	\uc0\u8259 	}NOTE: named capture groups not supported by iOS regexes\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionContext\ulnone  - configuration for extension behavior\
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionContext\ulnone  - container for extension behavior\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i inputItems
 \i0  - [Any] that contains inputs to the extension from the parent app (empty if none) [parent app = the app you\'92re extending, not the one in your project]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}try casting to 
-\i NSExtensionItem
-\i0 \
+\i NSExtensionItem\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1
+\i0 \cf0 {\listtext	\uc0\u8259 	}
+\i completeRequest(returningItems:)
+\i0  - return control to the parent application and end the extension\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}the array of items you pass back can be, for instance, sent into the preprocessing .js file you may have configured\
+{\listtext	\uc0\u8259 	}returningItems should be an array of NSExtensionItem\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionItem\ulnone  - an item for an extension to act on from an extended app\
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSExtensionItem\ulnone  - an item sent to or from an extension (data exchange with host app)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i attachments
 \i0  - [Any]? of attachments given to the item (always can be casted to NSItemProvider)\
+{\listtext	\uc0\u8259 	}can create with default initializer and populate 
+\i attachments
+\i0  (items should be NSItemProvider)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSItemProvider\ulnone  - asynchronous data provider\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -301,11 +311,20 @@
 \f0\fs28 \cf0 \CocoaLigature1 from MobileCoreServices package (may have to declare)\
 {\listtext	\uc0\u8259 	}if you choose property list, the object can be casted to NSDictionary (the objective-c (Foundation) version of dictionary)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
-\ls1\ilvl3\cf0 {\listtext	\uc0\u8259 	}more or less can be treated like a dictionary of string to NSObject\
+\ls1\ilvl3\cf0 {\listtext	\uc0\u8259 	}more or less can be treated like a dictionary of string to NSObject (or fundamental object like String)\
 {\listtext	\uc0\u8259 	}use constants from within Foundation (such as 
 \fs22 \expnd0\expndtw0\kerning0
 NSExtensionJavaScriptPreprocessingResultsKey 
 \fs28 \kerning1\expnd0\expndtw0 for getting javascript passed into an extension via preprocessing as an NSDictionary)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init
+\i0 (item:typeIdentifier)
+\i  - 
+\i0 similar in reverse (for passing data back)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}can populate NSDictionary just like a normal dictionary (same literal), with same constants as the other direction\
+{\listtext	\uc0\u8259 	}whatever you pass back should be understood by the app (or by preprocessing javascript or whatever)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
@@ -382,6 +401,7 @@ NSExtensionJavaScriptPreprocessingResultsKey
 
 \fs24 \cf0 Interface stuff like buttons, text boxes, etc.\
 \
+WARNING: never change properties of UI objects unless you\'92re sure you\'92re on the main thread (eg. if you do it from a closure you can\'92t be sure) (dispatch to main thread if not sure)\
 TIP: animations are important (not just silly) because they make it clear what is changing and what the state is (eg. a panel sliding over existing one tells them the other one is still there underneath when they\'92re done)\
 TIP: you don\'92t have to do animations yourself by manipulating attributes -> use methods like 
 \i animate()
@@ -671,6 +691,7 @@ Controls/views start with UI\
 \i customView
 \i0  initializer to create a view (eg. UIProgressView) to use as the button\
 {\listtext	\uc0\u8259 	}can use built-in ones (eg. + and refresh icons) or provide own text, image, etc.\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}different initializers (eg. barButtonSystemItem)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITabBarController\ulnone  - wraps tab bar functionality (tab bar at bottom of screen)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -780,6 +801,10 @@ Controls/views start with UI\
 \i0  property representing the actual text\
 {\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
 {\listtext	\uc0\u8259 	}placeholder text in IB sets initial text that will go away when user clicks into the field\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextView\ulnone  - multiline editable text field\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}acts like UITextField (see above)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextChecker\ulnone  - for spell checking text (eg. user input)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
