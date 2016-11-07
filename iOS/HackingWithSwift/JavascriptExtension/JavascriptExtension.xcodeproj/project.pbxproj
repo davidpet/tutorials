@@ -15,6 +15,7 @@
 		B93667971DD0690D0069DBC8 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93667961DD0690D0069DBC8 /* ActionViewController.swift */; };
 		B936679A1DD0690D0069DBC8 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93667981DD0690D0069DBC8 /* MainInterface.storyboard */; };
 		B936679E1DD0690D0069DBC8 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B93667941DD0690D0069DBC8 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B93667A41DD076620069DBC8 /* Aciton.js in Resources */ = {isa = PBXBuildFile; fileRef = B93667A31DD076620069DBC8 /* Aciton.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		B93667961DD0690D0069DBC8 /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		B93667991DD0690D0069DBC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		B936679B1DD0690D0069DBC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B93667A31DD076620069DBC8 /* Aciton.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Aciton.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B93667961DD0690D0069DBC8 /* ActionViewController.swift */,
 				B93667981DD0690D0069DBC8 /* MainInterface.storyboard */,
 				B936679B1DD0690D0069DBC8 /* Info.plist */,
+				B93667A31DD076620069DBC8 /* Aciton.js */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93667A41DD076620069DBC8 /* Aciton.js in Resources */,
 				B936679A1DD0690D0069DBC8 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
