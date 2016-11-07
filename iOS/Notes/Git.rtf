@@ -1,4 +1,4 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPSMT;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
 {\*\expandedcolortbl;\csgray\c100000;\cssrgb\c0\c0\c0;}
@@ -142,8 +142,9 @@ History\
 	git log [branch]			get log for a specific branch\
 	git log [branch] ^[excludeBranch]	get commits in branch that are not in excludeBranch\
 \
-	git diff [hash]				can see the diff of what was checked in in a commit (using the hash from git log)\
-Tags\
+	git show [commitHash]		show a diff of the commit changes (eg. from git log)\
+	git difftool [commitHash]^!		same as above but using difftool\
+ags\
 	git tag 1.0 -m \'93Tag version 1.0 from master\'94			create a tag called 1.0 of the current state of the current branch with a given description\
 	git tag									list your tags without the messages\
 	git tag -n								list your tags with the message\
