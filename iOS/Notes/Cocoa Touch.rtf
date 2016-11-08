@@ -1195,7 +1195,7 @@ SpriteKit\
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
 \
-See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, drawing trails on the screen in response to user swiping (2-layered trail), responding to various phases of touch lifecycle (such as tracing movement), fancy animations like fading out the touch when you lift your finger, drawing multiple segments paths with max and min size clipping, playing sound effect that does not pile on itself (swoosh when you are moving finger), random positions w/ angular velocities, etc. based on position and desired learning curve of enemies vs. good guys, syncing cleanup code to frame drawing, using enums with meanings about what kind of things to create to allow for randomization, increasing difficulty via adjusting physics and delays as game goes on, using dispatch queue to chain enemies together with delay while doing other stuff immediately, removing enemies from the game when they go offscreen and only creating more enemies when last one (or sequence) done\
+See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, drawing trails on the screen in response to user swiping (2-layered trail), responding to various phases of touch lifecycle (such as tracing movement), fancy animations like fading out the touch when you lift your finger, drawing multiple segments paths with max and min size clipping, playing sound effect that does not pile on itself (swoosh when you are moving finger), random positions w/ angular velocities, etc. based on position and desired learning curve of enemies vs. good guys, syncing cleanup code to frame drawing, using enums with meanings about what kind of things to create to allow for randomization, increasing difficulty via adjusting physics and delays as game goes on, using dispatch queue to chain enemies together with delay while doing other stuff immediately, removing enemies from the game when they go offscreen and only creating more enemies when last one (or sequence) done, using swipe/slice to kill sprite, animating destruction of objects (such as making them stop moving, shrink, explode, etc. all at the same time better than Plachinko)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
@@ -1473,6 +1473,9 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}remember to clean up the expired action at some point if can happen again\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i scale(to:duration:)
+\i0  - gradually change scale values of node (x and y)\
+{\listtext	\uc0\u8259 	}
 \i repeatForever(action)
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
 {\listtext	\uc0\u8259 	}
@@ -1491,6 +1494,18 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i sequence([SKAction])
 \i0  - executes an array of actions in order (useful for specific sequences of actions that you need to happen a certain way)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i group([SKAction])
+\i0  - the parallel version of 
+\i sequence
+\i0 \
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: it is common to have a group inside a sequence\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i removeFromParent()
+\i0  - remove the item from its parent (useful to put at end of sequence)\
 {\listtext	\uc0\u8259 	}the action is executed by putting it into the execution list for a node (such as SKSpriteNode) (executed asynchronously from the queueing)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
