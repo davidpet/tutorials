@@ -1190,7 +1190,7 @@ SpriteKit\
 \fs24 \cf0 2d Games (inc. sprites, fonts, physics, particle effects, etc.)\
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
-See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, drawing trails on the screen in response to user swiping (2-layered trail), responding to various phases of touch lifecycle (such as tracing movement), fancy animations like fading out the touch when you lift your finger, drawing multiple segments paths with max and min size clipping
+See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, drawing trails on the screen in response to user swiping (2-layered trail), responding to various phases of touch lifecycle (such as tracing movement), fancy animations like fading out the touch when you lift your finger, drawing multiple segments paths with max and min size clipping, playing sound effect that does not pile on itself (swoosh when you are moving finger)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}
@@ -1273,6 +1273,10 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i nodes(atLocation:)
 \i0  - get an array of nodes at a given position (eg. when detected a tap)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i run
+\i0  - you can run an action on the scene too (eg. sound effect)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1345,6 +1349,9 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}ok to swap image after doing it in same function on main loop (because won\'92t get to the rendering until after that)\
 {\listtext	\uc0\u8259 	}actions are queued to run asynchronously\
+\ls11\ilvl2{\listtext	\uc0\u8259 	}optional 
+\b closure
+\b0  if you want to execute something when the action completes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
@@ -1453,7 +1460,10 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i playSoundFileNamed(_:waitForCompletion:)
 \i0  - play a sound file from the resources and optionally wait for it\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you don\'92t wait for completion, the completion closure (optional) will execute right away and so will other actions\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i sequence([SKAction])
 \i0  - executes an array of actions in order (useful for specific sequences of actions that you need to happen a certain way)\
 {\listtext	\uc0\u8259 	}the action is executed by putting it into the execution list for a node (such as SKSpriteNode) (executed asynchronously from the queueing)\
