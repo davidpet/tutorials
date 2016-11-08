@@ -1357,6 +1357,18 @@ See WhackAPenguin project for wack-a-mole style game with changing penguin image
 \i0  - set to something that conforms to SKPhysicsContactDelegate protocol in order to enable collision detection\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}remember to also set the nodes\'92 collisionBitMask and contactTestBitMask as needed\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i gravity
+\i0  - CGVector describing 2D acceleration due to gravity in m/s/s (default = earth = <0.0, -9.8>)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}reduce magnitude from -9.8 to make it more floaty\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i speed
+\i0  - overall speed ratio (CGFloat, default = 1.0)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. adjust downward to make everything move slower\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsContactDelegate\ulnone  - protocol to conform to in order to detect collisions (eg. conform your scene to this)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1470,12 +1482,16 @@ Core Graphics\
 \fs28 \cf0 {\listtext	\'95	}\ul CGPoint\ulnone  - struct representing a point in space\
 {\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height) [stored as CGFloat]\
 {\listtext	\'95	}\ul CGRect\ulnone  - a rectangle\
-{\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions that take CGFloat)\
+{\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions/properties that take CGFloat)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}easy to cast other things like ints, floats, etc. just by using CGFloat(value)\
 {\listtext	\uc0\u8259 	}
 \i pi
 \i0 : static member, the value of pi (also available as members of Double and Float)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls10\ilvl0\cf0 {\listtext	\'95	}\ul CGVector\ulnone  - 2D vector (dx and dy CGFloat members)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}can be initialized using various types (floats, ints, CGFloats, etc.)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0\cf0 {\listtext	\'95	}\ul CGImage
 \i \ulnone  - 
