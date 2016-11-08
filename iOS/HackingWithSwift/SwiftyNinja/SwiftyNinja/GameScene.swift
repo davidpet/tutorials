@@ -87,6 +87,23 @@ class GameScene: SKScene {
         }
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        var bombCount = 0
+        for node in activeEnemies {
+            if node.name == "bombContainer" {
+                bombCount += 1
+                break
+            }
+        }
+        if bombCount == 0 {
+            // no bombs – stop the fuse sound!
+            if bombSoundEffect != nil {
+                bombSoundEffect.stop()
+                bombSoundEffect = nil
+            }
+        }
+    }
+    
     func createScore() {
         gameScore = SKLabelNode(fontNamed: "Chalkduster")
         gameScore.text = "Score: 0"

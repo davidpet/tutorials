@@ -1260,6 +1260,13 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}NOTE: this is the only one where the tutorial checks if touches is populated before acting\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i update()
+\i0  - override to execute code before each frame is drawn\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}useful for things like counting, doing some cleanup, etc.\
+{\listtext	\uc0\u8259 	}EXAMPLE: tutorial uses it to stop fuse sound if no bombs left (since you can only see frame by frame, you can\'92t see 0 bombs with sound because it\'92s synced to this)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
 \i0  - add a node (such as SKSpriteNode, SKLabelNode, etc.) to the scene\
 {\listtext	\uc0\u8259 	}
