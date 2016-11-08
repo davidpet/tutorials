@@ -88,6 +88,10 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if gameEnded {
+            return
+        }
+        
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         activeSlicePoints.append(location)
@@ -328,6 +332,10 @@ class GameScene: SKScene {
     }
     
     func tossEnemies() {
+        if gameEnded {
+            return
+        }
+        
         popupTime *= 0.991
         chainDelay *= 0.99
         physicsWorld.speed *= 1.02
