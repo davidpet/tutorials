@@ -1173,7 +1173,7 @@ SpriteKit\
 \fs24 \cf0 2d Games (inc. sprites, fonts, physics, particle effects, etc.)\
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
-See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count
+See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, drawing trails on the screen in response to user swiping (2-layered trail)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}
@@ -1451,7 +1451,22 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count
 {\listtext	\uc0\u8259 	}default is nil which means no cropping\
 {\listtext	\uc0\u8259 	}HINT: for penguin whacking game, the mask consisted of the visible hole plus a rectangle above it to account for going above ground\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}eg. SKNode that has hole image, crop node, and penguin image (where penguin is child of crop node)\ul \
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}eg. SKNode that has hole image, crop node, and penguin image (where penguin is child of crop node)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKShapeNode\ulnone  - a generic shape that you can draw, move, etc. (follows a path that you give and can change) [eg. for drawing trail that tracks user input]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}default initializer\
+{\listtext	\uc0\u8259 	}
+\i strokeColor
+\i0  - UIColor representing the color to draw on the path\
+{\listtext	\uc0\u8259 	}
+\i lineWidth
+\i0  - CGFloat line width (defaults to 1.0)\
+{\listtext	\uc0\u8259 	}HINT: you can store multiple shape nodes and use the same path for them (eg. a thicker trail under a thinner one of a different color)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}go ahead and add them to the parent right away even before you set a path\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}Without a path, you don\'92t see it yet\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
