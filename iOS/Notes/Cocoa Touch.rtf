@@ -332,7 +332,7 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}can populate NSDictionary just like a normal dictionary (same literal), with same constants as the other direction\
 {\listtext	\uc0\u8259 	}whatever you pass back should be understood by the app (or by preprocessing javascript or whatever)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NotificationCenter\ulnone  - a notification dispatch object for subscribing to and receiving notifcations\
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NotificationCenter\ulnone  - a notification dispatch object for subscribing to and receiving notifcations (and publishing if you want)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}for some reason no NS in front\
 {\listtext	\uc0\u8259 	}
@@ -346,6 +346,12 @@ NSExtensionJavaScriptPreprocessingResultsKey
 {\listtext	\uc0\u8259 	}the method invoked takes a 
 \i Notification
 \i0  object\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i post(name:object:)
+\i0  - post a notification (which can be observed) using a name (constant or custom one from 
+\i Notification
+\i0 ) (object can be nil or some object)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul Notification\ulnone  - a notification for use in NotificationCenter (eg. accepted by observers)\ul \
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -362,6 +368,9 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i UIKeyboardWillChangeFrame
 \i0  - keyboard showing/hiding, orientation changing, quicktype, etc. (but not physical keyboard insertion)\
+{\listtext	\uc0\u8259 	}
+\i init(string)
+\i0  - can make a name out of a string to pass into NotificationCenter\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i userInfo
@@ -1241,7 +1250,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \i self
 \i0  (the scene) as the reference point for locations\
 {\listtext	\uc0\u8259 	}good place to detect label/button taps as well\
-\ls9\ilvl2{\listtext	\uc0\u8259 	}can just get the first one if you don\'92t want to worry about multitouch\
+{\listtext	\uc0\u8259 	}can just get the first one if you don\'92t want to worry about multitouch\
 {\listtext	\uc0\u8259 	}NOTE: This is the only one where tutorial calls 
 \b super
 \b0  version (probably so that buttons and stuff still work)\
@@ -1287,8 +1296,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i nodes(atLocation:)
 \i0  - get an array of nodes at a given position (eg. when detected a tap)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i run
 \i0  - you can run an action on the scene too (eg. sound effect)\
 {\listtext	\uc0\u8259 	}
@@ -1366,7 +1374,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}ok to swap image after doing it in same function on main loop (because won\'92t get to the rendering until after that)\
 {\listtext	\uc0\u8259 	}actions are queued to run asynchronously\
-\ls11\ilvl2{\listtext	\uc0\u8259 	}optional 
+{\listtext	\uc0\u8259 	}optional 
 \b closure
 \b0  if you want to execute something when the action completes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1383,8 +1391,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i removeFromParent()
 \i0  - removes the node from its parent node (eg. remove a sprite from a scene after the character dies)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i removeAllActions()
 \i0  - clear out all the actions assigned to the node (inc. ones that have already executed)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1418,8 +1425,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i isDynamic
 \i0  - if true (the default) object will be moved by gravity and other objects (set to false to make it stationary and then it will just affect objects that hit it)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i velocity
 \i0  - CGVector representing the velocity of the object at this point in time (will of course be subject to physics over time)\
 {\listtext	\uc0\u8259 	}
@@ -1468,8 +1474,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i moveBy(x:y:duration:)
 \i0  - linear movement over a duration in seconds (floating point)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i fadeOut(withDuration:)
 \i0  - gradually reduce alpha value of the node to 0.0 (and leave it there)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1497,8 +1502,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i sequence([SKAction])
 \i0  - executes an array of actions in order (useful for specific sequences of actions that you need to happen a certain way)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i group([SKAction])
 \i0  - the parallel version of 
 \i sequence
@@ -1572,7 +1576,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i path
-\i0  - CGPath describing what path the shape should use (nil by default, which means to draw nothing)\ul \ulc0 \
+\i0  - CGPath describing what path the shape should use (nil by default, which means to draw nothing)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -1648,7 +1652,7 @@ Core Graphics\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls12\ilvl1\cf0 {\listtext	\uc0\u8259 	}useful to use UIBezierPath (even for straight segments) and use its 
 \i cgPath
-\i0  property to get this when you need it\ul \ulc0 \
+\i0  property to get this when you need it\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -1736,8 +1740,9 @@ CoreImage\
 {\listtext	\uc0\u8259 	}
 \i play()
 \i0  - begin (or resume) playback of sound\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls14\ilvl1
-\i {\listtext	\uc0\u8259 	}stop()
+\i \cf0 {\listtext	\uc0\u8259 	}stop()
 \i0  - stop the sound from playing (more like pause than stop)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
