@@ -36,6 +36,9 @@ if _isDebugAssertConfiguration() {
 //DEBUGGING CRASHES
 //Next time you get a crash, follow these instructions to get right to the problem: click on the objc_exception_throw in your thread, then type "po $arg1" into the debug area to get the human-readable version of the error. If you use exception breakpoints, you can even add the "po $arg1" command there so it’s automatic.
 
+
+//NOTE: see XCode Notes for information about things like breakpoints
+
 //QUESTIONS
 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?
 //_branchHint in CONDITIONAL COMPILATION

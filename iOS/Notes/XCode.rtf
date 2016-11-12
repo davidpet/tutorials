@@ -48,37 +48,54 @@ Right-click on symbol:\
 cmd-[ and cmd-]: dedent and indent line(s) [like tab + shift-tab in VS, which don\'92t work here]\
 ctrl-i: smartly reindent the selected code\
 \
-breakpoints: look like blue bookmarks in Xcode (not red dots)\
-cmd-\\: set or clear breakpoint\
-click in empty space in left column: set breakpoint or disable (not delete) existing one\
-right-click breakpoint: options like Delete\
-cmd-y: toggle all breakpoints on/off\
-conditional breakpoint: right-click a breakpoint and add a condition to it just like VS\
-debug output: can right-click breakpoint and tell it to do an lldb debug action (like print) when breakpoint is hit and continue (therefore don\'92t have to put prints into code)\
-special breakpoints: can be created with + in Breakpoint Navigator on left (these can be enabled/disabled just like code ones)\
-	error breakpoint: catches swift thrown errors\
-	exception breakpoint: catches exceptions that you specify\
-moving instruction pointer: little green plate when you\'92re debugging is the program counter and can be dragged to skip or rerun code\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 Building
+\fs24 \
+	cmd-b: build\
+	cmd-r: run\
+	cmd-.: stop\
+	cmd-shift-k: clean (current target only)\
+	alt-cmd-shift-k: clean build folder (all targets)\
+	cmd-k: clear console\
 \
-cmd-b: build\
-cmd-r: run\
-cmd-.: stop\
-cmd-shift-k: clean (current target only)\
-alt-cmd-shift-k: clean build folder (all targets)\
-cmd-k: clear console\
+	Red error icon can be clicked to see error (sometimes has a Fix-it button)\
 \
-Red error icon can be clicked to see error (sometimes has a Fix-it button)\
+	see Issue Navigator on left side for list of all errors/warnings\
 \
-Visual Studio Equivalents\
+
+\fs36 Debugging (Visual Studio Equivalents)
+\fs24 \
 	F5: to run = cmd-r, to continue when broken in = ctrl-cmd-y\
 	F6/F7: cmd-b (to build)[but just current scheme if in workspace]\
 	F10 = F6 (step out)\
 	F11 = F7 (step into)\
 	shift-F11 = F8 (step out)\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+	Debugging Panels\
+		Debug Navigator (default left side)\
+			threads, stacktrace (called backtrace in Xcode), disk/memory/cup usage		Variables View (default lower left): has lower dropdown to pick auto vs. locals\
+		Console (default lower right): lldb console where you can enter commands (eg. p x to print the value of x)\
+			If missing, do View -> Debug Area -> Active Console\
+		Breakpoint Navigator (can be selected on left side in place of Debug Navigator)\
+\
 
-\fs36 \cf0 File -> New -> File\
+\fs36 Breakpoints
+\fs24 \
+	breakpoints: look like blue bookmarks in Xcode (not red dots)\
+	cmd-\\: set or clear breakpoint\
+	click in empty space in left column: set breakpoint or disable (not delete) existing one\
+	right-click breakpoint: options like Delete\
+	cmd-y: toggle all breakpoints on/off\
+	conditional breakpoint: right-click a breakpoint and add a condition to it just like VS\
+	debug output: can right-click breakpoint and tell it to do an lldb debug action (like print) when breakpoint is hit and continue (therefore don\'92t have to put prints into code)\
+	special breakpoints: can be created with + in Breakpoint Navigator on left (these can be enabled/disabled just like code ones)\
+		error breakpoint: catches swift thrown errors\
+		exception breakpoint: catches exceptions that you specify\
+	moving instruction pointer: little green plate when you\'92re debugging is the program counter and can be dragged to skip or rerun code\
+
+\fs36 \
+File -> New -> File\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 	ios/Cocoa Touch Class: can select what UI class to subclass [subclass list is scrollable even though doesn\'92t look it] ((or type in your own class))\
