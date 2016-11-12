@@ -69,6 +69,8 @@ for item in [item1, item2, item3] {         //useful if you want to loop through
 for (index, item) in [1, 2, 3, 4, 5].enumerated() {     //special enumerated() member of collection returns tuple(index, item)
     print(item)
 }
+for (index, item) in [1, 2, 3, 4, 5].enumerated().reversed() {      //same thing backwards
+}
 
 //WHILE LOOPS
 var z = 0

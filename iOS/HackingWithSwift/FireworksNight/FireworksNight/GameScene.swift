@@ -44,6 +44,16 @@ class GameScene: SKScene {
         checkTouches(touches)
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        for (index, firework) in fireworks.enumerated().reversed() {
+            if firework.position.y > 900 {      //user has a little extra time to make decisions
+                // this uses a position high above so that rockets can explode off screen
+                fireworks.remove(at: index)
+                firework.removeFromParent()
+            }
+        }
+    }
+    
     func checkTouches(_ touches: Set<UITouch>) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)

@@ -1239,7 +1239,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \fs36 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection)\
+\fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
@@ -1313,7 +1313,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \i update()
 \i0  - override to execute code before each frame is drawn\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}useful for things like counting, doing some cleanup, etc.\
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}useful for things like counting, doing some cleanup for offscreen or out of bounds things, stopping sounds, etc.\
 {\listtext	\uc0\u8259 	}EXAMPLE: tutorial uses it to stop fuse sound if no bombs left (since you can only see frame by frame, you can\'92t see 0 bombs with sound because it\'92s synced to this)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
