@@ -53,7 +53,17 @@ person.sing()                                               //calling method lik
 //PROPERTY OBSERVERS, COMPUTED PROPERTIES, STATIC, and ACCESS CONTROL
 //see: SwiftStructs playground (syntax is the same)
 //in addition, can define a variable with "private" in front
-//NOTE: can declare a static method as 'class' instead of 'static' if want subclasses to be able to override it (static methods are automatically 'final')
+//NOTE: can declare a static method or property as 'class' instead of 'static' if want subclasses to be able to override it (static methods are automatically 'final')
+class MyColors {
+    class var red: MyColors  { return MyColors(color: "red") }
+    static var green: MyColors { return MyColors(color: "green") }
+    static let blue = MyColors(color: "blue")
+    
+    init(color: String) { print(color) }
+}
+var mc: MyColors = .red                 //'class' properties can be inferred like enum members
+mc = .green                             //'static' properties can do this as well
+mc = .blue                              //STORED static/class properties work this way too
 
 //INHERITENCE
 class Singer: Person {                          //only ONE base class allowed just like in C#

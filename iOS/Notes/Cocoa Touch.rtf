@@ -390,6 +390,17 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \i name
 \i0  - name of the notification sent (compare with members of Name member)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul Timer\ulnone  - wrapper for timing and calling things on a delay\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i scheduledTimer(timeInterval:target:selector:userInfo:repeats:)
+\i0  - factory method to get Timer instance that will start calling a method at a given interval (once or repeated)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}timeInterval is in seconds\
+{\listtext	\uc0\u8259 	}target and selector are class and method (() -> Void) that will be called at interval\
+{\listtext	\uc0\u8259 	}userInfo is some context you want to send (can be nil)\
+{\listtext	\uc0\u8259 	}repeats should be true if you want it to fire more than once\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
 {\listtext	\'95	}\ul performSelector(onMainThread:)\ulnone  - runs a method in the main UI thread\
@@ -1355,7 +1366,22 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}.replace = simple pixel override (fastest way) [definitely use this for background][don\'92t usually have to set if using physics]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i alpha
+\i color
+\i0  - UIColor to be combined with the non-transparent areas of the sprite (like photoshop opacity)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1
+\i \cf0 {\listtext	\uc0\u8259 	}
+\i0 colorBlendFactor - blend between color member and the sprite texture (0 = texture only , 1 = color only)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2
+\i \cf0 {\listtext	\uc0\u8259 	}
+\i0 blending takes into account where the sprite image actually is (eg. leaves the overall shape and transparency)\
+\ls11\ilvl2
+\i {\listtext	\uc0\u8259 	}
+\i0 TIP: great way to recolor artwork with no performance penalty
+\i \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}alpha
 \i0  - 1.0 for fully opaque, 0 for invisible\
 {\listtext	\uc0\u8259 	}
 \i zPosition
@@ -1501,6 +1527,27 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i scale(to:duration:)
 \i0  - gradually change scale values of node (x and y)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i follow(path:asOffset:orientToPath:speed:)
+\i0  - animate movement (and possibly rotation) of sprite along a given path\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i path
+\i0  = CGPath (Hint: Use UIBezierPath)\
+{\listtext	\uc0\u8259 	}
+\i asOffset
+\i0  = true if path should be considered relative to sprite\'92s position\
+{\listtext	\uc0\u8259 	}
+\i orientToPath
+\i0  = true if object should be rotated so that it faces down the path\
+{\listtext	\uc0\u8259 	}
+\i speed
+\i0  = how fast the object will move on the path (points per second maybe???)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i follow
+\i0 () - other overloads of the above such as taking duration instead, taking less params, etc.\
 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
