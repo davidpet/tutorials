@@ -13,6 +13,7 @@
 		B9B6CA6F1DD708100013DBCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9B6CA6E1DD708100013DBCB /* Assets.xcassets */; };
 		B9B6CA721DD708100013DBCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9B6CA701DD708100013DBCB /* LaunchScreen.storyboard */; };
 		B9B6CA7B1DD709B30013DBCB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B6CA7A1DD709B30013DBCB /* MapKit.framework */; };
+		B9B6CA7D1DD70C690013DBCB /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6CA7C1DD70C690013DBCB /* Capital.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B9B6CA711DD708100013DBCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9B6CA731DD708100013DBCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9B6CA7A1DD709B30013DBCB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		B9B6CA7C1DD70C690013DBCB /* Capital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				B9B6CA671DD708100013DBCB /* AppDelegate.swift */,
 				B9B6CA691DD708100013DBCB /* ViewController.swift */,
+				B9B6CA7C1DD70C690013DBCB /* Capital.swift */,
 				B9B6CA6B1DD708100013DBCB /* Main.storyboard */,
 				B9B6CA6E1DD708100013DBCB /* Assets.xcassets */,
 				B9B6CA701DD708100013DBCB /* LaunchScreen.storyboard */,
@@ -156,6 +159,7 @@
 			files = (
 				B9B6CA6A1DD708100013DBCB /* ViewController.swift in Sources */,
 				B9B6CA681DD708100013DBCB /* AppDelegate.swift in Sources */,
+				B9B6CA7D1DD70C690013DBCB /* Capital.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
