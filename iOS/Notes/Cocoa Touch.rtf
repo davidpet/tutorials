@@ -1020,6 +1020,13 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2
 \i0 \cf0 {\listtext	\uc0\u8259 	}own the models\
+\ls5\ilvl2{\listtext	\uc0\u8259 	}tend to have a lot of the code in iOS, and sometimes given too much code that could go in view or model instead\
+{\listtext	\uc0\u8259 	}Tips for reducing Fat Controller Syndrome:\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}make delegate objects instead of just passing in self for all delegates\
+{\listtext	\uc0\u8259 	}move more code into either IB or into separate classes (eg. layout stuff)\
+{\listtext	\uc0\u8259 	}push logic and formatting into model\
+{\listtext	\uc0\u8259 	}switch to MVVM\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}data classes are 
 \i models\
