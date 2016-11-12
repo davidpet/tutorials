@@ -155,6 +155,7 @@ var mp2: MyProtocol = MyFloatingClass()         //within the scope of the extens
 //NOTE: protocols can be used for structs and enums as well
 //NOTE: built-in types already conform to protocols (eg. ints are equatable and Integer)
 //NOTE: see Swift Generics playground for Self keyword in protocols
+//NOTE: can extend Integer protocol to affect all integer types (not just Int)
 
 //FINAL
 final class MyFinalClass {var x = 5}

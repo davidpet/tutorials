@@ -20,6 +20,40 @@ extension Int: MyProtocol {     //NOTE: can have multiple extensions for same ty
 }
 5.dostuff()         //now you can use an int in place of a MyProtocol because you added it in this scope
 
+//PROTOCOL EXTENSIONS
+protocol MyProtocol2 {
+    func dostuff()
+    //fun dostuff2()        //ommiting method from protocol itself
+    func dostuff3()
+    //func dostuff4()
+}
+extension MyProtocol2 {
+    func dostuff() {print("p1")}        //DEFAULT IMPLEMENTATION (can only be added by extension) for classes that don't provide their own
+    func dostuff2() {print("p2")}          //providing method implementation that wasn't in the actual protocol
+    func dostuff3() {print("p3")}
+    func dostuff4() {print("p4")}
+}
+class MyProtocol2Impl: MyProtocol2 {
+    func dostuff3() {print("c3")}        //providing implementation of method that is in protocol
+    func dostuff4() {print("c4")}                  //provide implementation of method that is in protocol extension but not protocol
+}
+print("BEGIN EXTENSION")
+let mpi = MyProtocol2Impl()
+mpi.dostuff()
+mpi.dostuff2()
+mpi.dostuff3()
+mpi.dostuff4()                  //specific class methods always used if available and called through CLASS type
+print("MIDDLE EXTENSION")
+let mp2 = mpi as MyProtocol2
+mp2.dostuff()
+mp2.dostuff2()
+mp2.dostuff3()                  //for methods in the protocol itself, an instance of the protocol goes to the CLASS method (class overrides protocol extension)
+mp2.dostuff4()                  //for methods not in the protocol but in the extension, an instance of the protocol goes to the EXTENSION (because class not known)
+print("END EXTENSION")
+//summary: when called through class, class implementations always win
+//summary: when called through protocol, protocol extension implementations win unless method is declared in protocol itself (which makes it virtual)
+//another way to look at it: the original protocol (not extension) defines a virtual table while extensions and class declarations just fill it in or replace each other
+
 //INITIALIZERS (eg. CONVERSION)
 struct MyClass {
     var value: Int
@@ -50,11 +84,30 @@ extension String {
 }
 "hi"[1]         //can use extensions to fix annoying limitation in built-in stuff
 
+//POP (Protocol-Oriented Programming)
+//builds on many of the OOP concepts (extension of OOP, not replacement)
+//includes protocols, extensions, and protocol extensions (special version of polymorphism)
+//horizontal rather than vertical programming (OOP = vertical)
+//can be seen as similar to multiple inheritence, but since you can't add stored properties (state) via protocols, it keeps complexity low
+//easier to add/modify/extend than classes
+//Integer is protocol to extend to affect all integer types
+//NOTE: through protocol extensions, you can add functionality, not just interfaces (including to built-in types via built-in protocols)
+//NOTE: use Self to represent the type of the object (eg. in Integer to represent the real thing like Int)
+//NOTE: a lot of things you can do by extending Collection with constraint of Iterator.Element (or something like Array with Element)
+
+//POP EXAMPLES
+//1. adding squared() method to all numbers: add protocol extensions for Integer
+//2. clipping numbers: take two instances of Self in a protocol extension method
+//3. adding functionality to all equatable types: extend Equatable protocol (w/ implementation)
+//4.
+
 //LIMITATIONS
 //can add COMPUTED properties but not STORED ones
 //cannot add property OBSERVERS to existing properties
 //cannot add designated initializers or deinitializers
+//Objective-C does not see protocol extensions (so extending a UIKIt protocol, for instance, won't work)(extending a protocl you marked @objc won't work either)
 
 //QUESTIONS
 //make sense of this: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215
-
+//@objc keyword for extensions?
+//Make sense of this: extension Collection where Iterator.Element: Integer (p. 228 in Pro Swift)
