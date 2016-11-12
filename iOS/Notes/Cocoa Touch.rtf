@@ -941,6 +941,11 @@ Controls/views start with UI\
 \i move
 \i0  call) to the given point\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIMapView\ulnone  - container for a map that lets you zoom, pan, drop pins, etc.\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}must enable Maps in Capabilities tab of project settings or your app will crash on load\
+{\listtext	\uc0\u8259 	}by default, will show a map of the country that you can zoom into\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul FileManager\ulnone  - helps deal with file system\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}default: static instance to help manage the system\
@@ -1020,7 +1025,7 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2
 \i0 \cf0 {\listtext	\uc0\u8259 	}own the models\
-\ls5\ilvl2{\listtext	\uc0\u8259 	}tend to have a lot of the code in iOS, and sometimes given too much code that could go in view or model instead\
+{\listtext	\uc0\u8259 	}tend to have a lot of the code in iOS, and sometimes given too much code that could go in view or model instead\
 {\listtext	\uc0\u8259 	}Tips for reducing Fat Controller Syndrome:\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}make delegate objects instead of just passing in self for all delegates\
