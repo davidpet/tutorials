@@ -289,6 +289,7 @@ Interface Builder
 		GameViewController swift file (the view controller used by the storyboard)\
 			unlike in ordinary apps, this view controller has a lot of code in it already\
 			can take out the two lines that add the FPS and node counts in here\
+			scene can be accessed by casting view to SKView and casting scene to your scene class (eg. GameScene)\
 		GameScene.Swift\
 			also contains a lot of code (the tutorial blows it all away)\
 			this is the main class to start editing (roughly equivalent to the view controller for a UIKit app even though you have one here)\
@@ -566,7 +567,8 @@ NSExtensionJavaScriptPreprocessingFile
 	Even stuff like shake, matching touchid, non-matching touchid, applepay, reboot, etc.\
 	if onscreen keyboard doesn\'92t show up: go to Hardware menu and disconnect hardware keyboard (can randomly happen)\
 \
-	Pinch Zoom: hold alt and a virtual finger moves in opposite direction of what you do with the mouse (while clicked)
+	Pinch Zoom: hold alt and a virtual finger moves in opposite direction of what you do with the mouse (while clicked)\
+	Shake: ctrl-cmd-z
 \fs36 \
 	\
 APPLE DEVELOPER

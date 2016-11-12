@@ -151,4 +151,40 @@ class GameScene: SKScene {
         
         addChild(node)
     }
+    
+    //called by view controller when device is shaken to blow up all selected fireworks
+    func explodeFireworks() {
+        var numExploded = 0
+        for (index, fireworkContainer) in fireworks.enumerated().reversed() {
+                let firework = fireworkContainer.children[0] as! SKSpriteNode
+                if firework.name == "selected" {
+                    // destroy this firework!
+                    explode(firework: fireworkContainer)
+                    fireworks.remove(at: index)
+                    numExploded += 1
+                }
+        }
+        switch numExploded {
+        case 0:
+            // nothing – rubbish!
+            break
+        case 1:
+                score += 200
+        case 2:
+            score += 500
+        case 3:
+            score += 1500
+        case 4:
+            score += 2500
+        default:
+            score += 4000
+        }
+    }
+    
+    func explode(firework: SKNode) {
+        let emitter = SKEmitterNode(fileNamed: "explode")!
+        emitter.position = firework.position
+        addChild(emitter)
+        firework.removeFromParent()
+    }
 }

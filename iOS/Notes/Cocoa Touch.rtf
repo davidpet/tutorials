@@ -587,12 +587,17 @@ Controls/views start with UI\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}hint: use tags to distinguish ones that you want to be able to find this way (such as when too many to make outlets one by one)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}viewDidLoad: called after UI loaded from storyboard but before displayed\
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i viewDidLoad
+\i0 : called after UI loaded from storyboard but before displayed\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}used to do extra setup before the scene is shown\
 {\listtext	\uc0\u8259 	}can instantiate classes directly (eg. UILabel) and insert via methods like view.addSubview()\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}can set presentation to Full Screen\
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i motionBegan
+\i0 : called when the user shakes the device\
+{\listtext	\uc0\u8259 	}can set presentation to Full Screen\
 {\listtext	\uc0\u8259 	}viewDidAppear, viewWillAppear, viewDidDissappear, viewWillDissappear: more life cycle hooks (make sure to call base with params)\
 {\listtext	\uc0\u8259 	}loadView: for customizing which view to load (eg. to bypass storyboard and instantiate your own)[set 
 \i view
@@ -1239,7 +1244,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \fs36 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height\
+\fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height, exploding objects (fireworks), awarding different points based on number of objects destroyed at once, detecting device being shaken, cooperation between view controller and scene classes\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
@@ -1271,7 +1276,13 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \i children
 \i0  - array of the children of the node\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKView\ulnone  - view hosted in view controller (castable from view member) in SpriteKit game\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i scene
+\i0  - SKScene wrapped by the view (castable to your scene class) if you want to access members of it\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
