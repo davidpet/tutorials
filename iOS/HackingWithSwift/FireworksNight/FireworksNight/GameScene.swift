@@ -8,8 +8,23 @@
 
 import SpriteKit
 import GameplayKit
+import UIKit
 
 class GameScene: SKScene {
+    var gameTimer: Timer!
+    var fireworks = [SKNode]()
+    
+    //fireworks launch points
+    let leftEdge = -22
+    let bottomEdge = -22
+    let rightEdge = 1024 + 22
+    
+    var score: Int = 0 {
+        didSet {
+            // update score label here
+        }
+    }
+    
     override func didMove(to view: SKView) {
     }
     
