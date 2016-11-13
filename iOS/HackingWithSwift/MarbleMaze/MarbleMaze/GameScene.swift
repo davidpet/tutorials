@@ -27,7 +27,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var motionManager: CMMotionManager!
     
     var scoreLabel: SKLabelNode!
-    var score: Int = 0 {
+    var score: Int = 0 {        //TODO: clip score to 0 and/or have GameOver
         didSet {
             scoreLabel.text = "Score: \(score)"
         }
@@ -137,9 +137,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             isGameOver = true
             player.physicsBody!.isDynamic = true
             //TODO: load next level
+            //TODO: add another tile type to the next level and implement that behavior
         }
     }
     
+    //TODO: refactor
     func loadLevel() {
         if let levelPath = Bundle.main.path(forResource: "level1", ofType: "txt") {
             if let levelString = try? String(contentsOfFile: levelPath) {
