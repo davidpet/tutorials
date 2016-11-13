@@ -1941,7 +1941,8 @@ CoreImage\
 \fs36 \cf0 UserNotifications\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 Functionality related to publishing notifications (lock screen, notification center, etc.) [don\'92t pop up when app itself has focus]
+\fs24 \cf0 Functionality related to publishing notifications (lock screen, notification center, etc.) [don\'92t pop up when app itself has focus]\
+NOTE: notifications are independent of the app instance once scheduled
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}
@@ -1968,6 +1969,16 @@ CoreImage\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}anything whose trigger has not been met yet\
 {\listtext	\uc0\u8259 	}not sure about repeats (find out later???)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i setNotificationCategories()
+\i0  - add categories to notification center (array of UNNotificationCategory)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}add it in each running instance of the app (even though notifications are independent of the instance)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i delegate
+\i0  - something that conforms to UNUserNotificationCenterDelegate to handle actions taken on notifications\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationRequest\ulnone  - a notification to present to notification enter (includes trigger & content information)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1975,6 +1986,9 @@ CoreImage\
 \i init(identifier:content:trigger:)
 \i0  - create a new instance with a unique identifier, UNNotificationContent, and UNNotificationTrigger\
 {\listtext	\uc0\u8259 	}unique identifier is used for updating or removing later, so make it truly unique (eg. use UUID)\
+{\listtext	\uc0\u8259 	}
+\i content
+\i0  - UNNotificationContent representing the content of the request\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationTrigger\ulnone  - represents a trigger to be used for notifications\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2001,13 +2015,10 @@ CoreImage\
 \i0  - the description of the notification\
 {\listtext	\uc0\u8259 	}
 \i categoryIdentifier
-\i0  - actionable notification name (???)\
-\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}tutorial uses \'93alarm\'94 (not sure where to register them - read the help if needed)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i0  - name of registered notification category to use (for delegating user actions if you\'92ve set it up) [see UNNotificationCategory]\
+{\listtext	\uc0\u8259 	}
 \i userInfo
-\i0  - dictionary of custom data to present to user (whatever you want)\
+\i0  - dictionary of custom data (eg. to pass to delegate when user responds)\
 {\listtext	\uc0\u8259 	}
 \i sound
 \i0  - UNNotificationSound to play when the notification happens\
@@ -2017,6 +2028,54 @@ CoreImage\
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i default()
 \i0  - factory method to obtain the default notification sound\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationAction\ulnone  - an action to allow a user to perform in response to a notification\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(identifier:title:options:)
+\i0  - create an action\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}identifier is internally identifier for the application to use\
+{\listtext	\uc0\u8259 	}title is the text to display to the user\
+{\listtext	\uc0\u8259 	}options = what to do (eg. .foreground = launch app in the foreground)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationCategory\ulnone  - a category of notifications\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(identifier:actions:intentIdentifiers:)
+\i0  - create a category instance\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}identifier = internal use ID for the category (eg. for use in UNNotificationContent)\
+{\listtext	\uc0\u8259 	}actions = array of UNNotificationAction\
+{\listtext	\uc0\u8259 	}intentIdentifiers = array of intents (empty if none) [tutorial doesn\'92t show this so I don\'92t know yet what it does]\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNUserNotificationCenterDelegate\ulnone  - protocol for delegates handling notification actions\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i userNotificationCenter(center:response:completionHandler:)
+\i0  - called when user selects action to perform\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}passes in the notification center\
+{\listtext	\uc0\u8259 	}response = UNNotificationResponse representing the action taken\
+{\listtext	\uc0\u8259 	}completionHandler = something you should make sure to call before you return\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationResponse\ulnone  - a user response to a notification\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i notification
+\i0  - UNNotification instance representing the notification the user responded to\
+{\listtext	\uc0\u8259 	}
+\i actionIdentifier
+\i0  - string identifying the action\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}might be the string you gave in UNNoficationAction\
+{\listtext	\uc0\u8259 	}might be UNNotificationDefaultActionIdentifier which means the user swiped to unlock\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotification\ulnone  - a notification that happened\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i request
+\i0  - the original UNNotificationRequest (eg. added by the app) [can read back the stuff you set on it before]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
