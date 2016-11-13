@@ -54,6 +54,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        for node in children {
+            if node.position.x < -300 {
+                node.removeFromParent()     //garbage collect enemies that miss you
+            }
+        }
+        if !isGameOver {
+            score += 1          //score goes up for each frame you stay alive
+        }
+    }
+    
     func createEnemy() {
         possibleEnemies = GKRandomSource.sharedRandom().arrayByShufflingObjects(in: possibleEnemies) as! [String]
         let randomDistribution = GKRandomDistribution(lowestValue: 50, highestValue: 736)
