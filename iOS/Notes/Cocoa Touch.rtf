@@ -88,6 +88,8 @@ NOTE: many of them, such as Foundation, are universal while some, such as UIKit,
 \i write(to:)
 \i0  - write the contents to a file\
 {\listtext	\uc0\u8259 	}can obtain from a string with mystring.data(using: String.Encoding.utf8)\
+{\listtext	\uc0\u8259 	}can obtain from UIImage with functions like UIImageJPEGRepresentation\
+{\listtext	\uc0\u8259 	}many objects that can be serialized as Data have initializers that take a Data\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul DateComponents\ulnone  - date wrapper\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2257,6 +2259,7 @@ NOTE: notifications are independent of the app instance once scheduled
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 P2P functionality (can be tested by running on device and simulator at same time)\
+NOTE: Apple will use Wi-Fi, or create ad-hoc Wi-Fi, or use Bluetooth depending on what is available\
 See SelfiShare for overall view of how connection management and data transmission works
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
