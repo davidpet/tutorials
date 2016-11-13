@@ -869,7 +869,7 @@ Controls/views start with UI\
 \i named
 \i0  to load an image with the given name from your app bundle\
 {\listtext	\uc0\u8259 	}can initialize form a CGImage as well\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}i
+{\listtext	\uc0\u8259 	}i
 \i nit(data:)
 \i0  - create an image from a Data object that wraps a UIImage object (autodetects the format (jpg, png, etc.))\
 {\listtext	\uc0\u8259 	}Content Mode: Aspect Fit = show whole image with correct aspect ratio, Aspect Fill = fill whole space without distorting (some will get cropped off - but may need to tell it to clip in AI)\
@@ -1135,8 +1135,7 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImageJPEGRepresentation()\ulnone  - function to create a 
 \i Data
 \i0  containing a UIImage (input) compressed to jpeg (quality in input as well)\
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImagePNGReprsentation()
+{\listtext	\'95	}\ul UIImagePNGReprsentation()
 \i \ulnone  - function to create a 
 \i0 Data
 \i  
@@ -1503,16 +1502,6 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \b0  if you want to execute something when the action completes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i collisionBitMask
-\i0  - which nodes this thing can collide with (defaults to everything)\
-{\listtext	\uc0\u8259 	}
-\i contactTestBitMask
-\i0  - which collisions should the contact delegate be notified about (defaults to none)\
-\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: setting it to collsionBitMask makes it notify of everything (hack for now)\
-{\listtext	\uc0\u8259 	}make sure to set it on both objects of the collision\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i removeFromParent()
 \i0  - removes the node from its parent node (eg. remove a sprite from a scene after the character dies)\
 {\listtext	\uc0\u8259 	}
@@ -1571,13 +1560,20 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - friction to slow down object in angular domain (default to 0.1, set to 0 for none)\
 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
-\i0  - defines what the object can collide with in the physics realm (default is all, set to 0 for nothing) [for purpose of automatic behavior]\
-{\listtext	\uc0\u8259 	}
+\i0  - number defining what categories of objects the node can collide with (physically) [defaults to all bits set]\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}if one body is set to collide with the other but it does not reciprocate, only the first object will react to the collision physically\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i contactTestBitMask
-\i0  - which collision categories (as defined in categoryBitMask) of objects this object can collide with (and result in notifying the contact delegate)\
+\i0  - like collisionBitMask but defines which of the collisions we want to be notified about via the contact delegate [defaults to NO bits set]\
 {\listtext	\uc0\u8259 	}
 \i categoryBitMask
 \i0  - defines what category(ies) of collision this physics body belongs to (defaults to all bits set)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}the category(ies) you define for each object determine the behavior of collisionBitMask and contactTestBitMask (it\'92s a flexible customization system that uses bits as categories)\
+{\listtext	\uc0\u8259 	}can have items bounce off each other but not be notified, or be notified of overlap but not have them physically bounce\
+{\listtext	\uc0\u8259 	}HINT: use an enum (w/ powers of 2) to define the categories\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2429,6 +2425,5 @@ TODO: learn CADisplayLink (presented as alternative to Timer) (is there a more a
 TODO: GPS functionality (in CoreLocation?)\
 TODO: What is AnyClass?\
 TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
-TODO: clarify contact test, collision test, and collision category flags on physics body and on sprite, delgate vs. physics behavior, etc. (maybe write rules/examples)\
 TODO: learn the Date type (inc. members like Date.distantFuture)\
 }
