@@ -1995,7 +1995,14 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \fs28 \cf0 {\listtext	\'95	}\ul CGPoint\ulnone  - struct representing a point in space\
 {\listtext	\'95	}\ul CGSize\ulnone  - size information (width and height) [stored as CGFloat]\
 {\listtext	\'95	}\ul CGRect\ulnone  - a rectangle\
-{\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions/properties that take CGFloat)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i insetBy(dx:dy:)
+\i0  - returns a new CGRect which has been shrunk in both axes but still has the same centerpoint\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}width and height will be shrunk by 2*dx and 2*dy\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls14\ilvl0\cf0 {\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions/properties that take CGFloat)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}easy to cast other things like ints, floats, etc. just by using CGFloat(value)\
 {\listtext	\uc0\u8259 	}
@@ -2047,6 +2054,7 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 {\listtext	\uc0\u8259 	}by default, only what you draw will be drawn (the rest is transparent)\
 {\listtext	\uc0\u8259 	}maintains a current path and only draws it when you tell it to\
 {\listtext	\uc0\u8259 	}you can keep adding to the path and it\'92s smart enough to only draw what is necessary\
+{\listtext	\uc0\u8259 	}path doesn\'92t include stroke and color information - that comes in when you draw the path\
 {\listtext	\uc0\u8259 	}it\'92s ok to draw out of the bounds of the context (it\'92ll just be clipped) (this may happen due to stroke being centered and going above and below the rect)\
 {\listtext	\uc0\u8259 	}text and images can be drawn to the context by using 
 \i draw
@@ -2058,7 +2066,10 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \ls14\ilvl3\cf0 {\listtext	\uc0\u8259 	}takes attributes dictionary specifying paragraph style (NSMutableParagraphStyle) and font (UIFont) [keys are NSFontAttributeName and NSParagraphStyleAttributeName]\
 {\listtext	\uc0\u8259 	}if code completion not bringing up the method, try making it NSString instead\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}UIColor has a 
+\i set
+\i0  method that can set the stroke and fill color of the current context (magic like above)\
+{\listtext	\uc0\u8259 	}
 \i setFillColor()
 \i0  - sets the color that goes inside shapes\
 {\listtext	\uc0\u8259 	}
@@ -2076,7 +2087,10 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 {\listtext	\uc0\u8259 	}
 \i drawPath()
 \i0  - draws the current path using given draw mode (.fillStroke = the normal one with a fill and a stroke)\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}the path is (presumably) cleared at this point (because tutorials draw new ones and it\'92s fine)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i strokePath()
 \i0  - paints a line along current path (using stroke color and line width)\
 {\listtext	\uc0\u8259 	}

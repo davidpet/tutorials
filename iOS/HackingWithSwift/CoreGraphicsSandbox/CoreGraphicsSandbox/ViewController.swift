@@ -118,9 +118,28 @@ class ViewController: UIViewController {
         imageView.image = img
     }
     
+    func drawRainbow() {
+        let renderer = UIGraphicsImageRenderer(size: CGSize(width: 512, height: 512))
+        let rainbow = renderer.image { ctx in
+            UIColor.white.set()
+            ctx.fill(CGRect(x: 0, y: 0, width: 512, height: 512))
+            ctx.cgContext.translateBy(x: 0, y: 256)
+            let colors = [UIColor.red, UIColor.orange, UIColor.yellow,
+                          UIColor.green, UIColor.blue, UIColor.purple, UIColor.white]
+            var drawRect = CGRect(x: 5, y: 5, width: 502, height: 502)
+            for color in colors {
+                drawRect = drawRect.insetBy(dx: 20, dy: 20)
+                ctx.cgContext.setFillColor(color.cgColor)
+                ctx.cgContext.addEllipse(in: drawRect)
+                ctx.cgContext.drawPath(using: .fill)
+            }
+        }
+        imageView.image = rainbow
+    }
+    
     @IBAction func redrawTapped(_ sender: Any) {
         currentDrawType += 1
-        if currentDrawType > 5 {
+        if currentDrawType > 6 {
             currentDrawType = 0
         }
         switch currentDrawType {
@@ -136,6 +155,8 @@ class ViewController: UIViewController {
             drawLines()
         case 5:
             drawImagesAndText()
+        case 6:
+            drawRainbow()
         default:
             break
         }
