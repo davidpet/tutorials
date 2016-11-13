@@ -9,6 +9,7 @@
 import Foundation
 
 let word = "RHYTHM"
+let guessesAllowed = 8
 var usedLetters = [Character]()
 
 print("Welcome to Hangman!")
@@ -24,6 +25,22 @@ func printWord() {
         } else {
             print("_", terminator: "")
             missingLetters = true
+        }
+    }
+    
+    print("\nGuesses: \(usedLetters.count)/\(guessesAllowed)")
+    if missingLetters == false {
+        //win
+        print("It looks like you live on... for now.")
+        exit(0)
+    } else {
+        if usedLetters.count == guessesAllowed {
+            //lose
+            print("Oops – you died! The word was \(word).")
+            exit(0)
+        } else {
+            //another round
+            print("Enter a guess: ", terminator: "")
         }
     }
 }
