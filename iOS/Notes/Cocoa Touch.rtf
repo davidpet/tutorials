@@ -1010,6 +1010,23 @@ Controls/views start with UI\
 \i name
 \i0  - the display name of the device (like you would see in WiFi discovery)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIGraphicsImageRenderer\ulnone  - wraps rendering contexts for using CoreGraphics to render at a low level\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(size:)
+\i0  - create a new instance with a given size and default values for everything else\
+{\listtext	\uc0\u8259 	}
+\i image()
+\i0  - creates rendering context, passes it into a closure, and returns results as UIImage instance representing the new image\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}closure takes a UIGraphicsImageRendererContext as its parameter and returns nothing\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIGraphicsImageRendererContext\ulnone  - rendering context that you can use CoreGraphics on for fast drawing\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}obtain from UIGraphicsImageRenderer and draw within closure\
+{\listtext	\uc0\u8259 	}wrapper for CGContext, which is what you\'92d use within CoreGraphics\
+{\listtext	\uc0\u8259 	}use cgContext member for CoreGraphics stuff\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul FileManager\ulnone  - helps deal with file system\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}default: static instance to help manage the system\
@@ -1961,7 +1978,8 @@ iBeacon: a protocol Apple supports for physical devices you can have\
 Core Graphics\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 Device-Independent Drawing
+\fs24 \cf0 Device-Independent Drawing\
+NOTE: since it\'92s at a lower level, CoreGraphics can update in background threads instead of requiring work to be queued back to the main thread
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls14\ilvl0
@@ -2020,7 +2038,11 @@ Core Graphics\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}useful to use UIBezierPath (even for straight segments) and use its 
 \i cgPath
-\i0  property to get this when you need it\ul \
+\i0  property to get this when you need it\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls14\ilvl0\cf0 {\listtext	\'95	}\ul CGContext\ulnone  - device-independent graphics context for fast drawing\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}can be obtained via cgContext property of UIGraphicsRendererContext (see UIKit)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
