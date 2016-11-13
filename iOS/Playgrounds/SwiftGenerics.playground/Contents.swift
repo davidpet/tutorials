@@ -38,8 +38,12 @@ let d2 = deque(initial: 10)     //type can also be inferred from initializer arg
 //NOTE: built-in stuff like arrays, dictionaries, etc. are generics
 //NOTE: of course you can use multiple generic parameters for generics
 
+//EXTENSIONS
+//see SwiftExtensions for how to extend generics
+
 //QUESTIONS
 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?
 //What name do you use for the class inside a class generic?
 //Covariance, contravariance, etc?
 //What does it mean to constrain T as Any?
+//Can you have multiple generics of the same name?

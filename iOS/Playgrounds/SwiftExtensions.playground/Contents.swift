@@ -60,6 +60,22 @@ print("END EXTENSION")
 //summary: when called through protocol, protocol extension implementations win unless method is declared in protocol itself (which makes it virtual)
 //another way to look at it: the original protocol (not extension) defines a virtual table while extensions and class declarations just fill it in or replace each other
 
+//EXTENDING GENERICS
+extension Array {           //full type of an array is Array<Element> but you just say the name of the generic here
+    func printMyType() {
+        print(Element.self)     //use Element (the type argument in the generic) w/in the extension to refer to the type the item has been instantiated with
+    }
+}
+[1, 2, 3].printMyType()
+extension Array where Element: Integer {        //constraining the extension by type of element
+    func getSum() -> Element {
+        return self.reduce(Element.allZeros, +)     //won't let you use LITERAL so use these kinds of static members of the protocol instead
+    }
+}
+[1, 2, 3, 4].getSum()
+extension Collection where Iterator.Element: Integer {  //constraining by types that are within the type
+}
+
 //INITIALIZERS (eg. CONVERSION)
 struct MyClass {
     var value: Int
@@ -126,5 +142,4 @@ extension String {
 //QUESTIONS
 //make sense of this: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215
 //@objc keyword for extensions?
-//Make sense of this: extension Collection where Iterator.Element: Integer (p. 228 in Pro Swift)
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?
