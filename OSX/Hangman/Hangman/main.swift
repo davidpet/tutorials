@@ -8,7 +8,7 @@
 
 import Foundation
 
-if let input = readLine() {
-    print("You typed \(input)\n")
+while var input = readLine() {
+    print("Typed: \(input)")
+    //user can terminate with ctrl-d
 }
-print("Done!\n")
