@@ -11,6 +11,12 @@ extension Int { //everything in here is an extension to integers that is availab
 }
 5.square()          //automatically available for integers now (even literals)
 
+extension Integer {         //extending whole class of numbers (by way of protocol they support)
+    func square() -> Self {     //using Self to represent the type of the actual object
+        return self * self          //otherwise works the same way
+    }
+}
+
 //ADDING PROTOCOLS
 protocol MyProtocol {
     func dostuff()
@@ -72,6 +78,12 @@ Int(MyClass(value: 10))
 
 //MUTATING METHODS
 //allowed
+extension Int {
+    mutating func plusOne() {
+        self += 1               //NOTE: only allowed because MUTATING (required if you're going to change self)
+    }
+}
+//5.plusOne()       //calling on constants or literals not allowed if MUTATING
 
 //NESTED TYPES (adding)
 //allowed
@@ -107,7 +119,12 @@ extension String {
 //cannot add designated initializers or deinitializers
 //Objective-C does not see protocol extensions (so extending a UIKIt protocol, for instance, won't work)(extending a protocl you marked @objc won't work either)
 
+//CONVENTIONS
+//Common naming scheme for extensions in source files: Type+Modifier.Swift (eg. String+RandomLetter.Swift)
+//Also will commonly see something like String+Additions.Swift because it's timing consuming and ugly to make a file for each thing you add
+
 //QUESTIONS
 //make sense of this: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215
 //@objc keyword for extensions?
 //Make sense of this: extension Collection where Iterator.Element: Integer (p. 228 in Pro Swift)
+//Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?
