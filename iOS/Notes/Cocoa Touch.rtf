@@ -102,6 +102,9 @@ NOTE: many of them, such as Foundation, are universal while some, such as UIKit,
 \i init()
 \i0  - create a new identifier\
 {\listtext	\uc0\u8259 	}
+\i init(uuidString:)
+\i0  - create a new identifier from a string (eg. as obtained from uuidgen in terminal)\
+{\listtext	\uc0\u8259 	}
 \i uuidString
 \i0  - string property to get text representation of the UUID\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1817,6 +1820,13 @@ CoreLocation\
 \i0  - static method to check if bluetooth ranging is available on the system\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}false for simulator\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i startMonitoring(for:)
+\i0  - begins location monitoring of a CLRegion instance (such as CLBeaconRegion for iBeacon)\
+{\listtext	\uc0\u8259 	}
+\i startRangingBeacons(in:)
+\i0  - starts the receiving of notification for a CLBeaconRegion (usually coupled with startMonitoring above)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLLocationManagerDelegate\ulnone  - protocol to implement if you want to receive delegate calls from CLLocationManager for location notifications\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1827,6 +1837,15 @@ CoreLocation\
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}check the status (didChangeAuthorization) parameter for what you have been authorized for\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLBeaconRegion\ulnone  - represents proximity to a Bluetooth beacon using iBeacon protocol\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(proximityUUID:major:minor:identifier:)
+\i0  - initialize a new instance with given identity information\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}(the given descriptions are analogies, you are free to use as much or as little subdivision as is needed for your app)\
+{\listtext	\uc0\u8259 	}proximityUUID = UUID of you or your store chain\
+{\listtext	\uc0\u8259 	}major = specific app (branch location) [optional]\
+{\listtext	\uc0\u8259 	}minor = subdivision within app (department) [optional]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
