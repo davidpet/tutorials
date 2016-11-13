@@ -86,6 +86,14 @@
 \i0  - write the contents to a file\
 {\listtext	\uc0\u8259 	}can obtain from a string with mystring.data(using: String.Encoding.utf8)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul DateComponents\ulnone  - date wrapper\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}default initializer\
+{\listtext	\uc0\u8259 	}
+\i hour/minute/day/etc.
+\i0  - fields that you can set for what kinds of fields are to be included in the date\
+{\listtext	\uc0\u8259 	}in general can represent a specific date/time or a span depending on how it\'92s used (only what you specify is part of it)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul UUID\ulnone  - unique identifier\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
@@ -1950,6 +1958,53 @@ CoreImage\
 {\listtext	\uc0\u8259 	}closure takes a boolean of whether you have been authorized, and an error otherwise (granted, error)\
 {\listtext	\uc0\u8259 	}once you click it the first time, the system remembers for the future and answers on the user\'92s behalf\
 {\listtext	\uc0\u8259 	}can be configured in Settings just like apps you\'92ve seen\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i add()
+\i0  - adds a UNNotificationRequest as a local notification (does not handle push notifications)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationRequest\ulnone  - a notification to present to notification enter (includes trigger & content information)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(identifier:content:trigger:)
+\i0  - create a new instance with a unique identifier, UNNotificationContent, and UNNotificationTrigger\
+{\listtext	\uc0\u8259 	}unique identifier is used for updating or removing later, so make it truly unique (eg. use UUID)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationTrigger\ulnone  - represents a trigger to be used for notifications\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UNCalendarNotificationTrigger\ulnone  - subclass that deals with time/date related triggers\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i init(dateMatching:repeats:)
+\i0  - initialize with a DateComponents instance and a bool specifying whether it is a repeating notification\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNMutableNotificationContent\ulnone  - represents the actual content of a notification (subclass of UNNotificationContent)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}default initializer\
+{\listtext	\uc0\u8259 	}
+\i title
+\i0  - name of the notification\
+{\listtext	\uc0\u8259 	}
+\i body
+\i0  - the description of the notification\
+{\listtext	\uc0\u8259 	}
+\i categoryIdentifier
+\i0  - actionable notification name (???)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}tutorial uses \'93alarm\'94 (not sure where to register them - read the help if needed)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i userInfo
+\i0  - dictionary of custom data to present to user (whatever you want)\
+{\listtext	\uc0\u8259 	}
+\i sound
+\i0  - UNNotificationSound to play when the notification happens\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationSound\ulnone  - a sound to play as part of notifications\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i default()
+\i0  - factory method to obtain the default notification sound\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
