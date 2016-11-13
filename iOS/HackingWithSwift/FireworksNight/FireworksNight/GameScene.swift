@@ -11,6 +11,9 @@ import GameplayKit
 import UIKit
 
 class GameScene: SKScene {
+    static let roundsAllowed = 10
+    
+    var nextRound = 1
     var gameTimer: Timer!
     var fireworks = [SKNode]()
     
@@ -23,6 +26,10 @@ class GameScene: SKScene {
         didSet {
             // update score label here
         }
+    }
+    
+    var gameEnded: Bool {
+        return nextRound > GameScene.roundsAllowed
     }
     
     override func didMove(to view: SKView) {
@@ -55,6 +62,7 @@ class GameScene: SKScene {
     }
     
     func checkTouches(_ touches: Set<UITouch>) {
+        guard !gameEnded else { return }
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let nodesAtPoint = nodes(at: location)
@@ -78,6 +86,8 @@ class GameScene: SKScene {
     }
     
     func launchFireworks() {
+        guard !gameEnded else { return }
+        
         let movementAmount: CGFloat = 1800
         switch GKRandomSource.sharedRandom().nextInt(upperBound: 4)
         {
@@ -111,6 +121,12 @@ class GameScene: SKScene {
             createFirework(xMovement: -movementAmount, x: rightEdge, y: bottomEdge)
         default:
             break
+        }
+        
+        nextRound += 1
+        if gameEnded {
+            gameTimer.invalidate()
+            gameOver()
         }
     }
     
@@ -154,6 +170,8 @@ class GameScene: SKScene {
     
     //called by view controller when device is shaken to blow up all selected fireworks
     func explodeFireworks() {
+        guard !gameEnded else { return }
+        
         var numExploded = 0
         for (index, fireworkContainer) in fireworks.enumerated().reversed() {
                 let firework = fireworkContainer.children[0] as! SKSpriteNode
@@ -186,5 +204,8 @@ class GameScene: SKScene {
         emitter.position = firework.position
         addChild(emitter)
         firework.removeFromParent()
+    }
+    
+    func gameOver() {
     }
 }
