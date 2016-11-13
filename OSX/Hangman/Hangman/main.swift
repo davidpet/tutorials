@@ -13,3 +13,19 @@ var usedLetters = [Character]()
 
 print("Welcome to Hangman!")
 print("Press a letter to guess, or Ctrl+D to quit.")
+
+func printWord() {
+    print("\nWord: ", terminator: "")
+    var missingLetters = false
+    
+    for letter in word.characters {
+        if usedLetters.contains(letter) {
+            print(letter, terminator: "")
+        } else {
+            print("_", terminator: "")
+            missingLetters = true
+        }
+    }
+}
+
+printWord()
