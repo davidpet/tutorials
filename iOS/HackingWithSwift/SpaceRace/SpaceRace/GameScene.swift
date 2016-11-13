@@ -70,6 +70,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         isGameOver = true
         gameTimer.invalidate()
+        
+        let gameOverLabel = SKLabelNode(fontNamed: "ChalkDuster")
+        gameOverLabel.text = "Game Over"
+        gameOverLabel.fontColor = UIColor.white
+        gameOverLabel.fontSize = 100
+        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        gameOverLabel.zPosition = 1
+        addChild(gameOverLabel)
     }
     
     override func update(_ currentTime: TimeInterval) {
