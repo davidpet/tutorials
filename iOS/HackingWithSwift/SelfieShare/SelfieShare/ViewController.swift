@@ -15,6 +15,8 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         super.viewDidLoad()
         
         title = "Selfie Share"
+        navigationItem.leftBarButtonItem =
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showConnectionPrompt))
         navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(importPicture))
     }
@@ -44,5 +46,21 @@ class ViewController: UICollectionViewController, UINavigationControllerDelegate
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+    
+    func showConnectionPrompt() {
+        let ac = UIAlertController(title: "Connect to others", message: nil, preferredStyle: .actionSheet)
+        ac.addAction(UIAlertAction(title: "Host a session", style: .default, handler: startHosting))
+        ac.addAction(UIAlertAction(title: "Join a session", style: .default, handler: joinSession))
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func startHosting(alertAction: UIAlertAction) {
+        print("Host")
+    }
+    
+    func joinSession(alertAction: UIAlertAction) {
+        print("Join")
     }
 }
