@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var gameTimer: Timer!
     var fireworks = [SKNode]()
     
+    var gameOverLabel: SKLabelNode?
+    
     //fireworks launch points
     let leftEdge = -22
     let bottomEdge = -22
@@ -59,10 +61,12 @@ class GameScene: SKScene {
                 firework.removeFromParent()
             }
         }
+        if gameEnded && fireworks.isEmpty {
+            gameOver()
+        }
     }
     
     func checkTouches(_ touches: Set<UITouch>) {
-        guard !gameEnded else { return }
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let nodesAtPoint = nodes(at: location)
@@ -86,8 +90,6 @@ class GameScene: SKScene {
     }
     
     func launchFireworks() {
-        guard !gameEnded else { return }
-        
         let movementAmount: CGFloat = 1800
         switch GKRandomSource.sharedRandom().nextInt(upperBound: 4)
         {
@@ -126,7 +128,6 @@ class GameScene: SKScene {
         nextRound += 1
         if gameEnded {
             gameTimer.invalidate()
-            gameOver()
         }
     }
     
@@ -170,8 +171,6 @@ class GameScene: SKScene {
     
     //called by view controller when device is shaken to blow up all selected fireworks
     func explodeFireworks() {
-        guard !gameEnded else { return }
-        
         var numExploded = 0
         for (index, fireworkContainer) in fireworks.enumerated().reversed() {
                 let firework = fireworkContainer.children[0] as! SKSpriteNode
@@ -207,5 +206,14 @@ class GameScene: SKScene {
     }
     
     func gameOver() {
+        if gameOverLabel == nil {
+            let label = SKLabelNode(fontNamed: "ChalkDuster")
+            label.text = "Game Over"
+            label.fontColor = UIColor.white
+            label.fontSize = 100
+            label.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+            
+            addChild(label)
+        }
     }
 }
