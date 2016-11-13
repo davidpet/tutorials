@@ -18,13 +18,21 @@ enum CollisionTypes: UInt32 {
     case finish = 16
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     let blockSize = 64
     
     var player: SKSpriteNode!
     
     var lastTouchPosition: CGPoint?
     var motionManager: CMMotionManager!
+    
+    var scoreLabel: SKLabelNode!
+    var score: Int = 0 {
+        didSet {
+            scoreLabel.text = "Score: \(score)"
+        }
+    }
+    var isGameOver = false
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -34,12 +42,20 @@ class GameScene: SKScene {
         addChild(background)
         
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsWorld.contactDelegate = self
         
         loadLevel()
         createPlayer()
         
         motionManager = CMMotionManager()
         motionManager.startAccelerometerUpdates()
+        
+        scoreLabel = SKLabelNode(fontNamed: "ChalkDuster")
+        scoreLabel.horizontalAlignmentMode = .left
+        scoreLabel.position = CGPoint(x: 16, y: 16)
+        scoreLabel.zPosition = 1
+        addChild(scoreLabel)
+        score = 0
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -65,6 +81,8 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard !isGameOver else { return }
+        
         #if (arch(i386) || arch(x86_64))
             if let currentTouch = lastTouchPosition {
                 let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
@@ -78,6 +96,14 @@ class GameScene: SKScene {
         #endif
     }
 
+    func didBegin(_ contact: SKPhysicsContact) {
+        if contact.bodyA.node == player {
+            playerCollided(with: contact.bodyB.node!)
+        } else if contact.bodyB.node == player {
+            playerCollided(with: contact.bodyA.node!)
+        }
+    }
+    
     func createPlayer() {
         player = SKSpriteNode(imageNamed: "player")
         player.position = CGPoint(x: Int(1.5*Double(blockSize)), y: Int(10.5*Double(blockSize)))
@@ -89,6 +115,29 @@ class GameScene: SKScene {
                                                  CollisionTypes.finish.rawValue
         player.physicsBody!.collisionBitMask = CollisionTypes.wall.rawValue
         addChild(player)
+    }
+    
+    func playerCollided(with node: SKNode) {
+        if node.name == "vortex" {
+            player.physicsBody!.isDynamic = false
+            isGameOver = true
+            score -= 1
+            let move = SKAction.move(to: node.position, duration: 0.25)
+            let scale = SKAction.scale(to: 0.0001, duration: 0.25)
+            let remove = SKAction.removeFromParent()
+            let sequence = SKAction.sequence([move, scale, remove])
+            player.run(sequence) { [unowned self] in
+                self.createPlayer()
+                self.isGameOver = false
+            }
+        } else if node.name == "star" {
+            node.removeFromParent()
+            score += 1
+        } else if node.name == "finish" {
+            isGameOver = true
+            player.physicsBody!.isDynamic = true
+            //TODO: load next level
+        }
     }
     
     func loadLevel() {

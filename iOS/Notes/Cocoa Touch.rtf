@@ -1300,7 +1300,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height, exploding objects (fireworks), awarding different points based on number of objects destroyed at once, detecting device being shaken, cooperation between view controller and scene classes\
 \
 See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity, scoring based on time alive, building a game quickly (see check-ins for approach that was used), moving player based on touching, ending game when they try to cheat [NOTE: this project took a total of 50 minutes from start to finish even with all the reading, looking up methods, and taking notes into this doc]((possible extension = fire lasers on touchesBegan to destroy debris))\
-See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, detailed collision detection masking w/ proper enumerations\
+See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1548,7 +1548,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i isDynamic
 \i0  - if true (the default) object will be moved by gravity and other objects (set to false to make it stationary and then it will just affect objects that hit it)\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}setting it to 0 will stop the object immediately (eg. player when game is over)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i velocity
 \i0  - CGVector representing the velocity of the object at this point in time (will of course be subject to physics over time)\
 {\listtext	\uc0\u8259 	}
@@ -1612,6 +1615,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
 {\listtext	\uc0\u8259 	}use node names to determine types of objects\
+\ls11\ilvl2{\listtext	\uc0\u8259 	}NOTE: the tutorials set consistent values on both sides of the collision and then dedupe within this method (not sure if the ordering implies which mask was used)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2467,4 +2471,5 @@ TODO: GPS functionality (in CoreLocation?)\
 TODO: What is AnyClass?\
 TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
 TODO: learn the Date type (inc. members like Date.distantFuture)\
+TODO: can you assume object A or B in SpriteKit collision if you only set one of the contact bits\
 }
