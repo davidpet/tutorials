@@ -36,7 +36,9 @@ Access Control:\
 Conditional Compilation:\
 	#if/#else/#endif construct available\
 	#if (arch(i386) || arch(x86_64)) checks if you\'92re running on a Mac or Linux machine (rather than an iDevice)\
-		this can be used as a hack to separate acceleromter vs. touch for a game, for instance\
+		this can be used as a hack to separate accelerometer vs. touch for a game, for instance\
+	#if swift(>=3.0)	checks for Swift version\
+	#line, #filename, #function 		for getting info about the code compiled into the code\
 \
 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/\
 	*has API reference and language guide\
