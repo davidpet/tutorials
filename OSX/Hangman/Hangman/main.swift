@@ -58,4 +58,4 @@ while var input = readLine() {
     printWord()
 }
 
-print("Thanks for playing!")
+print("\nThanks for playing!")
