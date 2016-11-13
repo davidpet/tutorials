@@ -143,3 +143,4 @@ extension String {
 //make sense of this: https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215
 //@objc keyword for extensions?
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?
+//Multiple constraints on extension?
