@@ -1806,7 +1806,7 @@ MapKit\
 CoreLocation\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 Location-related functionality (eg. for use by MapKit or for detecting iBeacons)\
+\fs24 \cf0 Location-related functionality (MapKit support, iBeacons, GPS location, tracking user\'92s movements, Geocoding)\
 \
 iBeacon: a protocol Apple supports for physical devices you can have\
 	can get range from a beacon\
@@ -1864,24 +1864,45 @@ iBeacon: a protocol Apple supports for physical devices you can have\
 {\listtext	\uc0\u8259 	}
 \i startRangingBeacons(in:)
 \i0  - starts the receiving of notification for a CLBeaconRegion (usually coupled with startMonitoring above)\
+\ls13\ilvl1{\listtext	\uc0\u8259 	}
+\i requestLocation()
+\i0  - asynchronously asks for GPS location of user (which will call methods in the delegate when ready or failed)\
+{\listtext	\uc0\u8259 	}
+\i startMonitoringVisits()
+\i0  - asynchronously asks for periodic updates of GPS coordinates as the user moves around (will call methods in delegate)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLLocationManagerDelegate\ulnone  - protocol to implement if you want to receive delegate calls from CLLocationManager for location notifications\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls13\ilvl1\cf0 {\listtext	\'95	}
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i locationManager(_:didChangeAuthorization)
 \i0  - called to let you know if you are authorized or not (after authorization has been requested)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}check the status (didChangeAuthorization) parameter for what you have been authorized for\
 {\listtext	\uc0\u8259 	}good place to start monitoring of locations/devices\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls13\ilvl1\cf0 {\listtext	\'95	}
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i locationManager(_:didRangeBeacons:in:)
 \i0  - called to notify of location changes in beacons (after you\'92ve started monitoring)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}2nd param is CLBeacon array representing beacons being updated\
 {\listtext	\uc0\u8259 	}3rd param is CLBeaconRegion being updated\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i locationManager(_:didUpdateLocations)
+\i0  - called in response to requestLocation() on manager\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}gives you an array of CLLocation (just take the first)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i locationManager(_:didFailWithError)
+\i0  - called when requestLocation() fails to get user location\
+{\listtext	\uc0\u8259 	}
+\i locationManager(_:didVisit)
+\i0  - called when startMonitoringVisits() sees a visit (CLVisit)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}departureDate will be Date.distantFuture if arrival\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls13\ilvl2\cf0 {\listtext	\'95	}\ul CLBeaconRegion\ulnone  - represents scanning for proximity to a Bluetooth beacon using iBeacon protocol\
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}\ul CLBeaconRegion\ulnone  - represents scanning for proximity to a Bluetooth beacon using iBeacon protocol\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(proximityUUID:major:minor:identifier:)
@@ -2269,4 +2290,5 @@ TODO: What is AnyClass?\
 TODO: what is .self on a type?  Is that how you pass types into things?\
 TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
 TODO: clarify contact test, collision test, and collision category flags on physics body and on sprite, delgate vs. physics behavior, etc. (maybe write rules/examples)\
+TODO: learn the Date type (inc. members like Date.distantFuture)\
 }
