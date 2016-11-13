@@ -2066,8 +2066,39 @@ NOTE: since it\'92s at a lower level, CoreGraphics can update in background thre
 \i drawPath()
 \i0  - draws the current path using given draw mode (.fillStroke = the normal one with a fill and a stroke)\
 {\listtext	\uc0\u8259 	}
+\i strokePath()
+\i0  - paints a line along current path (using stroke color and line width)\
+{\listtext	\uc0\u8259 	}
 \i fill()
-\i0  - fills a rectangle using CGRect and current fill color (skipping the path and drawing stuff above)\ul \ulc0 \
+\i0  - fills a rectangle using CGRect and current fill color (skipping the path and drawing stuff above)\
+{\listtext	\uc0\u8259 	}
+\i translateBy()
+\i0  - translates all rendering by given x and y coordinates (eg. if translating 100, then -100 will go to 0)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}anything that has already been added to path or drawn is not affected by this change\
+{\listtext	\uc0\u8259 	}cumulative to existing translations\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i rotate(by:)
+\i0  - rotates all rendering by given radians around the ORIGIN\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: translation happens first so if you want to rotate around center you can translateBy first\
+{\listtext	\uc0\u8259 	}anything already added to path or drawn is not affected by this change\
+{\listtext	\uc0\u8259 	}cumulative to existing rotations\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i move(to:)
+\i0  - moves the current path position to the given CGPoint (but does not add anything to path)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}translations and rotations taken into account\
+{\listtext	\uc0\u8259 	}translations/rotations applied after moving will preserve absolute position of current point\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i addLine(to:)
+\i0  - adds a line from the current position to the given CGPoint in the current path\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}translations and rotations taken into accounts\
+{\listtext	\uc0\u8259 	}EX) if you used the same coordinates for move and addLine but applied a translation in between, it would add a line to the path\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
