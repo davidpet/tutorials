@@ -65,6 +65,8 @@ m = [1] + m + [3, 4]
 //see SwiftFunctionalProgramming for closure syntax and ADDITIONAL METHODS
 m.reverse()         //reverses the actual array in-place
 let reversed = m.reversed()     //returns a reversed copy (as LAZY SEQUENCE)
+reversed.enumerated()       //many array-like things still work on the reversed sequence
+        //NOTE: the indices in enumerating the reversed sequence will START HIGH and decrease
 m.sort()            //sort in-place using default sorting
 m.sort(by: >)   //sort in-place using closure
 let sorted = m.sorted(by: >)        //copy
