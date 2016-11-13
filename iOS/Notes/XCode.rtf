@@ -313,7 +313,13 @@ Interface Builder
 	Command-Line Tool (macOS)\
 		main.Swift: the file that gets executed when the cmdline tool is executed (default prints a message)\
 		*whatever you print would normally go to terminal: when you debug it will go to debug console as normal\
-\
+		*when input is solicited, click into the debug console and pretend it\'92s a normal terminal\
+		\
+		print() for output\
+		readLine() for input [reads stdin until EOF or newline][[user can add newline with enter]]((similar behavior to c++))\
+			if user entered anything including enter, this will be a String\
+			if user killed with ctrl-d you will get nil here but app will continue\
+				you can use this fact to make a loop that keeps requesting more input until user quits\
 	\ul Things to do when creating any project:\ulnone  check the output device, portrait/landscape, iOS version, device type, and Interface Builder / Scene Editor sizes\
 \
 

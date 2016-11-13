@@ -8,5 +8,7 @@
 
 import Foundation
 
-print("Hello, World!")
-
+if let input = readLine() {
+    print("You typed \(input)\n")
+}
+print("Done!\n")
