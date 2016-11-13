@@ -6,6 +6,7 @@
 //  Copyright © 2016 David Petrofsky. All rights reserved.
 //
 
+import CoreMotion
 import SpriteKit
 import GameplayKit
 
@@ -23,6 +24,7 @@ class GameScene: SKScene {
     var player: SKSpriteNode!
     
     var lastTouchPosition: CGPoint?
+    var motionManager: CMMotionManager!
     
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
@@ -35,6 +37,9 @@ class GameScene: SKScene {
         
         loadLevel()
         createPlayer()
+        
+        motionManager = CMMotionManager()
+        motionManager.startAccelerometerUpdates()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,12 +65,19 @@ class GameScene: SKScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-        if let currentTouch = lastTouchPosition {
-            let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
-            physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
-        }
+        #if (arch(i386) || arch(x86_64))
+            if let currentTouch = lastTouchPosition {
+                let diff = CGPoint(x: currentTouch.x - player.position.x, y: currentTouch.y - player.position.y)
+                physicsWorld.gravity = CGVector(dx: diff.x / 100, dy: diff.y / 100)
+            }
+        #else
+            if let accelerometerData = motionManager.accelerometerData {
+                physicsWorld.gravity = CGVector(dx: accelerometerData.acceleration.y * -50,
+                                                dy: accelerometerData.acceleration.x * 50)
+            }
+        #endif
     }
-    
+
     func createPlayer() {
         player = SKSpriteNode(imageNamed: "player")
         player.position = CGPoint(x: Int(1.5*Double(blockSize)), y: Int(10.5*Double(blockSize)))
