@@ -1269,7 +1269,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 
 \fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height, exploding objects (fireworks), awarding different points based on number of objects destroyed at once, detecting device being shaken, cooperation between view controller and scene classes\
 \
-See SpaceRace project for moving starfield as background\
+See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1533,9 +1533,21 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i angularVelocity
 \i0  - CGFloat representing radians per second rotation of the object\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i linearDamping
+\i0  - friction to slow down object in linear domain (defaults to 0.1, set to 0 for none)\
+{\listtext	\uc0\u8259 	}
+\i angularDamping
+\i0  - friction to slow down object in angular domain (default to 0.1, set to 0 for none)\
 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
-\i0  - defines what the object can collide with in the physics realm (default is all, set to 0 for nothing)\
+\i0  - defines what the object can collide with in the physics realm (default is all, set to 0 for nothing) [for purpose of automatic behavior]\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i contactTestBitMask
+\i0  - which collision categories (as defined in categoryBitMask) of objects this object can collide with (and result in notifying the contact delegate)\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i categoryBitMask
+\i0  - defines what category(ies) of collision this physics body belongs to (defaults to all bits set)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2255,4 +2267,6 @@ TODO: learn CADisplayLink (presented as alternative to Timer) (is there a more a
 TODO: GPS functionality (in CoreLocation?)\
 TODO: What is AnyClass?\
 TODO: what is .self on a type?  Is that how you pass types into things?\
+TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
+TODO: clarify contact test, collision test, and collision category flags on physics body and on sprite, delgate vs. physics behavior, etc. (maybe write rules/examples)\
 }
