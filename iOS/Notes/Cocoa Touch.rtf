@@ -2047,7 +2047,16 @@ NOTE: since it\'92s at a lower level, CoreGraphics can update in background thre
 {\listtext	\uc0\u8259 	}maintains a current path and only draws it when you tell it to\
 {\listtext	\uc0\u8259 	}you can keep adding to the path and it\'92s smart enough to only draw what is necessary\
 {\listtext	\uc0\u8259 	}it\'92s ok to draw out of the bounds of the context (it\'92ll just be clipped) (this may happen due to stroke being centered and going above and below the rect)\
-{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}text and images can be drawn to the context by using 
+\i draw
+\i0  methods of String and UIImage (which magically find the context from inside the closure if you are in a rendering closure)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}image.draw(at:) = draw image to the rendering context\
+{\listtext	\uc0\u8259 	}string.draw() = for rendering text to the context\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls14\ilvl3\cf0 {\listtext	\uc0\u8259 	}takes attributes dictionary specifying paragraph style (NSMutableParagraphStyle) and font (UIFont) [keys are NSFontAttributeName and NSParagraphStyleAttributeName]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i setFillColor()
 \i0  - sets the color that goes inside shapes\
 {\listtext	\uc0\u8259 	}
