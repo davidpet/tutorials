@@ -2042,7 +2042,29 @@ NOTE: since it\'92s at a lower level, CoreGraphics can update in background thre
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls14\ilvl0\cf0 {\listtext	\'95	}\ul CGContext\ulnone  - device-independent graphics context for fast drawing\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}can be obtained via cgContext property of UIGraphicsRendererContext (see UIKit)\ul \ulc0 \
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}can be obtained via cgContext property of UIGraphicsRendererContext (see UIKit)\
+{\listtext	\uc0\u8259 	}by default, only what you draw will be drawn (the rest is transparent)\
+{\listtext	\uc0\u8259 	}maintains a current path and only draws it when you tell it to\
+{\listtext	\uc0\u8259 	}you can keep adding to the path and it\'92s smart enough to only draw what is necessary\
+{\listtext	\uc0\u8259 	}it\'92s ok to draw out of the bounds of the context (it\'92ll just be clipped) (this may happen due to stroke being centered and going above and below the rect)\
+{\listtext	\uc0\u8259 	}
+\i setFillColor()
+\i0  - sets the color that goes inside shapes\
+{\listtext	\uc0\u8259 	}
+\i setStrokeColor()
+\i0  - sets the color that shapes are stroked with\
+{\listtext	\uc0\u8259 	}
+\i setLineWidth()
+\i0  - the width (in points) of the stroke around a shape (centered so that it goes lineWidth /2 each way)\
+{\listtext	\uc0\u8259 	}
+\i addRect
+\i0 () - adds a CGRect to the current path\
+{\listtext	\uc0\u8259 	}addEllipse()
+\i  - 
+\i0 adds an ellipse to the current path (as constrained by a CGRect passed in)\
+{\listtext	\uc0\u8259 	}
+\i drawPath()
+\i0  - draws the current path using given draw mode (.fillStroke = the normal one with a fill and a stroke)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
