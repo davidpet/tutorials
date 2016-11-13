@@ -587,6 +587,9 @@ Controls/views start with UI\
 \i0  - convert one CGRect to another (from coordinate system of 
 \i from
 \i0  to coordinate system of this view\
+{\listtext	\uc0\u8259 	}
+\i viewWithTag()
+\i0  - gets first view matching given tag contained within the view and its child views\
 {\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
@@ -684,6 +687,7 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}see UITableviewController (most of what worked there works here)\
 {\listtext	\uc0\u8259 	}replace \'93tableView\'94 with \'93collectionView\'94 when translating instructions to collection views (eg. the view class, the cell class, etc.)\
+{\listtext	\uc0\u8259 	}can set properties on the UICollectionView in IB such as cell size, insets, etc.\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul \ulc0 UIAlertController\ulnone  - equivalent of MsgBox in the iOS world\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -798,7 +802,7 @@ Controls/views start with UI\
 \i customView
 \i0  initializer to create a view (eg. UIProgressView) to use as the button\
 {\listtext	\uc0\u8259 	}can use built-in ones (eg. + and refresh icons) or provide own text, image, etc.\
-{\listtext	\uc0\u8259 	}different initializers (eg. barButtonSystemItem)\
+{\listtext	\uc0\u8259 	}different initializers (eg. barButtonSystemItem which can be set to different things like add, edit, done, camera)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITabBarController\ulnone  - wraps tab bar functionality (tab bar at bottom of screen)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1369,7 +1373,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i frame
 \i0  - CGRect describing the rectangle containing the scene\'92s content\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i backgroundColor
 \i0  - UIColor representing color to show behind texture (if any)\
 {\listtext	\uc0\u8259 	}
@@ -1513,7 +1517,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i init(circleOfRadius:)
 \i0  - initialize a circular physics body\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i init(texture:size:)
 \i0  - init a physics body based on an image (the non-transparent parents)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1533,7 +1537,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i angularVelocity
 \i0  - CGFloat representing radians per second rotation of the object\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i linearDamping
 \i0  - friction to slow down object in linear domain (defaults to 0.1, set to 0 for none)\
 {\listtext	\uc0\u8259 	}
@@ -1542,10 +1546,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
 \i0  - defines what the object can collide with in the physics realm (default is all, set to 0 for nothing) [for purpose of automatic behavior]\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i contactTestBitMask
 \i0  - which collision categories (as defined in categoryBitMask) of objects this object can collide with (and result in notifying the contact delegate)\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i categoryBitMask
 \i0  - defines what category(ies) of collision this physics body belongs to (defaults to all bits set)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1562,7 +1566,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - CGVector describing 2D acceleration due to gravity in m/s/s (default = earth = <0.0, -9.8>)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}reduce magnitude from -9.8 to make it more floaty\
-\ls11\ilvl2{\listtext	\uc0\u8259 	}set to <0,0> for deep space\
+{\listtext	\uc0\u8259 	}set to <0,0> for deep space\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i speed
@@ -1864,7 +1868,7 @@ iBeacon: a protocol Apple supports for physical devices you can have\
 {\listtext	\uc0\u8259 	}
 \i startRangingBeacons(in:)
 \i0  - starts the receiving of notification for a CLBeaconRegion (usually coupled with startMonitoring above)\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i requestLocation()
 \i0  - asynchronously asks for GPS location of user (which will call methods in the delegate when ready or failed)\
 {\listtext	\uc0\u8259 	}
