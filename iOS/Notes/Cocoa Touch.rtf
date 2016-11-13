@@ -30,6 +30,7 @@
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 Cocoa Touch is the collection of libraries that help build applications\
+NOTE: many of them, such as Foundation, are universal while some, such as UIKit, depend on the OS\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -1250,7 +1251,8 @@ SpriteKit\
 
 \fs24 \cf0 \
 2d Games (inc. sprites, fonts, physics, particle effects, etc.)\
-{\field{\*\fldinst{HYPERLINK "https://openclipart.org/"}}{\fldrslt https://openclipart.org/}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://openclipart.org/"}}{\fldrslt \cf0 https://openclipart.org/}}\
 \
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
@@ -1289,7 +1291,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 {\listtext	\uc0\u8259 	}
 \i parent
 \i0  - the parent node of this node (optional)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i children
 \i0  - array of the children of the node\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1299,7 +1301,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \i scene
 \i0  - SKScene wrapped by the view (castable to your scene class) if you want to access members of it\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls9\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKScene\ulnone  - represents a scene in SpriteKit\
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
@@ -1564,8 +1566,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i scale(to:duration:)
 \i0  - gradually change scale values of node (x and y)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i follow(path:asOffset:orientToPath:speed:)
 \i0  - animate movement (and possibly rotation) of sprite along a given path\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
