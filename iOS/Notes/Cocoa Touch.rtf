@@ -1830,13 +1830,21 @@ CoreLocation\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLLocationManagerDelegate\ulnone  - protocol to implement if you want to receive delegate calls from CLLocationManager for location notifications\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\ls13\ilvl1\cf0 {\listtext	\'95	}
 \i locationManager(_:didChangeAuthorization)
 \i0  - called to let you know if you are authorized or not (after authorization has been requested)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}check the status (didChangeAuthorization) parameter for what you have been authorized for\
+{\listtext	\uc0\u8259 	}good place to start monitoring of locations/devices\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\'95	}
+\i locationManager(_:didRangeBeacons:in:)
+\i0  - called to notify of location changes in beacons (after you\'92ve started monitoring)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}2nd param is CLBeacon array representing beacons being updated\
+{\listtext	\uc0\u8259 	}3rd param is CLBeaconRegion being updated\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLBeaconRegion\ulnone  - represents proximity to a Bluetooth beacon using iBeacon protocol\
+\ls13\ilvl2\cf0 {\listtext	\'95	}\ul CLBeaconRegion\ulnone  - represents scanning for proximity to a Bluetooth beacon using iBeacon protocol\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(proximityUUID:major:minor:identifier:)
@@ -1846,6 +1854,12 @@ CoreLocation\
 {\listtext	\uc0\u8259 	}proximityUUID = UUID of you or your store chain\
 {\listtext	\uc0\u8259 	}major = specific app (branch location) [optional]\
 {\listtext	\uc0\u8259 	}minor = subdivision within app (department) [optional]\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls13\ilvl0\cf0 {\listtext	\'95	}\ul CLBeacon\ulnone  - an individual beacon being updated in a notification\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i proximity
+\i0  - CLProximity representing the proximity to the beacon (enum values like near, far, unknown, immediate)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
