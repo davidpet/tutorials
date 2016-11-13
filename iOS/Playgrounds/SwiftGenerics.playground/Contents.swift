@@ -7,7 +7,7 @@ transform(5)            //type is implicitly found
 
 //CONSTRAINTS
 func square<T: Integer>(_ value: T) -> T {  //constrain by PROTOCOL (NOTE: built-in types already conform to protocols)
-    return value * value
+    return value * value                        //since these are genericsi and not templates, you can only use functionality that the item is known to have from constraints
 }
 square(25)
 protocol Numeric {
