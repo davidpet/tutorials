@@ -8,7 +8,8 @@
 
 import Foundation
 
-while var input = readLine() {
-    print("Typed: \(input)")
-    //user can terminate with ctrl-d
-}
+let word = "RHYTHM"
+var usedLetters = [Character]()
+
+print("Welcome to Hangman!")
+print("Press a letter to guess, or Ctrl+D to quit.")
