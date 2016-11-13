@@ -1269,7 +1269,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 
 \fs24 \cf0 See FireworksNight project for MissileCommand like game w/ recoloring artwork at runtime, having sprites follow a path (w/ rotation included), having a sparky tail behind a sprite, changing colors dynamically (eg. to show selection), removing fireworks that make it to a certain height, exploding objects (fireworks), awarding different points based on number of objects destroyed at once, detecting device being shaken, cooperation between view controller and scene classes\
 \
-See SpaceRace project for \
+See SpaceRace project for moving starfield as background\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1369,6 +1369,9 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i frame
 \i0  - CGRect describing the rectangle containing the scene\'92s content\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i backgroundColor
+\i0  - UIColor representing color to show behind texture (if any)\
 {\listtext	\uc0\u8259 	}
 \i nodes(atLocation:)
 \i0  - get an array of nodes at a given position (eg. when detected a tap)\
@@ -1510,7 +1513,15 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i init(circleOfRadius:)
 \i0  - initialize a circular physics body\
-{\listtext	\uc0\u8259 	}
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i init(texture:size:)
+\i0  - init a physics body based on an image (the non-transparent parents)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}good for creating irregular physics bodies with pixel-by-pixel collision detection\
+{\listtext	\uc0\u8259 	}probably going to pass in something like sprite.size and sprite.texture!\
+{\listtext	\uc0\u8259 	}NOTE: this automatically allows pixel-by-pixel collision detection which is not 100% accurate but very close (also performs a little less than shaped based so test it out and don\'92t abuse)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i restitution
 \i0  - how bouncy the item is (from 0 bounciest to 1 no bounce) [default seems to be 1]\
 {\listtext	\uc0\u8259 	}
@@ -1539,6 +1550,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - CGVector describing 2D acceleration due to gravity in m/s/s (default = earth = <0.0, -9.8>)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}reduce magnitude from -9.8 to make it more floaty\
+\ls11\ilvl2{\listtext	\uc0\u8259 	}set to <0,0> for deep space\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i speed
@@ -1659,6 +1671,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}the length of the animation is part of the particle effect itself\
 {\listtext	\uc0\u8259 	}NOTE: another way to get rid of it is to remove it from its parent after a certain amount of time (probably a good idea to remove it at some point anyway)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i advanceSimulationTime()
+\i0  - move forward in simulation time by a number of seconds (eg. so that a starfield can fill up the whole screen right away)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKCropNode\ulnone  - SKNode that crops its children\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
