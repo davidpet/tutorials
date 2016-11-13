@@ -46,3 +46,16 @@ func printWord() {
 }
 
 printWord()
+while var input = readLine() {
+    if let letter = input.uppercased().characters.first {
+        if usedLetters.contains(letter) {
+            print("You used that letter already!")
+        } else {
+            usedLetters.append(letter)
+        }
+    }
+    
+    printWord()
+}
+
+print("Thanks for playing!")
