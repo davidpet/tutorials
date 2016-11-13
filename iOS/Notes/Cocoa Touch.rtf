@@ -1941,7 +1941,7 @@ CoreImage\
 \fs36 \cf0 UserNotifications\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 Functionality related to publishing notifications (lock screen, notification center, etc.)
+\fs24 \cf0 Functionality related to publishing notifications (lock screen, notification center, etc.) [don\'92t pop up when app itself has focus]
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}
@@ -1962,6 +1962,12 @@ CoreImage\
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i add()
 \i0  - adds a UNNotificationRequest as a local notification (does not handle push notifications)\
+{\listtext	\uc0\u8259 	}
+\i removeAllPendingNotificationRequests()
+\i0  - unscheduled all pending notification requests asynchronously on a separate thread\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}anything whose trigger has not been met yet\
+{\listtext	\uc0\u8259 	}not sure about repeats (find out later???)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationRequest\ulnone  - a notification to present to notification enter (includes trigger & content information)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1972,11 +1978,17 @@ CoreImage\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNNotificationTrigger\ulnone  - represents a trigger to be used for notifications\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UNCalendarNotificationTrigger\ulnone  - subclass that deals with time/date related triggers\
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UNCalendarNotificationTrigger\ulnone  - subclass that deals with absolute time/date related triggers\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i init(dateMatching:repeats:)
 \i0  - initialize with a DateComponents instance and a bool specifying whether it is a repeating notification\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UNTimeIntervalNotificationTrigger\ulnone  - subclass that deals with time interval related triggers\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i init(timeInterval:repeats:)
+\i0  - initialize with time in seconds and whether it should repeat\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul UNMutableNotificationContent\ulnone  - represents the actual content of a notification (subclass of UNNotificationContent)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
