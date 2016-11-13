@@ -48,6 +48,12 @@ catch {                         //catching other errors
     print("some other error")           //NOTE: this is not required as try/catch does not have to be exhaustive
 }
 //NOTE: you cannot throw if you don't specify throws
+do {
+    try encrypt(name: "Bob", password: "")
+}
+catch {
+    //print(error.localizedDescription)         //this doesn't work in here for some reason but in real code it does (error constant automatically available)
+}
 
 //error propagation
 func functionC() throws {
