@@ -129,6 +129,7 @@ mbf4.contains([.value1, .value2])   //testing for multiple values
 mbf4.rawValue                       //getting the combined numeric value directly
 //set operations
 let unionbf = mbf4.union(mbf3)      //lets of set operations like this supported which return new instance
+//NOTE: you could also define enum values that are powers of 2 and | their raw values together and then set the raw value (old-fashioned way you'll sometimes see in libraries)
 
 //VALUE TYPE
 //NOTE: enums are value types

@@ -1553,9 +1553,12 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i angularVelocity
 \i0  - CGFloat representing radians per second rotation of the object\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i allowRotation
+\i0  - set to false to stop object from rotating (eg. if has glint on it that would look weird if it rotated)\
 {\listtext	\uc0\u8259 	}
 \i linearDamping
-\i0  - friction to slow down object in linear domain (defaults to 0.1, set to 0 for none)\
+\i0  - friction to slow down object in linear domain (defaults to 0.1, set to 0 for none, set to higher value to have things slow down faster)\
 {\listtext	\uc0\u8259 	}
 \i angularDamping
 \i0  - friction to slow down object in angular domain (default to 0.1, set to 0 for none)\
@@ -1575,6 +1578,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}the category(ies) you define for each object determine the behavior of collisionBitMask and contactTestBitMask (it\'92s a flexible customization system that uses bits as categories)\
 {\listtext	\uc0\u8259 	}can have items bounce off each other but not be notified, or be notified of overlap but not have them physically bounce\
 {\listtext	\uc0\u8259 	}HINT: use an enum (w/ powers of 2) to define the categories\
+{\listtext	\uc0\u8259 	}NOTE: since these are numbers, you can | the raw values of an enum together and assign the result to these masks\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0

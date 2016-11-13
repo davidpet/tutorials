@@ -20,17 +20,32 @@ enum CollisionTypes: UInt32 {
 class GameScene: SKScene {
     let blockSize = 64
     
+    var player: SKSpriteNode!
+    
     override func didMove(to view: SKView) {
         let background = SKSpriteNode(imageNamed: "background.jpg")
-        background.position = CGPoint(x: 512, y: 384)
+        background.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
         background.blendMode = .replace
         background.zPosition = -1
         addChild(background)
         
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        
         loadLevel()
+        createPlayer()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    func createPlayer() {
+        player = SKSpriteNode(imageNamed: "player")
+        player.position = CGPoint(x: Int(1.5*Double(blockSize)), y: Int(10.5*Double(blockSize)))
+        player.physicsBody = SKPhysicsBody(circleOfRadius: player.size.width / 2)
+        player.physicsBody!.allowsRotation = false
+        player.physicsBody!.linearDamping = 0.5
+        player.physicsBody!.categoryBitMask = CollisionTypes.player.rawValue
+        player.physicsBody!.contactTestBitMask = CollisionTypes.star.rawValue | CollisionTypes.vortex.rawValue |
+                                                 CollisionTypes.finish.rawValue
+        player.physicsBody!.collisionBitMask = CollisionTypes.wall.rawValue
+        addChild(player)
     }
     
     func loadLevel() {

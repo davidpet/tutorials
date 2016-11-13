@@ -7,6 +7,7 @@ a = 5 / 2       //division and modulo same as C++
 a = 5 % 2
 //a = 5 \ 2     //not a thing in Swift
 var a2 = Double(a) + 0.5            //oddly, Double and Int can't be mixed without conversion (no implicit casting)
+1  | 2      //BITWISE operators work on integers
 
 //TERNARY OPERATOR
 a = true ? 0 : 1
