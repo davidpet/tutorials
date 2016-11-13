@@ -62,22 +62,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.position = location
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        gameOver()
+    }
+    
     func didBegin(_ contact: SKPhysicsContact) {
-        let explosion = SKEmitterNode(fileNamed: "explosion")!
-        explosion.position = player.position
-        addChild(explosion)
-        
-        player.removeFromParent()
-        isGameOver = true
-        gameTimer.invalidate()
-        
-        let gameOverLabel = SKLabelNode(fontNamed: "ChalkDuster")
-        gameOverLabel.text = "Game Over"
-        gameOverLabel.fontColor = UIColor.white
-        gameOverLabel.fontSize = 100
-        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
-        gameOverLabel.zPosition = 1
-        addChild(gameOverLabel)
+        gameOver()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -104,5 +94,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         sprite.physicsBody?.angularVelocity = 5
         sprite.physicsBody?.linearDamping = 0
         sprite.physicsBody?.angularDamping = 0
+    }
+    
+    func gameOver() {
+        guard !isGameOver else { return }
+        
+        let explosion = SKEmitterNode(fileNamed: "explosion")!
+        explosion.position = player.position
+        addChild(explosion)
+        
+        player.removeFromParent()
+        isGameOver = true
+        gameTimer.invalidate()
+        
+        let gameOverLabel = SKLabelNode(fontNamed: "ChalkDuster")
+        gameOverLabel.text = "Game Over"
+        gameOverLabel.fontColor = UIColor.white
+        gameOverLabel.fontSize = 100
+        gameOverLabel.position = CGPoint(x: frame.width / 2, y: frame.height / 2)
+        gameOverLabel.zPosition = 1
+        addChild(gameOverLabel)
     }
 }
