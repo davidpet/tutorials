@@ -443,6 +443,7 @@ NSExtensionJavaScriptPreprocessingResultsKey
 {\listtext	\uc0\u8259 	}to pick a number from a to b inclusive, can use arc4random_uniform of the difference plus 1, then add to a\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul sin() & cos()\ulnone  - built-in trigonometric functions (Double -> Double)\
+{\listtext	\'95	}\ul abs()\ulnone  - absolute value\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1337,7 +1338,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \
 See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity, scoring based on time alive, building a game quickly (see check-ins for approach that was used), moving player based on touching, ending game when they try to cheat [NOTE: this project took a total of 50 minutes from start to finish even with all the reading, looking up methods, and taking notes into this doc]((possible extension = fire lasers on touchesBegan to destroy debris))\
 See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars [[several todo items in this project could do for fun/learning later]]\
-See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas), starting a new game (w/ transition, etc.)\
+See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas), starting a new game (w/ transition, etc.), deduping multiple collisions, converting coordinates between CoreGraphics, UIKit, and SpriteKit, terrain destruction\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1388,7 +1389,8 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
+\ls9\ilvl1{\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 \ls9\ilvl1{\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
 \i0  - initialize from a scene (sks) file (used by the default template)\
@@ -1567,6 +1569,15 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i removeAllActions()
 \i0  - clear out all the actions assigned to the node (inc. ones that have already executed)\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i convert(_:to:)
+\i0  - convert a CGPoint in this node\'92s coordinates to those in another SKNode\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. collision point in scene converted to point relative to one of the objects collided so that you can put something at that point within the object\'92s class\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i convert(_:from:)
+\i0  - same but in reverse\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKTexture\ulnone  - an image, more basic than SKSpriteNode\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2149,7 +2160,14 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 {\listtext	\uc0\u8259 	}
 \i setLineWidth()
 \i0  - the width (in points) of the stroke around a shape (centered so that it goes lineWidth /2 each way)\
-{\listtext	\uc0\u8259 	}
+\ls14\ilvl1{\listtext	\uc0\u8259 	}
+\i setBlendMode()
+\i0  - set the blend mode to use in the next draw\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}.clear = get rid of what is there already (eg. to cutout holes)\
+{\listtext	\uc0\u8259 	}other Photoshop-like ones available\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addRect
 \i0 () - adds a CGRect to the current path\
 {\listtext	\uc0\u8259 	}addEllipse()

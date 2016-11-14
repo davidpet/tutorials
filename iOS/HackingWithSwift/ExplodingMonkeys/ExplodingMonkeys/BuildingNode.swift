@@ -63,4 +63,27 @@ class BuildingNode: SKSpriteNode {
         }
         return img
     }
+    
+    func hitAt(point: CGPoint) {
+        //get the CoreGraphics equivalent of the point
+        let convertedPoint = CGPoint(x: point.x + size.width / 2.0,
+                                     y: abs(point.y - (size.height / 2.0)))
+        
+        //rendering context for terrain destruction
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let img = renderer.image { ctx in
+            //redraw building as we currently know it
+            currentImage.draw(at: CGPoint(x: 0, y: 0))
+            
+            //cut out a piece of the building using an ellipse
+            ctx.cgContext.addEllipse(in: CGRect(x: convertedPoint.x - 32, y: convertedPoint.y - 32, width: 64, height: 64))
+            ctx.cgContext.setBlendMode(.clear)
+            ctx.cgContext.drawPath(using: .fill)
+        }
+        texture = SKTexture(image: img)
+        currentImage = img
+        
+        //re-apply physics based on new pixels (probably irregular)
+        configurePhysics()
+    }
 }
