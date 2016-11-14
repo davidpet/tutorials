@@ -163,6 +163,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        if banana != nil {
+            if banana.position.y < -1000 {
+                //catch a banana getting thrown offscreen without hitting anything
+                banana.removeFromParent()
+                banana = nil
+                changePlayer()
+            }
+        }
+    }
+    
     func bananaHit(building: BuildingNode, atPoint contactPoint: CGPoint) {
         //tell the building where it's been hit
         let buildingLocation = convert(contactPoint, to: building)
