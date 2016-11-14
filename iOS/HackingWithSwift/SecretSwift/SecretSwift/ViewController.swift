@@ -37,6 +37,25 @@ class ViewController: UIViewController {
         secret.scrollRangeToVisible(selectedRange)
     }
     
+    //unhide text box and set its contents to the encrypted text in the keychain
+    func unlockSecretMessage() {
+        secret.isHidden = false
+        title = "Secret stuff!"
+        if let text = KeychainWrapper.standardKeychainAccess().string(forKey: "SecretMessage") {
+            secret.text = text
+        }
+    }
+    
+    //hide text box and write its contents to the encrypted text in the keychain
+    func saveSecretMessage() {
+        if !secret.isHidden {
+            _ = KeychainWrapper.standardKeychainAccess().setString(secret.text, forKey: "SecretMessage")
+            secret.resignFirstResponder()
+            secret.isHidden = true
+            title = "Nothing to see here"
+        }
+    }
+    
     @IBAction func authenticateUser(_ sender: UIButton) {
     }
 }
