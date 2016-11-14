@@ -6,6 +6,7 @@
 //  Copyright © 2016 David Petrofsky. All rights reserved.
 //
 
+import LocalAuthentication
 import UIKit
 
 class ViewController: UIViewController {
@@ -59,7 +60,23 @@ class ViewController: UIViewController {
     }
     
     @IBAction func authenticateUser(_ sender: UIButton) {
-        unlockSecretMessage()
+        let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {
+                [unowned self] (success, authenticationError) in
+                DispatchQueue.main.async {
+                    if success {
+                        self.unlockSecretMessage()
+                    } else {
+                        // error
+                    }
+                }
+            }
+        } else {
+            // no Touch ID
+        }
     }
 }
 
