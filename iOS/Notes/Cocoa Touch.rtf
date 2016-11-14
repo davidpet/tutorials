@@ -1322,6 +1322,7 @@ NOTE: a useful way to draw directly (and quickly) in SpriteKit apps is to use UI
 NOTE: you could also bring SpriteKit into UIKit apps by doing what the template app does (controller loads scene, storyboard has SKView, etc.)\
 NOTE: to use actual UIKit controls within a SpriteKit game, add them to the view controller and see steps in Xcode notes under Game project type\
 	this is possible because SpriteKit just draws into a view within the UIKit framework\
+HINT: to start a new game, use present(_:transition:) in the SKView to transition to a new instance of your game scene object\
 \
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
@@ -1336,7 +1337,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \
 See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity, scoring based on time alive, building a game quickly (see check-ins for approach that was used), moving player based on touching, ending game when they try to cheat [NOTE: this project took a total of 50 minutes from start to finish even with all the reading, looking up methods, and taking notes into this doc]((possible extension = fire lasers on touchesBegan to destroy debris))\
 See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars [[several todo items in this project could do for fun/learning later]]\
-See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas)\
+See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas), starting a new game (w/ transition, etc.)\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1375,10 +1376,25 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i scene
 \i0  - SKScene wrapped by the view (castable to your scene class) if you want to access members of it\
+\ls9\ilvl1{\listtext	\uc0\u8259 	}
+\i presentScene()
+\i0  - present an SKScene in the view (used by the game template)\
+{\listtext	\uc0\u8259 	}
+\i presentScene(_:transition:)
+\i0  - transition from the current scene to a new one (eg. to start a new game)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls9\ilvl2\cf0 {\listtext	\uc0\u8259 	}first param is new scene that will replace the old one\
+{\listtext	\uc0\u8259 	}2nd param is an SKTransition\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
+\ls9\ilvl1{\listtext	\uc0\u8259 	}
+\i init(fileNamed:)
+\i0  - initialize from a scene (sks) file (used by the default template)\
+{\listtext	\uc0\u8259 	}
+\i init(size:)
+\i0  - initialize with a given size (can use to directly instantiate your scene class [eg. to start a new game])\
 {\listtext	\uc0\u8259 	}
 \i didMove(to:)
 \i0  - sort of equivalent to 
@@ -1448,6 +1464,9 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i isUserInteractionEnabled
 \i0  - can set to false to stop the scene from receiving things like touch events anymore (eg. Game Over)\
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i view
+\i0  - the SKView containing the scene\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1747,7 +1766,16 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - remove the item from its parent (useful to put at end of sequence)\
 {\listtext	\uc0\u8259 	}the action is executed by putting it into the execution list for a node (such as SKSpriteNode) (executed asynchronously from the queueing)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
+\ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKTransition
+\i \ulnone  - 
+\i0 a transition from one scene to another\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i doorway(withDuration:)
+\i0  - factory method to get an instance that fades with a doorway effect\
+{\listtext	\uc0\u8259 	}HINT: see other factory methods for other available transitions\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls11\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fontNamed:)

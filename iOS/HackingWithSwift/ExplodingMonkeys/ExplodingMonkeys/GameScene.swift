@@ -167,5 +167,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func destroy(player: SKSpriteNode) {
+        //add explosion
+        let explosion = SKEmitterNode(fileNamed: "hitPlayer")!
+        explosion.position = player.position
+        addChild(explosion)
+        
+        //remove player and banana
+        player.removeFromParent()
+        banana?.removeFromParent()
+        
+        //start a new game (after a delay to see who won)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2)
+        { [unowned self] in
+            //create new game
+            let newGame = GameScene(size: self.size)
+            newGame.viewController = self.viewController
+            self.viewController.currentGame = newGame
+            //switch players
+            self.changePlayer()
+            newGame.currentPlayer = self.currentPlayer
+            //fade to the new game
+            let transition = SKTransition.doorway(withDuration: 1.5)
+            self.view?.presentScene(newGame, transition: transition)
+        }
+    }
+    
+    func changePlayer() {
+        if currentPlayer == 1 {
+            currentPlayer = 2
+        } else {
+            currentPlayer = 1
+        }
+        viewController.activatePlayer(number: currentPlayer)
     }
 }
