@@ -26,6 +26,7 @@
 		B9ADE8281DD9841F001770CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9ADE82E1DD98C3B001770CB /* KeychainOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainOptions.swift; sourceTree = "<group>"; };
 		B9ADE82F1DD98C3B001770CB /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		B9ADE8321DD997D4001770CB /* SecretSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SecretSwift.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		B9ADE81B1DD9841F001770CB /* SecretSwift */ = {
 			isa = PBXGroup;
 			children = (
+				B9ADE8321DD997D4001770CB /* SecretSwift.entitlements */,
 				B9ADE81C1DD9841F001770CB /* AppDelegate.swift */,
 				B9ADE81E1DD9841F001770CB /* ViewController.swift */,
 				B9ADE8201DD9841F001770CB /* Main.storyboard */,
@@ -104,6 +106,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SF7XN9ZB4C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -267,6 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SecretSwift/SecretSwift.entitlements;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = SecretSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -280,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SecretSwift/SecretSwift.entitlements;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = SecretSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

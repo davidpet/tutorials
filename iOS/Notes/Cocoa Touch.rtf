@@ -2523,7 +2523,8 @@ See SelfiShare for overall view of how connection management and data transmissi
 
 \fs24 \cf0 Functionality for authenticating users with passphrase, biometrics, etc.\
 See SecretSwift project for usage (in combination with SwiftKeychainWrapper library)\
-NOTE: some of this may be settings/system specific but in my testing, it prompts you for unlock every time (not cached) and gives you 3 tries if you get it wrong [this may differ for passcode behavior]
+NOTE: some of this may be settings/system specific but in my testing, it prompts you for unlock every time (not cached) and gives you 3 tries if you get it wrong [this may differ for passcode behavior]\
+HINT: if TouchID fails you can have the user enter a password and retrieve it from the keychain (or whatever you use)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls20\ilvl0\cf0 {\listtext	\'95	}
@@ -2579,6 +2580,7 @@ NOTE: some of this may be settings/system specific but in my testing, it prompts
 
 \fs24 \cf0 3rd party library for wrapping iOS keychain (secure storage) so that it acts like UserDefaults [distributed via KeychainWrapper.Swift and KeychainOptions.Swift]((official release not ready for Swift 3 at time of tutorial - but a fork from Jordan Kay is))\
 Without this library, working with the keychain is very hard and complicated\
+NOTE: the data will not persist between sessions unless you give your project the \'93Keychain Sharing\'94 capability in Capabilities tab for project target (Project settings menu in Xcode)\
 SEE: SecretSwift project for how to handle secure data (in terms of focus changes, encryption, etc.)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
