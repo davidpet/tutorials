@@ -16,6 +16,9 @@
 		B98FF2951DD99A7000E5D6FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98FF2931DD99A7000E5D6FE /* LaunchScreen.storyboard */; };
 		B98FF29D1DD99B3C00E5D6FE /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98FF29C1DD99B3C00E5D6FE /* Helper.swift */; };
 		B98FF29F1DD99BC300E5D6FE /* BuildingNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98FF29E1DD99BC300E5D6FE /* BuildingNode.swift */; };
+		B98FF2A11DD9BDC700E5D6FE /* Assets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = B98FF2A01DD9BDC700E5D6FE /* Assets.atlas */; };
+		B98FF2A41DD9BE4C00E5D6FE /* hitBuilding.sks in Resources */ = {isa = PBXBuildFile; fileRef = B98FF2A21DD9BE4C00E5D6FE /* hitBuilding.sks */; };
+		B98FF2A51DD9BE4C00E5D6FE /* hitPlayer.sks in Resources */ = {isa = PBXBuildFile; fileRef = B98FF2A31DD9BE4C00E5D6FE /* hitPlayer.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		B98FF2961DD99A7000E5D6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98FF29C1DD99B3C00E5D6FE /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		B98FF29E1DD99BC300E5D6FE /* BuildingNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingNode.swift; sourceTree = "<group>"; };
+		B98FF2A01DD9BDC700E5D6FE /* Assets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Assets.atlas; sourceTree = "<group>"; };
+		B98FF2A21DD9BE4C00E5D6FE /* hitBuilding.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitBuilding.sks; sourceTree = "<group>"; };
+		B98FF2A31DD9BE4C00E5D6FE /* hitPlayer.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = hitPlayer.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,9 @@
 				B98FF28E1DD99A7000E5D6FE /* Main.storyboard */,
 				B98FF29C1DD99B3C00E5D6FE /* Helper.swift */,
 				B98FF2911DD99A7000E5D6FE /* Assets.xcassets */,
+				B98FF2A01DD9BDC700E5D6FE /* Assets.atlas */,
+				B98FF2A21DD9BE4C00E5D6FE /* hitBuilding.sks */,
+				B98FF2A31DD9BE4C00E5D6FE /* hitPlayer.sks */,
 				B98FF2931DD99A7000E5D6FE /* LaunchScreen.storyboard */,
 				B98FF2961DD99A7000E5D6FE /* Info.plist */,
 			);
@@ -136,10 +145,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B98FF2A51DD9BE4C00E5D6FE /* hitPlayer.sks in Resources */,
 				B98FF2901DD99A7000E5D6FE /* Main.storyboard in Resources */,
 				B98FF2871DD99A7000E5D6FE /* GameScene.sks in Resources */,
+				B98FF2A11DD9BDC700E5D6FE /* Assets.atlas in Resources */,
 				B98FF2921DD99A7000E5D6FE /* Assets.xcassets in Resources */,
 				B98FF2951DD99A7000E5D6FE /* LaunchScreen.storyboard in Resources */,
+				B98FF2A41DD9BE4C00E5D6FE /* hitBuilding.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

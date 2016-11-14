@@ -474,6 +474,16 @@ Interface Builder
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	
 \f1 \uc0\u9642 
+\f0 	}Texture Atlases (possibly more efficient loading for games)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}a texture altas is a folder called Assets.atlas in your project (containing images as usual, with diff resolutions etc. as always)\
+{\listtext	\uc0\u8259 	}should only contain images, not things like sounds or particle effects\
+{\listtext	\uc0\u8259 	}all the images get stitched together when you build (separated by 1x, 2x, 3x) and loaded/cropped/rotated as needed by the system\
+{\listtext	\uc0\u8259 	}atlas remains loaded and can be accessed by system quickly at any time\
+{\listtext	\uc0\u8259 	}access the assets within the atlas by name just like with normal assets\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	
+\f1 \uc0\u9642 
 \f0 	}Device Resolutions\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}Retina = 200 range PPI, non-Retina = 100 range PPI, Retina HD = 300-400 range PPI (cut pixels in half for retina and in third for retina HD to get points)\
