@@ -390,6 +390,9 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \i UIKeyboardWillChangeFrame
 \i0  - keyboard showing/hiding, orientation changing, quicktype, etc. (but not physical keyboard insertion)\
 {\listtext	\uc0\u8259 	}
+\i UIApplicationWillResignActive
+\i0  - app is losing focus (lock, double-tap away, etc.)\
+{\listtext	\uc0\u8259 	}
 \i init(string)
 \i0  - can make a name out of a string to pass into NotificationCenter\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2540,7 +2543,8 @@ See SelfiShare for overall view of how connection management and data transmissi
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 3rd party library for wrapping iOS keychain (secure storage) so that it acts like UserDefaults [distributed via KeychainWrapper.Swift and KeychainOptions.Swift]((official release not ready for Swift 3 at time of tutorial - but a fork from Jordan Kay is))\
-Without this library, working with the keychain is very hard and complicated
+Without this library, working with the keychain is very hard and complicated\
+SEE: SecretSwift project for how to handle secure data (in terms of focus changes, encryption, etc.)
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls21\ilvl0\cf0 {\listtext	\'95	}

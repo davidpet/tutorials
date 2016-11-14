@@ -19,6 +19,8 @@ class ViewController: UIViewController {
                                        name: Notification.Name.UIKeyboardWillHide, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard),
                                        name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(saveSecretMessage),
+                                       name: Notification.Name.UIApplicationWillResignActive, object: nil)
         
         title = "Nothing to see here"
     }
@@ -57,6 +59,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func authenticateUser(_ sender: UIButton) {
+        unlockSecretMessage()
     }
 }
 
