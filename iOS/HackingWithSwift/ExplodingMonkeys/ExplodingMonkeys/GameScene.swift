@@ -15,6 +15,9 @@ enum CollisionTypes: UInt32 {
     case player = 4
 }
 
+//TODO: track score across scenes
+//TODO: best 3 of 5 kind of thing
+//TODO: have explosions themselves damage pieces of buildings
 class GameScene: SKScene, SKPhysicsContactDelegate {
     weak var viewController: GameViewController!
     var buildings = [BuildingNode]()
