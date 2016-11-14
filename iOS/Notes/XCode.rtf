@@ -106,6 +106,42 @@ View Debugging
 		Similar to Show View Frames but gives a 3D representation so that you can rotate views around each other to find ones that have been hidden behind others\
 
 \fs36 \
+Profiling
+\fs24 \
+	Xcode ships with a tool called Instruments for profiling performance, memory, etc.\
+	Recommended to use physical device since simulator will behave very differently (can choose target in dropdown just like regular running)\
+\
+	To profile:\
+		Cmd-I\
+		Choose profile (eg. Time Profiler to profile timing)\
+		an Instruments window appears to show you the profiling information\
+		To start the actual app (and recording of profiling information), click the Red circle button\
+		Use the app\
+		Click the stop button in Instruments to stop the app and the recording	Interpreting Readings:\
+		Draw range in the graph to restrict what you are shown in the lower panel\
+		Can see things in lower panel like which threads use the most CPU (too much on main = not taking advantage of multiple cores)\
+		Can drill in to see specific calls (alt-click arrow to open all children)\
+	Panels:\
+		top half = graph and controls\
+		bottom half, left side = Detail View\
+		bottom half, right side = extended panels\
+			Record Settings\
+			Display Settings\
+				affects how the other panels display\
+				Invert Call Tree = show call tree bottom up\
+				Hide System Libraries = don\'92t show Apple stuff\
+			Extended Detail\
+				shows heaviest stack trace (calls that took most time in selected thread)\
+	Profilers:\
+		Time Profiler:	for analyzing time taken by various calls\
+		Core Animation: for analyzing FPS (ideally want 60 unless app not doing anything)\
+					various display settings for things like visible vs. invisible views, offscreen views, and image caching\
+		Allocations: for tracking allocations, leaks, etc.\
+	General Tips:\
+		profile on real device (slowest you support)\
+		fix one thing at a time and re-profile so you know you\'92re actually fixing the right thing\
+
+\fs36 \
 File -> New -> File\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -405,7 +441,7 @@ Interface Builder
 	to switch to release mode without profiling or anything, select Product -> Scheme -> Edit Scheme and change the Run configuration to Release and not debug executable\
 	This changes where the binaries are linked from in the project navigator (and in theory should change what\'92s deployed on devices)\
 	Someone online suggested duplicating the scheme and making one be debug and the other release, so that you don\'92t have to edit the scheme to switch\
-	Running in profile mode (cmd-i) also uses release, but it makes you pick a profiler and then profiles the app\
+	Running in profile mode (cmd-i) also uses release, but it makes you pick a profiler and then profiles the app (see Profiling section)\
 \
 
 \fs36 Archiving
@@ -423,7 +459,7 @@ Interface Builder
 \fs36 Submitting to App Store
 \fs24 \
 	Guidelines: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/app-store/review/"}}{\fldrslt https://developer.apple.com/app-store/review/}}\
-	Things to Make Sure: you have signing/provisioning set up properly, you have tested on physical devices, you have tested on minimum supported things in simulator, you have app icon and splash image\
+	Things to Make Sure: you have signing/provisioning set up properly, you have tested on physical devices, you have tested on minimum supported things in simulator, you have app icon and splash image, you have profiled with Instruments in lowest device you support\
 	iTunes Connect will be your portal for what\'92s happening on the app store with your stuff\
 	Steps:\
 		1. Create an archive ready to be released to the app store (see above)\
@@ -511,7 +547,8 @@ Interface Builder
 NOTE: assets can also be text files (eg. configuration data or level data for a game), sks files, audio files, etc.\
 NOTE: can often leave off the extension of an asset (saw this with at least png files in tutorials)\
 NOTE: for images with transparency like png, the transparency should be respected\
-NOTE: you can load copies of the same image\
+NOTE: you can load copies of the same image (it might be smart enough to cache it for you)\
+NOTE: you should try to have images that are only as big as you need because images take up a lot of space in memory (have to be uncompressed, etc.)\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 

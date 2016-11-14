@@ -697,6 +697,9 @@ Controls/views start with UI\
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
 \i0  can be used to create or reuse an already-created cell\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}if using prototype cell from storyboard, this will just work\
+{\listtext	\uc0\u8259 	}if creating cells strictly in code, this will return nil if not created yet (extra complications with registering, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UICollectionViewController\ulnone  - very similar to UITableViewController but displays grid instead of list\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -879,7 +882,11 @@ Controls/views start with UI\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}use the initializer with 
 \i named
-\i0  to load an image with the given name from your app bundle\
+\i0  to load an image with the given name from your app bundle (with caching in case loaded again)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}the cache could cause lots of memory usage but it will clear itself as needed\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}can use the initializer with contentsOfFile to load directly from a file (without caching)\
 {\listtext	\uc0\u8259 	}can initialize form a CGImage as well\
 {\listtext	\uc0\u8259 	}i
 \i nit(data:)
@@ -1204,10 +1211,14 @@ UIKit uses CoreAnimation internally for its animations.\
 \i0 : for setting a color other than black on the border of a view\
 {\listtext	\uc0\u8259 	}
 \i cornerRadius
-\i0 : for creating rounded corners
-\fs36 \
+\i0 : for creating rounded corners\
+\ls6\ilvl1
+\fs36 {\listtext	\uc0\u8259 	}
+\i\fs28 shadow*
+\i0 : for configuring drop shadows (can be taxing on the system if transparency involved)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+
+\fs36 \cf0 \
 GameplayKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -2213,7 +2224,19 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \i0  - adds a line from the current position to the given CGPoint in the current path\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}translations and rotations taken into accounts\
-{\listtext	\uc0\u8259 	}EX) if you used the same coordinates for move and addLine but applied a translation in between, it would add a line to the path\ul \
+{\listtext	\uc0\u8259 	}EX) if you used the same coordinates for move and addLine but applied a translation in between, it would add a line to the path\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i clip()
+\i0  - uses current path to set clipping path so that only what\'92s inside the path is drawn\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls14\ilvl2\cf0 {\listtext	\uc0\u8259 	}clears the path\
+{\listtext	\uc0\u8259 	}affects subsequent drawing\
+{\listtext	\uc0\u8259 	}can be taxing on the system\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i setShadow()
+\i0  - set drop shadow information for subsequent drawing (more efficient than CALayer version)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
