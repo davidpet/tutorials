@@ -306,10 +306,11 @@ Interface Builder
 		Resetting to Vanilla State: delete spaceship, replace code in GameScene.Swift with just didMove and touchesBegan (empty bodies)(get rid of properties too), delete Actions.sks, remove label from GameScene.sks and set Anchor Point and size attributes, remove FPS and node counts from view controller\
 \
 		Using UIKit controls within the game:\
-			-give the scene a weak reference to the view controller and the view controller a strong reference to the scene (since the scene is already implicitly/indirectly owned by the controller)\
+			-give the scene a weak reference to the view controller (if needed) and the view controller a strong reference to the scene (since the scene is already implicitly/indirectly owned by the controller)\
 			-set both properties in controller\'92s viewDidLoad just after presentScene\
 			-add controls to the scene above the SKView that hosts the SpriteKit stuff (or contained in the view itself is fine - it\'92ll be rendered on top)\
 			-add outlets and actions in the view controller to directly deal with the controls and then delegate behavior/values to the scene as appropriate\
+			-scene and controller can call each other or access each other\'92s properties/outlets as needed\
 	Cocoa Touch Framework\
 		dynamic library\
 		iOS 8 onwards\

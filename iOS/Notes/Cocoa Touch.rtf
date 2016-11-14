@@ -1319,6 +1319,7 @@ NOTE: you can access UIKit from SpriteKit apps (in fact they are hosted by UIKit
 NOTE: a useful way to draw directly (and quickly) in SpriteKit apps is to use UIKit to obtain a CoreGraphics context and use CoreGraphics to render\
 NOTE: you could also bring SpriteKit into UIKit apps by doing what the template app does (controller loads scene, storyboard has SKView, etc.)\
 NOTE: to use actual UIKit controls within a SpriteKit game, add them to the view controller and see steps in Xcode notes under Game project type\
+	this is possible because SpriteKit just draws into a view within the UIKit framework\
 \
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
