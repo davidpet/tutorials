@@ -15,7 +15,7 @@ enum CollisionTypes: UInt32 {
     case player = 4
 }
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     weak var viewController: GameViewController!
     var buildings = [BuildingNode]()
     
@@ -29,6 +29,8 @@ class GameScene: SKScene {
         backgroundColor = UIColor(hue: 0.669, saturation: 0.99, brightness: 0.67, alpha: 1)
         createBuildings()
         createPlayers()
+        
+        physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -130,5 +132,40 @@ class GameScene: SKScene {
             let impulse = CGVector(dx: cos(radians) * -speed, dy: sin(radians) * speed)
             banana.physicsBody?.applyImpulse(impulse)
         }
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        //normalize the order
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask <
+            contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        //for collisions where both sides still exist (in case of dupes)
+        if let firstNode = firstBody.node {
+            if let secondNode = secondBody.node {
+                if firstNode.name == "banana" && secondNode.name == "building" {
+                    bananaHit(building: secondNode as! BuildingNode, atPoint: contact.contactPoint)
+                }
+                if firstNode.name == "banana" && secondNode.name == "player1" {
+                    destroy(player: player1)
+                }
+                if firstNode.name == "banana" && secondNode.name == "player2" {
+                    destroy(player: player2)
+                }
+            }
+        }
+    }
+    
+    func bananaHit(building: BuildingNode, atPoint: CGPoint) {
+    }
+    
+    func destroy(player: SKSpriteNode) {
     }
 }

@@ -1627,7 +1627,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}the category(ies) you define for each object determine the behavior of collisionBitMask and contactTestBitMask (it\'92s a flexible customization system that uses bits as categories)\
 {\listtext	\uc0\u8259 	}can have items bounce off each other but not be notified, or be notified of overlap but not have them physically bounce\
-{\listtext	\uc0\u8259 	}HINT: use an enum (w/ powers of 2) to define the categories\
+{\listtext	\uc0\u8259 	}HINT: use an enum (w/ powers of 2) to define the categories (and to sort in the contact delegate call to normalize the order)\
 {\listtext	\uc0\u8259 	}NOTE: since these are numbers, you can | the raw values of an enum together and assign the result to these masks\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
@@ -1665,8 +1665,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i didBegin(_ contact: SKPhysicsContact)
 \i0  - implement this to detect collisions between two objects\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}use contact.contactPoint (CGPoint) to determine where collision occured if it matters\
+\ls11\ilvl2{\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
 {\listtext	\uc0\u8259 	}use node names to determine types of objects\
+\ls11\ilvl2{\listtext	\uc0\u8259 	}one side or the other could be nil if that object was destroyed after the collision happened (eg. if get same collision notification for both sides)\
 {\listtext	\uc0\u8259 	}NOTE: the tutorials set consistent values on both sides of the collision and then dedupe within this method (not sure if the ordering implies which mask was used)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
