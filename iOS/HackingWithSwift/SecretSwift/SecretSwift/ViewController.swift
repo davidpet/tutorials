@@ -70,12 +70,19 @@ class ViewController: UIViewController {
                     if success {
                         self.unlockSecretMessage()
                     } else {
-                        // error
+                        let ac = UIAlertController(title: "Authentication failed",
+                                                   message: "Your fingerprint could not be verified; please try again.", preferredStyle: .alert)
+                            ac.addAction(UIAlertAction(title: "OK", style: .default))
+                            self.present(ac, animated: true)
                     }
                 }
             }
         } else {
-            // no Touch ID
+            let ac = UIAlertController(title: "Touch ID not available",
+                                       message: "Your device is not configured for Touch ID.",
+                                       preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(ac, animated: true)
         }
     }
 }

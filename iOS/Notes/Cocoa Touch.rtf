@@ -2546,7 +2546,8 @@ NOTE: some of this may be settings/system specific but in my testing, it prompts
 {\listtext	\uc0\u8259 	}closure = code to call when authentication is done (since this call is non-blocking)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls20\ilvl3\cf0 {\listtext	\uc0\u8259 	}parameters received in closure are success (boolean) and authenticationError\
-{\listtext	\uc0\u8259 	}NOTE: if you\'92re going to update the UI, you will have to dispatch back to the main thread\ul \ulc0 \
+{\listtext	\uc0\u8259 	}NOTE: if you\'92re going to update the UI, you will have to dispatch back to the main thread\
+{\listtext	\uc0\u8259 	}success is false on Cancel or bad fingerprint (after retries)\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
