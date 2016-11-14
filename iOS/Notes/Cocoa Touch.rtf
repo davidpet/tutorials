@@ -441,6 +441,8 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: the arc4random functions take UInt32 instead of Int\
 {\listtext	\uc0\u8259 	}to pick a number from a to b inclusive, can use arc4random_uniform of the difference plus 1, then add to a\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul sin() & cos()\ulnone  - built-in trigonometric functions (Double -> Double)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1334,7 +1336,7 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 \
 See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity, scoring based on time alive, building a game quickly (see check-ins for approach that was used), moving player based on touching, ending game when they try to cheat [NOTE: this project took a total of 50 minutes from start to finish even with all the reading, looking up methods, and taking notes into this doc]((possible extension = fire lasers on touchesBegan to destroy debris))\
 See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars [[several todo items in this project could do for fun/learning later]]\
-See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas\
+See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas)\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -1603,7 +1605,14 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i angularDamping
 \i0  - friction to slow down object in angular domain (default to 0.1, set to 0 for none)\
-{\listtext	\uc0\u8259 	}
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i usesPreciseCollisionDetection
+\i0  - set to true for objects where approximations aren\'92t good enough (such as small, fast-moving objects)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: in tutorial, banana had this property but buildings and apes it could collide with did not\
+{\listtext	\uc0\u8259 	}will of course have slower calculations so use only when needed\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i collisionBitMask
 \i0  - number defining what categories of objects the node can collide with (physically) [defaults to all bits set]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1620,6 +1629,12 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}can have items bounce off each other but not be notified, or be notified of overlap but not have them physically bounce\
 {\listtext	\uc0\u8259 	}HINT: use an enum (w/ powers of 2) to define the categories\
 {\listtext	\uc0\u8259 	}NOTE: since these are numbers, you can | the raw values of an enum together and assign the result to these masks\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i applyImpulse()
+\i0  - applies an impulse vector (CGVector) to the object, pushing the object along the given speed at the given direction\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}physically it is saying how much momentum is transferred in each direction to the object\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsWorld\ulnone  - an overall physics world (eg. gravity, collision detection, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1692,7 +1707,13 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i follow
 \i0 () - other overloads of the above such as taking duration instead, taking less params, etc.\
-{\listtext	\uc0\u8259 	}
+\ls11\ilvl1{\listtext	\uc0\u8259 	}
+\i setTexture(imageNamed:)
+\i0  - change the texture of the sprite\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. use in a sequence to animate things like character raising and lowering arm with timing\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
 \i0  - factory method that takes an SKAction instance and gives an SKAction that repeats that action forever in a loop (eg. rotate a circle forever)\
 {\listtext	\uc0\u8259 	}
