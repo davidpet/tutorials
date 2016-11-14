@@ -72,6 +72,15 @@ for (index, item) in [1, 2, 3, 4, 5].enumerated() {     //special enumerated() m
 for (index, item) in [1, 2, 3, 4, 5].enumerated().reversed() {      //same thing backwards
 }
 
+//STRIDE
+print("Stride test")
+let stride1 = stride(from: 1, to: 11, by: 2)                //sequence of odd numbers (to is EXCLUSIVE)
+for i in stride1 { print(i) }           //stride objects can be iterated like arrays
+let stride2 = stride(from: 1, through: 11, by: 2)           //sequence of odd numbers (through is INCLUSIVE)
+for i in stride2 { print(i) }
+stride2.sorted()            //array-like operations available which will give you ARRAY as return value
+Array(stride2)          //can get as ARRAY directly like this
+
 //WHILE LOOPS
 var z = 0
 while true {            //basically like C but don't need ()
