@@ -27,11 +27,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9r-ZT-Cjj">
+                                <rect key="frame" x="137" y="311" width="100" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9QT-tB-fLI"/>
+                                    <constraint firstAttribute="height" constant="44" id="u8T-px-dPq"/>
+                                </constraints>
+                                <state key="normal" title="Authenticate"/>
+                                <connections>
+                                    <action selector="authenticateUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgB-IJ-5XI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="WNw-cq-07y" secondAttribute="trailing" id="1so-qU-ZSk"/>
                             <constraint firstItem="WNw-cq-07y" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="9rS-JJ-LMo"/>
+                            <constraint firstItem="c9r-ZT-Cjj" firstAttribute="centerY" secondItem="WNw-cq-07y" secondAttribute="centerY" id="ET1-TH-RtI"/>
+                            <constraint firstItem="c9r-ZT-Cjj" firstAttribute="centerX" secondItem="WNw-cq-07y" secondAttribute="centerX" id="R2G-fC-ukX"/>
                             <constraint firstItem="WNw-cq-07y" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ejI-Cg-LNV"/>
                             <constraint firstItem="WNw-cq-07y" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="i89-gz-dRc"/>
                         </constraints>

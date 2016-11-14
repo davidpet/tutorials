@@ -34,5 +34,8 @@ class ViewController: UIViewController {
         let selectedRange = secret.selectedRange
         secret.scrollRangeToVisible(selectedRange)
     }
+    
+    @IBAction func authenticateUser(_ sender: UIButton) {
+    }
 }
 
