@@ -406,7 +406,19 @@ Interface Builder
 	can change type (eg. String to dictionary) and then use + to add items to it\
 \
 
-\fs36 Xcode Hierarchy
+\fs36 Supporting iPad Multitasking
+\fs24 \
+	Supported since iOS 9\
+	2 modes: dividers vs. slide-over\
+	Works by default if you pull up other apps\
+	Steps to Ensure Full Support:\
+		1. Have a launch Xib (probably already do as part of your project)\
+		2. Support all orientations\
+		3. Use Auto-Layout\
+		4. use Adaptive UI (Size Classes and Dynamic Type)\
+
+\fs36 \
+Xcode Hierarchy
 \fs24 \
 	Workspace = like a Visual Studio solution (contains multiple projects/apps/libraries)\
 		all projects in a workspace share an output directory\
@@ -716,4 +728,5 @@ TODO: sound effects (producing sine waves, reverb, etc.)\
 TODO: how to rename files?\
 TODO: making other types of extensions, installing extensions, setting icon for extensions, etc.\
 TODO: look up Swift Package Manager stuff (swift build, touch Package.Swift, etc.) [end of cmdline tutorial]\
+TODO: learn Size Classes and Dynamic Types (for adaptive UI) [allows for going back and forth between phone and ipad, vertical and horizontal, etc.]\
 }
