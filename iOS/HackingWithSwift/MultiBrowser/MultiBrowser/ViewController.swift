@@ -48,6 +48,12 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
         }
     }
     
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        if webView == activeWebView {
+            updateUI(for: webView)
+        }
+    }
+    
     func setDefaultTitle() {
         title = "Multibrowser"
     }
