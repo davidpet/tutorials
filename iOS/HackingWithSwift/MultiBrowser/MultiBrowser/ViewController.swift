@@ -30,6 +30,16 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
         return true
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let webView = activeWebView, let address = addressBar.text {
+            if let url = URL(string: address) {
+                webView.loadRequest(URLRequest(url: url))
+            }
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    
     func setDefaultTitle() {
         title = "Multibrowser"
     }
