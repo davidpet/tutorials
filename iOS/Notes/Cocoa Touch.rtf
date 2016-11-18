@@ -757,6 +757,18 @@ Controls/views start with UI\
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
 \i tableView(_:estimatedHeightForRowAt:)
 \i0  - basically same as above and should probably do same thing\
+{\listtext	\uc0\u8259 	}
+\i tableView(_:editingStyleForRowAt:)
+\i0  - lets you select what editing style (left-hand icon) to use in edit mode for a given row\
+\pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
+\ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}enum values like .insert, .delete\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
+\i tableView(_:commit:forRowAt:)
+\i0  - called to handle user clicking lefthand button (delete, insert, etc.) in editing mode\
+\pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
+\ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}commit = enum value (like .insert, .delete) to tell you what button they clicked\
+{\listtext	\uc0\u8259 	}rowRowAt = the indexPath of the row that you are to operate on\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
@@ -916,6 +928,20 @@ Controls/views start with UI\
 \i insertRows
 \i0 : for adding individual rows without the need to do a full reload (with animation) [.automatic is a good animation option to use]\
 {\listtext	\uc0\u8259 	}NOTE: make sure you add to the data that your table view loads from before calling a method like insertRows\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i isEditing
+\i0  - set to true to bring up delete button, accessories, reordering support, etc.\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}only one that shows up by default is the delete button which doesn\'92t actually delete anything yet\
+{\listtext	\uc0\u8259 	}add editingAccessoryType on UITableViewCell to add more\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}implement behavior with methods of table view controller\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}default icon on left is delete one that slides out Delete button on right side -> can override with editingStyleForRowAt method of table view controller\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i allowsSelectionDuringEditing
+\i0  - by default you can\'92t select during editing but you can override it with this\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITableViewCell\ulnone  - a cell in a table view (create dynamically for cellForRowAt method in table view controller)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -928,6 +954,11 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i imageView
 \i0  - for setting an image (can use with custom, etc.)\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i editingAccessoryType
+\i0  - type of accessory to use on editing (.checkmark, .none, etc.)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}can set for prototype or for individual cell instances (eg. checkmark for favorites)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIProgressView\ulnone  - progress bar\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
