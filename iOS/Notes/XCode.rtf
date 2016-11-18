@@ -246,6 +246,7 @@ Interface Builder
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}user specifies preferences in Settings and then apps that are Dynamic Type-aware will respect it\
 {\listtext	\uc0\u8259 	}properties/methods of classes (eg. UIFont.preferredFont(forTextStyle:)\
+{\listtext	\uc0\u8259 	}can respond to changes of user preferences while app is still running via NotificationCenter\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 	Adding Outlet\
 		Ctrl-drag a control onto source code where you want the outlet declaration and use the box that pops up to configure name, type, etc. (use Assistant Editor)\
@@ -713,6 +714,12 @@ APPLE DEVELOPER
 	to run on iPhone: connect phone with usb cable and select it as the simulator target in the toolbar (the app will be installed and executed) [the app is still there and runnable after you disconnect]\
 \
 	Organization Identifier: usually made of your website in reverse (eg. com.jarofgoblins) [needs to be valid for shipping to app store]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs36 \cf0 Looking up Constants, Enums, etc.
+\fs24 \
+	Right-click on an instance in the code and click Jump to Definition to see the list with comments, etc. (even in Apple library code)\
 \
 TODO: resolve the ambiguity with how he describes anchor points in Scene Editor and why we set it to 0,0\
 TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\
