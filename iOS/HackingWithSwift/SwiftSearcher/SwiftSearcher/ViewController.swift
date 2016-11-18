@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UITableViewController {
     var projects = [[String]]()
@@ -42,6 +43,10 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showTutorial(indexPath.row)
+    }
+    
     func makeAttributedString(title: String, subtitle: String) -> NSAttributedString {
             let titleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .headline),
                                    NSForegroundColorAttributeName: UIColor.purple]
@@ -52,6 +57,13 @@ class ViewController: UITableViewController {
         
             titleString.append(subtitleString)
             return titleString
+    }
+    
+    func showTutorial(_ which: Int) {
+        if let url = URL(string: "http://www.hackingwithswift.com/read/\(which + 1)") {
+            let vc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
+            present(vc, animated: true)
+        }
     }
 }
 
