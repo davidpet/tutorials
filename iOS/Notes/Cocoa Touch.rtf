@@ -645,7 +645,19 @@ Controls/views start with UI\
 \i0 : called when the user shakes the device\
 {\listtext	\uc0\u8259 	}can set presentation to Full Screen\
 {\listtext	\uc0\u8259 	}viewDidAppear, viewWillAppear, viewDidDissappear, viewWillDissappear: more life cycle hooks (make sure to call base with params)\
-{\listtext	\uc0\u8259 	}loadView: for customizing which view to load (eg. to bypass storyboard and instantiate your own)[set 
+{\listtext	\uc0\u8259 	}
+\i traitCollectionDidChange()
+\i0  - implement if you want to provide adaptive UI based on layout changes\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}gets called when user switches between portrait and landscape, when user multitasks w/ another app on iPad, etc.\
+{\listtext	\uc0\u8259 	}also called at the beginning when orientation set up so that you can centralize your adaptive UI code\
+{\listtext	\uc0\u8259 	}the parameter that gets passed in has members like 
+\i horizontalSizeClass
+\i0  and 
+\i verticalSizeClass
+\i0  (enum values like .compact and .regular)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}loadView: for customizing which view to load (eg. to bypass storyboard and instantiate your own)[set 
 \i view
 \i0  member]((can still have navigation controller from storyboard))\
 {\listtext	\uc0\u8259 	}storyboard: optional property UIStoryboard? (should use optional chaining just in case) representing the parent storyboard\
@@ -666,10 +678,9 @@ Controls/views start with UI\
 \i0 : NSExtensionContext member used to control extension behavior for a view controller for an extension target within a project\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}safe to use ! if you know your app is an extension\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}anchors for Auto Layout: widthAnchor, heightAnchor, topAnchor, bottomAnchor, leftAnchor, rightAnchor, leadingAnchor, trailingAnchor, centerXAnchor, and centerYAnchor\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}note that anchors aren\'92t necessarily points (eg. height and width)\
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}anchors for Auto Layout: widthAnchor, heightAnchor, topAnchor, bottomAnchor, leftAnchor, rightAnchor, leadingAnchor, trailingAnchor, centerXAnchor, and centerYAnchor\
+{\listtext	\uc0\u8259 	}note that anchors aren\'92t necessarily points (eg. height and width)\
 {\listtext	\uc0\u8259 	}meaning of leading and trailing are swapped in right-to-left languages\
 {\listtext	\uc0\u8259 	}call 
 \i constraint
@@ -894,7 +905,12 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}HINT: very useful for iPad multitasking apps where your app\'92s space can change while running due to other apps sliding or splitting\
 {\listtext	\uc0\u8259 	}can nest stack views inside each other to create table layouts\
 {\listtext	\uc0\u8259 	}to add one to your storyboard, drag either a Horizontal Stack View or Vertical Stack View from object library\
-{\listtext	\uc0\u8259 	}NOTE: you can use auto layout constraints on the stack view itself and also put other controls/views that aren\'92t in the stack view (can also make it an outlet)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: these are both just UIStackView but with a different 
+\i axis
+\i0  property which is dynamically changeable at runtime\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: you can use auto layout constraints on the stack view itself and also put other controls/views that aren\'92t in the stack view (can also make it an outlet)\
 {\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
 {\listtext	\uc0\u8259 	}Distribution Types (assuming 4 items)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -921,6 +937,12 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: you have to also call removeFromSuperview() on the view afterwards\
 {\listtext	\uc0\u8259 	}if you don\'92t remote from superview afterwards, you can add it back again later efficiently (it\'92s only hidden for now)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i axis
+\i0  - whether the stack view is .vertical or .horizontal\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}set depending on which type of stack view you drag in from object library, and then can be dynamically changed (eg. when size class changes)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImage
 \i \ulnone  - 

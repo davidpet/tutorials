@@ -40,6 +40,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
         return true
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if traitCollection.horizontalSizeClass == .compact {
+            stackView.axis = .vertical
+        } else {
+            stackView.axis = .horizontal
+        }
+    }
+    
     func setDefaultTitle() {
         title = "Multibrowser"
     }
