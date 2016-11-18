@@ -884,6 +884,15 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}HINT: very useful for iPad multitasking apps where your app\'92s space can change while running due to other apps sliding or splitting\
 {\listtext	\uc0\u8259 	}can nest stack views inside each other to create table layouts\
 {\listtext	\uc0\u8259 	}to add one to your storyboard, drag either a Horizontal Stack View or Vertical Stack View from object library\
+{\listtext	\uc0\u8259 	}NOTE: you can use auto layout constraints on the stack view itself and also put other controls/views that aren\'92t in the stack view (can also make it an outlet)\
+{\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
+{\listtext	\uc0\u8259 	}Distribution Types (assuming 4 items)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}Fill (3 items normal size and 1 stretched (chosen by content hugging priority))\
+{\listtext	\uc0\u8259 	}Fill equally (all 4 same size)\
+{\listtext	\uc0\u8259 	}Fill Proportionally (intrinsic size used to size the elements proportional to each other)\
+{\listtext	\uc0\u8259 	}Equal Spacing (instead of resizing elements, add spacing in between items to fill out the space)\
+{\listtext	\uc0\u8259 	}Equal Centering (center of each element is equally spaced)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImage
 \i \ulnone  - 
@@ -960,6 +969,9 @@ Controls/views start with UI\
 \i0  - set to true to mask what the user is typing (eg. password)\
 {\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
 {\listtext	\uc0\u8259 	}placeholder text in IB sets initial text that will go away when user clicks into the field\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i delegate
+\i0  - you can assign a UITextFieldDelegate to handle keypresses and things like that\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextView\ulnone  - multiline editable text field\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0

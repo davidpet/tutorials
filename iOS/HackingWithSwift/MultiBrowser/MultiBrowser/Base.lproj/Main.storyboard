@@ -26,8 +26,11 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="M3H-ea-929"/>
+                                </connections>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-S1-fO2">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XHg-S1-fO2">
                                 <rect key="frame" x="0.0" y="104" width="768" height="920"/>
                             </stackView>
                         </subviews>
@@ -44,6 +47,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fl9-vE-j4M"/>
+                    <connections>
+                        <outlet property="addressBar" destination="gDn-SZ-D78" id="PSg-6P-CVG"/>
+                        <outlet property="stackView" destination="XHg-S1-fO2" id="aia-G1-r6s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
