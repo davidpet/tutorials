@@ -75,5 +75,31 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
     }
     
     func deleteWebView() {
+        // safely unwrap our webview
+        if let webView = activeWebView {
+            if let index = stackView.arrangedSubviews.index(of: webView) {
+                // we found the current webview in the stack view! Remove it from the stack view
+                stackView.removeArrangedSubview(webView)
+                // now remove it from the view hierarchy – this is important!
+                webView.removeFromSuperview()
+                if stackView.arrangedSubviews.count == 0 {
+                            // go back to our default UI
+                            setDefaultTitle()
+                } else {
+                    // convert the Index value into an integer
+                    var currentIndex = Int(index)
+                    // if that was the last web view in the stack, go
+                    if currentIndex == stackView.arrangedSubviews.count {
+                        currentIndex = stackView.arrangedSubviews.count - 1
+                    }
+                    
+                    // find the web view at the new index and select it
+                    if let newSelectedWebView = stackView.arrangedSubviews[currentIndex] as? UIWebView {
+                        selectWebView(newSelectedWebView)
+                    }
+
+                }
+            }
+        }
     }
 }

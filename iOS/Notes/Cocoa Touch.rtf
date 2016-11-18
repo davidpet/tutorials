@@ -611,7 +611,10 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}the coexistence between the new one and existing ones should be specified in the delegate of the gesture recognizer\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i removeFromSuperview()
+\i0  - remove the view from its parent\
+{\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i tabBarItem
@@ -912,6 +915,12 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i arrangedSubviews
 \i0  - stacked child views as array\
+{\listtext	\uc0\u8259 	}
+\i removeArrangedSubview()
+\i0  - remove a given view from the stack (and of course update the other views accordingly)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: you have to also call removeFromSuperview() on the view afterwards\
+{\listtext	\uc0\u8259 	}if you don\'92t remote from superview afterwards, you can add it back again later efficiently (it\'92s only hidden for now)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImage
 \i \ulnone  - 
