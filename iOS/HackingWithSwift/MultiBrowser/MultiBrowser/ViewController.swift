@@ -8,6 +8,9 @@
 
 import UIKit
 
+//TODO: add default label w/ instructions on startup (instead of blank white space)
+//TODO: figure out http vs. https issue
+//TODO: clean up user's url so they don't have to type it perfectly
 class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, UIGestureRecognizerDelegate {
     @IBOutlet weak var addressBar: UITextField!
     @IBOutlet weak var stackView: UIStackView!
