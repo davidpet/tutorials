@@ -703,6 +703,11 @@ Controls/views start with UI\
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}set \'93Accessory\'94 for things you want to show up in the cell (eg. Disclosure Indicator for grey arrow to tell you there is a detail view)\
 {\listtext	\uc0\u8259 	}cell can be set to custom and either designed or set certain magic properties (eg. imageView.image) to make something automatically appear (can do multiple such as image and text)\
 {\listtext	\uc0\u8259 	}can also subclass the cell class and change the prototype in IB to be of that type -> then you can have code behind the cell with a custom design in IB\
+{\listtext	\uc0\u8259 	}to make multiline, change the UILabel inside the cell (may also need to implement the 
+\i heightForRowAt
+\i0  and 
+\i estimatedHeightForRowAt
+\i0  controller methods if lines being truncated\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}have to override tableView() methods to implement cell loading behavior\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
@@ -713,6 +718,19 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}tableView(_:didSelectRowAt:) for responding to select (tapping) a cell\
 \pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
 \ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}WARNING: autocomplete will do didDeselectRowAt first which can be horribly confusing\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
+\i tableView(_:heightForRowAt:)
+\i0  - if you need to specify how a cell\'92s height will be determined\
+\pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
+\ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}use UITableViewAutomaticDimension constant if you want it to just magically fit the contents (eg. multiline label)\
+{\listtext	\uc0\u8259 	}should do the same thing in 
+\i estimatedHeightForRowAt
+\i0  below\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
+\i tableView(_:estimatedHeightForRowAt:)
+\i0  - basically same as above and should probably do same thing\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
@@ -837,7 +855,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i leftBarButtonItem
 \i0  = same but on left side\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}plural versions (rightBarButtonItems) are arrays if you want multiple buttons on one side (check the order when you run)\
+{\listtext	\uc0\u8259 	}plural versions (rightBarButtonItems) are arrays if you want multiple buttons on one side (check the order when you run)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIBarButtonItem\ulnone  - navigation bar button items (created to be passed into members of UINavigationItem)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1007,7 +1025,9 @@ Controls/views start with UI\
 \i text
 \i0  property for setting text at design time or runtime\
 {\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
-{\listtext	\uc0\u8259 	}set lines to 0 to let text go over as many lines as needed\
+{\listtext	\uc0\u8259 	}
+\i numberOfLines
+\i0  - set lines to 0 to let text go over as many lines as needed to represent the whole string\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextField\ulnone  - editable text field\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1019,7 +1039,7 @@ Controls/views start with UI\
 \i0  - set to true to mask what the user is typing (eg. password)\
 {\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
 {\listtext	\uc0\u8259 	}placeholder text in IB sets initial text that will go away when user clicks into the field\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i delegate
 \i0  - you can assign a UITextFieldDelegate to handle keypresses and things like that\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
