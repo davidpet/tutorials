@@ -82,6 +82,8 @@ mixedArray += [10]          //array defined with Any can take more mixed type it
 //MULTIDIMENSIONAL
 let multi = [[1, 2], [3, 4], [5, 6]]    //arrays can be multidimensional (not flattened like Perl)
 let flattened = Array(multi.joined())   //joined() flattens (1 level only) as a sequence and this line converts back to array
+var multi2 = [[String]]()
+multi2.append(["a", "b", "c"])      //basic nested array building
 
 //VALUE TYPE
 var b = a           //assigning an array makes a copy (NOTE: this greatly differs from other ref based languages)
