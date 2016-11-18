@@ -879,6 +879,12 @@ Controls/views start with UI\
 \i image
 \i0  property set to a UIImage instance to display\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIStackView\ulnone  - auto-layout powered view for stacking horizontally and vertically to make adaptive layouts easier\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}HINT: very useful for iPad multitasking apps where your app\'92s space can change while running due to other apps sliding or splitting\
+{\listtext	\uc0\u8259 	}can nest stack views inside each other to create table layouts\
+{\listtext	\uc0\u8259 	}to add one to your storyboard, drag either a Horizontal Stack View or Vertical Stack View from object library\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImage
 \i \ulnone  - 
 \i0 actual image object\
@@ -949,8 +955,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property representing the actual text\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i isSecureTextEntry
 \i0  - set to true to mask what the user is typing (eg. password)\
 {\listtext	\uc0\u8259 	}by default can\'92t change the height (need to change the border style from the rounded one)\
@@ -1395,7 +1400,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i scene
 \i0  - SKScene wrapped by the view (castable to your scene class) if you want to access members of it\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i presentScene()
 \i0  - present an SKScene in the view (used by the game template)\
 {\listtext	\uc0\u8259 	}
@@ -1408,8 +1413,8 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
-\ls9\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
+{\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
 \i0  - initialize from a scene (sks) file (used by the default template)\
 {\listtext	\uc0\u8259 	}
@@ -1484,7 +1489,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i isUserInteractionEnabled
 \i0  - can set to false to stop the scene from receiving things like touch events anymore (eg. Game Over)\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i view
 \i0  - the SKView containing the scene\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1587,7 +1592,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i removeAllActions()
 \i0  - clear out all the actions assigned to the node (inc. ones that have already executed)\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i convert(_:to:)
 \i0  - convert a CGPoint in this node\'92s coordinates to those in another SKNode\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1628,7 +1633,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}good for creating irregular physics bodies with pixel-by-pixel collision detection\
 {\listtext	\uc0\u8259 	}probably going to pass in something like sprite.size and sprite.texture!\
 {\listtext	\uc0\u8259 	}NOTE: this automatically allows pixel-by-pixel collision detection which is not 100% accurate but very close (also performs a little less than shaped based so test it out and don\'92t abuse)\
-\ls11\ilvl2{\listtext	\uc0\u8259 	}NOTE: if the texture is split into multiple pieces, only one piece will end up being used\
+{\listtext	\uc0\u8259 	}NOTE: if the texture is split into multiple pieces, only one piece will end up being used\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i restitution
@@ -1654,7 +1659,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i angularDamping
 \i0  - friction to slow down object in angular domain (default to 0.1, set to 0 for none)\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i usesPreciseCollisionDetection
 \i0  - set to true for objects where approximations aren\'92t good enough (such as small, fast-moving objects)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1715,9 +1720,9 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - implement this to detect collisions between two objects\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls11\ilvl2\cf0 {\listtext	\uc0\u8259 	}use contact.contactPoint (CGPoint) to determine where collision occured if it matters\
-\ls11\ilvl2{\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
+{\listtext	\uc0\u8259 	}use contact.bodyA.node and contact.bodyB.node to know which nodes were involved (could come in either order)\
 {\listtext	\uc0\u8259 	}use node names to determine types of objects\
-\ls11\ilvl2{\listtext	\uc0\u8259 	}one side or the other could be nil if that object was destroyed after the collision happened (eg. if get same collision notification for both sides)\
+{\listtext	\uc0\u8259 	}one side or the other could be nil if that object was destroyed after the collision happened (eg. if get same collision notification for both sides)\
 {\listtext	\uc0\u8259 	}NOTE: the tutorials set consistent values on both sides of the collision and then dedupe within this method (not sure if the ordering implies which mask was used)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
@@ -1758,7 +1763,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i follow
 \i0 () - other overloads of the above such as taking duration instead, taking less params, etc.\
-\ls11\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i setTexture(imageNamed:)
 \i0  - change the texture of the sprite\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1805,7 +1810,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - factory method to get an instance that fades with a doorway effect\
 {\listtext	\uc0\u8259 	}HINT: see other factory methods for other available transitions\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls11\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
+\ls11\ilvl0\cf0 {\listtext	\'95	}\ul SKLabelNode\ulnone  - the SpriteKit equivalent of UILabel (can also be used as a button by detecting tap)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fontNamed:)
@@ -2179,7 +2184,7 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 {\listtext	\uc0\u8259 	}
 \i setLineWidth()
 \i0  - the width (in points) of the stroke around a shape (centered so that it goes lineWidth /2 each way)\
-\ls14\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i setBlendMode()
 \i0  - set the blend mode to use in the next draw\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -2243,7 +2248,7 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls14\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i setShadow()
-\i0  - set drop shadow information for subsequent drawing (more efficient than CALayer version)\ul \ulc0 \
+\i0  - set drop shadow information for subsequent drawing (more efficient than CALayer version)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -2660,7 +2665,7 @@ HINT: if TouchID fails you can have the user enter a password and retrieve it fr
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls20\ilvl3\cf0 {\listtext	\uc0\u8259 	}parameters received in closure are success (boolean) and authenticationError\
 {\listtext	\uc0\u8259 	}NOTE: if you\'92re going to update the UI, you will have to dispatch back to the main thread\
-{\listtext	\uc0\u8259 	}success is false on Cancel or bad fingerprint (after retries)\ul \ulc0 \
+{\listtext	\uc0\u8259 	}success is false on Cancel or bad fingerprint (after retries)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -2697,7 +2702,7 @@ SEE: SecretSwift project for how to handle secure data (in terms of focus change
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls22\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 KeychainWrapper\ulnone  - equivalent of UserDefaults for accessing data in the keychain\
+\fs28 \ul KeychainWrapper\ulnone  - equivalent of UserDefaults for accessing data in the keychain\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls22\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i standardKeychainAccess()
