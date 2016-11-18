@@ -6,6 +6,7 @@ var t: [String] = ["abc", "def"]   //explicitly typed array declaration
 
 //var u = [1, "hi"]     //can't use type inference with MIXED TYPES
 var mixedArray : [Any] = [1, "abc"]     //by using Any you can do MIXED TYPES
+mixedArray = s          //arrays of more specific types can automatically be passed when [Any] is expected (same is true for other containers such as dictionaries)
 
 //empty arrays
 var emptyArray: [String] = []  //often preferred version

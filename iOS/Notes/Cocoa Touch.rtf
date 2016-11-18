@@ -354,6 +354,28 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}can populate NSDictionary just like a normal dictionary (same literal), with same constants as the other direction\
 {\listtext	\uc0\u8259 	}whatever you pass back should be understood by the app (or by preprocessing javascript or whatever)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSAttributedString\ulnone  - attributed (formatted) string\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul NSMutableAttributedString\ulnone  - specialized attributed string that can be modified\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i append()
+\i0  - append an NSAttributedString to the end of this mutable attributed string (inc. attributes)\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls1\ilvl3\cf0 {\listtext	\uc0\u8259 	}NOTE: if the two strings have different formats this will be respected automatically\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: can be passed as an NSAttributedString since it\'92s a subclass\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(string:attributes:)
+\i0  - create a new instance from a plain text string and a dictionary of attributes\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}attributes is [String: Any] and generally has keys from constants and values as defined in documentation for \'93Character Attributes\'94\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls1\ilvl3\cf0 {\listtext	\uc0\u8259 	}attributes can be global or can be more specific such as affecting certain ranges within the text (see the documentation)\
+{\listtext	\uc0\u8259 	}NSFontAttributeName: UIFont to use for the text\
+{\listtext	\uc0\u8259 	}NSForegroundColorAttributeName: UIColor to use for the text\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NotificationCenter\ulnone  - a notification dispatch object for subscribing to and receiving notifcations (and publishing if you want)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}for some reason no NS in front\
@@ -1024,7 +1046,13 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property for setting text at design time or runtime\
-{\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i attributedtext
+\i0  property for setting NSAttributedString (formatted text instead of plain text)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: attributed strings can have different formatting internally\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}by default no border at runtime (but there is in IB)\
 {\listtext	\uc0\u8259 	}
 \i numberOfLines
 \i0  - set lines to 0 to let text go over as many lines as needed to represent the whole string\
@@ -1141,6 +1169,14 @@ Controls/views start with UI\
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}alpha 1.0 = fully opaque\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}initializer that takes huse, saturation, brightness (and possibly alpha) also available\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIFont\ulnone  - basic font object\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i preferredFont(forTextStyle:)
+\i0  - static, gets the Dynamic Type font (as UIFont) for the given style\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}enum values like .headline, .subheadline, etc.\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIBezierPath\ulnone  - a path between points with connections (can be straight lines, bezier curves, etc.)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0

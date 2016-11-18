@@ -38,8 +38,20 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let project = projects[indexPath.row]
-        cell.textLabel?.text = "\(project[0]): \(project[1])"
+        cell.textLabel?.attributedText = makeAttributedString(title: project[0], subtitle: project[1])
         return cell
+    }
+    
+    func makeAttributedString(title: String, subtitle: String) -> NSAttributedString {
+            let titleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .headline),
+                                   NSForegroundColorAttributeName: UIColor.purple]
+            let subtitleAttributes = [NSFontAttributeName: UIFont.preferredFont(forTextStyle: .subheadline)]
+        
+            let titleString = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttributes)
+            let subtitleString = NSAttributedString(string: subtitle, attributes: subtitleAttributes)
+        
+            titleString.append(subtitleString)
+            return titleString
     }
 }
 
