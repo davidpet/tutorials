@@ -44,10 +44,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        if traitCollection.horizontalSizeClass == .compact {
-            stackView.axis = .vertical
-        } else {
+        if traitCollection.verticalSizeClass == .compact {
             stackView.axis = .horizontal
+        } else {
+            stackView.axis = .vertical
         }
     }
     
