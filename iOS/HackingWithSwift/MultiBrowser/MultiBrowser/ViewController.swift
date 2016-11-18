@@ -74,6 +74,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
         }
         activeWebView = webView
         webView.layer.borderWidth = 3
+        
+        updateUI(for: webView)
     }
     
     func webViewTapped(_ recognizer: UITapGestureRecognizer) {
@@ -109,5 +111,10 @@ class ViewController: UIViewController, UITextFieldDelegate, UIWebViewDelegate, 
                 }
             }
         }
+    }
+    
+    func updateUI(for webView: UIWebView) {
+        title = webView.stringByEvaluatingJavaScript(from: "document.title")
+        addressBar.text = webView.request?.url?.absoluteString ?? ""
     }
 }
