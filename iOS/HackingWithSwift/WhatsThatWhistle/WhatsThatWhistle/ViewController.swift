@@ -61,6 +61,12 @@ class ViewController: UITableViewController {
         return UITableViewAutomaticDimension
     }
     
+    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ResultsViewController()
+        vc.whistle = whistles[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func loadWhistles() {
         //set up the query (sort by creation date)
         let pred = NSPredicate(value: true)
