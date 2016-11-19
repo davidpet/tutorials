@@ -3294,6 +3294,7 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 {\listtext	\uc0\u8259 	}use [] to set values for keys just like with a dictionary, but cast to CKRecordValue with \'93as\'94 (magically works for many types - not allowed for custom types)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}can assign a CKAsset as well (without casting)\
+{\listtext	\uc0\u8259 	}can assign CKReference (may need casting) to link to another record\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}use [] to read values as well (but may have to cast with as! (eg. as! String))\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -3338,6 +3339,16 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \i0  - array of NSSortDescriptor describing how to sort the results (before limiting results)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}for built-in fieldnames they look like this: \'93creationDate\'94\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKReference\ulnone  - a link to a CKRecord (for use as a field in another record)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(recordID:action:)
+\i0  - create an instance based on the linked record ID and what to do to this record in case that record is deleted\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i .deleteSelf
+\i0  = cascading delete (when the target record is deleted, all records pointing to it are deleted)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0

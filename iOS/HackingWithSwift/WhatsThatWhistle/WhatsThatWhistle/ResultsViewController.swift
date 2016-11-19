@@ -70,4 +70,46 @@ class ResultsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section == 1 && indexPath.row == suggestions.count else { return }
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let ac = UIAlertController(title: "Suggest a song...", message: nil, preferredStyle: .alert)
+        ac.addTextField()
+        ac.addAction(UIAlertAction(title: "Submit", style: .default)
+        { [unowned self, ac] action in
+            if let textField = ac.textFields?[0] {
+                if textField.text!.characters.count > 0 {
+                    self.add(suggestion: textField.text!)
+                }
+            }
+        })
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
+    }
+    
+    func add(suggestion: String) {
+        //create the new suggestion record pointing to the existing whistle
+        let whistleRecord = CKRecord(recordType: "Suggestions")
+        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
+        
+        whistleRecord["text"] = suggestion as CKRecordValue
+        whistleRecord["owningWhistle"] = reference as CKRecordValue
+        
+        CKContainer.default().publicCloudDatabase.save(whistleRecord)
+        { [unowned self] record, error in
+            DispatchQueue.main.async {
+                if error == nil {
+                    self.suggestions.append(suggestion)
+                    self.tableView.reloadData()
+                } else {
+                    let ac = UIAlertController(title: "Error",
+                                    message: "There was a problem submitting your suggestion: \(error!.localizedDescription)", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self.present(ac, animated: true)
+                }
+            }
+        }
+    }
 }
