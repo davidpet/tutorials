@@ -36,6 +36,7 @@ func encrypt(name: String, password: String) throws -> String {     //specify th
 //catching errors
 do {        //try/catch must happen in a do block
     let encrypted  = try encrypt(name: "Bob", password: "") //try returns the actual type but it lets you catch
+    let encrypted2 = try encrypt(name: "Joe", password: "")     //multiple try in one do/catch block
     print(encrypted)
 }
 catch PasswordError.empty {         //catching specific errors
