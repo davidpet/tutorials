@@ -151,5 +151,46 @@ class ResultsViewController: UITableViewController {
     }
     
     func downloadTapped() {
+        //start spinner
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spinner.tintColor = UIColor.black
+        spinner.startAnimating()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: spinner)
+        
+        //download the record and audio file
+        CKContainer.default().publicCloudDatabase.fetch(withRecordID: whistle.recordID) { [unowned self] record, error in
+            if let error = error {
+                DispatchQueue.main.async {
+                    let ac = UIAlertController(title: "Error",
+                            message: "There was a problem fetching the whistle record: \(error.localizedDescription)", preferredStyle: .alert)
+                    ac.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(ac, animated: true)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain,
+                                                                             target: self,
+                                                                             action: #selector(self.downloadTapped))
+                }
+            } else {
+                if let record = record {
+                    if let asset = record["audio"] as? CKAsset {
+                        self.whistle.audio = asset.fileURL
+                        DispatchQueue.main.async {
+                            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Listen", style: .plain, target: self, action: #selector(self.listenTapped))
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func listenTapped() {
+        do {
+            whistlePlayer = try AVAudioPlayer(contentsOf: whistle.audio)
+            whistlePlayer.play()
+        } catch {
+            let ac = UIAlertController(title: "Playback failed",
+                                       message: "There was a problem playing your whistle; please try re-recording.", preferredStyle: .alert)
+                ac.addAction(UIAlertAction(title: "OK", style: .default))
+                present(ac, animated: true)
+        }
     }
 }

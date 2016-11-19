@@ -617,7 +617,8 @@ Controls/views start with UI\
 \i clear
 \i0  for transparent)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul alpha
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul tintColor\ulnone  - the color used to represent that the item is active (highlight color) [eg. for bar button items]\
+{\listtext	\uc0\u8259 	}\ul alpha
 \i \ulnone  - 
 \i0 0 = transparent, 1 = normal (floating point value)\
 {\listtext	\uc0\u8259 	}\ul tag\ulnone  - integer that you can set to whatever you want (defaults to 0) (good way to distinguish controls of same type in an action)[can duplicate same value if want]\
@@ -1459,7 +1460,7 @@ Controls/views start with UI\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIActivityIndicatorView
 \i \ulnone  
-\i0 - spinning gear to show when a task is running and when it\'92s complete\
+\i0 - spinning gear to show when a task is running and when it\'92s complete (actual object on page)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(activityIndicatorStyle:)
@@ -1474,6 +1475,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i stopAnimating()
 \i0  - stop the animation (indicating activity paused or done)\
+{\listtext	\uc0\u8259 	}HINT: can put it into a stack view or replace a bar button with it temporarily, etc.\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul FileManager\ulnone  - helps deal with file system\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3284,6 +3286,12 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}various fetch methods to retrieve records (this will fetch the whole records, so if you want to filter first use the more complicated CKQueryOperation)\
 {\listtext	\uc0\u8259 	}
+\i fetch(withRecordId:closure:)
+\i0  - get a specific record from the database (and call closure with that record and error if any)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: CKAsset fields will automatically be downloaded into a temporary cache and can be accessed via CKAsset fileUrl field\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i add()
 \i0  - takes a CKQueryOperation to perform a complex query asynchronously (closures provided to CKQueryOperation determine how to handle results)\
 {\listtext	\uc0\u8259 	}
@@ -3315,6 +3323,9 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fileURL:)
 \i0  - create a new instance containing the contents of a given file\
+{\listtext	\uc0\u8259 	}
+\i fileURL
+\i0  - can be used after fetching a record to read the contents of the asset from the cache\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKQueryOperation\ulnone  - main workhorse for querying a CloudKit database\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
