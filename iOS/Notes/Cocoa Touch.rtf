@@ -959,7 +959,8 @@ Controls/views start with UI\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UINavigationController\ulnone  - wraps navigation between scenes in storyboard and adds navigation bar to the scenes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}pushViewController() to push an instantiated view controller onto stack and display it [instantiated directly or with storyboard methods]\
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}can customize the properties of the navigation bar in the navigation controller to set the appearance of the bar in the whole app (eg. translucence, etc.)\
+{\listtext	\uc0\u8259 	}pushViewController() to push an instantiated view controller onto stack and display it [instantiated directly or with storyboard methods]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: view controllers can be instantiated directly in code and set up their UI in code (storyboard doesn\'92t have to be involved)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1126,7 +1127,8 @@ Controls/views start with UI\
 \i isHidden
 \i0  - if you animate it becoming true of false over time, the control will be shown sliding in/out (can change alpha at same time for added effect)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}WARNING: stack view doesn\'92t do any of its own drawing so setting something like background color is useless (have to set it on the parent view)\
+{\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
 {\listtext	\uc0\u8259 	}Distribution Types (assuming 4 items)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}Fill (3 items normal size and 1 stretched (chosen by content hugging priority))\
@@ -1168,6 +1170,8 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i alignment
 \i0  - the alignment in the other axis of the objects (eg. if vertical stack view, this is horizontal alignment)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}default = Fill (the objects will fill the other axis)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIImage
 \i \ulnone  - 
@@ -1228,6 +1232,13 @@ Controls/views start with UI\
 \i0  - the internal label of the button\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}use this for things like changing the font\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: it is possible to clear the text of a button and use it as just a big colored region that responds to taps (even without border)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}remember that in iOS the norm for buttons is not to depress on click like in Windows (so they are pure tap regions)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}HINT: having spacing between buttons and background color on the parent view is a good way to distinguish large regions that are buttons\
+{\listtext	\uc0\u8259 	}HINT: use tags to identify which button tapped if have a bunch of identical ones\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UISlider\ulnone  - slider control\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1826,6 +1837,8 @@ See SwiftyNinja for a Fruit Ninja style game with altered physics, lives count, 
 See SpaceRace project for moving starfield as background, pixel-by-pixel collision detection, space gravity, scoring based on time alive, building a game quickly (see check-ins for approach that was used), moving player based on touching, ending game when they try to cheat [NOTE: this project took a total of 50 minutes from start to finish even with all the reading, looking up methods, and taking notes into this doc]((possible extension = fire lasers on touchesBegan to destroy debris))\
 See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars [[several todo items in this project could do for fun/learning later]]\
 See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas), starting a new game (w/ transition, etc.), deduping multiple collisions, converting coordinates between CoreGraphics, UIKit, and SpriteKit, terrain destruction [[several todo items for later]]\
+\
+See FourInARow project for UIKit game that uses buttons as columns\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0

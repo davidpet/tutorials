@@ -256,12 +256,18 @@ Interface Builder
 		Outlet can be treated like the control itself because it will be populated by the time the view loads\
 		NOTE: outlets are useful outside of the class too (eg. so you can set the text label from the outside)\
 		NOTE: can add a view controller that handles a view as the delegate for a control in the view by ctrl-dragging to the orange \'93view controller\'94 symbol at the top of the view in IB\
+	Adding Outlet Collection\
+		Outlet collection is an array of outlets\
+		To create one, drag the first thing and then select Outlet Collection from the dropdown\
+		Then drag each one in order to the outlet collection until a blue box with a popup of \'93Connect Outlet\'94 comes up and release it\
+		WARNING: You cannot shortcut this by dragging all at once, either before or after the collection creation.  You have to do them one by one or only the first will be seen\
 	Adding Action\
 		Ctrl-drag a control onto source where you want the action method and use the box that pops up to configure name, type, etc. (use Assistant Editor)\
 		Can select from multiple events to wire up an action\
 		Will see a filled circle like with outlets\
-		To reuse the same action for other controls, ctrl drag them to the method until the whole method turns blue (not blue circle) [can use tag to distinguish]\
+		To reuse the same action for other controls, ctrl drag them to the method until the whole method turns blue (not blue circle) w/ a \'93Connect Action\'94 popup [can use tag to distinguish]\
 		In Code: call addTarget() method with a selector\
+		WARNING: selecting and dragging multiple controls at the same time will not work, you have to do it one by one (or else only the first will be used)\
 	Attributes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}@IBOutlet: tells Interface Builder the declaration is an outlet (generally weak reference because storyboard owns the object)(generally ! because it\'92ll be there by the time the view loads)\
