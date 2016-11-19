@@ -12,6 +12,7 @@
 		B9E71BAF1DE1058000F282D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E71BAD1DE1058000F282D3 /* Main.storyboard */; };
 		B9E71BB11DE1058000F282D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E71BB01DE1058000F282D3 /* Assets.xcassets */; };
 		B9E71BB41DE1058000F282D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E71BB21DE1058000F282D3 /* LaunchScreen.storyboard */; };
+		B9E71BBC1DE10DAB00F282D3 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E71BBB1DE10DAB00F282D3 /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B9E71BB01DE1058000F282D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9E71BB31DE1058000F282D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9E71BB51DE1058000F282D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E71BBB1DE10DAB00F282D3 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				B9E71BA91DE1058000F282D3 /* AppDelegate.swift */,
 				B9E71BAB1DE1058000F282D3 /* ViewController.swift */,
 				B9E71BAD1DE1058000F282D3 /* Main.storyboard */,
+				B9E71BBB1DE10DAB00F282D3 /* Board.swift */,
 				B9E71BB01DE1058000F282D3 /* Assets.xcassets */,
 				B9E71BB21DE1058000F282D3 /* LaunchScreen.storyboard */,
 				B9E71BB51DE1058000F282D3 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				B9E71BAC1DE1058000F282D3 /* ViewController.swift in Sources */,
 				B9E71BAA1DE1058000F282D3 /* AppDelegate.swift in Sources */,
+				B9E71BBC1DE10DAB00F282D3 /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

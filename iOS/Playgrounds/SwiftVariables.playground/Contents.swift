@@ -36,7 +36,8 @@ var opt2 : String! = "hi"   //using ! instead of ? after optional type makes it 
 print(opt2!)                //can use implicitly unwrapped optional wherever you would use the raw type - it's like always using ! to unwrap (only safe if not nil)
                             //mostly only used when have to because of UI stuff (late bound) and old library stuff
 print((opt2)!)      //! is an operator that takes an EXPRESSION
-opt2 = nil              //even implicitly wrapped optionals can be re-unbound
+opt2 = nil              //even implicitly wrapped optionals can be re-unbound (or re-bound)
+opt2 = "hello"
 
 //OPTIONAL CHAINING
 let val = opt?.uppercased()     //can insert ? before things like . and [] operators (even multiple times in a long line)
@@ -102,6 +103,7 @@ var successCopy = success       //NUMBERS and BOOLEANS are value types
 //Use Constants when possible
 //Use Type Inference (instead of explicit types) when possible
 //put : next to variable name (eg. var name: String)
+//use implicitly unwrapped optionals (!) for members that will start out empty and get set on load (when you don't want to be forced to have a constructor or to use ? all the time)
 
 //QUESTIONS
 //Attributes?  Decorators?
