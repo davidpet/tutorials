@@ -760,6 +760,9 @@ APPLE DEVELOPER
 	Changing Schema:\
 		click X next to a row for a record type to remove it\
 		click Add Field to add a field to the schema for a record type\
+	Schema Suggestions:\
+		Use backward references (child objects point back to the parent) instead of forward references (parent points to its children) for one-to-many relationships\
+			This is because you can get conflicts on the parent which are not automatically handled by CloudKit\
 \
 
 \fs36 Looking up Constants, Enums, etc.

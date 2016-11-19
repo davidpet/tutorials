@@ -806,7 +806,7 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}have to override tableView() methods to implement cell loading behavior\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
-\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}tableView(_:numberOfRowsInSection:) needed to say how many rows you have\
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}tableView(_:numberOfRowsInSection:) needed to say how many rows you have in each section\
 {\listtext	\uc0\u8259 	}tableView(_:cellForRowAt:) needed to create a cell based on a row number (probably want to obtain cell from 
 \i dequeueResuableCell
 \i0  and populate it)(use indexPath.row)\
@@ -842,6 +842,11 @@ Controls/views start with UI\
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
 \i numberOfSections(in:)
 \i0  - if creating own table view, specify the number of sections in the table by returning from this method\
+{\listtext	\uc0\u8259 	}
+\i tableView(_:titleForHeadersInSection:)
+\i0  - lets you provide titles for sections within the table\
+\pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
+\ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}return a string or nil if no header for that section\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
@@ -851,6 +856,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}if creating cells strictly in code, this will return nil if not created yet (extra complications with registering, etc.)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: to create your own in pure code, need to do numberOfSections(in:), register(), and the normal stuff\
+{\listtext	\uc0\u8259 	}NOTE: since the cell creation is entirely customized by row and section number, you can easily wire multiple cells (even in different sections) to different aspects of 1 object (and even make the whole table about 1 object)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UICollectionViewController\ulnone  - very similar to UITableViewController but displays grid instead of list\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1074,6 +1080,9 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i accessoryType
 \i0  - type of accessory to show on right side normally (eg. .disclosureIndicator)\
+{\listtext	\uc0\u8259 	}
+\i selectionStyle
+\i0  - what color to make a selected row (default is blue, can set to .none for not highlighting)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIProgressView\ulnone  - progress bar\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0

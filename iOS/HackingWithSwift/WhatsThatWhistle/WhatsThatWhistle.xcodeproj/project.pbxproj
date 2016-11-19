@@ -18,6 +18,7 @@
 		B946D10E1DE006AF0072C5CC /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D10D1DE006AF0072C5CC /* SubmitViewController.swift */; };
 		B946D1121DE00CBD0072C5CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B946D1111DE00CBD0072C5CC /* CloudKit.framework */; };
 		B946D1141DE018FD0072C5CC /* Whistle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1131DE018FD0072C5CC /* Whistle.swift */; };
+		B946D1161DE023790072C5CC /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1151DE023790072C5CC /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		B946D10F1DE00CB80072C5CC /* WhatsThatWhistle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatsThatWhistle.entitlements; sourceTree = "<group>"; };
 		B946D1111DE00CBD0072C5CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B946D1131DE018FD0072C5CC /* Whistle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Whistle.swift; sourceTree = "<group>"; };
+		B946D1151DE023790072C5CC /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				B946D1091DE001720072C5CC /* SelectGenreViewController.swift */,
 				B946D10B1DE005710072C5CC /* AddCommentsViewController.swift */,
 				B946D10D1DE006AF0072C5CC /* SubmitViewController.swift */,
+				B946D1151DE023790072C5CC /* ResultsViewController.swift */,
 				B9071B601DDFE92B00C49591 /* Main.storyboard */,
 				B946D1131DE018FD0072C5CC /* Whistle.swift */,
 				B9071B631DDFE92B00C49591 /* Assets.xcassets */,
@@ -181,6 +184,7 @@
 				B946D1141DE018FD0072C5CC /* Whistle.swift in Sources */,
 				B946D10E1DE006AF0072C5CC /* SubmitViewController.swift in Sources */,
 				B946D1081DDFEB520072C5CC /* RecordWhistleViewController.swift in Sources */,
+				B946D1161DE023790072C5CC /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
