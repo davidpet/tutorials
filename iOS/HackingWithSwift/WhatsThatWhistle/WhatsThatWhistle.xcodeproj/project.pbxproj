@@ -19,6 +19,7 @@
 		B946D1121DE00CBD0072C5CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B946D1111DE00CBD0072C5CC /* CloudKit.framework */; };
 		B946D1141DE018FD0072C5CC /* Whistle.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1131DE018FD0072C5CC /* Whistle.swift */; };
 		B946D1161DE023790072C5CC /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1151DE023790072C5CC /* ResultsViewController.swift */; };
+		B946D1181DE031B40072C5CC /* MyGenresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1171DE031B40072C5CC /* MyGenresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		B946D1111DE00CBD0072C5CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		B946D1131DE018FD0072C5CC /* Whistle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Whistle.swift; sourceTree = "<group>"; };
 		B946D1151DE023790072C5CC /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		B946D1171DE031B40072C5CC /* MyGenresViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGenresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				B946D10F1DE00CB80072C5CC /* WhatsThatWhistle.entitlements */,
 				B9071B5C1DDFE92B00C49591 /* AppDelegate.swift */,
 				B9071B5E1DDFE92B00C49591 /* ViewController.swift */,
+				B946D1171DE031B40072C5CC /* MyGenresViewController.swift */,
 				B946D1071DDFEB520072C5CC /* RecordWhistleViewController.swift */,
 				B946D1091DE001720072C5CC /* SelectGenreViewController.swift */,
 				B946D10B1DE005710072C5CC /* AddCommentsViewController.swift */,
@@ -181,6 +184,7 @@
 				B946D10C1DE005710072C5CC /* AddCommentsViewController.swift in Sources */,
 				B9071B5D1DDFE92B00C49591 /* AppDelegate.swift in Sources */,
 				B946D10A1DE001720072C5CC /* SelectGenreViewController.swift in Sources */,
+				B946D1181DE031B40072C5CC /* MyGenresViewController.swift in Sources */,
 				B946D1141DE018FD0072C5CC /* Whistle.swift in Sources */,
 				B946D10E1DE006AF0072C5CC /* SubmitViewController.swift in Sources */,
 				B946D1081DDFEB520072C5CC /* RecordWhistleViewController.swift in Sources */,
