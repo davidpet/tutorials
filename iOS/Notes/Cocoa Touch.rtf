@@ -386,6 +386,18 @@ NSExtensionJavaScriptPreprocessingResultsKey
 {\listtext	\uc0\u8259 	}NSFontAttributeName: UIFont to use for the text\
 {\listtext	\uc0\u8259 	}NSForegroundColorAttributeName: UIColor to use for the text\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSPredicate\ulnone  - for determining what records to return for queries, in-memory searches, etc.\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(value:)
+\i0  - create a predicate that always returns the given boolean value (true means return the record)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSSortDescriptor\ulnone  - sorting behavior for queries\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(key:ascending:)
+\i0  - which key to sort on (actual value depends on the thing being queried) and whether to sort ascending (probably optional)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NotificationCenter\ulnone  - a notification dispatch object for subscribing to and receiving notifcations (and publishing if you want)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}for some reason no NS in front\
@@ -715,7 +727,10 @@ Controls/views start with UI\
 \i0 : called when the user shakes the device\
 {\listtext	\uc0\u8259 	}can set presentation to Full Screen\
 {\listtext	\uc0\u8259 	}viewDidAppear, viewWillAppear, viewDidDissappear, viewWillDissappear: more life cycle hooks (make sure to call base with params)\
-{\listtext	\uc0\u8259 	}
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}view can appear multiple times (eg. transitioned away to another view and transitioned back)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i traitCollectionDidChange()
 \i0  - implement if you want to provide adaptive UI based on layout changes\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
@@ -1032,6 +1047,12 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i cellForRow(at:)
 \i0  - cell for a given row (eg. to use when tapped to find the cell that was tapped)\
+{\listtext	\uc0\u8259 	}
+\i indexPathForSelectedRow()
+\i0  - the currently selected row\'92s index path (or nil)\
+{\listtext	\uc0\u8259 	}
+\i deselectRow()
+\i0  - for deselecting a row\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITableViewCell\ulnone  - a cell in a table view (create dynamically for cellForRowAt method in table view controller)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3246,6 +3267,11 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}closure takes record and error (which will be nil if successful)\
 {\listtext	\uc0\u8259 	}WARNING: it is very important to check the error because you\'92re going over the network, user\'92s storage (or yours) could be full, etc.\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}various fetch methods to retrieve records (this will fetch the whole records, so if you want to filter first use the more complicated CKQueryOperation)\
+{\listtext	\uc0\u8259 	}
+\i add()
+\i0  - takes a CKQueryOperation to perform a complex query asynchronously (closures provided to CKQueryOperation determine how to handle results)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKRecord\ulnone  - a database record containing key-value pairs\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3253,15 +3279,56 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 {\listtext	\uc0\u8259 	}
 \i init(recordType:)
 \i0  - create a new instance with a given record type string (identifies the record type in the cloud so you can retrieve it later)\
+{\listtext	\uc0\u8259 	}
+\i recordID
+\i0  - ID fo the record in the database (CKRecordID)\
 {\listtext	\uc0\u8259 	}use [] to set values for keys just like with a dictionary, but cast to CKRecordValue with \'93as\'94 (magically works for many types - not allowed for custom types)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}can assign a CKAsset as well (without casting)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}use [] to read values as well (but may have to cast with as! (eg. as! String))\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKAsset\ulnone  - a binary blob to attach to CKRecord\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fileURL:)
 \i0  - create a new instance containing the contents of a given file\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKQueryOperation\ulnone  - main workhorse for querying a CloudKit database\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(query:)
+\i0  - a CKQuery to use (which includes a lot of the configuration not listed here)\
+{\listtext	\uc0\u8259 	}
+\i desiredKeys
+\i0  - the fields you want to get back (so that you don\'92t bring back extra data)\
+{\listtext	\uc0\u8259 	}
+\i resultsLimit
+\i0  - the number of results to return at most\
+{\listtext	\uc0\u8259 	}
+\i recordFetchedBlock
+\i0  - closure to call (which takes a CKRecord) for each record returned\
+{\listtext	\uc0\u8259 	}
+\i queryCompletionBlock
+\i0  - the closure to call (taking a cursor and an error) when all results have been returned (or a page if paging is enabled)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}if paging is enabled, you can use cursor to get the next page (if desired, or not do so) [otherwise cursor is probably unimportant]\
+{\listtext	\uc0\u8259 	}check error to see if anything went wrong\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}to actually issue the query, call CKDatabase 
+\i add()
+\i0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKQuery\ulnone  - query parameters for a CKQueryOperation to use\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(recordType:predicate:)
+\i0  - create an instance for a given string record type in the database and NSPredicate to determine what records get returned\
+{\listtext	\uc0\u8259 	}
+\i sortDescriptors
+\i0  - array of NSSortDescriptor describing how to sort the results (before limiting results)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}for built-in fieldnames they look like this: \'93creationDate\'94\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0

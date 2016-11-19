@@ -4,6 +4,7 @@ import Foundation       //required for some things like range()
 var s : String = "hi"               //MUTABLE string
 var ss : StaticString = "yo"        //IMMUTABLE string (more optimal than constant strings for reading)
 //NOTE: there are no raw string literals yet in Swift
+var newline = "\n"          //newline in Swift
 
 //SPECIAL INITIALIZERS
 var sep = String(repeating: "=", count: 100)    //100 = signs put together
