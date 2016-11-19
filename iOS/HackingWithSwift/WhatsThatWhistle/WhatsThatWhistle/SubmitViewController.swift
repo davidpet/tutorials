@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class SubmitViewController: UIViewController {
     var genre: String!

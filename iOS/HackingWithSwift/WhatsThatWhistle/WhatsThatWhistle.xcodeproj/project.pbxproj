@@ -16,6 +16,7 @@
 		B946D10A1DE001720072C5CC /* SelectGenreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D1091DE001720072C5CC /* SelectGenreViewController.swift */; };
 		B946D10C1DE005710072C5CC /* AddCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D10B1DE005710072C5CC /* AddCommentsViewController.swift */; };
 		B946D10E1DE006AF0072C5CC /* SubmitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B946D10D1DE006AF0072C5CC /* SubmitViewController.swift */; };
+		B946D1121DE00CBD0072C5CC /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B946D1111DE00CBD0072C5CC /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		B946D1091DE001720072C5CC /* SelectGenreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectGenreViewController.swift; sourceTree = "<group>"; };
 		B946D10B1DE005710072C5CC /* AddCommentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCommentsViewController.swift; sourceTree = "<group>"; };
 		B946D10D1DE006AF0072C5CC /* SubmitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
+		B946D10F1DE00CB80072C5CC /* WhatsThatWhistle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WhatsThatWhistle.entitlements; sourceTree = "<group>"; };
+		B946D1111DE00CBD0072C5CC /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B946D1121DE00CBD0072C5CC /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +52,7 @@
 			children = (
 				B9071B5B1DDFE92B00C49591 /* WhatsThatWhistle */,
 				B9071B5A1DDFE92B00C49591 /* Products */,
+				B946D1101DE00CBD0072C5CC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +67,7 @@
 		B9071B5B1DDFE92B00C49591 /* WhatsThatWhistle */ = {
 			isa = PBXGroup;
 			children = (
+				B946D10F1DE00CB80072C5CC /* WhatsThatWhistle.entitlements */,
 				B9071B5C1DDFE92B00C49591 /* AppDelegate.swift */,
 				B9071B5E1DDFE92B00C49591 /* ViewController.swift */,
 				B946D1071DDFEB520072C5CC /* RecordWhistleViewController.swift */,
@@ -74,6 +80,14 @@
 				B9071B681DDFE92B00C49591 /* Info.plist */,
 			);
 			path = WhatsThatWhistle;
+			sourceTree = "<group>";
+		};
+		B946D1101DE00CBD0072C5CC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B946D1111DE00CBD0072C5CC /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +124,14 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SF7XN9ZB4C;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -275,6 +297,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhatsThatWhistle/WhatsThatWhistle.entitlements;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = WhatsThatWhistle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -288,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WhatsThatWhistle/WhatsThatWhistle.entitlements;
 				DEVELOPMENT_TEAM = SF7XN9ZB4C;
 				INFOPLIST_FILE = WhatsThatWhistle/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
