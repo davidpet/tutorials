@@ -9,7 +9,7 @@
 import UIKit
 import GameplayKit
 
-class Player: NSObject {
+class Player: NSObject, GKGameModelPlayer {
     var chip: ChipColor
     var color: UIColor
     
@@ -30,5 +30,13 @@ class Player: NSObject {
         }
         
         super.init()
+    }
+    
+    var opponent: Player {
+        if chip == .red {
+            return Player.allPlayers[1]
+        } else {
+            return Player.allPlayers[0]
+        }
     }
 }

@@ -1690,7 +1690,7 @@ UIKit uses CoreAnimation internally for its animations.\
 GameplayKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 General non-media functionality that can be used for games or apps.\
+\fs24 \cf0 General non-media functionality that can be used for games or apps (eg. randomization, AI)\
 NOTE: even though it\'92s called GameplayKit, it\'92s always available even for normal apps and you should not be afraid to use it if useful.
 \fs36 \
 \
@@ -1723,7 +1723,15 @@ NOTE: even though it\'92s called GameplayKit, it\'92s always available even for 
 \i0  - gets a distribution between two inclusive endpoints\
 {\listtext	\uc0\u8259 	}
 \i nextInt()
-\i0  - a number from the random distribution instance
+\i0  - a number from the random distribution instance\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls7\ilvl0
+\fs36 \cf0 {\listtext	\'95	}
+\fs28 \ul \ulc0 GKGameModelPlayer\ulnone  - protocol that represents a player in a strategy-based game\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls7\ilvl1
+\fs36 \cf0 {\listtext	\uc0\u8259 	}
+\fs28 tutorial just uses this protocol to bless a player class as a player but doesn\'92t use any methods
 \fs36 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
