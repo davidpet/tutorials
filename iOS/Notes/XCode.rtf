@@ -288,6 +288,7 @@ Interface Builder
 		can create a subclass of a view controller\
 		can add a storyboard scene for it (or add it to a view) by adding the base one and then changing the class in Identity Inspector\
 		alternatively, to do the view without storyboard, you can just instantiate it and set up all the UI in code (implement loadView() to handle creating and wrapping a view)\
+		NOTE: changing title of custom view controller that has been presented, pushed, etc. will change the title of the window\
 	Inspectors\
 		support multi-editing (select multiple views and make a change)\
 		Size Inspector: contrary to name, also does stuff like coordinates (also does stuff like cell size of UICollectionView)(margins too)\

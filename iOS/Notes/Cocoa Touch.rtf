@@ -821,6 +821,10 @@ Controls/views start with UI\
 \pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
 \ls3\ilvl4\cf0 {\listtext	\uc0\u8259 	}commit = enum value (like .insert, .delete) to tell you what button they clicked\
 {\listtext	\uc0\u8259 	}rowRowAt = the indexPath of the row that you are to operate on\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}
+\i numberOfSections(in:)
+\i0  - if creating own table view, specify the number of sections in the table by returning from this method\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i dequeueResuableCell()
@@ -828,6 +832,8 @@ Controls/views start with UI\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}if using prototype cell from storyboard, this will just work\
 {\listtext	\uc0\u8259 	}if creating cells strictly in code, this will return nil if not created yet (extra complications with registering, etc.)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: to create your own in pure code, need to do numberOfSections(in:), register(), and the normal stuff\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UICollectionViewController\ulnone  - very similar to UITableViewController but displays grid instead of list\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1009,6 +1015,15 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i allowsSelectionDuringEditing
 \i0  - by default you can\'92t select during editing but you can override it with this\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i register(_:forCellReuseIdentifier:)
+\i0  - add a registration for type to reuse identifier in code (alternative to doing it in IB)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}can even just register UITableViewCell.self\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i cellForRow(at:)
+\i0  - cell for a given row (eg. to use when tapped to find the cell that was tapped)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITableViewCell\ulnone  - a cell in a table view (create dynamically for cellForRowAt method in table view controller)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1026,6 +1041,10 @@ Controls/views start with UI\
 \i0  - type of accessory to use on editing (.checkmark, .none, etc.)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}can set for prototype or for individual cell instances (eg. checkmark for favorites)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i accessoryType
+\i0  - type of accessory to show on right side normally (eg. .disclosureIndicator)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIProgressView\ulnone  - progress bar\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1280,6 +1299,19 @@ Controls/views start with UI\
 \i0  - scroll until the given NSRange (eg. selectedRange) is visible\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}accounts for contentInset and stuff like that\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i delegate
+\i0  - UITextViewDelegate\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextViewDelegate\ulnone  - delegate for UITextView\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}probably similar to UITextFieldDelegate above\
+{\listtext	\uc0\u8259 	}
+\i textViewdidBeginEditing()
+\i0  - called when user starts editing\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}can do things like clear the text if it\'92s equal to the placeholder\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextChecker\ulnone  - for spell checking text (eg. user input)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
