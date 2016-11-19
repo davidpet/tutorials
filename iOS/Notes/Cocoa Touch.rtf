@@ -556,8 +556,9 @@ Controls/views start with UI\
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}AppDelegate is also declared to have a 
 \i window
 \i0  member that you can use to get to your view controllers, etc. (UIWindow)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1
-\i {\listtext	\uc0\u8259 	}application(_:continue:restorationHandler:)
+\i \cf0 {\listtext	\uc0\u8259 	}application(_:continue:restorationHandler:)
 \i0  - called when app is launched from a Spotlight result (after loaded)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}tutorial ignores 1st and 3rd parameters\
@@ -903,7 +904,10 @@ Controls/views start with UI\
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UINavigationController\ulnone  - wraps navigation between scenes in storyboard and adds navigation bar to the scenes\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}pushViewController() to push an instantiated view controller onto stack and display it [instantiated directly or with storyboard methods]\
-{\listtext	\uc0\u8259 	}has a stack of scenes that can be layered and unwound\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: view controllers can be instantiated directly in code and set up their UI in code (storyboard doesn\'92t have to be involved)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}has a stack of scenes that can be layered and unwound\
 {\listtext	\uc0\u8259 	}by default, newly stacked scenes will get a bar with a Back button and also support swiping back\
 {\listtext	\uc0\u8259 	}to allow for tapping to go to full screen, set 
 \i hidesBarsOnTap
@@ -914,7 +918,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}set 
 \i title
 \i0  property of navigation controller in viewDidLoad() after super to have title show up in navigation bar (and as back button if next view on stack)[NOTE: can have back button and title in same view nav bar]\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i topViewController
 \i0  - view controller at top of navigation stack\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -926,12 +930,18 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i leftBarButtonItem
 \i0  = same but on left side\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i backBarButtonItem
+\i0  = replacement for default back button that just shows the title (when you pop up other views)\
 {\listtext	\uc0\u8259 	}plural versions (rightBarButtonItems) are arrays if you want multiple buttons on one side (check the order when you run)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIBarButtonItem\ulnone  - navigation bar button items (created to be passed into members of UINavigationItem)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}initialization requires old #selector syntax instead of closure\
 {\listtext	\uc0\u8259 	}different styles such as .add, .refresh, .flexibleSpace (for pushing other buttons as it fills up) [can be used in between buttons to align one to left and one to right], etc.\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}can initialize with 
+\i title
+\i0  in situations like when setting a backBarButtonItem\
 {\listtext	\uc0\u8259 	}can also use 
 \i customView
 \i0  initializer to create a view (eg. UIProgressView) to use as the button\
@@ -957,14 +967,14 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i reloadData
 \i0 : reloads the table content (eg. if you just swapped out the storage behind it) [can be called from viewDidLoad]\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i reloadRows:
 \i0  for reloading only specific row(s)\
 {\listtext	\uc0\u8259 	}
 \i insertRows
 \i0 : for adding individual rows without the need to do a full reload (with animation) [.automatic is a good animation option to use]\
 {\listtext	\uc0\u8259 	}NOTE: make sure you add to the data that your table view loads from before calling a method like insertRows\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i isEditing
 \i0  - set to true to bring up delete button, accessories, reordering support, etc.\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -990,7 +1000,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i imageView
 \i0  - for setting an image (can use with custom, etc.)\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i editingAccessoryType
 \i0  - type of accessory to use on editing (.checkmark, .none, etc.)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1117,7 +1127,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i text
 \i0  property for setting text at design time or runtime\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i attributedtext
 \i0  property for setting NSAttributedString (formatted text instead of plain text)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1625,7 +1635,7 @@ WebKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i safariViewControllerDidFinish()
-\i0  - user tapped Done\ul \ulc0 \
+\i0  - user tapped Done\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
@@ -2938,7 +2948,7 @@ See SelfiShare for overall view of how connection management and data transmissi
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls21\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 CSSearchableIndex\ulnone  - a searchable index (such as the one Spotlight uses)\
+\fs28 \ul CSSearchableIndex\ulnone  - a searchable index (such as the one Spotlight uses)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls21\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i default()
@@ -3007,7 +3017,7 @@ See SelfiShare for overall view of how connection management and data transmissi
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls22\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 kUTTypeText\ulnone  - constant for a text item\
+\fs28 \ul kUTTypeText\ulnone  - constant for a text item\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls22\ilvl1\cf0 {\listtext	\uc0\u8259 	}can use the constant as a real string with \'93as String\'94 after it\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
