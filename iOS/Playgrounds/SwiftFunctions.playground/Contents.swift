@@ -133,6 +133,12 @@ func outerfunc() {
     }
 }
 
+//IGNORING RETURN VALUES
+func getstuff() -> Int {
+    return 10
+}
+_ = getstuff()          //use _ to indicate you don't care about the return value (to suppress warning)
+
 //QUESTIONS
 //What is the full official name of a function/method?
 //In, Out, Ref parameters?  inout?

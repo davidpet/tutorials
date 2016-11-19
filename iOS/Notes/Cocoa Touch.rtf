@@ -948,6 +948,9 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i topViewController
 \i0  - view controller at top of navigation stack\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i popToRootViewController
+\i0  - unwinds the view stack back to the origin (eg. to dismiss a chain of subviews that made each other - like a Finish button)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UINavigationItem\ulnone  - navigation bar functionality at runtime (eg. in viewDidLoad)\ul \
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -961,6 +964,9 @@ Controls/views start with UI\
 \i backBarButtonItem
 \i0  = replacement for default back button that just shows the title (when you pop up other views)\
 {\listtext	\uc0\u8259 	}plural versions (rightBarButtonItems) are arrays if you want multiple buttons on one side (check the order when you run)\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}
+\i hidesBackButton
+\i0  - used to hide/show the back button of the navigation bar (eg. while doing a task)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIBarButtonItem\ulnone  - navigation bar button items (created to be passed into members of UINavigationItem)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1212,6 +1218,9 @@ Controls/views start with UI\
 \ls5\ilvl1{\listtext	\uc0\u8259 	}
 \i font
 \i0  - UIFont for the label text\
+{\listtext	\uc0\u8259 	}
+\i textColor
+\i0  - the color of the text\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul UITextField\ulnone  - editable text field\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1410,6 +1419,21 @@ Controls/views start with UI\
 \i0  - specify how the recognizer will coexist with others\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}return true to work simultaneously\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIActivityIndicatorView
+\i \ulnone  
+\i0 - spinning gear to show when a task is running and when it\'92s complete\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(activityIndicatorStyle:)
+\i0  - create a new instance with a given style\
+{\listtext	\uc0\u8259 	}if create in code, should still set the \'93translate mask into constraints\'94 thing to false\
+{\listtext	\uc0\u8259 	}
+\i hidesWhenStopped
+\i0  - whether or not to make the indicator invisible when animation is stopped\
+{\listtext	\uc0\u8259 	}
+\i startAnimating()
+\i0  - begins the animation indicating activity\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul FileManager\ulnone  - helps deal with file system\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
