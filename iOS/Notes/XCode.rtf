@@ -741,6 +741,23 @@ APPLE DEVELOPER
 		You will be assigned a container for your app\
 	Enabling in device:\
 		iCloud Drive needs to be enabled and user needs to be logged in (even if only writing to app\'92s CloudKit storage)\
+	Dashboard:\
+		Log into the CloudKit Dashboard from your developer.apple.com account (not iTunes connect) to see what data is in there (eg. for testing), quotas, etc. for each app\
+		When you submit a record type for the first time, Apple automatically creates a record type in the dashboard for it\
+		To see the actual records submitted, click Default Zone and you\'92ll see a list (can change type in dropdown)\
+			can do things like download the binary assets and edit the fields\
+			can add and delete records too\
+		Can check your quotas and usage by clicking on Usage\
+			solid line = actual usage, dashed line = projection\
+	Adding DB Data:\
+		You can see data submitted through the Dashboard and also add records manually there for testing retrieval\
+	Configuring DB Field Behavior:\
+		To control which fields (including the ones you added and the ones that are always there) can be used for searching and sorting, select those checkboxes for that record type in the Dashboard\
+		To see and configure the built-in fields, expand the \'93Metadata Indexes\'94 down arrow\
+		Don\'92t forget to click the Save button!\
+	Changing Schema:\
+		click X next to a row for a record type to remove it\
+		click Add Field to add a field to the schema for a record type\
 \
 
 \fs36 Looking up Constants, Enums, etc.
