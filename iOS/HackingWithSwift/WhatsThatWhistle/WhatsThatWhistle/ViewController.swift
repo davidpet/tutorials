@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
     static var isDirty = true
     
     override func viewDidLoad() {
