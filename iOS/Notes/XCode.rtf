@@ -734,12 +734,13 @@ APPLE DEVELOPER
 		2 GB per month\
 		40 requests/second\
 	Not sure but tutorial seems to indicate these are PER APP\
+	If you store in private CKDatabase instead of public one, the storage gets taken out of the user\'92s iCloud quota instead of your CloudKit quota\
 	Once you exceed limits, you can buy more storage, transfers, etc. (so starts out free and scales as you get traffic and money)\
 	Enabling in app:\
 		in Capabilities tab, enable iCloud and then make sure CloudKit is checked\
 		You will be assigned a container for your app\
 	Enabling in device:\
-		iCloud Drive needs to be enabled and user needs to be logged in\
+		iCloud Drive needs to be enabled and user needs to be logged in (even if only writing to app\'92s CloudKit storage)\
 \
 
 \fs36 Looking up Constants, Enums, etc.

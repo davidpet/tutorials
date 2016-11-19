@@ -65,6 +65,33 @@ class SubmitViewController: UIViewController {
     }
     
     func doSubmission() {
+        //prepare the database record
+        let whistleRecord = CKRecord(recordType: "Whistles")
+        whistleRecord["genre"] = genre as CKRecordValue
+        whistleRecord["comments"] = comments as CKRecordValue
+        
+        let audioURL = RecordWhistleViewController.getWhistleURL()
+        let whistleAsset = CKAsset(fileURL: audioURL)
+        whistleRecord["audio"] = whistleAsset
+        
+        //commit the record to CloudKit
+        CKContainer.default().publicCloudDatabase.save(whistleRecord)
+        { [unowned self] record, error in
+            DispatchQueue.main.async {
+                if let error = error {
+                    self.status.text = "Error: \(error.localizedDescription)"
+                    self.spinner.stopAnimating()
+                } else {
+                    self.view.backgroundColor = UIColor(red: 0, green: 0.6, blue: 0, alpha: 1)
+                    self.status.text = "Done!"
+                    self.spinner.stopAnimating()
+                    ViewController.isDirty = true
+                }
+                self.navigationItem.rightBarButtonItem =
+                UIBarButtonItem(title: "Done", style: .plain, target: self,
+                action: #selector(self.doneTapped))
+            }
+        }
     }
     
     func doneTapped() {
