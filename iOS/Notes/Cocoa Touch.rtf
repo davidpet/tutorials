@@ -977,7 +977,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i topViewController
 \i0  - view controller at top of navigation stack\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i popToRootViewController
 \i0  - unwinds the view stack back to the origin (eg. to dismiss a chain of subviews that made each other - like a Finish button)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -989,11 +989,11 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i leftBarButtonItem
 \i0  = same but on left side\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i backBarButtonItem
 \i0  = replacement for default back button that just shows the title (when you pop up other views)\
 {\listtext	\uc0\u8259 	}plural versions (rightBarButtonItems) are arrays if you want multiple buttons on one side (check the order when you run)\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i hidesBackButton
 \i0  - used to hide/show the back button of the navigation bar (eg. while doing a task)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1001,7 +1001,7 @@ Controls/views start with UI\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}initialization requires old #selector syntax instead of closure\
 {\listtext	\uc0\u8259 	}different styles such as .add, .refresh, .flexibleSpace (for pushing other buttons as it fills up) [can be used in between buttons to align one to left and one to right], etc.\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}can initialize with 
+{\listtext	\uc0\u8259 	}can initialize with 
 \i title
 \i0  in situations like when setting a backBarButtonItem\
 {\listtext	\uc0\u8259 	}can also use 
@@ -1050,7 +1050,7 @@ Controls/views start with UI\
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i allowsSelectionDuringEditing
 \i0  - by default you can\'92t select during editing but you can override it with this\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i register(_:forCellReuseIdentifier:)
 \i0  - add a registration for type to reuse identifier in code (alternative to doing it in IB)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1119,7 +1119,7 @@ Controls/views start with UI\
 \i0  property which is dynamically changeable at runtime\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: you can use auto layout constraints on the stack view itself and also put other controls/views that aren\'92t in the stack view (can also make it an outlet)\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}NOTE: hidden views don\'92t take up space, but non-hidden ones with alpha 0 do (so if you want to animate alpha, may want to set both properties)\
+{\listtext	\uc0\u8259 	}NOTE: hidden views don\'92t take up space, but non-hidden ones with alpha 0 do (so if you want to animate alpha, may want to set both properties)\
 {\listtext	\uc0\u8259 	}NOTE: animating a control inside a UIStackView with UIView.animate() has some special behavior\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}
@@ -1256,7 +1256,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i numberOfLines
 \i0  - set lines to 0 to let text go over as many lines as needed to represent the whole string\
-\ls5\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i font
 \i0  - UIFont for the label text\
 {\listtext	\uc0\u8259 	}
@@ -1659,7 +1659,8 @@ UIKit uses CoreAnimation internally for its animations.\
 GameplayKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\fs24 \cf0 General functionality that can be used for games or apps (always installed anyway).
+\fs24 \cf0 General non-media functionality that can be used for games or apps.\
+NOTE: even though it\'92s called GameplayKit, it\'92s always available even for normal apps and you should not be afraid to use it if useful.
 \fs36 \
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -2877,7 +2878,7 @@ CoreImage\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls17\ilvl2\cf0 {\listtext	\uc0\u8259 	}succesfully is true if reached time limit or stopped (not by stop() method)\
 {\listtext	\uc0\u8259 	}succesfully is false if encoding error\
-{\listtext	\uc0\u8259 	}interruptions do not trigger this method (they trigger another one)\ul \ulc0 \
+{\listtext	\uc0\u8259 	}interruptions do not trigger this method (they trigger another one)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -3266,7 +3267,7 @@ NOTE: basically all CloudKit methods are asynchronous, so don\'92t assume they h
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 CKContainer\ulnone  - CloudKit container for your app\
+\fs28 \ul CKContainer\ulnone  - CloudKit container for your app\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}each container instance at runtime has 2 CKDatabase databases, a public one (your app\'92s CloudKit storage [not separated by user]) and a private one (user\'92s iCloud storage)\
 {\listtext	\uc0\u8259 	}
@@ -3581,4 +3582,5 @@ TODO: how to allow the user to reorder rows and activate/deactivate editing mode
 TODO: how to add custom buttons in editing mode\
 TODO: figure out weirdness with volume levels with AVAudioPlayer\
 TODO: figure out why Project 33 push notifications don\'92t work\
+TODO: learn from DemoBots tutorial\
 }
