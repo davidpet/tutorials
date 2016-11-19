@@ -82,6 +82,13 @@ class MyGenresViewController: UITableViewController {
                                 // do your error handling here!
                                 print(error!.localizedDescription)
                             }
+                            subscription.notificationInfo = nil //hack to mark a subscription as deleted
+                        }
+                    }
+                    //wait for deletions
+                    for subscription in subscriptions {
+                        while subscription.notificationInfo != nil {
+                            sleep(10)
                         }
                     }
                     //add all checked items as subscriptions for push notifications

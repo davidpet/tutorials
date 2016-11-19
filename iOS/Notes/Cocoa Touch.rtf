@@ -3293,6 +3293,7 @@ NOTE: basically all CloudKit methods are asynchronous, so don\'92t assume they h
 \i0  - save a CKQuerySubscription to the database as above\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}subscribes you to a push notification based on the subscription object (and of course takes a closure to let you know if it works)\
+{\listtext	\uc0\u8259 	}WARNING: subscribing to an existing subscription will fail so be careful about timing if doing asynchronous delete\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}various fetch methods to retrieve records (this will fetch the whole records, so if you want to filter first use the more complicated CKQueryOperation)\
 {\listtext	\uc0\u8259 	}
