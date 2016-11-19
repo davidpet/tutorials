@@ -61,7 +61,7 @@ class ViewController: UITableViewController {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = ResultsViewController()
         vc.whistle = whistles[indexPath.row]
         navigationController?.pushViewController(vc, animated: true)
