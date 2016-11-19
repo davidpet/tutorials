@@ -652,8 +652,13 @@ Controls/views start with UI\
 \ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}obviously when you do this, you won\'92t have the benefit of using the 
 \i identity
 \i0  transform to put it back\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}user interaction is disabled during the animation\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i animate()
+\i0  - static version available too\
+{\listtext	\uc0\u8259 	}
 \i transform
 \i0  - property containing a CGAffineTransform value for use with animations (eg. set from within the animation closure of 
 \i animate()
@@ -1048,7 +1053,14 @@ Controls/views start with UI\
 \i0  property which is dynamically changeable at runtime\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: you can use auto layout constraints on the stack view itself and also put other controls/views that aren\'92t in the stack view (can also make it an outlet)\
-{\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
+\ls5\ilvl1{\listtext	\uc0\u8259 	}NOTE: hidden views don\'92t take up space, but non-hidden ones with alpha 0 do (so if you want to animate alpha, may want to set both properties)\
+{\listtext	\uc0\u8259 	}NOTE: animating a control inside a UIStackView with UIView.animate() has some special behavior\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i isHidden
+\i0  - if you animate it becoming true of false over time, the control will be shown sliding in/out (can change alpha at same time for added effect)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}can set Distribution, Spacing, etc. in Attributes Inspector\
 {\listtext	\uc0\u8259 	}Distribution Types (assuming 4 items)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}Fill (3 items normal size and 1 stretched (chosen by content hugging priority))\
@@ -2682,10 +2694,10 @@ CoreImage\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(contentsOf:)
-\i0  - initialize player for sound at given URL (but don\'92t start playing yet)\
+\i0  - initialize player for sound at given URL (but don\'92t start playing yet) [throws]\
 {\listtext	\uc0\u8259 	}
 \i play()
-\i0  - begin (or resume) playback of sound\
+\i0  - begin (or resume) playback of sound [will stop on its own when done]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls17\ilvl1
 \i \cf0 {\listtext	\uc0\u8259 	}stop()
@@ -2729,6 +2741,7 @@ CoreImage\
 \i0 for recording audio to a file from the microphone [throws]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: even though this isn\'92t created via a session and doesn\'92t take a session, you must set up the AVAudioSession to make it work\
+{\listtext	\uc0\u8259 	}NOTE: to play back the recording, use AVAudioPlayer\
 {\listtext	\uc0\u8259 	}
 \i init(url:settings:)
 \i0  - create a new instance to record to a given file (url)\
