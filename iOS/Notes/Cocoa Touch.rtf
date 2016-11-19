@@ -499,6 +499,7 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul sin() & cos()\ulnone  - built-in trigonometric functions (Double -> Double)\
 {\listtext	\'95	}\ul abs()\ulnone  - absolute value\
+{\listtext	\'95	}\ul min()/max()\ulnone  - get smallest or largest of 2 values\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -606,7 +607,19 @@ Controls/views start with UI\
 \i0 base class of views/controllers\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}you can use it directly on a view in Interface Builder (eg. to frame other views) [dragging to it does not make it a parent though]\
-{\listtext	\uc0\u8259 	}\ul layer
+{\listtext	\uc0\u8259 	}can also instantiate (default initializer) in code and set properties to make it do stuff\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}good things to do if you set one up this way:\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls3\ilvl3\cf0 {\listtext	\uc0\u8259 	}set the frame\
+{\listtext	\uc0\u8259 	}set isUserInteractionEnabled\
+{\listtext	\uc0\u8259 	}appearance and position information\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul isUserInteractionEnabled\ulnone  - can set to false so the view doesn\'92t receive events like taps\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: when false it seems to allow objects behind to receive the interaction (see FourInARow game where background buttons receive taps through chips)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul layer
 \i \ulnone  - 
 \i0 instance of CALayer representing the view at a low level (see 
 \b Core Animation Framework
@@ -632,6 +645,9 @@ Controls/views start with UI\
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul frame\ulnone  - CGRect describing the view\'92s rectangle within its parent coordinate system\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}this is a good way to determine the size of the display you\'92re working with at runtime - within viewController (eg. viewDidLoad) use view.frame.height and view.frame.width\
+{\listtext	\uc0\u8259 	}also 
+\b settable
+\b0  (eg. if you instantiate UIView in code)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul window\ulnone  - UIWindow belonging to the view\
 {\listtext	\uc0\u8259 	}\ul isHidden
@@ -676,6 +692,7 @@ Controls/views start with UI\
 \i0  transform to put it back\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}user interaction is disabled during the animation\
+{\listtext	\uc0\u8259 	}TIP: can set a transform and then set the identity transform in animate (eg. to drop something from offscreen)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i animate()
@@ -1841,7 +1858,7 @@ See SpaceRace project for moving starfield as background, pixel-by-pixel collisi
 See MarbleMaze for maze that uses tilt (accelerometer) for rolling player through maze, hack for using touch on simulator to test, swirly vortexes, maze loading from text file, tile-based game, detailed collision detection masking w/ proper enumerations, conditional compilation for simulator vs. iDevice, stopping a player dead, sucking player into vortex when hits edge, collecting stars [[several todo items in this project could do for fun/learning later]]\
 See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to draw, using stride() to iterate blocks in a game sprite, drawing random buildings with lights on and off (retro style DOS looking), calling UIKit stuff from SpriteKit, using UIKit controls in SpriteKit games, communication between the SpriteKit and UIKit layers of the same app, two-player game w/ turns, texture atlas, precise collision detection option, animating player raising and lowering arm to throw spinning object, basic math/trigonometry, applying impulse vector to object (to fling bananas), starting a new game (w/ transition, etc.), deduping multiple collisions, converting coordinates between CoreGraphics, UIKit, and SpriteKit, terrain destruction [[several todo items for later]]\
 \
-See FourInARow project for UIKit game that uses buttons as columns, proper separation of model and view, using arrays (single and multidimensional) and tags to identify cells/buttons/chips generically, stacking chips\
+See FourInARow project for UIKit game that uses buttons as columns, proper separation of model and view, using arrays (single and multidimensional) and tags to identify cells/buttons/chips generically, stacking chips, making UIViews into circles(chips), animating dropping a chip into a column (in UIKit), receiving taps through chips to a button column\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -2587,6 +2604,10 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \i0  - returns a new CGRect which has been shrunk in both axes but still has the same centerpoint\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}width and height will be shrunk by 2*dx and 2*dy\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i width, height, minX, minY, midX, midY, maxX, maxY
+\i0 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls15\ilvl0\cf0 {\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions/properties that take CGFloat)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
