@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Genre page (takes you to AddComments page)
 class SelectGenreViewController: UITableViewController {
     static var genres = ["Unknown", "Blues", "Classical", "Electronic", "Jazz", "Metal", "Pop", "Reggae", "RnB", "Rock",
                          "Soul"]

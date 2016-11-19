@@ -8,6 +8,7 @@
 
 import UIKit
 
+//Add Comments page (leads to Submit page)
 class AddCommentsViewController: UIViewController, UITextViewDelegate {
     var genre: String!
     var comments: UITextView!

@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 
+//Submit page (sends your whistle to the cloud) (takes you back to front table when you're Done)
 class SubmitViewController: UIViewController {
     var genre: String!
     var comments: String!

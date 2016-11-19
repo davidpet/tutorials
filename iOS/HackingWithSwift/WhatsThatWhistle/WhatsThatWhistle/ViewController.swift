@@ -9,6 +9,7 @@
 import UIKit
 import CloudKit
 
+//front table view (list of whistles and ability to add new whistle)
 class ViewController: UITableViewController {
     static var isDirty = true
     

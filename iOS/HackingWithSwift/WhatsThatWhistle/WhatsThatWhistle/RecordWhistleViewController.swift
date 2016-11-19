@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+//Record page (including Next button to move to Genre page)
 class RecordWhistleViewController: UIViewController, AVAudioRecorderDelegate {
     var stackView: UIStackView!
     var recordButton: UIButton!
