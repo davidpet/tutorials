@@ -89,6 +89,31 @@ class ResultsViewController: UITableViewController {
         present(ac, animated: true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Genre: \(whistle.genre!)"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Download", style: .plain, target: self,
+                                                            action: #selector(downloadTapped))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        //load song suggestions into the table
+        let reference = CKReference(recordID: whistle.recordID, action: .deleteSelf)
+        let pred = NSPredicate(format: "owningWhistle == %@", reference)
+        let sort = NSSortDescriptor(key: "creationDate", ascending: true)
+        let query = CKQuery(recordType: "Suggestions", predicate: pred)
+        query.sortDescriptors = [sort]
+        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { [unowned self] results, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                if let results = results {
+                    self.parseResults(records: results)
+                }
+            }
+        }
+    }
+    
     func add(suggestion: String) {
         //create the new suggestion record pointing to the existing whistle
         let whistleRecord = CKRecord(recordType: "Suggestions")
@@ -97,6 +122,7 @@ class ResultsViewController: UITableViewController {
         whistleRecord["text"] = suggestion as CKRecordValue
         whistleRecord["owningWhistle"] = reference as CKRecordValue
         
+        //submit the record
         CKContainer.default().publicCloudDatabase.save(whistleRecord)
         { [unowned self] record, error in
             DispatchQueue.main.async {
@@ -111,5 +137,19 @@ class ResultsViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func parseResults(records: [CKRecord]) {
+        var newSuggestions = [String]()
+        for record in records {
+            newSuggestions.append(record["text"] as! String)
+        }
+        DispatchQueue.main.async { [unowned self] in
+            self.suggestions = newSuggestions
+            self.tableView.reloadData()
+        }
+    }
+    
+    func downloadTapped() {
     }
 }

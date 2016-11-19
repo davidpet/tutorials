@@ -391,6 +391,11 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(value:)
 \i0  - create a predicate that always returns the given boolean value (true means return the record)\
+{\listtext	\uc0\u8259 	}
+\i init(format:\'85)
+\i0  - crate a predict with a given condition format string\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. \'93owningWhistle == %@\'93, reference\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSSortDescriptor\ulnone  - sorting behavior for queries\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3281,6 +3286,13 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 {\listtext	\uc0\u8259 	}
 \i add()
 \i0  - takes a CKQueryOperation to perform a complex query asynchronously (closures provided to CKQueryOperation determine how to handle results)\
+{\listtext	\uc0\u8259 	}
+\i perform(_:inZoneWith:closure:)
+\i0  - convenience wrapper for 
+\i add()
+\i0  that takes just a CKQuery and returns the results in a closure when done\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}tutorial passes nil for zone\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKRecord\ulnone  - a database record containing key-value pairs\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3334,7 +3346,11 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(recordType:predicate:)
 \i0  - create an instance for a given string record type in the database and NSPredicate to determine what records get returned\
-{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}predicate can check fields, ID, etc. with == in string and %@ in formatted string\
+{\listtext	\uc0\u8259 	}can check a reference field against a CKReference instance with %@ as well\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i sortDescriptors
 \i0  - array of NSSortDescriptor describing how to sort the results (before limiting results)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
