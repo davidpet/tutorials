@@ -3262,6 +3262,7 @@ See SelfiShare for overall view of how connection management and data transmissi
 \fs24 \cf0 Convenience functionality related to Apple\'92s CloudKit (see Xcode notes)\
 NOTE: need to add CloudKit (under iCloud) in the Capabilities tab for your app target to use this library (see Xcode notes)\
 NOTE: see Xcode notes for additional information about stuff you may need to do in CloudKit dashboard for your app (rather than in code)\
+NOTE: basically all CloudKit methods are asynchronous, so don\'92t assume they have happened in the next line (use the closures)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
@@ -3287,12 +3288,25 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}closure takes record and error (which will be nil if successful)\
 {\listtext	\uc0\u8259 	}WARNING: it is very important to check the error because you\'92re going over the network, user\'92s storage (or yours) could be full, etc.\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i save(subscription)
+\i0  - save a CKQuerySubscription to the database as above\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}subscribes you to a push notification based on the subscription object (and of course takes a closure to let you know if it works)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}various fetch methods to retrieve records (this will fetch the whole records, so if you want to filter first use the more complicated CKQueryOperation)\
 {\listtext	\uc0\u8259 	}
 \i fetch(withRecordId:closure:)
 \i0  - get a specific record from the database (and call closure with that record and error if any)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: CKAsset fields will automatically be downloaded into a temporary cache and can be accessed via CKAsset fileUrl field\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i fetchAllSubscriptions()
+\i0  - gets all subscriptions (push notifications for database changes) and passes them into a closure (subscriptions, error)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}subscriptions is an optional [CKSubscription]\
+{\listtext	\uc0\u8259 	}HINT: tutorial shows getting all subscriptions, then deleting all of them, then adding back based on the controls\'92 states\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i add()
@@ -3304,6 +3318,12 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \i0  that takes just a CKQuery and returns the results in a closure when done\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}tutorial passes nil for zone\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i delete(withSubscriptionID:)
+\i0  - unsubscribe (remove a subscription from the DB)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}takes a trailing closure that passes in a string and an error\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKRecord\ulnone  - a database record containing key-value pairs\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3379,6 +3399,39 @@ NOTE: see Xcode notes for additional information about stuff you may need to do 
 \ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i .deleteSelf
 \i0  = cascading delete (when the target record is deleted, all records pointing to it are deleted)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKSubscription\ulnone  - a subscription to a database change (read side)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i subscriptionID
+\i0  - string unique ID for the subscription\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKQuerySubscription\ulnone  - a subscription to a database change (write side) [not a subclass of CKSubscription]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}added to database via 
+\i save()\
+\ls23\ilvl1
+\i0 {\listtext	\uc0\u8259 	}
+\i init(recordType:predicate:options:)
+\i0  - create a new instance\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls23\ilvl2\cf0 {\listtext	\uc0\u8259 	}record type to subscribe to\
+{\listtext	\uc0\u8259 	}predicate is an NSPredicate which can, for instance, say which field should equal which value\
+{\listtext	\uc0\u8259 	}options is an enum that says when the notification should be sent (eg. .firesOnRecordCreation)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i notificationInfo
+\i0  - push notification configuration (CKNotificationInfo)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls23\ilvl0\cf0 {\listtext	\'95	}\ul CKNotificationInfo\ulnone  - push notification configuration\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls23\ilvl1\cf0 {\listtext	\uc0\u8259 	}default initializer\
+{\listtext	\uc0\u8259 	}
+\i alertBody
+\i0  - text to use for the alert message\
+{\listtext	\uc0\u8259 	}
+\i soundName
+\i0  - the sound to play (eg. \'93default\'94)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0

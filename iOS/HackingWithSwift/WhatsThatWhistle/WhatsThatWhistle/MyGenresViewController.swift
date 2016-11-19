@@ -70,5 +70,40 @@ class MyGenresViewController: UITableViewController {
     func saveTapped() {
         let defaults = UserDefaults.standard
         defaults.set(myGenres, forKey: "myGenres")
+        
+        let database = CKContainer.default().publicCloudDatabase
+        database.fetchAllSubscriptions { [unowned self] subscriptions, error in
+            if error == nil {
+                if let subscriptions = subscriptions {
+                    //remove any existing subscriptions
+                    for subscription in subscriptions {
+                        database.delete(withSubscriptionID: subscription.subscriptionID) { str, error in
+                            if error != nil {
+                                // do your error handling here!
+                                print(error!.localizedDescription)
+                            }
+                        }
+                    }
+                    //add all checked items as subscriptions for push notifications
+                    for genre in self.myGenres {
+                        let predicate = NSPredicate(format:"genre == %@", genre)
+                        let subscription = CKQuerySubscription(recordType: "Whistles", predicate: predicate,
+                                                               options: .firesOnRecordCreation)
+                        let notification = CKNotificationInfo()
+                        notification.alertBody = "There's a new whistle in the \(genre) genre."
+                        notification.soundName = "default"
+                        subscription.notificationInfo = notification
+                        database.save(subscription) { result, error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            }
+                        }
+                    }
+                }
+            } else {
+                // do your error handling here!
+                print(error!.localizedDescription)
+            }
+        }
     }
 }
