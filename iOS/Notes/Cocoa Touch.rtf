@@ -1753,14 +1753,34 @@ GameplayKit\
 
 \fs24 \cf0 General non-media functionality that can be used for games or apps (eg. randomization, AI)\
 NOTE: even though it\'92s called GameplayKit, it\'92s always available even for normal apps and you should not be afraid to use it if useful.\
+\
+Random Numbers: create a source or distribution object (or get one with a static method) and call the GKRandom methods on it [in addition for shuffling arrays there is a method on the random source (not distribution) itself]\
 AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel, GKGameModelPlayer, and GKGameModelUpdate, and create an instance of a strategist to use to pick moves\
 	NOTE: there are other strategists besides GKMinmaxStrategist\
 	NOTE: even though it\'92s made for games, you could try to make use of it in other apps if you wanted
 \fs36 \
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls8\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul GKRandomSource\ulnone  - random number generator\
+\ls8\ilvl0
+\fs28 \cf0 {\listtext	\'95	}\ul \ulc0 GKRandom\ulnone  - protocol for getting random numbers (adopted by sources and distributions)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i nextInt(upperBound:)
+\i0  - next integer from 0, inclusive, to upperBound, exclusive [signed even though never negative]\
+{\listtext	\uc0\u8259 	}
+\i nextInt()
+\i0  - next signed integer over the whole range (not unsigned like arc4random)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls8\ilvl2\cf0 {\listtext	\uc0\u8259 	}WARNING: according to the tutorial, this is less reliable than the bounded version and the other next* methods in some scenarios\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i nextBool()
+\i0  - random boolean\
+{\listtext	\uc0\u8259 	}
+\i nextUniform()
+\i0  - random floating point value from 0.0 to 1.0 (inclusive)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls8\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 GKRandomSource\ulnone  - random number generator\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
@@ -1781,26 +1801,18 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
-\i\fs28 arrayByShufflingObjects(in:)
-\i0  - instance method to return a shuffled version of an array\
+\fs28 supports all methods in 
+\i GKRandom
+\i0  protocol
+\fs36 \
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
-\fs36 {\listtext	\uc0\u8259 	}
-\i\fs28 nextInt(upperBound:)
-\i0  - next integer from 0, inclusive, to upperBound, exclusive [signed even though never negative]\
+\i\fs28 \cf0 {\listtext	\uc0\u8259 	}arrayByShufflingObjects(in:)
+\i0  - instance method to return a shuffled version of an array\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i nextInt()
-\i0  - next signed integer over the whole range (not unsigned like arc4random)\
-\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls8\ilvl2\cf0 {\listtext	\uc0\u8259 	}WARNING: according to the tutorial, this is less reliable than the bounded version and the other next* methods in some scenarios\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i nextBool()
-\i0  - random boolean\
-{\listtext	\uc0\u8259 	}
-\i nextUniform()
-\i0  - random floating point value from 0.0 to 1.0 (inclusive)\
-{\listtext	\uc0\u8259 	}NOTE: subclasses available in GameplayKit, once instantiated and set up, can be called as GKRandomSource\
+\ls8\ilvl1
+\fs36 \cf0 {\listtext	\uc0\u8259 	}
+\fs28 NOTE: subclasses available in GameplayKit, once instantiated and set up, can be called as GKRandomSource (or GKRandom)\
 {\listtext	\uc0\u8259 	}\ul GKARC4RandomSource\ulnone  - subclass of GKRandomSource that uses arc4random functions but is 
 \b independent
 \b0 \
@@ -1842,22 +1854,48 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: performance difference between the sources only matters if generating a large quantity of numbers\
 {\listtext	\uc0\u8259 	}NOTE: higher randomness matters if using for cryptography (WARNING: Apple actually does not recommend any of these for cryptography)\
+{\listtext	\uc0\u8259 	}NOTE: for ranges that aren\'92t covered within the GKRandom methods, use GKRandomDistribution instead\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0
-\fs36 \cf0 {\listtext	\'95	}
-\fs28 \ul GKRandomDistribution\ulnone  - random number distribution functionality\
+\fs36 \cf0 {\listtext	
+\fs28 \'95	}\ul GKRandomDistribution\ulnone  - random number generator for values within a certain range with a certain distribution\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls10\ilvl1
-\fs36 \cf0 {\listtext	\uc0\u8259 	}
-\i\fs28 init(lowestValue:highestValue:)
-\i0  - gets a distribution between two inclusive endpoints\
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}like having pure random number generator and applying a shape to it (in the case of this base class it\'92s 
+\b uniform
+\b0 )\
+{\listtext	\uc0\u8259 	}supports all methods of 
+\i GKRandom
+\i0  protocol\
 {\listtext	\uc0\u8259 	}
-\i nextInt()
-\i0  - a number from the random distribution instance
-\fs36 \
+\i d6()
+\i0  - static, gets a distribution for 6-sided die (1 to 6 inclusive)\
+\ls10\ilvl1{\listtext	\uc0\u8259 	}
+\i d20()
+\i0  - static, gets a distribution for 20-sided die (1 to 20 inclusive)\
+\ls10\ilvl1
+\i {\listtext	\uc0\u8259 	}init(lowestValue:highestValue:)
+\i0  - gets a uniform distribution between two inclusive endpoints using arc4 randomizer\
+\ls10\ilvl1{\listtext	\uc0\u8259 	}
+\i init(randomSource:lowestValue:highestValue:)
+\i0  - gets a uniform distribution between two inclusive endpoints using given GKRandom (not GKRandomSource for some reason)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: since this takes a GKRandom instead of GKRandomSource, you could in theory create distributions upon distributions (eg. if you want to tighten up the bell curve, etc.)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(forDieWithSideCount:)
+\i0  - gets a uniform distribution between 1 and the side count (inclusive)\
+{\listtext	\uc0\u8259 	}\ul GKShuffledDistribution\ulnone  - subclass of GKRandomDistribution that guarantees each value is only seen once until all have been used (and then does it again)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}supports all methods of GKRandomDistribution including its own implementations of the static ones (they\'92re actually class methods that can be overridden)\
+{\listtext	\uc0\u8259 	}HINT: roll a dice (d6) 6 times and get a different side each time\
+{\listtext	\uc0\u8259 	}HINT: alternative to shuffling array if just want to get random numbers without repeats\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul GKGaussianDistribution\ulnone  - subclass of GKRandomDistribution that creates a bell curve\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls10\ilvl2\cf0 {\listtext	\uc0\u8259 	}supports all methods of GKRandomDistribution including the static ones (which are actually class methods that can be overridden)\
+{\listtext	\uc0\u8259 	}HINT: when you want random numbers that have some sense of averageness\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls10\ilvl0
-\fs28 \cf0 {\listtext	\'95	}\ul GKMinmaxStrategist\ulnone  - strategist that tries to minimize losses and maximize gains\
+\ls10\ilvl0\cf0 {\listtext	\'95	}\ul GKMinmaxStrategist\ulnone  - strategist that tries to minimize losses and maximize gains\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}since a strategist makes decisions based on a given board, it can be used across game resets with no problem\
 {\listtext	\uc0\u8259 	}default 
