@@ -48,6 +48,8 @@ NOTE: many of them, such as Foundation, are universal while some, such as UIKit,
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 basic stuff used by the rest of the frameworks\
+Foundation is included by the other frameworks so you can usually just use it\
+Foundation also includes Darwin, which imports functions from the C library, so some of the functions below may be from Darwin\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0
 \fs28 \cf0 {\listtext	\'95	}\ul NSObject\ulnone  - basic object for Cocoa Touch framework and Objective-C (but not for all of Swift)\
@@ -512,6 +514,17 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul sin() & cos()\ulnone  - built-in trigonometric functions (Double -> Double)\
 {\listtext	\'95	}\ul abs()\ulnone  - absolute value\
 {\listtext	\'95	}\ul min()/max()\ulnone  - get smallest or largest of 2 values\
+{\listtext	\'95	}\ul sleep()\ulnone  - sleep for a given number of (whole) 
+\b seconds
+\b0  (int not float)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}WARNING: do not use this in the main thread (use Dispatch instead)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul usleep()\ulnone  - sleep for a given number of (whole) 
+\b microseconds
+\b0  (uint not float)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}WARNING: do not use this in the main thread (use Dispatch instead)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
