@@ -2167,6 +2167,8 @@ See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to dra
 \
 See FourInARow project for UIKit game that uses buttons as columns, proper separation of model and view, using arrays (single and multidimensional) and tags to identify cells/buttons/chips generically, stacking chips, making UIViews into circles(chips), animating dropping a chip into a column (in UIKit), receiving taps through chips to a button column, using statics for overall game state, turn-based game w/ colored chips and UI updates, game reset, detecting four in a row straight and diagonal, AI to allow playing against the computer, implementing NSCopying and the AI protocols for GameplayKit efficiently, using activity indicator and delay for UI \'93thinking\'94\
 \
+See CrashyPlane for iPhone game, portrait mode, animation loop for player (propeller spinning quickly)\
+\
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -2314,6 +2316,9 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: you could still set the texture property to an image\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(texture:)
+\i0  - load an image from an existing SKTexture instance\
+{\listtext	\uc0\u8259 	}
 \i texture
 \i0  - SKTexture property, can use it to reassign the image after creation (eg. flipping between states of a character)\
 {\listtext	\uc0\u8259 	}
@@ -2532,6 +2537,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}contains factory methods that return SKAction instances which you can retain or queue\
+\ls15\ilvl1{\listtext	\uc0\u8259 	}HINT: durations less than the refresh rate of the game mean \'93as fast as possible\'94 (synced to frames or not?)(eg. in an animation loop)\
 {\listtext	\uc0\u8259 	}
 \i rotate(byAngle:duration:)
 \i0  - factory method to create an SKAction that represents a rotation (radians and seconds)\
@@ -2572,6 +2578,12 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - change the texture of the sprite\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. use in a sequence to animate things like character raising and lowering arm with timing\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i animate(with:timePerFrame:)
+\i0  - displays an array of textures for a specified duration per texture\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}can pass into repeatForever to make a permanent animation loop\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i repeatForever(action)
@@ -3929,4 +3941,5 @@ TODO: figure out why Project 33 push notifications don\'92t work\
 TODO: learn from DemoBots tutorial\
 TODO: find out what happens if you leave or don\'92t leave the memory warning method you get by default in a view controller\
 TODO: learn more of GameplayKit\
+TODO: find out if durations less than refresh rate get synced to refresh rate in SKAction methods (I don\'92t think so because it looks erratic)\
 }
