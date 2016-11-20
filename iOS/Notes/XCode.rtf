@@ -380,18 +380,19 @@ Interface Builder
 		AppDelegate swift file (basically same as regular app - still uses UIKit)\
 		Storyboard w/ single scene (still)(presentation set to Full Screen)\
 		GameViewController swift file (the view controller used by the storyboard)\
-			unlike in ordinary apps, this view controller has a lot of code in it already\
+			unlike in ordinary apps, this view controller has a lot of code in it already (to create and set up the scene mostly)\
 			can take out the two lines that add the FPS and node counts in here\
 			scene can be accessed by casting view to SKView and casting scene to your scene class (eg. GameScene)\
 		GameScene.Swift\
 			also contains a lot of code (the tutorial blows it all away)\
 			this is the main class to start editing (roughly equivalent to the view controller for a UIKit app even though you have one here)\
 		GameScene.sks (edited by Scene Editor)\
+			tutorial uses 1024 x 768 for iPad games and 375 x 667 for iPhone games (default of aspectFill used for both)\
 		Actions.sks? (deleted in tutorial so not sure what it is)\
 		Assets folder (pre-populated with a spaceship - you can delete it)\
 		Info.plist\
 		*some others same as UIKit apps?\
-		Resetting to Vanilla State: delete spaceship, replace code in GameScene.Swift with just didMove and touchesBegan (empty bodies)(get rid of properties too), delete Actions.sks, remove label from GameScene.sks and set Anchor Point and size attributes, remove FPS and node counts from view controller\
+		Resetting to Vanilla State: delete spaceship, replace code in GameScene.Swift with just didMove and touchesBegan (empty bodies)(get rid of properties too), delete Actions.sks, remove label from GameScene.sks and set Anchor Point and size attributes (and scaleMode if needed), remove FPS and node counts from view controller\
 \
 		Using UIKit controls within the game:\
 			-give the scene a weak reference to the view controller (if needed) and the view controller a strong reference to the scene (since the scene is already implicitly/indirectly owned by the controller)\

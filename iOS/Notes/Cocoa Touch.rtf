@@ -2219,6 +2219,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
+\ls13\ilvl1{\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 {\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
@@ -2286,7 +2287,19 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i backgroundColor
 \i0  - UIColor representing color to show behind texture (if any)\
-{\listtext	\uc0\u8259 	}
+\ls15\ilvl1{\listtext	\uc0\u8259 	}
+\i scaleMode
+\i0  - enum specifying how the game scene file\'92s dimensions will be mapped to the device\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}aspectFill = maintain aspect ratio and size up or down until whole screen covered (with one dimension exact and the other possibly cropped)\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls15\ilvl3\cf0 {\listtext	\uc0\u8259 	}DRAWBACK: will change the size of items in the scene based on device size (despite points instead of pixels)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}fill = scale to fill exactly (with distortion)\
+{\listtext	\uc0\u8259 	}aspectFit = like aspectFill but will have letterboxing instead of cropping\
+{\listtext	\uc0\u8259 	}resizeFill = scale the scene\'92s size to fit the view\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i nodes(atLocation:)
 \i0  - get an array of nodes at a given position (eg. when detected a tap)\
 {\listtext	\uc0\u8259 	}
