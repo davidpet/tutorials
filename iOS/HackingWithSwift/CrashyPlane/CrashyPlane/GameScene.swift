@@ -9,6 +9,7 @@
 import SpriteKit
 import GameplayKit
 
+//TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
 class GameScene: SKScene {
     var player: SKSpriteNode!
     

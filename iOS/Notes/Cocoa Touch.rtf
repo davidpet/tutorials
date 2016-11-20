@@ -2221,6 +2221,8 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
 \ls13\ilvl1{\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
+\ls13\ilvl1{\listtext	\uc0\u8259 	}COORDINATES: all are within the scene (or parent that is in scene) -> the mapping of scene to screen happens as a result of the scaleMode after that\
+{\listtext	\uc0\u8259 	}WARNING: due to the above fact, there is a possibility that something you render will be cropped or distorted\
 {\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
 \i0  - initialize from a scene (sks) file (used by the default template)\
@@ -2283,8 +2285,11 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i frame
-\i0  - CGRect describing the rectangle containing the scene\'92s content\
-{\listtext	\uc0\u8259 	}
+\i0  - CGRect describing the rectangle containing the scene\'92s content (in scene coordinates, not scaled screen coordinates)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you want screen coordinates (eg. to see where cropping happens), use view?.frame\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i backgroundColor
 \i0  - UIColor representing color to show behind texture (if any)\
 \ls15\ilvl1{\listtext	\uc0\u8259 	}
