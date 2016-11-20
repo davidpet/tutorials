@@ -58,7 +58,13 @@ class Board: NSObject {
     }
     
     func isFull() -> Bool {
-        return false
+        for column in 0 ..< Board.width {
+            if canMove(in: column) {
+                return false
+            }
+        }
+        
+        return true
     }
     
     func isWin(for player: Player) -> Bool {
