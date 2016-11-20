@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B908C2BC1DE1234000428BB8 /* Move.swift in Sources */ = {isa = PBXBuildFile; fileRef = B908C2BB1DE1234000428BB8 /* Move.swift */; };
 		B9E71BAA1DE1058000F282D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E71BA91DE1058000F282D3 /* AppDelegate.swift */; };
 		B9E71BAC1DE1058000F282D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E71BAB1DE1058000F282D3 /* ViewController.swift */; };
 		B9E71BAF1DE1058000F282D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E71BAD1DE1058000F282D3 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B908C2BB1DE1234000428BB8 /* Move.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Move.swift; sourceTree = "<group>"; };
 		B9E71BA61DE1058000F282D3 /* FourInARow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FourInARow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9E71BA91DE1058000F282D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B9E71BAB1DE1058000F282D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				B9E71BAB1DE1058000F282D3 /* ViewController.swift */,
 				B9E71BAD1DE1058000F282D3 /* Main.storyboard */,
 				B9E71BBB1DE10DAB00F282D3 /* Board.swift */,
+				B908C2BB1DE1234000428BB8 /* Move.swift */,
 				B9E71BBD1DE11AB500F282D3 /* Player.swift */,
 				B9E71BB01DE1058000F282D3 /* Assets.xcassets */,
 				B9E71BB21DE1058000F282D3 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B908C2BC1DE1234000428BB8 /* Move.swift in Sources */,
 				B9E71BBE1DE11AB500F282D3 /* Player.swift in Sources */,
 				B9E71BAC1DE1058000F282D3 /* ViewController.swift in Sources */,
 				B9E71BAA1DE1058000F282D3 /* AppDelegate.swift in Sources */,
@@ -310,6 +314,7 @@
 				B9E71BBA1DE1058000F282D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
