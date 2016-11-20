@@ -220,7 +220,10 @@ Interface Builder
 {\listtext	\uc0\u8259 	}Sometimes there are constraints you can only see in Size Inspector but not in outline (eg. aspect ratio)\
 {\listtext	\uc0\u8259 	}Can also add constraints by layout button in bottom right corner\
 {\listtext	\uc0\u8259 	}also can ctrl drag within the document outline to the object you want to constrain something inside (gives more options because not directional)\
-{\listtext	\uc0\u8259 	}NOTE: another thing to know for making adaptive layouts is to use view.frame.width and view.frame.height in the view controller to get the size at runtime (eg. in viewDidLoad)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}can drag from outline to storyboard or vice versa, or within outline\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: another thing to know for making adaptive layouts is to use view.frame.width and view.frame.height in the view controller to get the size at runtime (eg. in viewDidLoad)\
 {\listtext	\uc0\u8259 	}Orange dashed line shows you where your view will be when the app runs (if you haven\'92t updated frames yet)\
 {\listtext	\uc0\u8259 	}Adaptive UI: besides the normal Auto Layout stuff, you can have fully adaptive layout that does things like choosing between vertical and horizontal stacking depending on orientation\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -249,6 +252,8 @@ Interface Builder
 \ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}user specifies preferences in Settings and then apps that are Dynamic Type-aware will respect it\
 {\listtext	\uc0\u8259 	}properties/methods of classes (eg. UIFont.preferredFont(forTextStyle:)\
 {\listtext	\uc0\u8259 	}can respond to changes of user preferences while app is still running via NotificationCenter\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}TIP: when auto layout constraints are generated, they are based on the current stuff (so for instance, you can generate it in iPad view for aspect ratio if you like that ratio for iPhone as well)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 	Adding Outlet\
 		Ctrl-drag a control onto source code where you want the outlet declaration and use the box that pops up to configure name, type, etc. (use Assistant Editor)\

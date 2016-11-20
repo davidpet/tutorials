@@ -11,6 +11,7 @@ import GameplayKit
 
 class ViewController: UIViewController {
     @IBOutlet var columnButtons: [UIButton]!
+    @IBOutlet weak var stackView: UIStackView!
 
     var placedChips = [[UIView]]()      //[column][row] order
     var board: Board!
@@ -68,8 +69,9 @@ class ViewController: UIViewController {
     func positionForChip(inColumn column: Int, row: Int) -> CGPoint {
         let button = columnButtons[column]
         let size = min(button.frame.width, button.frame.height / 6)
-        let xOffset = button.frame.midX
-        var yOffset = button.frame.maxY - size / 2
+        let convertedFrame = view.convert(button.frame, from: stackView)
+        let xOffset = convertedFrame.midX
+        var yOffset = convertedFrame.maxY - size / 2
         yOffset -= size * CGFloat(row)
         return CGPoint(x: xOffset, y: yOffset)
     }
