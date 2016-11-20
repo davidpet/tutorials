@@ -10,7 +10,7 @@ import UIKit
 import GameplayKit
 
 class Move: NSObject, GKGameModelUpdate {
-    var value: Int = 0
+    var value: Int = 0          //GameplayKit: cache for move score
     var column: Int
     
     init(column: Int) {

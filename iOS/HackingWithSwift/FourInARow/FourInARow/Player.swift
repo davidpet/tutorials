@@ -14,7 +14,7 @@ class Player: NSObject, GKGameModelPlayer {
     var color: UIColor
     
     var name: String
-    var playerId: Int
+    var playerId: Int       //GameplayKit: unique ID of player
     
     static var allPlayers = [Player(chip: .red), Player(chip: .black)]
     
