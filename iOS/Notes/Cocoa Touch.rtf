@@ -1758,7 +1758,7 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls8\ilvl0\cf0 {\listtext	\'95	}
-\fs28 \ul GKRandomSource\ulnone  - random number functionality\
+\fs28 \ul GKRandomSource\ulnone  - random number generator\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
@@ -1766,14 +1766,30 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \i0  - static method to get shared random number generator of the system (as an instance of 
 \i GKRandomSource
 \i0 )\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls8\ilvl2\cf0 {\listtext	\uc0\u8259 	}no explicit seeding required\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
-\fs36 {\listtext	\uc0\u8259 	}
+\fs36 \cf0 {\listtext	\uc0\u8259 	}
 \i\fs28 arrayByShufflingObjects(in:)
 \i0  - instance method to return a shuffled version of an array\
 \ls8\ilvl1
 \fs36 {\listtext	\uc0\u8259 	}
 \i\fs28 nextInt(upperBound:)
-\i0  - next integer from 0 to upperBound, exclusive\
+\i0  - next integer from 0, inclusive, to upperBound, exclusive [signed even though never negative]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i nextInt()
+\i0  - next signed integer over the whole range (not unsigned like arc4random)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls8\ilvl2\cf0 {\listtext	\uc0\u8259 	}WARNING: according to the tutorial, this is less reliable than the bounded version and the other next* methods in some scenarios\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i nextBool()
+\i0  - random boolean\
+{\listtext	\uc0\u8259 	}
+\i nextUniform()
+\i0  - random floating point value from 0.0 to 1.0 (inclusive)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls8\ilvl0
 \fs36 \cf0 {\listtext	\'95	}
