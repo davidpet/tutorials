@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import GameplayKit
 
 class ViewController: UIViewController {
     @IBOutlet var columnButtons: [UIButton]!
 
     var placedChips = [[UIView]]()      //[column][row] order
     var board: Board!
+    
+    var strategist: GKMinmaxStrategist!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +24,16 @@ class ViewController: UIViewController {
             placedChips.append([UIView]())
         }
         
+        strategist = GKMinmaxStrategist()
+        strategist.maxLookAheadDepth = 7
+        strategist.randomSource = nil
+        
         resetBoard()
     }
     
     func resetBoard() {
         board = Board()
+        strategist.gameModel = board
         updateUI()
         
         for i in 0..<placedChips.count {
@@ -66,8 +74,14 @@ class ViewController: UIViewController {
         return CGPoint(x: xOffset, y: yOffset)
     }
     
+    //called at end of each move, so calling at end of red move triggers a UI move which will trigger this again with red
     func updateUI() {
         title = "\(board.currentPlayer.name)'s Turn"
+        
+        if board.currentPlayer.chip == .black {
+            startAIMove()
+        }
+        
     }
     
     func continueGame() {
@@ -95,6 +109,39 @@ class ViewController: UIViewController {
         //next turn (either in this game or next game)
         board.currentPlayer = board.currentPlayer.opponent
         updateUI()
+    }
+    
+    //perform an AI move with appropriate delay to make it look like a player
+    func startAIMove() {
+        DispatchQueue.global().async { [unowned self] in
+            let strategistTime = CFAbsoluteTimeGetCurrent()
+            let column = self.columnForAIMove()!            //the actual AI calculation
+            let delta = CFAbsoluteTimeGetCurrent() - strategistTime
+            
+            let aiTimeCeiling = 1.0
+            let delay = min(aiTimeCeiling - delta, aiTimeCeiling)       //this doesn't seem right, what if it's negative?
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                self.makeAIMove(in: column)
+            }
+        }
+    }
+    
+    //our wrapper for calculating the next move from the AI (intense work done)
+    func columnForAIMove() -> Int? {
+        if let aiMove = strategist.bestMove(for: board.currentPlayer) as? Move {
+            return aiMove.column
+        }
+        return nil
+    }
+    
+    //this is basically duplicated with makeMove() but takes a column instead of button click
+    //TODO: refactor so that makeMove calls this
+    func makeAIMove(in column: Int) {
+        if let row = board.nextEmptySlot(in: column) {
+            board.add(chip: board.currentPlayer.chip, in: column)
+            addChip(inColumn: column, row:row, color: board.currentPlayer.color)
+            continueGame()
+        }
     }
     
     @IBAction func makeMove(_ sender: UIButton) {
