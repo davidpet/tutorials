@@ -501,15 +501,30 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
 {\listtext	\'95	}\ul performSelector(onMainThread:)\ulnone  - runs a method in the main UI thread\
-{\listtext	\'95	}\ul arc4random()\ulnone  - random integer over the whole range (C standard lib) [not sure if this is actually in Foundation or just always in Swift]\
+{\listtext	\'95	}\ul arc4random()\ulnone  - random unsigned integer over the whole range (C standard lib)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}to get a random float, divide by Float(UInt32.max)\
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}no seeding needed\
+{\listtext	\uc0\u8259 	}arc4 is an encryption standard or something like that (this is a newer better randomizer available in C than the old random() function)\
+{\listtext	\uc0\u8259 	}to get a random float, divide by Float(UInt32.max)\
 {\listtext	\uc0\u8259 	}to get a random float in a range, do the same but multiply by the size of the range and add to minimum\
+{\listtext	\uc0\u8259 	}WARNING: don\'92t use modulo to confine this to a range (due to 
+\b modulo bias
+\b0 ) [use arc4random_uniform instead]\
+{\listtext	\uc0\u8259 	}NOTE: see notes in arcrandom_uniform for more info\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls1\ilvl0\cf0 {\listtext	\'95	}\ul arc4random_uniform(_:)\ulnone  - same thing but more uniform?  takes an upper bound\
+\ls1\ilvl0\cf0 {\listtext	\'95	}\ul arc4random_uniform(_:)\ulnone  - random unsigned integer from 0 (inclusive) to given value (exclusive)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: the arc4random functions take UInt32 instead of Int\
-{\listtext	\uc0\u8259 	}to pick a number from a to b inclusive, can use arc4random_uniform of the difference plus 1, then add to a\
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}avoids the modulo bias of arc4random()\
+{\listtext	\uc0\u8259 	}no seeding needed\
+{\listtext	\uc0\u8259 	}to pick a number from 
+\i a
+\i0  to 
+\i b
+\i0  inclusive, can use arc4random_uniform of the difference plus 1, then add to 
+\i a\
+\ls1\ilvl1
+\i0 {\listtext	\uc0\u8259 	}NOTE: there convenience wrappers for randomizing different data types in the Helper.Swift file that comes in the Hacking with Swift projects (find out source before using in production)\
+{\listtext	\uc0\u8259 	}NOTE: see GameplayKit for newer/better random number generation (may not be available on opensource Swift on Linux though)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul sin() & cos()\ulnone  - built-in trigonometric functions (Double -> Double)\
 {\listtext	\'95	}\ul abs()\ulnone  - absolute value\
@@ -1699,11 +1714,10 @@ Core Animation\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 Animation - imported via UIKit
-\fs36 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\fs28 \
 
-\fs28 \cf0 \
-UIKit uses CoreAnimation internally for its animations.\
+\fs24 UIKit uses CoreAnimation internally for its animations.
+\fs28 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
@@ -3790,4 +3804,5 @@ TODO: figure out weirdness with volume levels with AVAudioPlayer\
 TODO: figure out why Project 33 push notifications don\'92t work\
 TODO: learn from DemoBots tutorial\
 TODO: find out what happens if you leave or don\'92t leave the memory warning method you get by default in a view controller\
+TODO: learn more of GameplayKit\
 }
