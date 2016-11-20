@@ -113,6 +113,13 @@ class ViewController: UIViewController {
     
     //perform an AI move with appropriate delay to make it look like a player
     func startAIMove() {
+        //put the UI into "thinking" mode
+        columnButtons.forEach { $0.isEnabled = false }
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        spinner.startAnimating()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: spinner)
+
+        //do the actual thinking/moving (makeAIMove will restore the UI from thinking mode)
         DispatchQueue.global().async { [unowned self] in
             let strategistTime = CFAbsoluteTimeGetCurrent()
             let column = self.columnForAIMove()!            //the actual AI calculation
@@ -137,6 +144,11 @@ class ViewController: UIViewController {
     //this is basically duplicated with makeMove() but takes a column instead of button click
     //TODO: refactor so that makeMove calls this
     func makeAIMove(in column: Int) {
+        //take the UI out of "thinking" mode
+        columnButtons.forEach { $0.isEnabled = true }
+        navigationItem.leftBarButtonItem = nil
+        
+        //udpate the state
         if let row = board.nextEmptySlot(in: column) {
             board.add(chip: board.currentPlayer.chip, in: column)
             addChip(inColumn: column, row:row, color: board.currentPlayer.color)
