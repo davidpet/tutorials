@@ -15,7 +15,6 @@ enum GameState {
     case dead
 }
 
-//TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
 //TODO: change speed, distances between rocks, etc.
 //TODO: add more obstacles and more scoreing points (eg. extra points for flying through a hoop)
 //TODO: make universal (work on iPad)
