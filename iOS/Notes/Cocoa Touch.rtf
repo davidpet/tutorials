@@ -2182,7 +2182,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
 \ls13\ilvl1{\listtext	\uc0\u8259 	}By following the step to set scene anchor to (0, 0), you make bottom-left the origin in the scene [although it would default to center screen]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls13\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in scene editor -> aiming for 60 FPS for games\
+\ls13\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in GameViewController (SKView properties) -> aiming for 60 FPS for games\
 {\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: most of what I put under SKSpriteNode below actually belongs here (will fix later) [see below]\
@@ -2216,6 +2216,16 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}first param is new scene that will replace the old one\
 {\listtext	\uc0\u8259 	}2nd param is an SKTransition\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i showsFPS
+\i0  - for debugging, if true will print FPS on scene\
+{\listtext	\uc0\u8259 	}
+\i showsNodeCount
+\i0  - for debugging, if true will print number of SceneKit nodes\
+{\listtext	\uc0\u8259 	}
+\i showsPhysics
+\i0  - for debugging, will show physics bodies outlined in blue\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
