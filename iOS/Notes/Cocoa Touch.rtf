@@ -2284,6 +2284,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}useful for things like counting, doing some cleanup for offscreen or out of bounds things, stopping sounds, etc.\
 {\listtext	\uc0\u8259 	}EXAMPLE: tutorial uses it to stop fuse sound if no bombs left (since you can only see frame by frame, you can\'92t see 0 bombs with sound because it\'92s synced to this)\
+\ls15\ilvl2{\listtext	\uc0\u8259 	}WARNING: can possibly be called before didMove(to:) so be careful about nil for properties that have !\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
@@ -2335,6 +2336,8 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - speed multiplier for actions under node and its children (float) (default 1.0)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: can set to 0 to stop things (especially if done on scene)\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls15\ilvl3\cf0 {\listtext	\uc0\u8259 	}NOTE: doesn\'92t seem to stop particle effects (???)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls15\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0

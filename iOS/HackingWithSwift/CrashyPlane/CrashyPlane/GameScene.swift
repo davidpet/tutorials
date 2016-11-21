@@ -73,6 +73,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        guard player != nil else { return }
+        
         //rotate plane in direction of movement and speed
         let value = player.physicsBody!.velocity.dy * 0.001
         let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
@@ -236,7 +238,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bottomRock.zPosition = -20
         
         //create a region to track when user has passed rocks (and add the rocks and region to the scene)
-        let rockCollision = SKSpriteNode(color: UIColor.red, size: CGSize(width: 32, height: frame.height))
+        let rockCollision = SKSpriteNode(color: UIColor.clear, size: CGSize(width: 32, height: frame.height))
         rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
         rockCollision.physicsBody?.isDynamic = false
         rockCollision.name = "scoreDetect"
