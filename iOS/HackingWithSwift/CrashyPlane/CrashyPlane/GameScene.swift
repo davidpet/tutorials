@@ -16,6 +16,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         createPlayer()
         createSky()
+        createBackground()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -25,7 +26,7 @@ class GameScene: SKScene {
         //create the player at its position with initial graphic
         let playerTexture = SKTexture(imageNamed: "player-1")
         player = SKSpriteNode(texture: playerTexture)
-        player.zPosition = 10
+        player.zPosition = 10       //position above other objects
         player.position = CGPoint(x: frame.width / 6, y: frame.height * 0.75)
         addChild(player)
         
@@ -57,5 +58,19 @@ class GameScene: SKScene {
         //add to the scene
         addChild(topSky)
         addChild(bottomSky)
+    }
+    
+    func createBackground() {
+        let backgroundTexture = SKTexture(imageNamed: "background")
+        //create two background sprites from same background image
+        for i in 0 ... 1 {
+            let background = SKSpriteNode(texture: backgroundTexture)
+            background.zPosition = -30      //above sky
+            background.anchorPoint = CGPoint.zero   //position the background's bottom-left
+            //position left so that they are overlapped by 1 point exactly
+            //position top of both near bottom of screen
+            background.position = CGPoint(x: (backgroundTexture.size().width * CGFloat(i)) - CGFloat(1 * i), y: 100)
+            addChild(background)
+        }
     }
 }
