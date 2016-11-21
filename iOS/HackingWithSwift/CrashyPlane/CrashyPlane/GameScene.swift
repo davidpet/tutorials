@@ -18,6 +18,8 @@ class GameScene: SKScene {
         createSky()
         createBackground()
         createGround()
+        
+        startRocks()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,5 +102,58 @@ class GameScene: SKScene {
             let moveForever = SKAction.repeatForever(moveLoop)
             ground.run(moveForever)
         }
+    }
+    
+    //start a loop of creating rocks every 3 seconds
+    func startRocks() {
+        let create = SKAction.run { [unowned self] in
+            self.createRocks()
+        }
+        let wait = SKAction.wait(forDuration: 3)
+        let sequence = SKAction.sequence([create, wait])
+        let repeatForever = SKAction.repeatForever(sequence)
+        run(repeatForever)
+    }
+    
+    //create one set of rocks to scroll across screen and die
+    func createRocks() {
+        //create two rocks in between ground and background
+        let rockTexture = SKTexture(imageNamed: "rock")
+        let topRock = SKSpriteNode(texture: rockTexture)
+        topRock.zRotation = CGFloat.pi
+        topRock.xScale = -1.0
+        let bottomRock = SKSpriteNode(texture: rockTexture)
+        topRock.zPosition = -20
+        bottomRock.zPosition = -20
+        
+        //create a region to track when user has passed rocks (and add the rocks and region to the scene)
+        let rockCollision = SKSpriteNode(color: UIColor.red, size: CGSize(width: 32, height: frame.height))
+        rockCollision.name = "scoreDetect"
+        addChild(topRock)
+        addChild(bottomRock)
+        addChild(rockCollision)
+        
+        //pick a randomly positioned (but certain size) gap between the rocks
+        let xPosition = frame.width + topRock.frame.width
+        let max = Int(frame.height / 3)
+        let rand = GKRandomDistribution(lowestValue: -100, highestValue: max)
+        let yPosition = CGFloat(rand.nextInt())
+        // this next value affects the width of the gap between rocks
+        // make it smaller to make your game harder – if you're feeling evil!
+        let rockDistance: CGFloat = 70
+        
+        //position the rocks offscreen according to the gap
+        topRock.position = CGPoint(x: xPosition, y: yPosition + topRock.size.height + rockDistance)
+        bottomRock.position = CGPoint(x: xPosition, y: yPosition - rockDistance)
+        //position the collision after the rocks
+        rockCollision.position = CGPoint(x: xPosition + (rockCollision.size.width * 2), y: frame.midY)
+        let endPosition = frame.width + (topRock.frame.width * 2)
+        
+        //animate both rocks and collision bar moving together to left edge of screen and dissappearing
+        let moveAction = SKAction.moveBy(x: -endPosition, y: 0, duration: 6.2)
+        let moveSequence = SKAction.sequence([moveAction, SKAction.removeFromParent()])
+        topRock.run(moveSequence)
+        bottomRock.run(moveSequence)
+        rockCollision.run(moveSequence)
     }
 }
