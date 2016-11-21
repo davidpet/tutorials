@@ -47,6 +47,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //TODO: won't this create too many actions in the queue?
     }
     
+    func didBegin(_ contact: SKPhysicsContact) {
+        //detect collision with invisible rectangle that comes after rocks
+        if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
+            if contact.bodyA.node == player {
+                contact.bodyB.node?.removeFromParent()      //remove rectangle
+            } else {
+                contact.bodyA.node?.removeFromParent()
+            }
+            
+            //score point for the player
+            let sound = SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false)
+            run(sound)
+            score += 1
+            
+            return
+        }
+    }
+    
     func createPlayer() {
         //create the player at its position with initial graphic
         let playerTexture = SKTexture(imageNamed: "player-1")
