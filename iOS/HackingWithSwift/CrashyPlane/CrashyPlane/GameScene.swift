@@ -11,6 +11,8 @@ import GameplayKit
 
 //TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    var backgroundMusic: SKAudioNode!
+    
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
     
@@ -31,6 +33,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
+        
+        if let musicURL = Bundle.main.url(forResource: "music", withExtension: "m4a") {
+            backgroundMusic = SKAudioNode(url: musicURL)
+            addChild(backgroundMusic)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
