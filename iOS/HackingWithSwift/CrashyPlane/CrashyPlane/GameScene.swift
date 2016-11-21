@@ -66,7 +66,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
         case .dead:
-            break
+            let scene = GameScene(fileNamed: "GameScene")!
+            let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
+            self.view?.presentScene(scene, transition: transition)
         }
     }
     
