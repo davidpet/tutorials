@@ -12,12 +12,20 @@ import GameplayKit
 //TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
 class GameScene: SKScene {
     var player: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
+    
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "SCORE: \(score)"
+        }
+    }
     
     override func didMove(to view: SKView) {
         createPlayer()
         createSky()
         createBackground()
         createGround()
+        createScore()
         
         startRocks()
     }
@@ -155,5 +163,15 @@ class GameScene: SKScene {
         topRock.run(moveSequence)
         bottomRock.run(moveSequence)
         rockCollision.run(moveSequence)
+    }
+    
+    func createScore() {
+        scoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
+        scoreLabel.fontSize = 24
+        scoreLabel.position = CGPoint(x: frame.maxX - 20, y: frame.maxY - 40)
+        scoreLabel.horizontalAlignmentMode = .right
+        scoreLabel.text = "SCORE: 0"
+        scoreLabel.fontColor = UIColor.black
+        addChild(scoreLabel)
     }
 }
