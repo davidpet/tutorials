@@ -9,6 +9,10 @@ a = 5 % 2
 var a2 = Double(a) + 0.5            //oddly, Double and Int can't be mixed without conversion (no implicit casting)
 1  | 2      //BITWISE operators work on integers
 
+//UNARY PLUS AND MINUS
+var un = -a
+un = +a
+
 //TERNARY OPERATOR
 a = true ? 0 : 1
 
@@ -88,3 +92,4 @@ var int2 = Int(3.14)    //casting float to int automatically rounds
 
 //QUESTIONS
 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING
+//Does unary plus have the weird C++ and C# behavior?
