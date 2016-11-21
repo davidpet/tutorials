@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func didMove(to view: SKView) {
+        createBoundaries()
         createPlayer()
         createSky()
         createBackground()
@@ -83,6 +84,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
         player.run(rotate)
         //TODO: won't this create too many actions in the queue?
+        
+        //move player back into position if bounced off top
+        player.position.x = frame.width / 6
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -125,6 +129,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func createBoundaries() {
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsBody!.isDynamic = false
+        physicsBody!.categoryBitMask = 2
+    }
+    
     func createPlayer() {
         //create the player at its position with initial graphic
         let playerTexture = SKTexture(imageNamed: "player-1")
@@ -135,9 +145,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //set up the physics
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
-        player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
+        player.physicsBody!.contactTestBitMask = 1
         player.physicsBody?.isDynamic = false
-        player.physicsBody?.collisionBitMask = 0
+        player.physicsBody?.collisionBitMask = 2
+        player.physicsBody?.categoryBitMask = 1
         
         //set up the animation loop
         let frame2 = SKTexture(imageNamed: "player-2")
@@ -202,6 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //set up ground physics
             ground.physicsBody = SKPhysicsBody(texture: ground.texture!, size: ground.texture!.size())
             ground.physicsBody?.isDynamic = false
+            ground.physicsBody?.categoryBitMask = 1
             //add to scene
             addChild(ground)
             
@@ -237,6 +249,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bottomRock = SKSpriteNode(texture: rockTexture)
         bottomRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
         bottomRock.physicsBody?.isDynamic = false
+        bottomRock.physicsBody?.categoryBitMask = 1
         topRock.zPosition = -20
         bottomRock.zPosition = -20
         
