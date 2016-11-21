@@ -63,6 +63,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             return
         }
+        
+        //detect collision with things besides score mark (ground and rocks)
+        if contact.bodyA.node == player || contact.bodyB.node == player
+        {
+            //blow up the plane
+            if let explosion = SKEmitterNode(fileNamed: "PlayerExplosion") {
+                explosion.position = player.position
+                addChild(explosion)
+            }
+            let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+            run(sound)
+            
+            //remove the player from the game
+            player.removeFromParent()
+            //stop the scrolling
+            speed = 0
+        }
     }
     
     func createPlayer() {
