@@ -2177,9 +2177,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl0\cf0 {\listtext	\'95	}
 \fs28 \ul Coordinates\ulnone  \
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}Y axis is flipped from normal (0 is bottom of screen)\
-{\listtext	\uc0\u8259 	}Coordinates of an object are coordinates of the center\
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}Y axis is flipped from normal (higher Y = higher up screen)\
+{\listtext	\uc0\u8259 	}Coordinates of an object are coordinates of the center (or anchor point if specified)\
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
+\ls13\ilvl1{\listtext	\uc0\u8259 	}By following the step to set scene anchor to (0, 0), you make bottom-left the origin in the scene [although it would default to center screen]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in scene editor -> aiming for 60 FPS for games\
 {\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
@@ -2222,7 +2223,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl1{\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
 \ls13\ilvl1{\listtext	\uc0\u8259 	}COORDINATES: all are within the scene (or parent that is in scene) -> the mapping of scene to screen happens as a result of the scaleMode after that\
-{\listtext	\uc0\u8259 	}WARNING: due to the above fact, there is a possibility that something you render will be cropped or distorted\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}anchor point for scene (which tutorial says to set to 0,0) will be the origin point that all objects in the scene will be relative to\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}WARNING: due to the above fact, there is a possibility that something you render will be cropped or distorted\
 {\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
 \i0  - initialize from a scene (sks) file (used by the default template)\
@@ -2349,6 +2353,15 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}it\'92s ok to have it go off screen\
 {\listtext	\uc0\u8259 	}negative numbers are also fine\
 {\listtext	\uc0\u8259 	}defaults to 0,0 (center)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i anchorPoint
+\i0  - CGPoint representing which part of the node is used for positioning\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}default is (0.5, 0.5) which means center of object\
+{\listtext	\uc0\u8259 	}setting to (0.5, 1) would mean center-top (useful for pieces of sky)\
+{\listtext	\uc0\u8259 	}when you position the object, the coordinates will be the coordinates of the anchor point\
+{\listtext	\uc0\u8259 	}WARNING: coordinates of all children will be relative to this anchor point as well\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i blendMode
