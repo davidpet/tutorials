@@ -152,14 +152,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //create two rocks in between ground and background
         let rockTexture = SKTexture(imageNamed: "rock")
         let topRock = SKSpriteNode(texture: rockTexture)
+        topRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        topRock.physicsBody?.isDynamic = false
         topRock.zRotation = CGFloat.pi
         topRock.xScale = -1.0
         let bottomRock = SKSpriteNode(texture: rockTexture)
+        bottomRock.physicsBody = SKPhysicsBody(texture: rockTexture, size: rockTexture.size())
+        bottomRock.physicsBody?.isDynamic = false
         topRock.zPosition = -20
         bottomRock.zPosition = -20
         
         //create a region to track when user has passed rocks (and add the rocks and region to the scene)
         let rockCollision = SKSpriteNode(color: UIColor.red, size: CGSize(width: 32, height: frame.height))
+        rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
+        rockCollision.physicsBody?.isDynamic = false
         rockCollision.name = "scoreDetect"
         addChild(topRock)
         addChild(bottomRock)
