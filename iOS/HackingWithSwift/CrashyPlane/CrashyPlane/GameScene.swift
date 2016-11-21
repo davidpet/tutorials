@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 //TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
     
@@ -28,6 +28,9 @@ class GameScene: SKScene {
         createScore()
         
         startRocks()
+        
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
+        physicsWorld.contactDelegate = self
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -40,6 +43,12 @@ class GameScene: SKScene {
         player.zPosition = 10       //position above other objects
         player.position = CGPoint(x: frame.width / 6, y: frame.height * 0.75)
         addChild(player)
+        
+        //set up the physics
+        player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
+        player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
+        player.physicsBody?.isDynamic = true
+        player.physicsBody?.collisionBitMask = 0
         
         //set up the animation loop
         let frame2 = SKTexture(imageNamed: "player-2")
