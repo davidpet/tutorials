@@ -110,6 +110,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //position at bottom of screen with pieces not overlapping
             ground.position = CGPoint(x: (groundTexture.size().width / 2.0 + (groundTexture.size().width * CGFloat(i))),
                                       y: groundTexture.size().height / 2)
+            //set up ground physics
+            ground.physicsBody = SKPhysicsBody(texture: ground.texture!, size: ground.texture!.size())
+            ground.physicsBody?.isDynamic = false
+            //add to scene
             addChild(ground)
             
             //set up infinite scrolling of ground (faster than background)
