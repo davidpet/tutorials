@@ -39,6 +39,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
     }
     
+    override func update(_ currentTime: TimeInterval) {
+        //rotate plane in direction of movement and speed
+        let value = player.physicsBody!.velocity.dy * 0.001
+        let rotate = SKAction.rotate(toAngle: value, duration: 0.1)
+        player.run(rotate)
+        //TODO: won't this create too many actions in the queue?
+    }
+    
     func createPlayer() {
         //create the player at its position with initial graphic
         let playerTexture = SKTexture(imageNamed: "player-1")
