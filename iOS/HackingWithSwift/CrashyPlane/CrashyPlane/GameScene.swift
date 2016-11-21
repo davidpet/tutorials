@@ -9,9 +9,19 @@
 import SpriteKit
 import GameplayKit
 
+enum GameState {
+    case showingLogo
+    case playing
+    case dead
+}
+
 //TODO: figure out why plane doesn't show up on Plus models (probably just cropped due to aspectFill)
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var backgroundMusic: SKAudioNode!
+    
+    var logo: SKSpriteNode!
+    var gameOver: SKSpriteNode!
+    var gameState = GameState.showingLogo
     
     var player: SKSpriteNode!
     var scoreLabel: SKLabelNode!
@@ -28,8 +38,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         createBackground()
         createGround()
         createScore()
-        
-        startRocks()
+        createLogos()
         
         physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
         physicsWorld.contactDelegate = self
@@ -41,9 +50,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //touching screen stops plane's downward motion and shoots it upward
-        player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        switch gameState {
+        case .showingLogo:
+            gameState = .playing
+            let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+            let remove = SKAction.removeFromParent()
+            let wait = SKAction.wait(forDuration: 0.5)
+            let activatePlayer = SKAction.run { [unowned self] in
+                self.player.physicsBody?.isDynamic = true
+                self.startRocks()
+            }
+            let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
+            logo.run(sequence)
+        case .playing:
+            player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        case .dead:
+            break
+        }
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -82,6 +106,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
             run(sound)
             
+            //put in Game Over mode
+            gameOver.alpha = 1
+            gameState = .dead
+            backgroundMusic.run(SKAction.stop())
+            
             //remove the player from the game
             player.removeFromParent()
             //stop the scrolling
@@ -100,7 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //set up the physics
         player.physicsBody = SKPhysicsBody(texture: playerTexture, size: playerTexture.size())
         player.physicsBody!.contactTestBitMask = player.physicsBody!.collisionBitMask
-        player.physicsBody?.isDynamic = true
+        player.physicsBody?.isDynamic = false
         player.physicsBody?.collisionBitMask = 0
         
         //set up the animation loop
@@ -245,5 +274,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "SCORE: 0"
         scoreLabel.fontColor = UIColor.black
         addChild(scoreLabel)
+    }
+    
+    func createLogos() {
+        logo = SKSpriteNode(imageNamed: "logo")
+        logo.position = CGPoint(x: frame.midX, y: frame.midY)
+        addChild(logo)
+        
+        gameOver = SKSpriteNode(imageNamed: "gameover")
+        gameOver.position = CGPoint(x: frame.midX, y: frame.midY)
+        gameOver.alpha = 0
+        addChild(gameOver)
     }
 }
