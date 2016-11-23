@@ -667,6 +667,7 @@ Controls/views start with UI\
 \i0 base class of views/controllers\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}you can use it directly on a view in Interface Builder (eg. to frame other views) [dragging to it does not make it a parent though]\
+{\listtext	\uc0\u8259 	}NOTE: many properties set the other properties when you set them (eg. center would move x and y)\
 {\listtext	\uc0\u8259 	}can also instantiate (default initializer) in code and set properties to make it do stuff\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}good things to do if you set one up this way:\
@@ -702,6 +703,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}\ul center\ulnone  - a CGPoint representing the center coordinates of the view within its superview\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}WARNING: if the orientation of the device changes, this stays locked into hard coordinates (which can have really weird effects)\
+{\listtext	\uc0\u8259 	}settable\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul frame\ulnone  - CGRect describing the view\'92s rectangle within its parent coordinate system\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -710,7 +712,8 @@ Controls/views start with UI\
 \b settable
 \b0  (eg. if you instantiate UIView in code)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul window\ulnone  - UIWindow belonging to the view\
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul bounds\ulnone  - like frame but in the view\'92s own coordinates (usually x and y 0 and then width and height) [also settable]\
+{\listtext	\uc0\u8259 	}\ul window\ulnone  - UIWindow belonging to the view\
 {\listtext	\uc0\u8259 	}\ul isHidden
 \i \ulnone  - 
 \i0 used for hiding a view\
@@ -873,6 +876,31 @@ Controls/views start with UI\
 \i0 : label.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}remember to disable translatesAutoresizingMaskIntoConstraints if needed\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i addChildViewController
+\i0 () - adds a view controller as a child\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}not safe to add the normal way you add views because system events won\'92t be wired properly\
+{\listtext	\uc0\u8259 	}this is known as 
+\b view containment\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2
+\b0 \cf0 {\listtext	\uc0\u8259 	}
+\i didMove(toParentViewController:)
+\i0  - alert a view controller that it\'92s been added to another one (via 
+\i addChildViewController
+\i0 )\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}another part of 
+\b view containtment
+\b0 \
+{\listtext	\uc0\u8259 	}typically whoever makes your custom view controller at runtime would call this and then you might override it in your custom view controller to respond\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}SUBCLASSING: if you subclass UIViewController directly (and not something like UITableViewController), the following should be kept in mind:\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}use view containment when putting it under another view controller\
+{\listtext	\uc0\u8259 	}you get a view by default, but it doesn\'92t draw by default - you need to add that view as a child of a real view (even though it seems criss-crossy)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UITableViewController\ulnone  - view that has rows of data that can be populated at runtime\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1190,6 +1218,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i image
 \i0  property set to a UIImage instance to display\
+\ls6\ilvl1{\listtext	\uc0\u8259 	}loading multiple with the same image is OK because iOS is very efficient at sharing them\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0\cf0 {\listtext	\'95	}\ul UIStackView\ulnone  - auto-layout powered view for stacking horizontally and vertically to make adaptive layouts easier [introduced in iOS 9]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
