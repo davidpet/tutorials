@@ -379,6 +379,11 @@ Interface Builder
 \i done
 \i0  action will be orphaned, but you can reuse it in your own navigation bars\
 		Info.plist (same as usual): has NSExtension fields\
+	Watch Kit App: pick under watchOS\
+		Gives you 3 folders (which are also each their own target)(only 2 of them are schemes for building/running though)\
+			-1 is just your norma iOS app (like a Single View Application template project) [which has a reference to the WatchKit app]\
+			-1 is watchkit app [which has a reference to watchkit extension]\
+			-1 is watchkit extension\
 	Game: starting point for a game (lets you select the base technology such as SpriteKit or SceneKit)\
 		Default app has grey screen with \'93Hello, World\'94 and you can click and drag to animate loopy things of different colors (frame rate in lower right corner)\
 		AppDelegate swift file (basically same as regular app - still uses UIKit)\
@@ -793,10 +798,10 @@ NSExtensionJavaScriptPreprocessingFile
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ul \ulc0 	Debugging on Other iOS Versions\ulnone : if you have the default setting in your project of the latest iOS version, you will only see one of each device, but if you support an older iOS version, you\'92ll see the combinations in the dropdown\
 	\ul Device Order\ulnone : the order in the menu is mostly in spec order but not strictly so (eg. iPad Retina is below iPad Pro and iPhone SE is below iPhone 7 Plus) [probably just alphabetized]\
-	\ul \ulc0 Launching to Home Screen\ulnone :\
+	\ul Launching to Home Screen\ulnone :\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}Xcode -> Open Developer Tools -> Simulator\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}alternatively, right-click in the dock and Open Developer Tools -> Simulator [Xcode does have to be already running for this option to show up]\
+{\listtext	\uc0\u8259 	}alternatively, right-click in the dock and Open Developer Tools -> Simulator [Xcode does have to be already running for this option to show up]\
 {\listtext	\uc0\u8259 	}to change which device gets launched for next time (and to reload this time), once simulator is running, go to Hardware -> Device and pick the iOS/device combination you want\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 	\ul Other Configuration\ulnone :\
