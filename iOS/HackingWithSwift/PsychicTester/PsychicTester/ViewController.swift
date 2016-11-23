@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var cardContainer: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

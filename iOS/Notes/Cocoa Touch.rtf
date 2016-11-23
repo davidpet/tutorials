@@ -675,7 +675,8 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}set isUserInteractionEnabled\
 {\listtext	\uc0\u8259 	}appearance and position information\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul isUserInteractionEnabled\ulnone  - can set to false so the view doesn\'92t receive events like taps\
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul autoresizeSubviews\ulnone  - turn to false to prevent subviews from getting resized (eg. if drawing progamatically) (also available in Attributes Inspector)\
+{\listtext	\uc0\u8259 	}\ul isUserInteractionEnabled\ulnone  - can set to false so the view doesn\'92t receive events like taps\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: when false it seems to allow objects behind to receive the interaction (see FourInARow game where background buttons receive taps through chips)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1077,8 +1078,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i hidesBackButton
 \i0  - used to hide/show the back button of the navigation bar (eg. while doing a task)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: can set any of these to nil to get rid of it when you don\'92t need it anymore\
+{\listtext	\uc0\u8259 	}NOTE: can set any of these to nil to get rid of it when you don\'92t need it anymore\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0\cf0 {\listtext	\'95	}\ul UIBarButtonItem\ulnone  - navigation bar button items (created to be passed into members of UINavigationItem)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1762,7 +1762,7 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls8\ilvl0
-\fs28 \cf0 {\listtext	\'95	}\ul \ulc0 GKRandom\ulnone  - protocol for getting random numbers (adopted by sources and distributions)\
+\fs28 \cf0 {\listtext	\'95	}\ul GKRandom\ulnone  - protocol for getting random numbers (adopted by sources and distributions)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i nextInt(upperBound:)
@@ -1780,7 +1780,7 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \i nextUniform()
 \i0  - random floating point value from 0.0 to 1.0 (inclusive)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls8\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 GKRandomSource\ulnone  - random number generator\
+\ls8\ilvl0\cf0 {\listtext	\'95	}\ul GKRandomSource\ulnone  - random number generator\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
@@ -1860,7 +1860,8 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls10\ilvl0
 \fs36 \cf0 {\listtext	
-\fs28 \'95	}\ul GKRandomDistribution\ulnone  - random number generator for values within a certain range with a certain distribution\
+\fs28 \'95	}
+\fs36 \ul GKRandomDistribution\ulnone  - random number generator for values within a certain range with a certain distribution\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}like having pure random number generator and applying a shape to it (in the case of this base class it\'92s 
 \b uniform
@@ -1871,13 +1872,14 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 {\listtext	\uc0\u8259 	}
 \i d6()
 \i0  - static, gets a distribution for 6-sided die (1 to 6 inclusive)\
-\ls10\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i d20()
 \i0  - static, gets a distribution for 20-sided die (1 to 20 inclusive)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1
-\i {\listtext	\uc0\u8259 	}init(lowestValue:highestValue:)
+\i \cf0 {\listtext	\uc0\u8259 	}init(lowestValue:highestValue:)
 \i0  - gets a uniform distribution between two inclusive endpoints using arc4 randomizer\
-\ls10\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i init(randomSource:lowestValue:highestValue:)
 \i0  - gets a uniform distribution between two inclusive endpoints using given GKRandom (not GKRandomSource for some reason)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -1936,7 +1938,7 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \b0  so it doesn\'92t lock up the UI\
 {\listtext	\uc0\u8259 	}you should introduce a delay so the user doesn\'92t get confused (eg. 1 second minus the amount of time it takes to do the calculation)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls10\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 GKGameModel\ulnone  - protocol that represents overall game state in a strategy-based game (for AI) [LOTS of required members]\
+\ls10\ilvl0\cf0 {\listtext	\'95	}\ul GKGameModel\ulnone  - protocol that represents overall game state in a strategy-based game (for AI) [LOTS of required members]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}whatever object implements this protocol, it must implement NSCopying because GameplayKit AI copies the game model (explosively) to make a branch decision\
 {\listtext	\uc0\u8259 	}because of the copying, you should keep your game model as small as you can, even if it means duplicating a bit in the view (see FourInARow game for example)\
@@ -1993,16 +1995,15 @@ AI: to enable AI in your app, you need to implement the 3 protocols GKGameModel,
 \i isLoss(for:)
 \i0  - like doing isWin(for:) for other player [OPTIONAL]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls10\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 GKGameModelPlayer\ulnone  - protocol that represents a player in a strategy-based game (for AI) [must be an NSObject]\
+\ls10\ilvl0\cf0 {\listtext	\'95	}\ul GKGameModelPlayer\ulnone  - protocol that represents a player in a strategy-based game (for AI) [must be an NSObject]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i playerId
 \i0  - integer gettable property (computed or stored) that gives a unique integer ID for each player in the game (can be as simple as 0 and 1)\
 {\listtext	\uc0\u8259 	}although you only have to give this one value to make the protocol work, you are free to store other information as needed in the class that implements it (and make use of it in game model)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls10\ilvl0
-\fs36 \cf0 {\listtext	\'95	}
-\fs28 \ul \ulc0 GKGameModelUpdate\ulnone  - protocol that represents an individual move in a strategy-based game (for AI) [must be an NSObject]\
+\ls10\ilvl0\cf0 {\listtext	\'95	}
+\fs28 \ul GKGameModelUpdate\ulnone  - protocol that represents an individual move in a strategy-based game (for AI) [must be an NSObject]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls10\ilvl1
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
@@ -2133,8 +2134,7 @@ NOTE: to use actual UIKit controls within a SpriteKit game, add them to the view
 	this is possible because SpriteKit just draws into a view within the UIKit framework\
 HINT: to start a new game, use present(_:transition:) in the SKView to transition to a new instance of your game scene object\
 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 Background, ground, player, rock graphics by Kenney\
+Background, ground, player, rock graphics by Kenney\
 	http://opengameart.org/content/tappy-plane\
 	http://kenney.itch.io/kenney-donation\
 \
@@ -2148,8 +2148,7 @@ Explosion sound by Luke.RUSTLD - "Bomb Explosion 8bit"\
 	http://opengameart.org/content/bombexplosion8bit\
 \
 Other Clipart:{\field{\*\fldinst{HYPERLINK "https://openclipart.org/"}}{\fldrslt  https://openclipart.org/}}\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
+\
 See Plachinko project for dropping balls into animated slots and having them explode with a score\
 See WhackAPenguin project for wack-a-mole style game with changing penguin images/states, cropping, only being able to hit when visible, timed events that decrease the interval over time (with some variability), ending game w/ gameover, etc.\
 \
@@ -2180,7 +2179,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}Y axis is flipped from normal (higher Y = higher up screen)\
 {\listtext	\uc0\u8259 	}Coordinates of an object are coordinates of the center (or anchor point if specified)\
 {\listtext	\uc0\u8259 	}Angles are in radians, not degrees (true in UIKit too) [CGFloat.pi for 180 degrees]\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}By following the step to set scene anchor to (0, 0), you make bottom-left the origin in the scene [although it would default to center screen]\
+{\listtext	\uc0\u8259 	}By following the step to set scene anchor to (0, 0), you make bottom-left the origin in the scene [although it would default to center screen]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in GameViewController (SKView properties) -> aiming for 60 FPS for games\
 {\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
@@ -2201,7 +2200,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i children
 \i0  - array of the children of the node\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i init()
 \i0  - can create an instance directly (eg. for a pure physics body like a screen boundary)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -2233,9 +2232,9 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls13\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls13\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
+{\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
 {\listtext	\uc0\u8259 	}roughly equivalent to an app controller in UIKit in terms of importance and position in the program\
-\ls13\ilvl1{\listtext	\uc0\u8259 	}COORDINATES: all are within the scene (or parent that is in scene) -> the mapping of scene to screen happens as a result of the scaleMode after that\
+{\listtext	\uc0\u8259 	}COORDINATES: all are within the scene (or parent that is in scene) -> the mapping of scene to screen happens as a result of the scaleMode after that\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls13\ilvl2\cf0 {\listtext	\uc0\u8259 	}anchor point for scene (which tutorial says to set to 0,0) will be the origin point that all objects in the scene will be relative to\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2287,7 +2286,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}useful for things like counting, doing some cleanup for offscreen or out of bounds things, stopping sounds, etc.\
 {\listtext	\uc0\u8259 	}EXAMPLE: tutorial uses it to stop fuse sound if no bombs left (since you can only see frame by frame, you can\'92t see 0 bombs with sound because it\'92s synced to this)\
-\ls15\ilvl2{\listtext	\uc0\u8259 	}WARNING: can possibly be called before didMove(to:) so be careful about nil for properties that have !\
+{\listtext	\uc0\u8259 	}WARNING: can possibly be called before didMove(to:) so be careful about nil for properties that have !\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i addChild()
@@ -2310,7 +2309,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i backgroundColor
 \i0  - UIColor representing color to show behind texture (if any)\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i scaleMode
 \i0  - enum specifying how the game scene file\'92s dimensions will be mapped to the device\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -2334,7 +2333,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i view
 \i0  - the SKView containing the scene\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i speed
 \i0  - speed multiplier for actions under node and its children (float) (default 1.0)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -2420,7 +2419,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - the z-order number of the item (use -1 for background)(don\'92t usually HAVE to set if using physics)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}defaults to 0 (so setting to 1 makes something pop in front of default items)\
-\ls15\ilvl2{\listtext	\uc0\u8259 	}NOTE: you can use large negative values and build up layers too (completely flexible)\
+{\listtext	\uc0\u8259 	}NOTE: you can use large negative values and build up layers too (completely flexible)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i zRotation
@@ -2481,7 +2480,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 {\listtext	\uc0\u8259 	}
 \i init(imageNamed:)
 \i0  - create an image from a resource\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i size()
 \i0  - get CGSize representing the size of the texture\
 {\listtext	\uc0\u8259 	}probably other similar initializers and methods as sprite node\
@@ -2587,7 +2586,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - overall speed ratio (CGFloat, default = 1.0)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. adjust downward to make everything move slower\
-\ls15\ilvl2{\listtext	\uc0\u8259 	}HINT: set to 0 to stop physics\
+{\listtext	\uc0\u8259 	}HINT: set to 0 to stop physics\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls15\ilvl0\cf0 {\listtext	\'95	}\ul SKPhysicsContactDelegate\ulnone  - protocol to conform to in order to detect collisions (eg. conform your scene to this)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2605,7 +2604,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl0\cf0 {\listtext	\'95	}\ul SKAction\ulnone  - represents an action such as a movement or rotation\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}contains factory methods that return SKAction instances which you can retain or queue\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}HINT: durations less than the refresh rate of the game mean \'93as fast as possible\'94 (synced to frames or not?)(eg. in an animation loop)\
+{\listtext	\uc0\u8259 	}HINT: durations less than the refresh rate of the game mean \'93as fast as possible\'94 (synced to frames or not?)(eg. in an animation loop)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls15\ilvl2\cf0 {\listtext	\uc0\u8259 	}duration of 0 can be used to do something immediately\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -2711,7 +2710,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i doorway(withDuration:)
 \i0  - factory method to get an instance that fades with a doorway effect\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i moveIn(with:duration:)
 \i0  - get an instance that transitions with given behavior (SKTransitionDirection)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -2786,10 +2785,10 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i path
 \i0  - CGPath describing what path the shape should use (nil by default, which means to draw nothing)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls15\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKAudioNode\ulnone  - an audio node for audio more sophisticated than simple sound effects\
+\ls15\ilvl0\cf0 {\listtext	\'95	}\ul SKAudioNode\ulnone  - an audio node for audio more sophisticated than simple sound effects\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls15\ilvl1\cf0 {\listtext	\uc0\u8259 	}allows for panning, pausing, etc.\
-\ls15\ilvl1{\listtext	\uc0\u8259 	}HINT: great for background music\
+{\listtext	\uc0\u8259 	}HINT: great for background music\
 {\listtext	\uc0\u8259 	}
 \b loops
 \b0  audio by default\
@@ -2799,7 +2798,7 @@ See Hangman (in OSX folder) for cmdline game (and example of printing full state
 \i0  - create an instance from an audio file\
 {\listtext	\uc0\u8259 	}will start 
 \b playing
-\b0  as soon as you add to something, like your scene\ul \ulc0 \
+\b0  as soon as you add to something, like your scene\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
