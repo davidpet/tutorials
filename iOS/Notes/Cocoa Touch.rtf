@@ -75,6 +75,12 @@ Foundation also includes Darwin, which imports functions from the C library, so 
 {\listtext	\uc0\u8259 	}
 \i init()
 \i0  - should call the base init in your override init if you have one\
+{\listtext	\uc0\u8259 	}
+\i perform(_:with:)
+\i0  - perform a selector with a given argument (nil if none)\
+{\listtext	\uc0\u8259 	}
+\i perform(_:with:afterDelay:)
+\i0  - same as above but after a certain number of seconds\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSRange\ulnone  - basic range object used in apple frameworks\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -762,6 +768,18 @@ Controls/views start with UI\
 \i animate()
 \i0  - static version available too\
 {\listtext	\uc0\u8259 	}
+\i transition(with:duration:options:animations:)
+\i0  - static, similar to 
+\i animate()
+\i0  but can do a bit more complex stuff (eg. flip a card over)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}with = the view to transition (eg. the view that contains the front and back UIImageView of the card)\
+{\listtext	\uc0\u8259 	}duration = the time for the transition\
+{\listtext	\uc0\u8259 	}options = what kind of transition to do (eg. .transitionFlipFromRight to flip a card over)\
+{\listtext	\uc0\u8259 	}animations = closure to describe what the transition will be (eg. show back and hide front UIImage view in card view)\
+{\listtext	\uc0\u8259 	}there is also an optional trailing closure that can be called on completion\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i transform
 \i0  - property containing a CGAffineTransform value for use with animations (eg. set from within the animation closure of 
 \i animate()
