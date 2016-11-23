@@ -11,6 +11,7 @@ import GameplayKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var cardContainer: UIView!
+    @IBOutlet weak var gradientView: GradientView!
 
     var allCards = [CardViewController]()
     

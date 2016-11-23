@@ -804,7 +804,23 @@ Controls/views start with UI\
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i removeFromSuperview()
 \i0  - remove the view from its parent\
-{\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
+{\listtext	\uc0\u8259 	}
+\i layerClass
+\i0  - property to override in subclasses if you want to use a type other than CALayer as the layer class\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. return a subclass like CAGradientLayer.self or CATiledLayer.self (will work as normal but give you the extra options in your drawing)\
+{\listtext	\uc0\u8259 	}this is called early on in object creation and then gets locked in\
+{\listtext	\uc0\u8259 	}this will change what 
+\i layer
+\i0  ends up being (that\'92s the point) [just need to cast it]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i layoutSubviews()
+\i0  - override in subclass if you want to control how subviews are laid out if built-in autolayout stuff is insufficient\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: tutorial uses this method to configure properties on the CAGradientLayer (colors)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
 \i tabBarItem
@@ -1792,6 +1808,13 @@ Core Animation\
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
 \i\fs28 shadow*
 \i0 : for configuring drop shadows (can be taxing on the system if transparency involved)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul CAGradientLayer\ulnone  - drawing layer that draws a gradient\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls7\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i colors
+\i0  - array of CGColor describing the color stops\
+{\listtext	\uc0\u8259 	}probably more complicated options than this (look it up if needed)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
