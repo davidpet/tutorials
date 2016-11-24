@@ -826,6 +826,22 @@ Controls/views start with UI\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: tutorial uses this method to configure properties on the CAGradientLayer (colors)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i touchesBegan(), touchesMoved(), touchesCancelled(), touchesEnded()
+\i0  - see SKScene (same params and meaning)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}views/controls should implement these (calling the base versions in subclasses)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i traitCollection
+\i0  - traits\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i forceTouchCapability
+\i0  - lets you know if 3D touch is available (.available)\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls4\ilvl3\cf0 {\listtext	\uc0\u8259 	}properties of UITouch available to read this if available\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIViewController\ulnone  - base class for view controllers (code behind scenes)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}
@@ -1259,6 +1275,8 @@ Controls/views start with UI\
 \i image
 \i0  property set to a UIImage instance to display\
 \ls6\ilvl1{\listtext	\uc0\u8259 	}loading multiple with the same image is OK because iOS is very efficient at sharing them\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls6\ilvl2\cf0 {\listtext	\uc0\u8259 	}in tutorial example, setting a card to an image every time finger moves was even ok due to the sharing\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0\cf0 {\listtext	\'95	}\ul UIStackView\ulnone  - auto-layout powered view for stacking horizontally and vertically to make adaptive layouts easier [introduced in iOS 9]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1764,6 +1782,12 @@ Controls/views start with UI\
 \ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i location(in:)
 \i0  - CGPoint representing the location of the touch relative to the given container\
+\ls6\ilvl1{\listtext	\uc0\u8259 	}
+\i force
+\i0  - CGFloat representing 3D touch force (see UIView traitCollection to see if 3D touch available) [1.0 = average]\
+{\listtext	\uc0\u8259 	}
+\i maximumPossibleForce
+\i0  - CGFloat representing maximum 3D touch force (hard press)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0\cf0 {\listtext	\'95	}\ul UIImageJPEGRepresentation()\ulnone  - function to create a 
 \i Data
@@ -2295,6 +2319,8 @@ See ExplodingMonkeys for custom SKSpriteNode subclass, using CoreGraphics to dra
 See FourInARow project for UIKit game that uses buttons as columns, proper separation of model and view, using arrays (single and multidimensional) and tags to identify cells/buttons/chips generically, stacking chips, making UIViews into circles(chips), animating dropping a chip into a column (in UIKit), receiving taps through chips to a button column, using statics for overall game state, turn-based game w/ colored chips and UI updates, game reset, detecting four in a row straight and diagonal, AI to allow playing against the computer, implementing NSCopying and the AI protocols for GameplayKit efficiently, using activity indicator and delay for UI \'93thinking\'94\
 \
 See CrashyPlane for iPhone game, portrait mode, animation loop for player (propeller spinning quickly), creating layers (solid colored sky with two pieces, background image), infinitely scrolling background, parallax scrolling (different layers different speeds), objects appearing from right edge of screen and dissappearing when hit left, random rock gap selection for user to navigate through, using SKAction to automate regular creation of new rocks, adding score label that floats above other stuff, specifying a floaty gravity world (to make game easier than real gravity would be - and to make it feel like plane has propeller), using taps to keep plane from falling, animating rotation of plan in direction of movement in proportion to speed, giving a score for clearing each gap (by using a collision rectangle), exploding and stopping game when hit ground or rock, background music, Intro label w/ plane physics starting when you tap screen (and label going away), Game Over when you die (w/ stopping music and scrolling), restarting on tap in GameOver (via scene transition to new instance), confining to the screen without changing position from bounce (my own solution)\
+\
+See PsychicTester for doing SpriteKit-like operations in UIKit (eg. particles [stars], flipping cards, detecting touches, etc.)\
 \
 See Hangman (in OSX folder) for cmdline game (and example of printing full state between each round) [doesn\'92t involve SpriteKit]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -3165,8 +3191,11 @@ WARNING: the context drawing stuff is specific to iOS 10 (if you need to support
 \ls20\ilvl2\cf0 {\listtext	\uc0\u8259 	}width and height will be shrunk by 2*dx and 2*dy\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls20\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i width, height, minX, minY, midX, midY, maxX, maxY
-\i0 \
+\i width, height, minX, minY, midX, midY, maxX, maxY\
+\ls20\ilvl1
+\i0 {\listtext	\uc0\u8259 	}
+\i contains()
+\i0  - check of a CGPoint lies within the rectangle\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls20\ilvl0\cf0 {\listtext	\'95	}\ul CGFloat\ulnone  - a floating point number (interopable with regular floats/doubles)(floats and doubles often accepted by functions/properties that take CGFloat)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
