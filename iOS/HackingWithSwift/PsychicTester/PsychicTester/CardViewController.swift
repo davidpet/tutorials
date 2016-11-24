@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameplayKit
 
 class CardViewController: UIViewController {
     weak var delegate: ViewController!
@@ -36,6 +37,8 @@ class CardViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(cardTapped))
         back.isUserInteractionEnabled = true
         back.addGestureRecognizer(tap)
+        
+        perform(#selector(wiggle), with: nil, afterDelay: 1)
     }
     
     func cardTapped() {
@@ -53,6 +56,20 @@ class CardViewController: UIViewController {
         UIView.animate(withDuration: 0.7) {
             self.view.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
             self.view.alpha = 0
+        }
+    }
+    
+    func wiggle() {
+        if GKRandomSource.sharedRandom().nextInt(upperBound: 4) == 1
+        {
+            UIView.animate(withDuration: 0.2, delay: 0, options: .allowUserInteraction, animations: {
+                self.back.transform = CGAffineTransform(scaleX: 1.01, y: 1.01)
+            }) { _ in
+                self.back.transform = CGAffineTransform.identity
+            }
+            perform(#selector(wiggle), with: nil, afterDelay: 8)
+        } else {
+            perform(#selector(wiggle), with: nil, afterDelay: 2)
         }
     }
 }
