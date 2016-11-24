@@ -56,6 +56,17 @@ class ViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle,
+                            forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let commit = commits[indexPath.row]
+            container.viewContext.delete(commit)
+            commits.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            saveContext()
+        }
+    }
+    
     func fetchCommits() {
         if let data = try? Data(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!){
             let jsonCommits = JSON(data: data)

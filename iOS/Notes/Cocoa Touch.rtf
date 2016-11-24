@@ -650,6 +650,10 @@ NOTE: uses SQLite internally (unless you tell it to use something else which you
 \i0  - fetch an array of entity objects based on an NSFetchRequest (typed via the fetch request, so the object you get back is right type) [this is a generic technically] [[throws]]\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls3\ilvl2\cf0 {\listtext	\uc0\u8259 	}just returns empty array if no results\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i delete()
+\i0  - delete a specific entity in-memory (commited on next save())\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls3\ilvl0\cf0 {\listtext	\'95	}\ul NSManagedObject\ulnone  - base class for entity classes when using CoreData\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -1116,10 +1120,11 @@ Controls/views start with UI\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}
 \i tableView(_:commit:forRowAt:)
-\i0  - called to handle user clicking lefthand button (delete, insert, etc.) in editing mode\
+\i0  - called to handle user clicking lefthand button (delete, insert, etc.) in editing mode or sliding to click a button in normal mode\
 \pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
 \ls5\ilvl4\cf0 {\listtext	\uc0\u8259 	}commit = enum value (like .insert, .delete) to tell you what button they clicked\
 {\listtext	\uc0\u8259 	}rowRowAt = the indexPath of the row that you are to operate on\
+{\listtext	\uc0\u8259 	}NOTE: just by implementing this method, you automatically get slide to delete behavior in normal mode!\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls5\ilvl3\cf0 {\listtext	\uc0\u8259 	}
 \i numberOfSections(in:)
@@ -1313,6 +1318,9 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i insertRows
 \i0 : for adding individual rows without the need to do a full reload (with animation) [.automatic is a good animation option to use]\
+\ls7\ilvl1{\listtext	\uc0\u8259 	}
+\i deleteRows(at:with:)
+\i0  - delete a subset of rows with a possible animation (such as fade)\
 {\listtext	\uc0\u8259 	}NOTE: make sure you add to the data that your table view loads from before calling a method like insertRows\
 {\listtext	\uc0\u8259 	}
 \i isEditing
