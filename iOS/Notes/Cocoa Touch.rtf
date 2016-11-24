@@ -425,7 +425,13 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \i init(format:\'85)
 \i0  - crate a predict with a given condition format string\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
-\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. \'93owningWhistle == %@\'93, reference\
+\ls1\ilvl2\cf0 {\listtext	\uc0\u8259 	}eg. \'93text == \'91my text\'92\'93\
+{\listtext	\uc0\u8259 	}eg. \'93text == %@\'93, x       [use %@ for variables, 
+\b do not
+\b0  use Swift interpolation with user values\
+{\listtext	\uc0\u8259 	}eg. \'93text CONTAINS[c] \'91hi\'92\'94     [CONTAINS operator mixed with [c] to mean case insensitive]\
+{\listtext	\uc0\u8259 	}eg. \'93NOT text BEGINSWITH \'91hi\'92\'94		[negation and prefix test]\
+{\listtext	\uc0\u8259 	}eg. \'93date > %@\'93, mydate as NSDate		[comparing against a Date object]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul NSSortDescriptor\ulnone  - sorting behavior for queries\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -516,6 +522,12 @@ NSExtensionJavaScriptPreprocessingResultsKey
 \ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init()
 \i0  - defaults to current date and time\
+{\listtext	\uc0\u8259 	}
+\i addingTimeInterval()
+\i0  - get a new instance with the given adjustment in seconds (signed)\
+{\listtext	\uc0\u8259 	}
+\i as NSDate
+\i0  - converting to NSDate for APIs\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
@@ -656,7 +668,10 @@ NOTE: uses SQLite internally (unless you tell it to use something else which you
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls3\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i sortDescriptors
-\i0  - array of NSSortDescriptor (applied in order) describing how to sort the results\ul \
+\i0  - array of NSSortDescriptor (applied in order) describing how to sort the results (nil for no sort)\
+{\listtext	\uc0\u8259 	}
+\i predicate
+\i0  - NSPredicate describing what to return (nil for no filter)\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \

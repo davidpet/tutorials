@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class ViewController: UITableViewController {
+    var commitPredicate: NSPredicate?
     var container: NSPersistentContainer!
     var commits = [Commit]()
     
@@ -27,6 +28,9 @@ class ViewController: UITableViewController {
         
         performSelector(inBackground: #selector(fetchCommits), with: nil)
         loadSavedData()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self,
+                                                            action: #selector(changeFilter))
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,6 +80,7 @@ class ViewController: UITableViewController {
         let request = NSFetchRequest<Commit>(entityName: "Commit")
         let sort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sort]
+        request.predicate = commitPredicate
         do {
             commits = try container.viewContext.fetch(request)
             print("Got \(commits.count) commits")
@@ -93,5 +98,30 @@ class ViewController: UITableViewController {
                 print("An error occurred while saving: \(error)")
             }
         }
+    }
+    
+    func changeFilter() {
+        let ac = UIAlertController(title: "Filter commits...", message: nil, preferredStyle: .actionSheet)
+        
+        ac.addAction(UIAlertAction(title: "Show only fixes", style: .default) { [unowned self] _ in
+            self.commitPredicate = NSPredicate(format: "message CONTAINS[c] 'fix'")
+            self.loadSavedData()
+        })
+        ac.addAction(UIAlertAction(title: "Ignore Pull Requests", style: .default) { [unowned self] _ in
+            self.commitPredicate = NSPredicate(format: "NOT message BEGINSWITH 'Merge pull request'")
+            self.loadSavedData()
+        })
+        ac.addAction(UIAlertAction(title: "Show only recent", style: .default) { [unowned self] _ in
+            let twelveHoursAgo = Date().addingTimeInterval(-43200)
+            self.commitPredicate = NSPredicate(format: "date > %@", twelveHoursAgo as NSDate)
+            self.loadSavedData()
+        })
+        ac.addAction(UIAlertAction(title: "Show all commits", style: .default) { [unowned self] _ in
+            self.commitPredicate = nil
+            self.loadSavedData()
+        })
+        
+        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(ac, animated: true)
     }
 }
