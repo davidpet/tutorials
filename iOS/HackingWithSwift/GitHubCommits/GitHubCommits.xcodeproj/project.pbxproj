@@ -15,6 +15,8 @@
 		B93F7F6E1DE6AA8A00CA9EBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F6D1DE6AA8A00CA9EBD /* SwiftyJSON.swift */; };
 		B93F7F701DE6ABBE00CA9EBD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F6F1DE6ABBE00CA9EBD /* DetailViewController.swift */; };
 		B93F7F731DE6AD5A00CA9EBD /* Project38.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F711DE6AD5A00CA9EBD /* Project38.xcdatamodeld */; };
+		B93F7F761DE6B6F300CA9EBD /* Commit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F741DE6B6F300CA9EBD /* Commit+CoreDataClass.swift */; };
+		B93F7F771DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F751DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		B93F7F6D1DE6AA8A00CA9EBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B93F7F6F1DE6ABBE00CA9EBD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B93F7F721DE6AD5A00CA9EBD /* Project38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project38.xcdatamodel; sourceTree = "<group>"; };
+		B93F7F741DE6B6F300CA9EBD /* Commit+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B93F7F751DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Commit+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 		B93F7F5A1DE6AA6800CA9EBD /* GitHubCommits */ = {
 			isa = PBXGroup;
 			children = (
+				B93F7F741DE6B6F300CA9EBD /* Commit+CoreDataClass.swift */,
+				B93F7F751DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift */,
 				B93F7F5B1DE6AA6800CA9EBD /* AppDelegate.swift */,
 				B93F7F5D1DE6AA6800CA9EBD /* ViewController.swift */,
 				B93F7F5F1DE6AA6800CA9EBD /* Main.storyboard */,
@@ -146,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B93F7F761DE6B6F300CA9EBD /* Commit+CoreDataClass.swift in Sources */,
 				B93F7F6E1DE6AA8A00CA9EBD /* SwiftyJSON.swift in Sources */,
+				B93F7F771DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift in Sources */,
 				B93F7F731DE6AD5A00CA9EBD /* Project38.xcdatamodeld in Sources */,
 				B93F7F5E1DE6AA6800CA9EBD /* ViewController.swift in Sources */,
 				B93F7F5C1DE6AA6800CA9EBD /* AppDelegate.swift in Sources */,
