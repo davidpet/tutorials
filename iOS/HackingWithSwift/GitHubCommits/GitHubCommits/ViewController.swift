@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let container = NSPersistentContainer(name: "Project38")
+        container = NSPersistentContainer(name: "Project38")
         container.loadPersistentStores { storeDescription, error in
             self.container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
 
@@ -73,7 +73,7 @@ class ViewController: UITableViewController {
     }
     
     func loadSavedData() {
-        let request = NSFetchRequest<Commit>()
+        let request = NSFetchRequest<Commit>(entityName: "Commit")
         let sort = NSSortDescriptor(key: "date", ascending: false)
         request.sortDescriptors = [sort]
         do {
