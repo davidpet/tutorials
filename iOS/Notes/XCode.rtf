@@ -929,6 +929,14 @@ NSExtensionJavaScriptPreprocessingFile
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls16\ilvl3\cf0 {\listtext	\uc0\u8259 	}if you do this, core data will know which objects are the same (eg. re-commiting them will be seen as a merge)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls16\ilvl2\cf0 {\listtext	\uc0\u8259 	}to make a field fast searchable (at creation and maintenance cost) make it Indexed (eg. a name)\
+{\listtext	\uc0\u8259 	}to add relationships between entities:\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls16\ilvl3\cf0 {\listtext	\uc0\u8259 	}in the same editor page where you add attributes, add a Relationship and name it for the thing you\'92re linking to (plural if one to many)\
+{\listtext	\uc0\u8259 	}set the destination to the entity type to link to\
+{\listtext	\uc0\u8259 	}use the Type field in Inspector to set whether it\'92s One to Many or One to One\
+{\listtext	\uc0\u8259 	}do the appropriate thing in the other class to create the relationship property over there (and select this one in Inverse dropdown)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls16\ilvl2\cf0 {\listtext	\uc0\u8259 	}save (because Xcode doesn\'92t apply core data changes when you build without saving)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls16\ilvl1\cf0 {\listtext	2.	}Wire the data model into your app\
@@ -956,7 +964,8 @@ NSExtensionJavaScriptPreprocessingFile
 \ls16\ilvl4\cf0 {\listtext	\uc0\u8259 	}in Core Data Editor, select Editor -> Create Managed NSManagedObject subclass\
 {\listtext	\uc0\u8259 	}select the classes you want and set grouping type to yellow folder\
 {\listtext	\uc0\u8259 	}you end up with two files per class, the Name+CoreDataProperties one for Xcode to manage, and Name+CoreDataClass for you to add to if you want\
-{\listtext	\uc0\u8259 	}when you update the entity, save, and rebuild, Name+CoreDataProperties will be overwritten but Name+CoreDataClass will be intact\
+{\listtext	\uc0\u8259 	}if you change your data model, you will need to save and then re-generate from Editor menu manually\
+{\listtext	\uc0\u8259 	}when you regenerate, your Name+CoreDataProperties will be overwritten but Name+CoreDataClass will be intact\
 \pard\tx3820\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li4320\fi-4320\pardirnatural\partightenfactor0
 \ls16\ilvl5\cf0 {\listtext	\uc0\u8259 	}should be fine as long as you don\'92t change the data model (just be careful when you do)\
 \pard\tx3100\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li3600\fi-3600\pardirnatural\partightenfactor0
@@ -969,6 +978,8 @@ NSExtensionJavaScriptPreprocessingFile
 \ls16\ilvl2\cf0 {\listtext	\uc0\u8259 	}use NSFetchRequest for queries\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
+	HINT: if you get a compile error about a class being defined twice, you may have forgotten to turn off codegen for it in the data model file\
+\
 TODO HIGH PRIORITY: learn about suppressing the \'93all interface orientations must be supported\'94 error in Info.plist\
 TODO HIGH PRIORITY: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1"}}{\fldrslt https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1}}\
 TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\

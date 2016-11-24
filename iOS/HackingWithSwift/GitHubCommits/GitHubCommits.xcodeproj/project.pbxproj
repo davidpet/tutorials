@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B91E12881DE6D52E000BE490 /* Author+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E12861DE6D52E000BE490 /* Author+CoreDataClass.swift */; };
+		B91E12891DE6D52E000BE490 /* Author+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91E12871DE6D52E000BE490 /* Author+CoreDataProperties.swift */; };
 		B93F7F5C1DE6AA6800CA9EBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F5B1DE6AA6800CA9EBD /* AppDelegate.swift */; };
 		B93F7F5E1DE6AA6800CA9EBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F5D1DE6AA6800CA9EBD /* ViewController.swift */; };
 		B93F7F611DE6AA6800CA9EBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93F7F5F1DE6AA6800CA9EBD /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B91E12861DE6D52E000BE490 /* Author+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B91E12871DE6D52E000BE490 /* Author+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Author+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B93F7F581DE6AA6800CA9EBD /* GitHubCommits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubCommits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93F7F5B1DE6AA6800CA9EBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B93F7F5D1DE6AA6800CA9EBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		B93F7F5A1DE6AA6800CA9EBD /* GitHubCommits */ = {
 			isa = PBXGroup;
 			children = (
+				B91E12861DE6D52E000BE490 /* Author+CoreDataClass.swift */,
+				B91E12871DE6D52E000BE490 /* Author+CoreDataProperties.swift */,
 				B93F7F741DE6B6F300CA9EBD /* Commit+CoreDataClass.swift */,
 				B93F7F751DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift */,
 				B93F7F5B1DE6AA6800CA9EBD /* AppDelegate.swift */,
@@ -154,8 +160,10 @@
 			files = (
 				B93F7F761DE6B6F300CA9EBD /* Commit+CoreDataClass.swift in Sources */,
 				B93F7F6E1DE6AA8A00CA9EBD /* SwiftyJSON.swift in Sources */,
+				B91E12891DE6D52E000BE490 /* Author+CoreDataProperties.swift in Sources */,
 				B93F7F771DE6B6F300CA9EBD /* Commit+CoreDataProperties.swift in Sources */,
 				B93F7F731DE6AD5A00CA9EBD /* Project38.xcdatamodeld in Sources */,
+				B91E12881DE6D52E000BE490 /* Author+CoreDataClass.swift in Sources */,
 				B93F7F5E1DE6AA6800CA9EBD /* ViewController.swift in Sources */,
 				B93F7F5C1DE6AA6800CA9EBD /* AppDelegate.swift in Sources */,
 				B93F7F701DE6ABBE00CA9EBD /* DetailViewController.swift in Sources */,
@@ -322,6 +330,7 @@
 				B93F7F6C1DE6AA6800CA9EBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
