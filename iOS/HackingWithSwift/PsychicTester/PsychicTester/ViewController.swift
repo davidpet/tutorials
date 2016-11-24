@@ -8,12 +8,15 @@
 
 import UIKit
 import GameplayKit
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var gradientView: GradientView!
 
     var allCards = [CardViewController]()
+    
+    var music: AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +28,8 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 20, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
                 self.view.backgroundColor = UIColor.blue
         })
+        
+        playMusic()
     }
 
     func loadCards() {
@@ -114,5 +119,15 @@ class ViewController: UIViewController {
             }
         }
         perform(#selector(loadCards), with: nil, afterDelay: 2)
+    }
+    
+    func playMusic() {
+        if let musicURL = Bundle.main.url(forResource: "PhantomFromSpace", withExtension: "mp3") {
+            if let audioPlayer = try? AVAudioPlayer(contentsOf: musicURL) {
+                music = audioPlayer
+                music.numberOfLoops = -1
+                music.play()
+            }
+        }
     }
 }
