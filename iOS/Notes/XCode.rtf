@@ -316,6 +316,8 @@ Interface Builder
 		Editor->Arrange->Send to Front (or Send to Back, etc.) with an item selected can change its order [although this often greys itself out for no reason]\
 		Also, can drag things in document outline to change the order (lower = more front in z-order)\
 		NOTE: can also show/hide controls to reveal the ones beneath at runtime\
+	watchOS\
+		works basically same way (see WatchKit in Cocoa Touch notes and Project Types notes)\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -406,9 +408,10 @@ Scene Editor\
 		Info.plist (same as usual): has NSExtension fields\
 	Watch Kit App: pick under watchOS\
 		Gives you 3 folders (which are also each their own target)(only 2 of them are schemes for building/running though)\
-			-1 is just your norma iOS app (like a Single View Application template project) [which has a reference to the WatchKit app]\
-			-1 is watchkit app [which has a reference to watchkit extension]\
-			-1 is watchkit extension\
+			-1 is just your norma iOS app (like a Single View Application template project) [which has a reference to the WatchKit app] ((use WatchConnectivity package))\
+			-1 is watchkit app [which has a reference to watchkit extension] (provides UI for app that will run on watchOS)\
+			-1 is watchkit extension (provides code that will run behind the UI on watchOS)\
+		Assistant Editor knows how to link watchkit app and extension\
 	Game: starting point for a game (lets you select the base technology such as SpriteKit or SceneKit)\
 		Default app has grey screen with \'93Hello, World\'94 and you can click and drag to animate loopy things of different colors (frame rate in lower right corner)\
 		AppDelegate swift file (basically same as regular app - still uses UIKit)\
@@ -820,7 +823,8 @@ NSExtensionJavaScriptPreprocessingFile
 	Biometrics/TouchID: TouchID menu of simulator Hardware menu has options to enable (toggle) TouchID support, and to give good and bad touches when prompted\
 		NOTE: the system remembers whether it was enabled before, so the toggle state is not a simple enable flag (there in case you need to flip the state from where it is)\
 	3D Touch: no support\
-	\
+	watchOS: no support for communicating between simulator and watch (or a device as a watch)\
+\
 	To Set State (eg. Allow or Don\'92t Allow Clicks): Reset Content and Settings (in the simulator menu)\
 	SETTINGS: the settings apps on simulated devices differ from the real ones because they are meant to help with testing (check them out)\
 \
