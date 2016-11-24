@@ -9,14 +9,17 @@
 import UIKit
 import GameplayKit
 import AVFoundation
+import WatchConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, WCSessionDelegate {
     @IBOutlet weak var cardContainer: UIView!
     @IBOutlet weak var gradientView: GradientView!
 
     var allCards = [CardViewController]()
     
     var music: AVAudioPlayer!
+    
+    var lastMessage: CFAbsoluteTime = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,24 @@ class ViewController: UIViewController {
         })
         
         playMusic()
+        
+        if (WCSession.isSupported()) {
+            let session = WCSession.default()
+            session.delegate = self
+            session.activate()
+        }
     }
 
+    func session(_ session: WCSession, activationDidCompleteWith  activationState: WCSessionActivationState,
+                    error: Error?){
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+    }
+    
     func loadCards() {
         view.isUserInteractionEnabled = true
 
@@ -144,7 +163,27 @@ class ViewController: UIViewController {
                         card.isCorrect = true
                     }
                 }
+                
+                if card.isCorrect {
+                    sendWatchMessage()
+                }
             }
         }
+    }
+    
+    func sendWatchMessage() {
+        let currentTime = CFAbsoluteTimeGetCurrent()
+        // if less than half a second has passed, bail out
+        if lastMessage + 0.5 > currentTime {
+            return
+        }
+        // send a message to the watch if it's reachable
+        if (WCSession.default().isReachable) {
+            // this is a meaningless message, but it's enough for our purposes
+            let message = ["Message": "Hello"]
+            WCSession.default().sendMessage(message, replyHandler: nil)
+        }
+        // update our rate limiting property
+        lastMessage = CFAbsoluteTimeGetCurrent()
     }
 }
