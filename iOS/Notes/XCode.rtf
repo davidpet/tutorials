@@ -914,7 +914,8 @@ NSExtensionJavaScriptPreprocessingFile
 \fs24 \
 	Data reading/writing/storing capabilities (sort of like Entity Framework from .NET)\
 	Persistent DB\
-	\
+	To resist your simulator storage, do Reset Content and Settings\
+\
 	To use in your app:\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls16\ilvl1\cf0 {\listtext	1.	}Design a core data model\
@@ -924,7 +925,11 @@ NSExtensionJavaScriptPreprocessingFile
 {\listtext	\uc0\u8259 	}gives you a .xcdatamodeld file which is edited by Data Model Editor (inspectors, etc. like other Editors)\
 {\listtext	\uc0\u8259 	}add/rename entities (like classes) and attributes (like properties on those classes) [remember types] using the buttons at the bottom of the editor\
 {\listtext	\uc0\u8259 	}configure which properties are optional (not required to have a value), indexed, etc. via the inspector on the right\
-{\listtext	\uc0\u8259 	}save (because Xcode doesn\'92t apply core data changes when you build without saving)\
+{\listtext	\uc0\u8259 	}to mark a field as a unique identifer, add it via Add Constraints in the Inspector (on the entity)\
+\pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
+\ls16\ilvl3\cf0 {\listtext	\uc0\u8259 	}if you do this, core data will know which objects are the same (eg. re-commiting them will be seen as a merge)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls16\ilvl2\cf0 {\listtext	\uc0\u8259 	}save (because Xcode doesn\'92t apply core data changes when you build without saving)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls16\ilvl1\cf0 {\listtext	2.	}Wire the data model into your app\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
