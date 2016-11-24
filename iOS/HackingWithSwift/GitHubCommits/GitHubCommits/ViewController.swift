@@ -66,6 +66,10 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return fetchedResultsController.sections![section].name
+    }
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any,
                     at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
@@ -145,12 +149,12 @@ class ViewController: UITableViewController, NSFetchedResultsControllerDelegate 
     func loadSavedData() {
         if fetchedResultsController == nil {
             let request = NSFetchRequest<Commit>(entityName: "Commit")
-            let sort = NSSortDescriptor(key: "date", ascending: false)
+            let sort = NSSortDescriptor(key: "author.name", ascending: true)
             request.sortDescriptors = [sort]
             request.fetchBatchSize = 20
             fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                            managedObjectContext: container.viewContext,
-                                           sectionNameKeyPath: nil, cacheName: nil)
+                                           sectionNameKeyPath: "author.name", cacheName: nil)
             fetchedResultsController.delegate = self
         }
         fetchedResultsController.fetchRequest.predicate = commitPredicate
