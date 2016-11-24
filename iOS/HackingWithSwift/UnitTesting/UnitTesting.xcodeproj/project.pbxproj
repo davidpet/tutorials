@@ -15,6 +15,7 @@
 		B9636DEC1DE6F0B7006E27CF /* UnitTestingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9636DEB1DE6F0B7006E27CF /* UnitTestingTests.swift */; };
 		B9636DF71DE6F0B7006E27CF /* UnitTestingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9636DF61DE6F0B7006E27CF /* UnitTestingUITests.swift */; };
 		B9636E051DE6F167006E27CF /* plays.txt in Resources */ = {isa = PBXBuildFile; fileRef = B9636E041DE6F167006E27CF /* plays.txt */; };
+		B9636E071DE6F305006E27CF /* PlayData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9636E061DE6F305006E27CF /* PlayData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B9636DF61DE6F0B7006E27CF /* UnitTestingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestingUITests.swift; sourceTree = "<group>"; };
 		B9636DF81DE6F0B7006E27CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9636E041DE6F167006E27CF /* plays.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = plays.txt; sourceTree = "<group>"; };
+		B9636E061DE6F305006E27CF /* PlayData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B9636DD61DE6F0B7006E27CF /* AppDelegate.swift */,
 				B9636DD81DE6F0B7006E27CF /* ViewController.swift */,
 				B9636DDA1DE6F0B7006E27CF /* Main.storyboard */,
+				B9636E061DE6F305006E27CF /* PlayData.swift */,
 				B9636DDD1DE6F0B7006E27CF /* Assets.xcassets */,
 				B9636DDF1DE6F0B7006E27CF /* LaunchScreen.storyboard */,
 				B9636E041DE6F167006E27CF /* plays.txt */,
@@ -266,6 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9636E071DE6F305006E27CF /* PlayData.swift in Sources */,
 				B9636DD91DE6F0B7006E27CF /* ViewController.swift in Sources */,
 				B9636DD71DE6F0B7006E27CF /* AppDelegate.swift in Sources */,
 			);
