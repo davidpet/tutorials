@@ -14,6 +14,7 @@
 		B93F7F661DE6AA6800CA9EBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93F7F641DE6AA6800CA9EBD /* LaunchScreen.storyboard */; };
 		B93F7F6E1DE6AA8A00CA9EBD /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F6D1DE6AA8A00CA9EBD /* SwiftyJSON.swift */; };
 		B93F7F701DE6ABBE00CA9EBD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F6F1DE6ABBE00CA9EBD /* DetailViewController.swift */; };
+		B93F7F731DE6AD5A00CA9EBD /* Project38.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B93F7F711DE6AD5A00CA9EBD /* Project38.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B93F7F671DE6AA6800CA9EBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B93F7F6D1DE6AA8A00CA9EBD /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		B93F7F6F1DE6ABBE00CA9EBD /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B93F7F721DE6AD5A00CA9EBD /* Project38.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Project38.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				B93F7F5B1DE6AA6800CA9EBD /* AppDelegate.swift */,
 				B93F7F5D1DE6AA6800CA9EBD /* ViewController.swift */,
 				B93F7F5F1DE6AA6800CA9EBD /* Main.storyboard */,
+				B93F7F711DE6AD5A00CA9EBD /* Project38.xcdatamodeld */,
 				B93F7F6F1DE6ABBE00CA9EBD /* DetailViewController.swift */,
 				B93F7F6D1DE6AA8A00CA9EBD /* SwiftyJSON.swift */,
 				B93F7F621DE6AA6800CA9EBD /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B93F7F6E1DE6AA8A00CA9EBD /* SwiftyJSON.swift in Sources */,
+				B93F7F731DE6AD5A00CA9EBD /* Project38.xcdatamodeld in Sources */,
 				B93F7F5E1DE6AA6800CA9EBD /* ViewController.swift in Sources */,
 				B93F7F5C1DE6AA6800CA9EBD /* AppDelegate.swift in Sources */,
 				B93F7F701DE6ABBE00CA9EBD /* DetailViewController.swift in Sources */,
@@ -312,6 +316,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B93F7F711DE6AD5A00CA9EBD /* Project38.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B93F7F721DE6AD5A00CA9EBD /* Project38.xcdatamodel */,
+			);
+			currentVersion = B93F7F721DE6AD5A00CA9EBD /* Project38.xcdatamodel */;
+			path = Project38.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B93F7F501DE6AA6800CA9EBD /* Project object */;
 }
