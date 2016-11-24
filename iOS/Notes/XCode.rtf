@@ -552,7 +552,7 @@ Xcode Hierarchy
 
 \fs36 Archiving
 \fs24 \
-	Archiving creates an app bundle (release mode, signed) that is ready for distribution\
+	Archiving creates an app bundle (release mode, signed, current target) that is ready for distribution\
 	To archive:\
 		1. set the target device to generic ios device (build only target)\
 		2. click Product -> Archive\
@@ -560,6 +560,27 @@ Xcode Hierarchy
 		4. You can deal with it now or close this window and come back later\
 	To see and take action on your archives: Window -> Organizer (Archives tab)\
 	From the Organizer you can export, submit to iTunes, etc.\
+\
+
+\fs36 Tests
+\fs24 \
+	Creating\
+		When you create a project, you have check boxes to create unit tests and/or ui tests for it\
+		To add to existing project instead, do File -> New -> Target and select one of the two testing types and which target you will be testing\
+		If you have multiple projects in your workspace, you will need test targets for each of them that you want to test\
+	Structure\
+		Each test type (UI and unit) has its own folder (at same level as regular project folder) in the project hierarchy\
+			Each one has the following files:\
+				Info.plist - barebones, there if you need it\
+				ProjectnameTests.Swift/ProjectnameUITests.Swift - the source file for defining tests\
+		In addition, each test type has a target in the project\
+			Each testing target is configured to test (and depend on) the project they were made for\
+	Default Code\
+		XCTest package imported (see Cocoa Touch notes)\
+		Imports the project to be tested as @testable\
+		ProjectnameTests (or ProjectnameUITests) class that inherits from XCTestCase (same base for unit and UI)\
+			4 default methods (basically empty): setUp, tearDown, testExample, testPerformanceExample (this one not there in UI tests)\
+		\
 \
 
 \fs36 Submitting to App Store
