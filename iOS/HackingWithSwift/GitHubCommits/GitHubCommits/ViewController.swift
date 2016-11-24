@@ -68,22 +68,38 @@ class ViewController: UITableViewController {
     }
     
     func fetchCommits() {
-        if let data = try? Data(contentsOf: URL(string: "https://api.github.com/repos/apple/swift/commits?per_page=100")!){
+        let newestCommitDate = getNewestCommitDate()
+        if let data = try? Data(contentsOf: URL(string:
+                            "https://api.github.com/repos/apple/swift/commits?_page=100&since=\(newestCommitDate)")!) {
             let jsonCommits = JSON(data: data)
-            let jsonCommitArray = jsonCommits.arrayValue
-            print("Received \(jsonCommitArray.count) new commits.")
-            DispatchQueue.main.async { [unowned self] in
-                for jsonCommit in jsonCommitArray {
-                    // the following three lines are new
-                    let commit = Commit(context: self.container.viewContext)
-                    self.configure(commit: commit, usingJSON: jsonCommit)
+                let jsonCommitArray = jsonCommits.arrayValue
+                print("Received \(jsonCommitArray.count) new commits.")
+                DispatchQueue.main.async { [unowned self] in
+                    for jsonCommit in jsonCommitArray {
+                        // the following three lines are new
+                        let commit = Commit(context: self.container.viewContext)
+                        self.configure(commit: commit, usingJSON: jsonCommit)
+                    }
+                    self.saveContext()
+                    self.loadSavedData()
                 }
-                self.saveContext()
-                self.loadSavedData()
             }
-        }
     }
 
+    func getNewestCommitDate() -> String {
+        let formatter = ISO8601DateFormatter()
+        let newest = NSFetchRequest<Commit>(entityName: "Commit")
+        let sort = NSSortDescriptor(key: "date", ascending: false)
+        newest.sortDescriptors = [sort]
+        newest.fetchLimit = 1
+        if let commits = try? container.viewContext.fetch(newest) {
+            if commits.count > 0 {
+                return formatter.string(from: commits[0].date.addingTimeInterval(1))
+            }
+        }
+        return formatter.string(from: Date(timeIntervalSince1970: 0))
+    }
+    
     func configure(commit: Commit, usingJSON json: JSON) {
         commit.sha = json["sha"].stringValue
         commit.message = json["commit"]["message"].stringValue
