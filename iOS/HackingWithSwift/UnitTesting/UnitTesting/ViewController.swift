@@ -29,7 +29,7 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let word = playData.allWords[indexPath.row]
         cell.textLabel!.text = word
-        cell.detailTextLabel!.text = "\(playData.uniqueWords[word]!)"
+        cell.detailTextLabel!.text = "\(playData.uniqueWords.count(for: word))"
         return cell
     }
 }

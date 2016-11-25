@@ -41,8 +41,8 @@ set1.isDisjoint(with: set2)     //true if no overlap
 
 //counted sets (keep track of number of times each element is there)
 import Foundation
-let cs = NSCountedSet(array: [1, 2, 2, 3, 3])
-cs.count(for: 3)            //getting number of times item is in set
+let cs = NSCountedSet(array: [1, 2, 2, 3, 3])       //NOTE: it is a class and therefore a REFERNECE TYPE
+cs.count(for: 3)            //getting number of times item is in set (NOTE: this takes Any)
 cs.allObjects as! [Int]
 
 //--------------
@@ -121,6 +121,7 @@ let (j, _) = (10, 20)       //can use _ to make match on left side
 //--------------
 //CONVENTIONS
 //Use set instead of array when either uniqueness or lookup speed matters
+//Use NSCountedSet instead of dictionary of item to count when speed matters
 
 //QUESTIONS
 //Set literals?

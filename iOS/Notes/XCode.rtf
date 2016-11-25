@@ -588,6 +588,7 @@ Xcode Hierarchy
 	Building\
 		Building the project does not build the tests\
 		However, you can see errors the normal way after you save the files\
+		Running any test(s) builds the target\
 	Adding Tests\
 		Add methods that take no parameters and return no values that start with lowercase 
 \i test
@@ -602,13 +603,19 @@ Xcode Hierarchy
 \i0  inside (see Cocoa Touch notes) [will call the closure 10 times]\
 		To see the stats, go to the test in the source code and click the grey icon next to the measure call\
 		To have this run be the one that future runs are compared to (to see if things are getting better or worse), click Set Baseline when the stats are up\
-		When you have a baseline set, the performance test will fail if it gets 10% slower\
+			Can see how much better or worse on right side of code on same line as the grey diamond\
+		When you have a baseline set, the performance test will fail if it gets 10% slower (passes if faster)\
 			Baselines are stored in an Info.plist file that gets created, which you can check into source control\
+		To set a new baseline, click Edit, Accept, and Save in the stats window (can do if fails or passes)\
+		Baselines are stored per device so that running on a slower device doesn\'92t fail them\
 	Running Tests\
 		Tests get run in the 
 \b Simulator
-\b0  (launches and sticks around when done)\
+\b0  (launches and sticks around when done) [on the 
+\b selected device
+\b0  at the top, not the preferred device]\
 		The app is actually launched and closed, even for unit tests (presumably not for library projects though)\
+		Running a test builds the test target (and the project being tested if needed)\
 \
 		\ul Run single test\ulnone : click the grey diamond (turns into play button when you hover) next to test method\
 		\ul Run test class\ulnone : click the grey diamond (as play button) next to the test class to run all the test methods in the class\
