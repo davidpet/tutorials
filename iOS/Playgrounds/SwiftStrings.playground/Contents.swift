@@ -63,6 +63,15 @@ let widechars = s.utf16                 //legacy version for compatibility with 
 let firstwidechar = widechars.first!        //similar to 'characters' but not quite the same
 //see SUBSTRINGS section below for more about indexing strings
 
+//CHARACTER SETS
+//see CharacterSet reference for static members of specific character sets
+let cs = CharacterSet.alphanumerics
+cs.contains("a")        //can test membership of characters, do set-like operations, etc.
+cs.inverted.contains("_")       //use inverted to get the complementary character set
+let mycs = CharacterSet(charactersIn: "abc")        //defining your own character set
+mycs.contains("c")
+mycs.contains("d")
+
 //SUBSTRINGS
 let longstring = "hi, this is a long string for testing substring extraction"
 let startIndex: String.Index = longstring.startIndex        //strings have their own index type and a start index property representing the beginning
@@ -104,6 +113,8 @@ var joinedWithSpace = ["1", "2", "3"].joined(separator: " ")    //can specify se
 //SPLITTING
 let multiline = "\nabc\ndef\nghi\n"
 let split = multiline.components(separatedBy: "\n")     //split into array (beginning and end separators become empty strings)
+let split2 = multiline.components(separatedBy: CharacterSet.newlines)       //useful character sets as members of the CharacterSet struct
+let split3 = multiline.components(separatedBy: CharacterSet.newlines.inverted)      //splitting by everything NOT in the character set
 
 //FILE I/O
 if let thetext = try? String(contentsOfFile: "myfile.txt") {}       //if this file existed, it would be loaded as a string here

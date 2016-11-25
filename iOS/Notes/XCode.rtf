@@ -592,7 +592,7 @@ Xcode Hierarchy
 \i test
 \i0  in the name (will see a grey diamond in the code if it works)\
 		These methods will automatically have access to classes that are internal or public within your project (by virtue of being in the same project)\
-		Can instantiate classes, call their methods, check their state, etc.\
+		Can instantiate classes, call their methods, check their state, etc. (NOTE: since you\'92re in the same module, you can access methods and properties of your libraries that other modules cannot)\
 		Use assert functionality (see Cocoa Touch notes) to check for things\
 	Running Tests\
 		Tests get run in the 
@@ -602,7 +602,9 @@ Xcode Hierarchy
 \
 		\ul Run single test\ulnone : click the grey diamond (turns into play button when you hover) next to test method\
 		\ul Run test class\ulnone : click the grey diamond (as play button) next to the test class to run all the test methods in the class\
-		\ul Result\ulnone : when a test has been run, it turns green with a white checkbox (for class it\'92s green if all methods are green)\
+		\ul Result\ulnone : when a test has been run, it turns green with a white checkbox  when it passes(for class it\'92s green if all methods are green) or red with a white x when it fails\
+			class is automatically updated as you test individual methods (it is just a convenience aggregate)\
+		\ul Failures\ulnone : the specific assert(s) that failed show(s) up as a red failure diamond within the code of the test method, can see the assert message, condition, etc.\
 		\
 \
 
