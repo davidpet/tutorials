@@ -610,11 +610,19 @@ Xcode Hierarchy
 		To set a new baseline, click Edit, Accept, and Save in the stats window (can do if fails or passes)\
 		Baselines are stored per device so that running on a slower device doesn\'92t fail them\
 	UI Tests\
-		Smart enough to know when to wait for things like animations\
+		Smart enough to know when to wait for things like animations (don\'92t need sleep cycles lik eAutoIt)\
 		Uses Accessibility framework in iOS\
 		Work much like normal tests in terms of structure (still use asserts, etc.)\
 		Going to interact with XCUIApplication class and XCUIElementQuery to get values\
 		Unlike in Unit Tests, application will not launch unless you do it from your UI test\
+		Recording\
+			You can record UI actions to have Xcode write code for you (but it will be bad code and unnecessarily complex)\
+			It\'92s only doing what you could write yourself but is quick and easy\
+			You still have to add asserts, etc.\
+			To record, place cursor inside your test method, hit the red circle near the bottom of Xcode, interact with your app (which will launch from the beginning) in Simulator, hit the record button again to stop recording\
+			May occasionally fail for hardware keyboard, put in code that doesn\'92t work, etc.\
+			Great way to learn, but may often end up shortening/improving what it creates\
+		UI Tests work whether or not you watch it working in Simulator\
 	Debugging\
 		In Breakpoint Navigator, use + to create a Test Failure Breakpoint (generic breakpoint that will break on any test failure so you can see the state within the test)\
 		To debug within test method, you can put a breakpoint there (much easier than VS)\

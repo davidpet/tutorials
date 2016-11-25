@@ -34,4 +34,14 @@ class UnitTestingUITests: XCTestCase {
         let count = cells.count
         XCTAssertEqual(count, 17, "There should be 17 rows initially")
     }
+    
+    func testUserFilteringByString() {
+        let app = XCUIApplication()
+        app.navigationBars["Shakespeare"].buttons["Filter"].tap()
+        app.alerts["Filter"].collectionViews.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .textField).element.typeText("nes")
+        app.typeText("s")
+        app.buttons["OK"].tap()
+        
+        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 word matching 'madness'")
+    }
 }
