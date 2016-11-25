@@ -32,6 +32,6 @@ class UnitTestingUITests: XCTestCase {
         let table = XCUIApplication().tables
         let cells = table.cells
         let count = cells.count
-        XCTAssertEqual(count, 7, "There should be 7 rows initially")
+        XCTAssertEqual(count, 17, "There should be 17 rows initially")
     }
 }

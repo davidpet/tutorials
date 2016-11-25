@@ -11,6 +11,8 @@ import Foundation
 class PlayData {
     var allWords = [String]()
     var uniqueWords: NSCountedSet!
+    var filter: String?
+    var filteredWords: [String]  = [String]()
     
     init() {
         if let path = Bundle.main.path(forResource: "plays", ofType: "txt") {
@@ -22,8 +24,13 @@ class PlayData {
                 let sorted = uniqueWords.allObjects.sorted { uniqueWords.count(for: $0) > uniqueWords.count(for: $1) }
                 allWords = sorted as! [String]
                 
-                allWords = Array(allWords[0...6])
+                filteredWords = allWords
             }
         }
+    }
+    
+    func filter(_ filterText: String) {
+        filteredWords = allWords.filter {$0.contains(filterText)}
+        filter = filterText
     }
 }
