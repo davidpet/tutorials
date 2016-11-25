@@ -584,6 +584,25 @@ Xcode Hierarchy
 		ProjectnameTests (or ProjectnameUITests) class that inherits from XCTestCase (same base for unit and UI)\
 			4 default methods (basically empty): setUp, tearDown, testExample, testPerformanceExample (this one not there in UI tests)\
 			Any of these can be deleted if not needed\
+	Building\
+		Building the project does not build the tests\
+		However, you can see errors the normal way after you save the files\
+	Adding Tests\
+		Add methods that take no parameters and return no values that start with lowercase 
+\i test
+\i0  in the name (will see a grey diamond in the code if it works)\
+		These methods will automatically have access to classes that are internal or public within your project (by virtue of being in the same project)\
+		Can instantiate classes, call their methods, check their state, etc.\
+		Use assert functionality (see Cocoa Touch notes) to check for things\
+	Running Tests\
+		Tests get run in the 
+\b Simulator
+\b0  (launches and sticks around when done)\
+		The app is actually launched and closed, even for unit tests\
+\
+		\ul Run single test\ulnone : click the grey diamond (turns into play button when you hover) next to test method\
+		\ul Run test class\ulnone : click the grey diamond (as play button) next to the test class to run all the test methods in the class\
+		\ul Result\ulnone : when a test has been run, it turns green with a white checkbox (for class it\'92s green if all methods are green)\
 		\
 \
 

@@ -4420,16 +4420,39 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \i0  - call to measure resource usage within a block of code in a test (eg. a performance test)\
 {\listtext	\uc0\u8259 	}
 \i continueAfterFailure
-\i0  - whether test cases should continue running (and gathering more asserts) after a failure occurs (defaults to true but template sets to false)\
+\i0  - whether test cases should continue running (and gathering more asserts) after a failure occurs (defaults to true but UI template sets to false)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls33\ilvl2\cf0 {\listtext	\uc0\u8259 	}template sets it to false in setUp.  can probably change it in test case itself too (will this affect other tests?)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls33\ilvl0\cf0 {\listtext	\'95	}\ul XCTAssert\ulnone  - assertions for tests\
-{\listtext	\'95	}\ul XCUIApplication\ulnone  - static proxy for the application being tested in UI tests\
+\ls33\ilvl0\cf0 {\listtext	\'95	}\ul XCUIApplication\ulnone  - static proxy for the application being tested in UI tests\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i launch()
-\i0  - launch the application (eg. in setUp for UI tests)\ul \ulc0 \
+\i0  - launch the application (eg. in setUp for UI tests)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls33\ilvl0\cf0 {\listtext	\'95	}\ul Assertion Functions\ulnone  - generally take one or more things and then can either 
+\b take or not take a messag
+\b0 e at the end (not going to show the messages in the parameter lists below - they come last)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i XCTAssert(expression) 
+\i0 - same as other testing frameworks, just checks a boolean expression (with optional message of course)\
+{\listtext	\uc0\u8259 	}
+\i XCTAssertEqual(expression1, expression2)
+\i0  - asserts that two 
+\i Equatable
+\i0  objects are the same\
+{\listtext	\uc0\u8259 	}
+\i XCTAssertGreaterThan(expression1, expression2)
+\i0  - assert that expression1 is greater than expression2 (both must be 
+\i Comparable
+\i0 )\
+{\listtext	\uc0\u8259 	}
+\i XCTAssertNil(expression)
+\i0  - assert that an optional value is nil\
+{\listtext	\uc0\u8259 	}
+\i XCTAssertNotNil(expression)
+\i0  - assert that an optional value is not nil\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
