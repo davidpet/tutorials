@@ -36,7 +36,7 @@ s.last          //convenience methods for first and last items
 emptyArray.first        //first and last are optionals (this is not a crash even though emptyArray[0] would be)
 
 //SLICING
-s[0...1]        //range operator can be passed to get an array from a portion of the array
+let slice: [String] = Array(s[0...1])        //range operator can be passed to get an array from a portion of the array (CLOSED RANGE only)
 
 //INSPECTION
 s.count         //getting array length  (NOTE: property not method)

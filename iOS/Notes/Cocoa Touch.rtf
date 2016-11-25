@@ -4428,12 +4428,6 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \ls33\ilvl2\cf0 {\listtext	\uc0\u8259 	}template for UI tests sets it to false in setUp\
 {\listtext	\uc0\u8259 	}can also set it in individual test methods (won\'92t affect other tests)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls33\ilvl0\cf0 {\listtext	\'95	}\ul XCUIApplication\ulnone  - static proxy for the application being tested in UI tests\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
-\i launch()
-\i0  - launch the application (eg. in setUp for UI tests)\
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls33\ilvl0\cf0 {\listtext	\'95	}\ul Assertion Functions\ulnone  - generally take one or more things and then can either 
 \b take or not take a messag
 \b0 e at the end (not going to show the messages in the parameter lists below - they come last)\
@@ -4457,7 +4451,39 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \i0  - assert that an optional value is nil\
 {\listtext	\uc0\u8259 	}
 \i XCTAssertNotNil(expression)
-\i0  - assert that an optional value is not nil\ul \ulc0 \
+\i0  - assert that an optional value is not nil\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls33\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 XCUIApplication\ulnone  - proxy for the application being tested in UI tests\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init()
+\i0  - initializes an instance representing your application\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls33\ilvl2\cf0 {\listtext	\uc0\u8259 	}can call every time you need it because it\'92s just a wrapper\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls33\ilvl1
+\i \cf0 {\listtext	\uc0\u8259 	}launch()
+\i0  - launch the application (eg. in setUp for UI tests) [by the time tests see it, it should be ready for user interaction]\
+\ls33\ilvl1{\listtext	\uc0\u8259 	}
+\i tables
+\i0  - gettable XCUIElementQuery representing the tables in the UI of the application\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls33\ilvl0\cf0 {\listtext	\'95	}\ul XCUIElementQuery\ulnone  - query for UI elements\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}various undocumented (dynamic?) child properties to get other XCUIElementQuery instances\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls33\ilvl2\cf0 {\listtext	\uc0\u8259 	}
+\i cells
+\i0  - for a table, get cell query\
+{\listtext	\uc0\u8259 	}
+\i tables
+\i0  - query for tables\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i count
+\i0  - the number of items the given query matches (eg. XCUIApplication().tables.cells.count)\
+{\listtext	\uc0\u8259 	}WARNING: if there is one thing that matches, it can be treated as a single item, but if there are more than 1, it must be treated as an array or it will crash your test\
+{\listtext	\uc0\u8259 	}WARNING: if your table has too many cells, the test will crash with no explanation\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0

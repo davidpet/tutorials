@@ -21,6 +21,8 @@ class PlayData {
                 uniqueWords = NSCountedSet(array: allWords)
                 let sorted = uniqueWords.allObjects.sorted { uniqueWords.count(for: $0) > uniqueWords.count(for: $1) }
                 allWords = sorted as! [String]
+                
+                allWords = Array(allWords[0...6])
             }
         }
     }

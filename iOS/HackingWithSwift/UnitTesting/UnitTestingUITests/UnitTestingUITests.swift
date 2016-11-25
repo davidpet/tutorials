@@ -27,4 +27,11 @@ class UnitTestingUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func testInitialStateIsCorrect() {
+        let table = XCUIApplication().tables
+        let cells = table.cells
+        let count = cells.count
+        XCTAssertEqual(count, 7, "There should be 7 rows initially")
+    }
 }
