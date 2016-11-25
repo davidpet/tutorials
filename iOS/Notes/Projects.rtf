@@ -1,0 +1,141 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww28600\viewh15100\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 *for functionality duplicated in multiple projects, prefer later ones for proper way to do it\
+**for simple things, they are mentioned early on and not repeated later\
+***all use either Single View Application or Game template (even though implement other stuff)\
+****the below are UIKit apps (the SpriteKit ones are described in the Cocoa Touch notes under the SpriteKit section)\
+*****in addition there is a console app that runs on macOS (text-based Hangman game)\
+\
+Storm Viewer\
+	basic navigation bar\
+	list of images loaded from app bundle\
+	table view with image names and arrow\
+	detail view that shows the picture with proper aspect (and has button to go back)\
+	dismissing navigation bar on tap\
+	sharing to social media, text message, etc. (up arrow button)\
+	\
+Guess the Flag\
+	some basic controls and interaction\
+	CALayer to draw border around control\
+	alert popup\
+	loading images from app bundle\
+\
+FlagViewer\
+	table w/ small flag thumbnails and country names in cell\
+	detail view to show the full flag w/ CA border drawn\
+	tap to dismiss navigation bar\
+\
+EasyBrowser\
+	WKWebView browser\
+	progress bar control in navigation bar to show page progress [bottom]\
+	refresh button in navigation bar [bottom]\
+	custom button in top navigation bar\
+\
+WordScramble\
+	table view that you can add to with + button in top navigation bar\
+	refresh button in top navigation bar\
+\
+AutoLayout\
+	AutoLayout demonstration app\
+\
+ShoppingList\
+	table view that can be dynamically configured at runtime\
+	+ button in top navigation bar\
+	pop up alert with text field, OK button, Cancel button\
+\
+WhitehousePetitions\
+	tabbed interface (Most Recent and Top Rated views of data)\
+	table view w/ title/subtitle cells\
+	detail view\
+	fetching data from the web\
+\
+NamesToFaces\
+	using image picker (including permissions)\
+	using collection view controller (showing photo gallery in grid)\
+	accepting taps on images to pop up a prompt and get text to add for title in the grid\
+	+ button left side of navigation bar\
+\
+Instafilter\
+	image picker\
+	CI filters to edit the image\
+	slider control\
+	popup action sheet with various filters\
+	saving copy of altered image to camera roll\
+\
+Animation\
+	demonstrates various animations within UIKit via a button tap\
+\
+JavascriptExtension\
+	demonstrates a browser extension for Safari that lets you enter JavaScript and have it run\
+	running the app directly does nothing (but could be used for settings and/or help)\
+\
+CapitalCities\
+	map w/ pins at certain coordinates which popup text and an i for more information when clicked\
+\
+LocalNotifications\
+	demonstrates how to send/receive notifications (and register permissions)\
+	local notifications like calendar alerts, NOT push notifications yet\
+\
+SelfieShare\
+	camera button in navigation bar\
+	P2P sharing of images between different users on different iDevices\
+	image picker, etc. to get images to share\
+\
+CoreGraphics\
+	demonstrates various CG drawing capabilities via button tap\
+\
+SecretSwift\
+	using keychain for secure storage (via 3rd party library)\
+	authenticating with TouchID\
+	decrypting text after authentication\
+	re-encrypting when app loses focus\
+\
+MultiBrowser\
+	using UIWebView (as opposed to WKWebView)\
+	spawning multiple instances\
+	trash can icon in navigation bar (to delete selected browser instance)\
+	address bar linked to browser instances\
+	selecting tapped browser by drawing line around it\
+	size classes for more adaptive UI\
+	gesture recognizer\
+\
+SwiftSearcher\
+	edit mode buttons for table entries (+, -)\
+	checkmark on right side of table entry\
+	Delete slideover on right side\
+\
+WhatsThatWhistle\
+	CloudKit for shared data in the cloud\
+	querying and filtering data from CloudKit efficiently\
+	multiple tables with different kinds of data\
+	recording sound file and submitting it to cloud\
+	downloading and playing audio file from cloud\
+\
+FourInARow\
+	Connect 4 game\
+	UI that works universally\
+	animated chip drops (in UIKit)\
+	AI handling black\
+\
+PsychicTester\
+	communication with Apple Watch including haptic clicks\
+	UIKit animation of cards flipping over, stars falling, background slowly shifting color\
+	using QuartzCore to draw background gradient\
+	custom control\
+	3D Touch\
+	background music in UIKit\
+\
+GitHubCommits\
+	CoreData CRUD operations\
+	table view w/ detail popup view\
+	popup alert with various options to choose from (configuring filters for CoreData)\
+\
+UnitTesting\
+	unit tests and UI tests in the project\
+	app is just there for the benefit of the tests\
+}
