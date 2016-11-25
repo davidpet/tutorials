@@ -90,14 +90,3 @@ try? encrypt(name: "Bob", password: "blank")                                    
 //see SwiftDebugging playground
 
 //NOTE: error handling is just as efficient as 'return' according to Apple
-
-//CONVENTIONS
-//Order of preference should be try, try?, try!
-//Use guards to test positive conditions instead of negative (while avoiding deeply nested loops) and to be explicit
-//guards typically all on one line (including the {})
-
-//QUESTIONS
-//Can you rethrow (eg. with empty throw)?
-//What does rethrows do?  (maybe the video for the course makes it clearer)
-//Can you specify specific types that are thrown in throws like in C++?
-//Using the 'defer' keyword (equiv. of 'finally')

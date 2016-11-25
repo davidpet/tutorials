@@ -35,5 +35,3 @@ class MyClass {
 //    A. Directly
 //    B. From within workspace
 
-//QUESTIONS
-//How to share code between Mac and iOS?

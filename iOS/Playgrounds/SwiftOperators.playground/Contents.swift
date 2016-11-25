@@ -88,8 +88,3 @@ var int2 = Int(3.14)    //casting float to int automatically rounds
 1...10 ~= 4             //like calling contains() for the interval
 //version4: RANGES
 //[1, 2, 3] ~= 1        //surprisingly, DOES NOT WORK
-
-
-//QUESTIONS
-//Fill in OPTIONALS and RANGES versions of PATTERN MATCHING
-//Does unary plus have the weird C++ and C# behavior?

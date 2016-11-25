@@ -135,19 +135,3 @@ struct MyOtherStruct {
 //PROTOCOLS
 //see SwiftClasses for explanation of protocols
 //NOTE: structs automatically get initializer that sets all the fields by name, and this counts towards a protocol that needs it (eg. in bitfields - see SwiftEnums)
-
-//CONVENTIONS
-//computed properties tend to be more common in Apple code and less common in user code
-//Use structs instead of classes to eliminate relationships that might cause things like race conditions
-//Use classes when need inheritence or shared object
-//Mark classes as constants and/or final when possible
-//Also use structs if you want convenience of automatically generated init
-//Prefer structs to classes when possible
-//Use property observers for updating UI controls based on a change in a value (eg. score)
-
-//QUESTIONS
-//Can a struct have custom initializers?
-//Can you provide a default value in a struct, and how does that affect the initializer?
-//Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?
-//What are default access control levels and what are all the options?
-//Check out "Type methods" section of Methods document on apple.com (a bit complicated)

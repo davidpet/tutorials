@@ -182,22 +182,3 @@ class MyRequiredBaseClass {
 class MyRequiredClass: MyRequiredBaseClass {
 }                                                   //inits of base automatically included here (even required) since not providing own inits
 let mrc = MyRequiredClass(x: 100, y: 200)
-
-//CONVENTIONS
-//class names start with capital and methods/properties start with lowercase
-//use structs unless you need to use classes (structs = safety, classes = flexibility)
-//Mark things as final whenever you can - it provides a compiler optimization boost and reduces complexity
-
-//QUESTIONS
-//How do you clone/copy a class instance?
-//Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?
-//How to do extension methods (or whatever joined() of Array<String> is)
-//Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.
-//Are there still convenience and designated initializers?
-//Can you delegate to other initializers in the same class?
-//How to do optional items in protocols like the libraries have?
-//How to check multiple protocols in class like <> in objective-c?
-//How to make protocol conform dynamically instead of doing extension
-//Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?
-//Does providing your own init hide the base inits for your class (and did I already cover that above?)
-

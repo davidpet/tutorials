@@ -38,10 +38,3 @@ if _isDebugAssertConfiguration() {
 
 
 //NOTE: see XCode Notes for information about things like breakpoints
-
-//QUESTIONS
-//Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?
-//_branchHint in CONDITIONAL COMPILATION
-//_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION
-//precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)
-//When to use precondition() [tutorial shows in * operator that has been extended for arrays, if arrays aren't same size]

@@ -97,6 +97,3 @@ print(b)
 
 //STRIDE
 //see SwiftControlFlow for description of the built-in stride() function which can be used to get an array from bounds and step
-
-//QUESTIONS
-//ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)

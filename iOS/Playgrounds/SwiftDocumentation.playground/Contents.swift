@@ -67,9 +67,3 @@ func dostuff3(x: Int, y: Int) -> String {
 //obviously you don't have to use all of them
 //alt-click dostuff3 above to see what the documentation looks like
 //a lot of these fields end up inside the description with headers
-
-//QUESTIONS
-//Can you link within the comment, to other types/functions that are documented, etc?
-//Can you document member variables, local variables, etc?
-//Check out documentation for other formats (eg. ///) and other important things
-

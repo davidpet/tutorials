@@ -115,15 +115,3 @@ let (j, _) = (10, 20)       //can use _ to make match on left side
 (a, b) = (b, a)     //can do this arbitrarily (in this case performs a SWAP)
 
 //NOTE: cannot do PROTOCOLS or METHODS in tuples
-
-//--------------
-//GENERAL
-//--------------
-//CONVENTIONS
-//Use set instead of array when either uniqueness or lookup speed matters
-//Use NSCountedSet instead of dictionary of item to count when speed matters
-
-//QUESTIONS
-//Set literals?
-//Set operations?
-//tuple counts, enumerating?

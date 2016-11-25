@@ -148,15 +148,3 @@ for match in matches {
 let replacement = regex.stringByReplacingMatches(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count), withTemplate: "$1")
 //for other available operations (eg. executing blocks for each match), see Cocoa Touch reference
 //for specific flags, options, regex metacharacters, etc. see the Cocoa Touch Reference for NSRegularExpression
-
-//CONVENTIONS
-//Use 'characters.count' for your own code and 'utf16.count' for Apple library code
-
-//QUESTIONS
-//How to do case INSENSITIVE stuff?
-//How to do multiline strings?
-//How to do mutable string/strinbuilder?
-//What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)
-//String.remove() and why it works with pos.lowerBound [didn't include that part for now but saw in tutorial]
-//What do I need to know about multiple character characters (eg. emojis) when it comes to normal strings, character indexing, regular indexing, substrings, and NSRange?
-//NSString?

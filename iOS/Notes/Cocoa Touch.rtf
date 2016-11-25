@@ -1214,7 +1214,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}replace \'93tableView\'94 with \'93collectionView\'94 when translating instructions to collection views (eg. the view class, the cell class, etc.)\
 {\listtext	\uc0\u8259 	}can set properties on the UICollectionView in IB such as cell size, insets, etc.\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul \ulc0 UIAlertController\ulnone  - equivalent of MsgBox in the iOS world\
+\ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}\ul UIAlertController\ulnone  - equivalent of MsgBox in the iOS world\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls6\ilvl2\cf0 {\listtext	\uc0\u8259 	}instantiate with options like title, message, etc. (use .alert for informing and .actionSheet for selecting options)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
@@ -1381,7 +1381,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i insertRows
 \i0 : for adding individual rows without the need to do a full reload (with animation) [.automatic is a good animation option to use]\
-\ls7\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i deleteRows(at:with:)
 \i0  - delete a subset of rows with a possible animation (such as fade)\
 {\listtext	\uc0\u8259 	}NOTE: make sure you add to the data that your table view loads from before calling a method like insertRows\
@@ -1456,7 +1456,7 @@ Controls/views start with UI\
 {\listtext	\uc0\u8259 	}
 \i image
 \i0  property set to a UIImage instance to display\
-\ls7\ilvl1{\listtext	\uc0\u8259 	}loading multiple with the same image is OK because iOS is very efficient at sharing them\
+{\listtext	\uc0\u8259 	}loading multiple with the same image is OK because iOS is very efficient at sharing them\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls7\ilvl2\cf0 {\listtext	\uc0\u8259 	}in tutorial example, setting a card to an image every time finger moves was even ok due to the sharing\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -1964,7 +1964,7 @@ Controls/views start with UI\
 \ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i location(in:)
 \i0  - CGPoint representing the location of the touch relative to the given container\
-\ls7\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i force
 \i0  - CGFloat representing 3D touch force (see UIView traitCollection to see if 3D touch available) [1.0 = average]\
 {\listtext	\uc0\u8259 	}
@@ -1987,8 +1987,7 @@ Controls/views start with UI\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 WatchKit\
+WatchKit\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 watchOS equivalent of UIKit\
@@ -2065,8 +2064,7 @@ Also handles low-level drawing (below UIKit)
 \fs36 \cf0 {\listtext	\uc0\u8259 	}
 \i\fs28 shadow*
 \i0 : for configuring drop shadows (can be taxing on the system if transparency involved)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls11\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i addSublayer()
 \i0  - add a CALayer instance as a sublayer of the layer\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -3649,8 +3647,7 @@ CoreImage\
 \ls24\ilvl1
 \i \cf0 {\listtext	\uc0\u8259 	}stop()
 \i0  - stop the sound from playing (more like pause than stop)\
-\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
-\ls24\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i numberOfLoops
 \i0  - controls loop/repeat behavior (negative = loop forever, 0 = play once, n = repeat n times)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
@@ -4389,7 +4386,7 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \ls32\ilvl2\cf0 {\listtext	\uc0\u8259 	}message = dictionary of String to Any (custom keys and values)\
 {\listtext	\uc0\u8259 	}replyHandler = a closure to receive replies (nil if don\'92t want [that\'92s what tutorial does])\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \ul \ulc0 \
+\cf0 \ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone XCTest\
@@ -4453,7 +4450,7 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \i XCTAssertNotNil(expression)
 \i0  - assert that an optional value is not nil\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls33\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 XCUIApplication\ulnone  - proxy for the application being tested in UI tests\
+\ls33\ilvl0\cf0 {\listtext	\'95	}\ul XCUIApplication\ulnone  - proxy for the application being tested in UI tests\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init()
@@ -4464,7 +4461,7 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \ls33\ilvl1
 \i \cf0 {\listtext	\uc0\u8259 	}launch()
 \i0  - launch the application (eg. in setUp for UI tests) [by the time tests see it, it should be ready for user interaction]\
-\ls33\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i tables
 \i0  - gettable XCUIElementQuery representing the tables in the UI of the application\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -4513,7 +4510,7 @@ WARNING: apple watch goes to sleep after 70 seconds so you can only communicate 
 \i0  - type text into the element (only available for ones that work that way) [will switch focus and just start typing]\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls33\ilvl1\cf0 {\listtext	\uc0\u8259 	}WARNING: if there is one thing that matches, it can be treated as a single item, but if there are more than 1, it must be treated as an array or it will crash your test\
-{\listtext	\uc0\u8259 	}WARNING: if your table has too many cells, the test will crash with no explanation\ul \ulc0 \
+{\listtext	\uc0\u8259 	}WARNING: if your table has too many cells, the test will crash with no explanation\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -4561,60 +4558,4 @@ SEE: SecretSwift project for how to handle secure data (in terms of focus change
 {\listtext	\uc0\u8259 	}
 \i setString(_:forKey:)
 \i0  - set string (by given keyname) in secure keychain (name should match string(forKey:)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\fs36 \cf0 TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
-TODO: Get better at Auto Layout in IB (via Attributes Inspector, popups, outline, etc.)\
-TODO: Understand the correlation of features between IB and VFL for Auto Layout\
-TODO: How to do offsets/ratios/etc with anchors\
-TODO: How to add spacing between things using anchors, minimum space, etc.\
-TODO: be able to translate anything from anchors method into VFL and IB methods\
-TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
-TODO: how to prevent user from entering text into text edit while still using it for display\
-TODO: create a URL\
-TODO: What are the defaults for SKSpriteNodes and physics bodies?\
-TODO: can you run multiple actions for the same node simultaneously or is it a synchronous list?  (what happens if one repeats forever?)\
-TODO: learn about the node tree nature of SKNode (will sprites be bound to each other\'92s movements?)\
-TODO: learn about particle effects (smoke, explosions, etc.)\
-TODO: learn about multiple frame sprites, how to better interleave the explosions with the sprites, etc.\
-TODO: find out about autolayout, adaptive layouts, etc. for SpriteKit apps\
-TODO: learn about arc4random and arc4random_uniform (and what Darwin is and different ways of doing random numbers in Swift)\
-TODO: find out if names/paths are case sensitive (eg. with assets)\
-TODO: what happens if you create an object over another object when using dynamic physics on both or either?\
-TODO: is there a quick way to get nodes in their z-order instead of added order?\
-TODO: clarify interchangeability of NSString and other objective-C types with Swift counterparts\
-TODO: move SKSpriteNode stuff that belongs in SKNode\
-TODO: are SKAction instances one-shot deals or are they reusable?\
-TODO: is action order for SKNode guaranteed if not done with sequence()?\
-TODO: will nodes(at:) method of SKNode return nodes that are hidden, cropped, etc?\
-TODO: figure out how to smoothly wind down particle effects and remove them (apparently they don\'92t go away after all??? and how to set lifetime?)\
-TODO: does the rest of UIKit (eg. tap detection) see a UIKit view as being in its transformed position when you animate it\
-TODO: can you arbitrarily use 
-\i transform
-\i0  on UIView when not animating (I assume yes) and does that affect other properties?  AutoLayout?\
-TODO: if you set the alpha of a control to 0, and it\'92s something like a button, is it unclickable?\
-TODO: figure out how to scale a UIImage down the right way (eg. if want to make it a little smaller for iphone)\
-TODO: look into more advanced regex functionality like enumerateMatches (may be useful for super long strings where you might bail)\
-TODO: look at NSRegularExpression document for other stuff not documented like specifying flags inside the regex (some if it goes in regex doc)\
-TODO: learn more about UIBezierPath\
-TODO: how to make custom notification center buttons show up in more scenarios\
-TODO: learn CADisplayLink (presented as alternative to Timer) (is there a more accurate Timer also?) [in Knolwedge Base part of book]\
-TODO: GPS functionality (in CoreLocation?)\
-TODO: What is AnyClass?\
-TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
-TODO: learn the Date type (inc. members like Date.distantFuture)\
-TODO: can you assume object A or B in SpriteKit collision if you only set one of the contact bits\
-TODO: look into CICheckerboardGenerator\
-TODO: how to allow the user to reorder rows and activate/deactivate editing mode\
-TODO: how to add custom buttons in editing mode\
-TODO: figure out weirdness with volume levels with AVAudioPlayer\
-TODO: figure out why Project 33 push notifications don\'92t work\
-TODO: learn from DemoBots tutorial\
-TODO: find out what happens if you leave or don\'92t leave the memory warning method you get by default in a view controller\
-TODO: learn more of GameplayKit\
-TODO: find out if durations less than refresh rate get synced to refresh rate in SKAction methods (I don\'92t think so because it looks erratic)\
-TODO: starting sound system on start (w/ no music) so first sound effect doesn\'92t have a pause?\
-TODO: find out if SKAction removes itself or if stacking them endlessly is a problem\
 }

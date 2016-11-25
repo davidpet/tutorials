@@ -185,30 +185,3 @@ print(lazySquares[5])                    //the square is only computed for the v
 print(lazySquares[5])                    //lazy sequences DO NOT use MEMOIZATION
 //NOTE: lazy sequences are just special types that act like the non-lazy equivalents
 //NOTE: fibonacci lazy sequence would recursively add two previous values (but without memoization will be rather inefficient for repeated calls)
-
-//CONVENTIONS
-//Use trailing closures when possible (defining and calling)
-//Consider only using self explicitly when in a closure so that you can find all closure references easily
-//Also consider whether you should capture self as unowned to avoid cycles
-//Only use autoclosures when really need them since they can make your code complicated
-//Consider using a private method to compute a transformation that a lazy property will call
-
-//QUESTIONS
-//Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?
-//@selector still a thing?
-//methods on dictionary?
-//Partial applications?  Unbound methods?
-//Is there a typedef in Swift for things like closures?
-//Is there a way to lock objects (not variables) as constant so that you can safely pass them into functions?
-//Give examples of Equatable and Comparable protocol implementations to customize complex sorting
-//max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)
-//consider defining >>> function composition operator like the author does in chapter 6
-//more capture specification syntax?
-//Is there a version of map that takes multilpe collections like in clojure?
-//Is there an apply function like in Clojure?  (maybe variadic args)
-//How can you capture by value?
-//Do non-escaping closures automatically capture "self" and other things as unowned?  (Do all lazy closures do that?)
-//Is there a way to add memorization support to a lazy sequence?
-//How to create your own lazy sequence type?
-//Other special lazy sequence things like realizing the tail and all that?
-

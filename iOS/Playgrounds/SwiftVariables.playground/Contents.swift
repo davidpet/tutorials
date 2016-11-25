@@ -96,17 +96,3 @@ var successCopy = success       //NUMBERS and BOOLEANS are value types
 
 //GLOBAL VARIABLES
 //allowed
-
-//CONVENTIONS
-//Start with Capital: data types
-//Start with lowercase: variables and constants
-//Use Constants when possible
-//Use Type Inference (instead of explicit types) when possible
-//put : next to variable name (eg. var name: String)
-//use implicitly unwrapped optionals (!) for members that will start out empty and get set on load (when you don't want to be forced to have a constructor or to use ? all the time)
-
-//QUESTIONS
-//Attributes?  Decorators?
-//Weak references?
-//When can conversions be done implicitly vs. explicitly?  What about for custom types?
-

@@ -1,0 +1,415 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red0\green0\blue0;\red0\green116\blue0;
+\red14\green14\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c45600\c0;
+\csgenericrgb\c5500\c5500\c100000;}
+\margl1440\margr1440\vieww28600\viewh15100\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 Swift
+\b0\fs24 \ulnone \
+TODO: make sure to cover convenience initializers, failable initializers, delegating initializers, optional initializers, etc.\
+TODO: put stuff in this document in the appropriate playgrounds if applicable\
+TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)\
+TODO: is there a list type like in clojure that can be lazy, etc. or do you use array for that?\
+TODO: Is there a way to declare a reference variable (like int& in C++)?\
+TODO: modules (already have playground)\
+TODO: how to use http instead of https for WKWebView?\
+TODO: attributes (built-in, can you do custom?)\
+TODO: optional chaining can be used in top-level statements (eg. before function calls) too\
+TODO: putting ! on place that doesn\'92t need a ! like in function that implements closure?  (eg. askQuestion() in Project 2)\
+TODO: selector syntax (eg. #selector(methodName)) (
+\f1\fs22 \cf2 \CocoaLigature0 #selector\cf3 (image(\cf2 _\cf3 :didFinishSavingWithError:contextInfo:)))
+\f0\fs24 \cf0 \CocoaLigature1 \
+TODO: URL struct\
+TODO: enumerated() method of array\
+TODO: learn how webView(decidePolicyFor) from Project 4 works in detail (eg. what is @escaping)\
+TODO: look into using smootherStep function for smooth interpolation (and also the clipping technique used)\
+TODO: look into extending collections to allow safe nil for out of bound\
+TODO: macros?  #ifdef?\
+TODO: custom subscript operator\
+TODO: iterators?\
+TODO: bring in missing stuff (that still applies) from the Swift 2 tutorial\
+TODO: look into times extension in chapter 7 of Pro Swift\
+TODO: tip: use ?? after a try? to handle situations where throwing an error still results in valid state (eg. try to read a file that may not be there)\
+TODO: are parameters mutable or immutable?\
+TODO: table view basic cell vs. custom cell\
+TODO: warnings about calling function and ignoring value (do you just use _?)(is there a return ignored macro)?\
+TODO: Can you destructure such as head and tail of an array, first 3 items as variables, etc? like in Clojure?\
+TODO: how do you disambiguate methods with #selector, closures, etc. (eg. taking no parameters vs. 1)?\
+TODO: required to use self in closures explicitly\
+TODO: figure out layout issue with AutoLayout project (worked in simular but not real phone) (landscape mode)\
+TODO: make sure cover that lines can be split up across =, (), etc.\
+TODO: find out if UIImage and stuff like that support vector graphics (or else what resolutions you should make things at)\
+TODO: how to do underlined letters (like hangman)\
+TODO: what is the .now() when calling asyncAfter (why the dot and what is it getting and what else can you use?)\
+TODO: look into global variables\
+TODO: look into other notes about access modifiers\
+TODO: how to make your class support printing?\
+TODO: when you are required to have override in constructor\
+TODO: can you intermix stored and computed properties when implementing a protocol?\
+TODO: protocol can inherit from other protocols (look into hiding, overriding, etc.)\
+TODO: importing packages imports what they import automatically?\
+TODO: can typealias types be interoperated without casting?\
+TODO: using . with nothing in front to call a method from the class you\'92re calling a method on when passing a parameter?  (example async deadline .now())\
+TODO: abstract base classes?\
+TODO: learn the checkboxes you get when you create project (unit tests, core data, also create xib file, blue vs. yellow folder, etc.)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs36 \cf0 \ul \ulc0 \
+Cocoa Touch
+\b0\fs24 \ulnone \
+TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
+TODO: Get better at Auto Layout in IB (via Attributes Inspector, popups, outline, etc.)\
+TODO: Understand the correlation of features between IB and VFL for Auto Layout\
+TODO: How to do offsets/ratios/etc with anchors\
+TODO: How to add spacing between things using anchors, minimum space, etc.\
+TODO: be able to translate anything from anchors method into VFL and IB methods\
+TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
+TODO: how to prevent user from entering text into text edit while still using it for display\
+TODO: create a URL\
+TODO: What are the defaults for SKSpriteNodes and physics bodies?\
+TODO: can you run multiple actions for the same node simultaneously or is it a synchronous list?  (what happens if one repeats forever?)\
+TODO: learn about the node tree nature of SKNode (will sprites be bound to each other\'92s movements?)\
+TODO: learn about particle effects (smoke, explosions, etc.)\
+TODO: learn about multiple frame sprites, how to better interleave the explosions with the sprites, etc.\
+TODO: find out about autolayout, adaptive layouts, etc. for SpriteKit apps\
+TODO: learn about arc4random and arc4random_uniform (and what Darwin is and different ways of doing random numbers in Swift)\
+TODO: find out if names/paths are case sensitive (eg. with assets)\
+TODO: what happens if you create an object over another object when using dynamic physics on both or either?\
+TODO: is there a quick way to get nodes in their z-order instead of added order?\
+TODO: clarify interchangeability of NSString and other objective-C types with Swift counterparts\
+TODO: move SKSpriteNode stuff that belongs in SKNode\
+TODO: are SKAction instances one-shot deals or are they reusable?\
+TODO: is action order for SKNode guaranteed if not done with sequence()?\
+TODO: will nodes(at:) method of SKNode return nodes that are hidden, cropped, etc?\
+TODO: figure out how to smoothly wind down particle effects and remove them (apparently they don\'92t go away after all??? and how to set lifetime?)\
+TODO: does the rest of UIKit (eg. tap detection) see a UIKit view as being in its transformed position when you animate it\
+TODO: can you arbitrarily use 
+\i transform
+\i0  on UIView when not animating (I assume yes) and does that affect other properties?  AutoLayout?\
+TODO: if you set the alpha of a control to 0, and it\'92s something like a button, is it unclickable?\
+TODO: figure out how to scale a UIImage down the right way (eg. if want to make it a little smaller for iphone)\
+TODO: look into more advanced regex functionality like enumerateMatches (may be useful for super long strings where you might bail)\
+TODO: look at NSRegularExpression document for other stuff not documented like specifying flags inside the regex (some if it goes in regex doc)\
+TODO: learn more about UIBezierPath\
+TODO: how to make custom notification center buttons show up in more scenarios\
+TODO: learn CADisplayLink (presented as alternative to Timer) (is there a more accurate Timer also?) [in Knolwedge Base part of book]\
+TODO: GPS functionality (in CoreLocation?)\
+TODO: What is AnyClass?\
+TODO: make sure reassigning non-optional array declared is covered in notes somewhere\
+TODO: learn the Date type (inc. members like Date.distantFuture)\
+TODO: can you assume object A or B in SpriteKit collision if you only set one of the contact bits\
+TODO: look into CICheckerboardGenerator\
+TODO: how to allow the user to reorder rows and activate/deactivate editing mode\
+TODO: how to add custom buttons in editing mode\
+TODO: figure out weirdness with volume levels with AVAudioPlayer\
+TODO: figure out why Project 33 push notifications don\'92t work\
+TODO: learn from DemoBots tutorial\
+TODO: find out what happens if you leave or don\'92t leave the memory warning method you get by default in a view controller\
+TODO: learn more of GameplayKit\
+TODO: find out if durations less than refresh rate get synced to refresh rate in SKAction methods (I don\'92t think so because it looks erratic)\
+TODO: starting sound system on start (w/ no music) so first sound effect doesn\'92t have a pause?\
+TODO: find out if SKAction removes itself or if stacking them endlessly is a problem\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs36 \cf0 \ul \ulc0 XCode
+\b0\fs24 \ulnone \
+TODO HIGH PRIORITY: learn about suppressing the \'93all interface orientations must be supported\'94 error in Info.plist\
+TODO HIGH PRIORITY: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1"}}{\fldrslt https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1}}\
+TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\
+TODO: how to deploy to phone quicker (not have to run it?), how to build and test release mode?  how to deploy release mode on phone?  how to submit to app store?  (scheme checkboxes?)\
+TODO: How to add tutorial/description text to playgrounds?\
+TODO: watches, immediate window, data breakpoints, callstack\
+TODO: figure out how to automatically load list of image sets\
+TODO: see if 2x and 3x naming tricks work when drag files in directly (and also image loading)\
+TODO: make a list of all the different ways you can transition from one view controller to another (purely in code, in storyboard, etc.)\
+TODO: understand the Connections Inspector better (eg. polarity of what connecting to what)\
+TODO: learn how to do particle effects (get to know the settings) manually\
+TODO: what happens if the biggest image you have is 2x and you load on a Retina HD device?\
+TODO: other project types when create new project\
+TODO: learn Targets in XCode\
+TODO: learn all the project settings in XCode (eg. Build Settings, phases, etc.)\
+TODO: learn all the details of building, deployment, configurations, archiving, installing, etc.\
+TODO: learn Swift package installation (including online package managers)\
+TODO: learn the different appliation types in the New Project dialog\
+TODO: learn profiling\
+TODO: learn iAds (how to get money, how to incorporate into app, etc.)\
+TODO: learn how in-app purchases/upgrades work\
+TODO: learn how to submit free and premium versions\
+TODO: figure out what the backwards url when you make a project is actually for\
+TODO: see if more automatic way to import icon images\
+TODO: how to select the ios version for each device (or globally)\
+TODO: learn how to do splash screen (Launch Image) and observe how often apps actually use it\
+TODO: find out how to build all in workspace and how to run all tests in workspace -> also how to build and test all things that refer to a library even if not in same workspace\
+TODO: find out how to network between devices (eg. multiplayer game) and how to communicate with web servers\
+TODO: find out how to let people create/login to accounts in your app\
+TODO: settings (in system preferences and in app itself)\
+TODO: notifications (and notification settings)\
+TODO: reordering items within tables by sliding with hand\
+TODO: slide to reveal delete button\
+TODO: custom controls\
+TODO: using the camera flash\
+TODO: ratings control\
+TODO: checkbox, radio button controls\
+TODO: see games.txt on desktop for info on making games in app store\
+TODO: sound effects (producing sine waves, reverb, etc.)\
+TODO: how to rename files?\
+TODO: making other types of extensions, installing extensions, setting icon for extensions, etc.\
+TODO: look up Swift Package Manager stuff (swift build, touch Package.Swift, etc.) [end of cmdline tutorial]\
+TODO: more detail about Dynamic Type: {\field{\*\fldinst{HYPERLINK "http://useyourloaf.com/blog/supporting-dynamic-type/"}}{\fldrslt http://useyourloaf.com/blog/supporting-dynamic-type/}}\
+TODO: peer-to-peer network games?\
+TODO: making custom control fully support IB and be in an object library?\
+TODO: learn all about push notifications\
+TODO: check out the Guides and Sample Code Documentation I downloaded through preferences (and document it here, and how I got it)\
+TODO: check out the simulator settings apps\
+TODO: Advanced CoreData: Migrating data models, multiple managed object contexts, delete rules, query generations, and thread safety\
+TODO: look into XCode Server (continuous integration, etc.) (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/08-automation.html)\
+TODO: look at Assistant Editor categories\
+TODO: Code Coverage (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/07-code_coverage.html)\
+TODO: find out how to wait for an asynchronous call (eg. in a test)\
+\
+
+\b\fs36 \ul \ulc0 Git
+\b0\fs24 \ulnone \
+TODO: watch Git videos in Beyond Code\
+TODO: setup Beyond Compare diffing/merging on Mac and PC (document in cloud setup steps) [need to resolve issue with tech support]\
+TODO: How to revert unstaged changes to whole repo?\
+TODO: Revert a revision you checked in or revert to a revision?  Revert changes from revision?\
+TODO: try git add -p and record the options here\
+TODO: record equivalent to Subversion operations here\
+TODO: how to use hard reset on individual files?\
+TODO: learn git status -s symbols\
+TODO: what happens if you checkout a directory with unstaged and/or staged changes?\
+TODO: add stuff from previous notes (maybe only in Anki form)\
+TODO: clarify what git does from subfolders\
+TODO: look at git shortlog -10 -n -sn and compare to git log\
+TODO: does git stash -u stash tracked files too?\
+TODO: using difftool w/ commands that do unified diffs (eg. stash show -p)\
+TODO: sending stash to remotes?\
+\
+
+\b\fs36 \ul \ulc0 Mac
+\b0\fs24 \ulnone \
+TODO: look up recursive wildcards (and any folder vs. filename differences)\
+TODO: look up executing simple loops and conditionals (like do all the time in DOS)\
+TODO: look up general mac shortcuts, look up differences for key apps like photoshop and vim\
+TODO: find out if you can provide value to a switch when combining that switch into single token\
+TODO: clarify -l and -c in grep\
+TODO: how to do case insensitive wildcard (eg. for file extensions)\
+TODO: bring in grep, sed, etc. text from years ago\
+TODO: bring in stuff from Anki\
+TODO: quoting and escaping\
+TODO: environment variables\
+TODO: making batch file / shell script\
+TODO: shebangs\
+TODO: clarify piping into (;) construct\
+TODO: more advanced curl stuff (eg. post, put, ssl certificates, etc.)\
+TODO: learn about apt\
+TODO: possibly give ssh access to macbook from PC to play with it (putty?)\
+TODO: learn difference between Telnet and SSH\
+TODO: how to do reverse scp\
+TODO: look into ssh port forwarding (or mac built-in) for watching European Netflix (-vND)\
+TODO: learn xwindows and stuff like that\
+TODO: watch Unit terminal videos and regex grep video from Beyond Code\
+TODO: how to make grep match across multiple lines\
+TODO: grep techniques for duplicating files with missing lines, interposing lines, whatever\
+TODO: grep and sed file editing\
+TODO: learn KeyNote more fully (animations, other slide types, customization, hotkeys, etc.) [is there a key to play a video or animated gif?  will it work with the advancer?  maybe a way to have it show and then 2nd click plays? autoplay?]  How does audio work?  can you loop it?  can you set endpoints?  can you add sound effects? does it play to hdmi or speakers or both? when does it start and end?\
+TODO: try / at end of copy paths to avoid usr/local/bin issue\
+TODO: symbolic links and hard links (windows shortcuts?)\
+\
+
+\b\fs36 \ul \ulc0 Regex
+\b0\fs24 \ulnone \
+TODO: watch Regular Expressions Videos in Beyond Code (except grep)\
+TODO: can you mix ^ and not ^ in same []?\
+TODO: bring in notes from Anki, etc.\
+TODO: possibly some notes on PCRE vs. JavaScript vs. Python, etc.\
+TODO: comments (and in Swift)\
+TODO: more advanced character classes like unicode characters, etc. (named characters ets) (and in Swift)\
+\
+
+\b\fs36 \ul \ulc0 Swift 2 Tutorial
+\b0\fs24 \ulnone \
+TODO: how to apply a design scheme/skin/etc?  UI design guidelines?  setting app icon?  figure out what syntax of imagePickerController delegate method means? how can you see what control a gesture recognizer is controlling in design view?  how to create custom control visually instead of in code?  are sizes in pixels or what?,  what does setting intrinsic width for a custom control really do?  or for any control?\
+\
+
+\b\fs36 \ul \ulc0 Arrays
+\b0\fs24 \ulnone \
+ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)\
+\
+
+\b\fs36 \ul \ulc0 Classes
+\b0\fs24 \ulnone \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf4 \CocoaLigature0 //How do you clone/copy a class instance?\
+//Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?\
+//How to do extension methods (or whatever joined() of Array<String> is)\
+//Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.\
+//Are there still convenience and designated initializers?\
+//Can you delegate to other initializers in the same class?\
+//How to do optional items in protocols like the libraries have?\
+//How to check multiple protocols in class like <> in objective-c?\
+//How to make protocol conform dynamically instead of doing extension\
+//Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?\
+//Does providing your own init hide the base inits for your class (and did I already cover that above?)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Structs
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Can a struct have custom initializers?\
+//Can you provide a default value in a struct, and how does that affect the initializer?\
+//Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?\
+//What are default access control levels and what are all the options?\
+//Check out "Type methods" section of Methods document on apple.com (a bit complicated)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Documentation
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Can you link within the comment, to other types/functions that are documented, etc?\
+//Can you document member variables, local variables, etc?\
+//Check out documentation for other formats (eg. ///) and other important things\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Collections
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Set literals?\
+//Set operations?\
+//tuple counts, enumerating?
+\f0\fs24 \cf0 \CocoaLigature1 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs36 \cf0 \ul \ulc0 Debugging
+\b0\fs24 \ulnone \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf4 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
+//_branchHint in CONDITIONAL COMPILATION\
+//_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION\
+//precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)\
+//When to use precondition() [tutorial shows in * operator that has been extended for arrays, if arrays aren't same size]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Enums
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Other variations of that syntax like multiple extra values, using other names, etc?\
+//How does OptionSet impart so much functionality when it's only a protocol?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Errors
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Can you rethrow (eg. with empty throw)?\
+//What does rethrows do?  (maybe the video for the course makes it clearer)\
+//Can you specify specific types that are thrown in throws like in C++?\
+//Using the 'defer' keyword (equiv. of 'finally')\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Extensions
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf5 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
+//@objc keyword for extensions?\
+//Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?\
+//Multiple constraints on extension?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Functions
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //What is the full official name of a function/method?\
+//In, Out, Ref parameters?  inout?\
+//Forwarding variadic args?\
+//Can you use the internal name externally, or when _ is used?\
+//Extension methods?\
+//Constant parameters and/or methods?\
+//What is a mutating method?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Functional Programming
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
+//@selector still a thing?\
+//methods on dictionary?\
+//Partial applications?  Unbound methods?\
+//Is there a typedef in Swift for things like closures?\
+//Is there a way to lock objects (not variables) as constant so that you can safely pass them into functions?\
+//Give examples of Equatable and Comparable protocol implementations to customize complex sorting\
+//max(), reversed(), etc. (reversed might be lazy)(using reversed() possibly better than providing a messed up < operator)\
+//consider defining >>> function composition operator like the author does in chapter 6\
+//more capture specification syntax?\
+//Is there a version of map that takes multilpe collections like in clojure?\
+//Is there an apply function like in Clojure?  (maybe variadic args)\
+//How can you capture by value?\
+//Do non-escaping closures automatically capture "self" and other things as unowned?  (Do all lazy closures do that?)\
+//Is there a way to add memorization support to a lazy sequence?\
+//How to create your own lazy sequence type?\
+//Other special lazy sequence things like realizing the tail and all that?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Generics
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
+//What name do you use for the class inside a class generic?\
+//Covariance, contravariance, etc?\
+//What does it mean to constrain T as Any?\
+//Can you have multiple generics of the same name?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Modules
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //How to share code between Mac and iOS?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Operators
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
+//Does unary plus have the weird C++ and C# behavior?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Strings
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //How to do case INSENSITIVE stuff?\
+//How to do multiline strings?\
+//How to do mutable string/strinbuilder?\
+//What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)\
+//String.remove() and why it works with pos.lowerBound [didn't include that part for now but saw in tutorial]\
+//What do I need to know about multiple character characters (eg. emojis) when it comes to normal strings, character indexing, regular indexing, substrings, and NSRange?\
+//NSString?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Variables
+\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf4 //Attributes?  Decorators?\
+//Weak references?\
+//When can conversions be done implicitly vs. explicitly?  What about for custom types?\
+}
