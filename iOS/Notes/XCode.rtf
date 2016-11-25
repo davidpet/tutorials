@@ -623,6 +623,7 @@ Xcode Hierarchy
 			May occasionally fail for hardware keyboard, put in code that doesn\'92t work, etc.\
 			Great way to learn, but may often end up shortening/improving what it creates\
 		UI Tests work whether or not you watch it working in Simulator\
+		Note that each test method is an instance of the class and a whole launch of the app from the start\
 	Debugging\
 		In Breakpoint Navigator, use + to create a Test Failure Breakpoint (generic breakpoint that will break on any test failure so you can see the state within the test)\
 		To debug within test method, you can put a breakpoint there (much easier than VS)\
@@ -653,7 +654,9 @@ Xcode Hierarchy
 {\listtext	\uc0\u8259 	}although they could be, tests are not run in parallel - they are all run in series on the main thread\
 {\listtext	\uc0\u8259 	}the application is only launched once at the beginning of testing and remains open while the tests run (and then is killed)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 		\
+\cf0 	Continuous Integration\
+		XCode Server can run continuous tests (detecting when a check-in is made) and give report so that your team can monitor it\
+		\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -1131,4 +1134,5 @@ TODO: learn all about push notifications\
 TODO: check out the Guides and Sample Code Documentation I downloaded through preferences (and document it here, and how I got it)\
 TODO: check out the simulator settings apps\
 TODO: Advanced CoreData: Migrating data models, multiple managed object contexts, delete rules, query generations, and thread safety\
+TODO: look into XCode Server (continuous integration, etc.)\
 }
