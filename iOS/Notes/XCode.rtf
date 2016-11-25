@@ -575,11 +575,15 @@ Xcode Hierarchy
 				ProjectnameTests.Swift/ProjectnameUITests.Swift - the source file for defining tests\
 		In addition, each test type has a target in the project\
 			Each testing target is configured to test (and depend on) the project they were made for\
+		Surprisingly, there is 
+\b no scheme
+\b0  for the test targets\
 	Default Code\
 		XCTest package imported (see Cocoa Touch notes)\
 		Imports the project to be tested as @testable\
 		ProjectnameTests (or ProjectnameUITests) class that inherits from XCTestCase (same base for unit and UI)\
 			4 default methods (basically empty): setUp, tearDown, testExample, testPerformanceExample (this one not there in UI tests)\
+			Any of these can be deleted if not needed\
 		\
 \
 
