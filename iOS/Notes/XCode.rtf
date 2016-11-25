@@ -595,6 +595,15 @@ Xcode Hierarchy
 		These methods will automatically have access to classes that are internal or public within your project (by virtue of being in the same project)\
 		Can instantiate classes, call their methods, check their state, etc. (NOTE: since you\'92re in the same module, you can access methods and properties of your libraries that other modules cannot)\
 		Use assert functionality (see Cocoa Touch notes) to check for things\
+		You can add test classes at will (there\'92s a category for them in File -> New -> File near the top) [can even delete the original - it has no special signficance]\
+	Performance Tests\
+		Any test can be a performance test just by calling 
+\i measure
+\i0  inside (see Cocoa Touch notes) [will call the closure 10 times]\
+		To see the stats, go to the test in the source code and click the grey icon next to the measure call\
+		To have this run be the one that future runs are compared to (to see if things are getting better or worse), click Set Baseline when the stats are up\
+		When you have a baseline set, the performance test will fail if it gets 10% slower\
+			Baselines are stored in an Info.plist file that gets created, which you can check into source control\
 	Running Tests\
 		Tests get run in the 
 \b Simulator
