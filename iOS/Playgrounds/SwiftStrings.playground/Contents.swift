@@ -34,6 +34,7 @@ u += "bye"              //update existing string
 
 //COMPARISON
 s == "Hi"       //case sensitive comparison
+s.caseInsensitiveCompare("hi") == .orderedSame      //case insensitive
 
 //INTERPOLATION
 //often cleaner to read than concatenation
