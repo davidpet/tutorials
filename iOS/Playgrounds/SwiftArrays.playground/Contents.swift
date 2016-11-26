@@ -8,6 +8,10 @@ var t: [String] = ["abc", "def"]   //explicitly typed array declaration
 var mixedArray : [Any] = [1, "abc"]     //by using Any you can do MIXED TYPES
 mixedArray = s          //arrays of more specific types can automatically be passed when [Any] is expected (same is true for other containers such as dictionaries)
 
+//REASSIGNING
+var somearray = [1, 2, 3]
+somearray = [10, 20 , 30]       //can reassign an array (but beware it is a value type)
+
 //empty arrays
 var emptyArray: [String] = []  //often preferred version
 var emptyArray2 = [String]()    //alternate version

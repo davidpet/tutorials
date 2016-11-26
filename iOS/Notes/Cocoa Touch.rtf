@@ -533,6 +533,16 @@ NSExtensionJavaScriptPreprocessingResultsKey
 {\listtext	\uc0\u8259 	}
 \i as NSDate
 \i0  - converting to NSDate for APIs\
+{\listtext	\uc0\u8259 	}
+\i distantPast
+\i0  and 
+\i distantFuture
+\i0  - special static instances representing far in the past and far in the future\
+{\listtext	\uc0\u8259 	}supports many 
+\b math
+\b0  and 
+\b comparison
+\b0  operators\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls1\ilvl0\cf0 {\listtext	\'95	}\ul pow()\ulnone  - raise a number to a power\
 {\listtext	\'95	}\ul performSelector(inBackground:)\ulnone  - runs a method in a background thread\
@@ -807,6 +817,8 @@ Dispatch\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs24 \cf0 Interface stuff like buttons, text boxes, etc.\
+\
+TIP: although the tutorial does a lot in code and the calls and properties are down here, you can often do the equivalent thing in Interface Builder (eg. setting up navigation bar buttons)\
 \
 WARNING: never change properties of UI objects unless you\'92re sure you\'92re on the main thread (eg. if you do it from a closure you can\'92t be sure) (dispatch to main thread if not sure)\
 TIP: animations are important (not just silly) because they make it clear what is changing and what the state is (eg. a panel sliding over existing one tells them the other one is still there underneath when they\'92re done)\
