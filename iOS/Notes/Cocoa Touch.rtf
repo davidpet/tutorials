@@ -1638,6 +1638,25 @@ Controls/views start with UI\
 \i textColor
 \i0  - the color of the text\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls7\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 UISwitch\ulnone  - on/off switch like you see in settings pages\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}defaults to green for on, but you can change the \'93On Tint\'94 property in IB\
+\ls7\ilvl1{\listtext	\uc0\u8259 	}
+\i isOn
+\i0  - tells you whether the switch is on or off\
+{\listtext	\uc0\u8259 	}can make a target for the state change of the switch\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls7\ilvl0\cf0 {\listtext	\'95	}\ul UIPickerView\ulnone  - lets you pick items in a list wheel\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}must be populated in code, cannot be populated in IB\
+{\listtext	\uc0\u8259 	}
+\i delegate
+\i0  - UIPickerViewDelegate to handle populating and behavior\
+{\listtext	\uc0\u8259 	}
+\i dataSource
+\i0  - UIPickerViewDataSource to handle counts\
+{\listtext	\uc0\u8259 	}subclass \ul UIDatePickerView\ulnone  for dates\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls7\ilvl0\cf0 {\listtext	\'95	}\ul UITextField\ulnone  - editable text field\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls7\ilvl1\cf0 {\listtext	\uc0\u8259 	}
@@ -4025,6 +4044,7 @@ See SelfiShare for overall view of how connection management and data transmissi
 \ls27\ilvl2\cf0 {\listtext	\uc0\u8259 	}key thing would be to get accelerometerData.acceleration.x (and .y) to get the actual acceleration values in meters/second (can be used to populate physics body vectors, for instance)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls27\ilvl3\cf0 {\listtext	\uc0\u8259 	}values would be components of the full force of earth\'92s gravity as defined by the tilting of the device (both 0 when the device is flat)\
+\ls27\ilvl3{\listtext	\uc0\u8259 	}z coordinate also available so you can see the complete orientation of the device\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls27\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: the y component is opposite of SpriteKit so you\'92d have to reverse it\
 {\listtext	\uc0\u8259 	}NOTE: the components are relative to portrait mode, so in landscape mode you have to flip x and y (test to make sure you get it right for landscape left vs. right)\

@@ -1,9 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red59\green0\blue164;\red0\green116\blue0;
-\red14\green14\blue255;}
-{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c23137\c0\c64314;\csgenericrgb\c0\c45600\c0;
-\csgenericrgb\c5500\c5500\c100000;}
+{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red59\green0\blue164;\red255\green39\blue18;
+\red0\green116\blue0;\red14\green14\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c23137\c0\c64314;\csgenericrgb\c100000\c15294\c7059;
+\csgenericrgb\c0\c45600\c0;\csgenericrgb\c5500\c5500\c100000;}
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -35,15 +35,17 @@ TODO: be able to translate anything from anchors method into VFL and IB methods\
 TODO: how to allow the user to reorder rows and activate/deactivate editing mode (https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/TableView_iPhone/ManageReorderRow/ManageReorderRow.html)\
 TODO: how to add custom buttons in editing mode of table\
 TODO: find out what happens if you leave or don\'92t leave the memory warning method you get by default in a view controller\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
+\cf0 TODO: more detail about Dynamic Type: {\field{\*\fldinst{HYPERLINK "http://useyourloaf.com/blog/supporting-dynamic-type/"}}{\fldrslt http://useyourloaf.com/blog/supporting-dynamic-type/}}\
+TODO: clarify and document .alert vs. .actionSheet in UIAlertController\
 TODO: how to prevent user from entering text into text edit while still using it for display\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 TODO: does the rest of UIKit (eg. tap detection) see a UIKit view as being in its transformed position when you animate it\
+TODO: does the rest of UIKit (eg. tap detection) see a UIKit view as being in its transformed position when you animate it\
 TODO: can you arbitrarily use 
 \i transform
 \i0  on UIView when not animating (I assume yes) and does that affect other properties?  AutoLayout?\
 TODO: if you set the alpha of a control to 0, and it\'92s something like a button, is it unclickable?\
+TODO: figure out how to automatically load list of image sets\
+TODO: see if 2x and 3x naming tricks work when drag files in directly (and also image loading)\
+TODO: what happens if the biggest image you have is 2x and you load on a Retina HD device?\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \b\fs28 \cf0 SpriteKit
@@ -62,6 +64,7 @@ TODO: figure out how to smoothly wind down particle effects and remove them (app
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 TODO: can you assume object A or B in SpriteKit collision if you only set one of the contact bits\
 TODO: find out if durations less than refresh rate get synced to refresh rate in SKAction methods (I don\'92t think so because it looks erratic)\
+TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \b\fs28 \cf0 Drawing/Image Processing
@@ -75,7 +78,15 @@ TODO: look into using smootherStep function for smooth interpolation (and also t
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \b0\fs24 \cf0 TODO: figure out weirdness with volume levels with AVAudioPlayer\
-TODO: starting sound system on start (w/ no music) so first sound effect doesn\'92t have a pause?
+TODO: starting sound system on start (w/ no music) so first sound effect doesn\'92t have a pause?\
+TODO: sound effects (producing sine waves, reverb, etc.)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Other Game Stuff\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 TODO: using camera flash\
+TODO: using vibrations
 \b\fs28 \
 GameplayKit\
 
@@ -96,6 +107,7 @@ TODO: look at NSRegularExpression document for other stuff not documented like s
 TODO: how to make custom notification center buttons show up in more scenarios\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 TODO: figure out why Project 33 push notifications don\'92t work\
+TODO: learn all about push notifications\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \b\fs28 \cf0 Maps
@@ -108,66 +120,104 @@ TODO: GPS functionality (in CoreLocation?)\
 \cf0 TODO: how to use http instead of https for WKWebView?\
 TODO: learn how webView(decidePolicyFor) from Project 4 works in detail (eg. what is @escaping)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 CoreData
+\b0\fs24 \
+TODO: Advanced CoreData: Migrating data models, multiple managed object contexts, delete rules, query generations, and thread safety\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 
 \b\fs36 \ul XCode
 \b0\fs24 \ulnone \
-TODO HIGH PRIORITY: learn about suppressing the \'93all interface orientations must be supported\'94 error in Info.plist\
-TODO HIGH PRIORITY: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1"}}{\fldrslt https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1}}\
-TODO: if image has even height, where is the center and how do you position it?  (SpriteKit)\
-TODO: how to deploy to phone quicker (not have to run it?), how to build and test release mode?  how to deploy release mode on phone?  how to submit to app store?  (scheme checkboxes?)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Building
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: learn about suppressing the \'93all interface orientations must be supported\'94 error in Info.plist\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: find out how to build all in workspace and how to run all tests in workspace -> also how to build and test all things that refer to a library even if not in same workspace\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Testing
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1"}}{\fldrslt https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: check out the simulator settings apps\
+TODO: look into XCode Server (continuous integration, etc.) (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/08-automation.html)\
+TODO: Code Coverage (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/07-code_coverage.html)\
+TODO: find out how to wait for an asynchronous call (eg. in a test)\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Playgrounds
+\b0\fs24 \
 TODO: How to add tutorial/description text to playgrounds?\
-TODO: watches, immediate window, data breakpoints, callstack\
-TODO: figure out how to automatically load list of image sets\
-TODO: see if 2x and 3x naming tricks work when drag files in directly (and also image loading)\
-TODO: make a list of all the different ways you can transition from one view controller to another (purely in code, in storyboard, etc.)\
+
+\b\fs28 Debugging
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf4 TODO: watches, immediate window, data breakpoints, callstack\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Interface Builder
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: learn how to do splash screen (Launch Image) and observe how often apps actually use it\
+TODO: settings (in system preferences and in app itself)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: make a list of all the different ways you can transition from one view controller to another (purely in code, in storyboard, etc.)\
 TODO: understand the Connections Inspector better (eg. polarity of what connecting to what)\
-TODO: learn how to do particle effects (get to know the settings) manually\
-TODO: what happens if the biggest image you have is 2x and you load on a Retina HD device?\
-TODO: other project types when create new project\
-TODO: learn Targets in XCode\
-TODO: learn all the project settings in XCode (eg. Build Settings, phases, etc.)\
-TODO: learn all the details of building, deployment, configurations, archiving, installing, etc.\
-TODO: learn Swift package installation (including online package managers)\
-TODO: learn the different appliation types in the New Project dialog\
-TODO: learn profiling\
-TODO: learn iAds (how to get money, how to incorporate into app, etc.)\
+TODO: fully supporting IB and object library in custom control\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Package Management
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: learn Swift package installation (including online package managers)\
+TODO: look up Swift Package Manager stuff (swift build, touch Package.Swift, etc.) [end of cmdline tutorial]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Revenue
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: learn iAds (how to get money, how to incorporate into app, etc.)\
 TODO: learn how in-app purchases/upgrades work\
 TODO: learn how to submit free and premium versions\
-TODO: figure out what the backwards url when you make a project is actually for\
-TODO: see if more automatic way to import icon images\
-TODO: how to select the ios version for each device (or globally)\
-TODO: learn how to do splash screen (Launch Image) and observe how often apps actually use it\
-TODO: find out how to build all in workspace and how to run all tests in workspace -> also how to build and test all things that refer to a library even if not in same workspace\
-TODO: find out how to network between devices (eg. multiplayer game) and how to communicate with web servers\
-TODO: find out how to let people create/login to accounts in your app\
-TODO: settings (in system preferences and in app itself)\
-TODO: notifications (and notification settings)\
-TODO: reordering items within tables by sliding with hand\
-TODO: slide to reveal delete button\
-TODO: custom controls\
-TODO: using the camera flash\
-TODO: ratings control\
-TODO: checkbox, radio button controls\
-TODO: see games.txt on desktop for info on making games in app store\
-TODO: sound effects (producing sine waves, reverb, etc.)\
-TODO: how to rename files?\
-TODO: making other types of extensions, installing extensions, setting icon for extensions, etc.\
-TODO: look up Swift Package Manager stuff (swift build, touch Package.Swift, etc.) [end of cmdline tutorial]\
-TODO: more detail about Dynamic Type: {\field{\*\fldinst{HYPERLINK "http://useyourloaf.com/blog/supporting-dynamic-type/"}}{\fldrslt http://useyourloaf.com/blog/supporting-dynamic-type/}}\
-TODO: peer-to-peer network games?\
-TODO: making custom control fully support IB and be in an object library?\
-TODO: learn all about push notifications\
-TODO: check out the Guides and Sample Code Documentation I downloaded through preferences (and document it here, and how I got it)\
-TODO: check out the simulator settings apps\
-TODO: Advanced CoreData: Migrating data models, multiple managed object contexts, delete rules, query generations, and thread safety\
-TODO: look into XCode Server (continuous integration, etc.) (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/08-automation.html)\
-TODO: look at Assistant Editor categories\
-TODO: Code Coverage (https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/testing_with_xcode/chapters/07-code_coverage.html)\
-TODO: find out how to wait for an asynchronous call (eg. in a test)\
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: see games.txt on desktop for info on making games in app store\
+\cf0 TODO: find out how to let people create/login to accounts in your app\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b\fs36 \ul Git
+\b\fs28 \cf0 App Store
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 TODO: figure out what the backwards url when you make a project is actually for\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Assets\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 TODO: automatically importing application icons instead of dragging to all the boxes\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Extensions
+\b0\fs24 \
+TODO: making other types of extensions, installing extensions, setting icon for extensions, etc.\
+
+\b\fs28 Help
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: check out the Guides and Sample Code Documentation I downloaded through preferences (and document it here, and how I got it)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Assistant Editor
+\b0\fs24 \
+TODO: look at Assistant Editor categories\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs36 \cf0 \ul Git
 \b0\fs24 \ulnone \
 TODO: watch Git videos in Beyond Code\
 TODO: setup Beyond Compare diffing/merging on Mac and PC (document in cloud setup steps) [need to resolve issue with tech support]\
@@ -242,9 +292,9 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 TODO: make sure to cover convenience initializers, failable initializers, delegating initializers, optional initializers, etc.\
 TODO: what are the protocols AnyClass and AnyObject?
-\f1\fs22 \cf4 \CocoaLigature0 \
+\f1\fs22 \cf5 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How do you clone/copy a class instance?\
+\cf5 //How do you clone/copy a class instance?\
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?\
 //How to do extension methods (or whatever joined() of Array<String> is)\
 //Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.\
@@ -260,9 +310,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Structs
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can a struct have custom initializers?\
+\cf5 //Can a struct have custom initializers?\
 //Can you provide a default value in a struct, and how does that affect the initializer?\
 //Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?\
 //What are default access control levels and what are all the options?\
@@ -272,18 +322,18 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Documentation
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can you link within the comment, to other types/functions that are documented, etc?\
+\cf5 //Can you link within the comment, to other types/functions that are documented, etc?\
 //Can you document member variables, local variables, etc?\
 //Check out documentation for other formats (eg. ///) and other important things\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Collections
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 -iterators?\
+\cf5 -iterators?\
 //Set literals?\
 //Set operations?\
 //tuple counts, enumerating?
@@ -295,7 +345,7 @@ TODO: what are the protocols AnyClass and AnyObject?
 \b0\fs24 \ulnone \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf4 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
+\f1\fs22 \cf5 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
 //_branchHint in CONDITIONAL COMPILATION\
 //_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION\
 //precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)\
@@ -304,17 +354,17 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Enums
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Other variations of that syntax like multiple extra values, using other names, etc?\
+\cf5 //Other variations of that syntax like multiple extra values, using other names, etc?\
 //How does OptionSet impart so much functionality when it's only a protocol?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Errors
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can you rethrow (eg. with empty throw)?\
+\cf5 //Can you rethrow (eg. with empty throw)?\
 //What does rethrows do?  (maybe the video for the course makes it clearer)\
 //Can you specify specific types that are thrown in throws like in C++?\
 //Using the 'defer' keyword (equiv. of 'finally')\
@@ -322,24 +372,24 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Extensions
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf5 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
+\cf5 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf6 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
 //@objc keyword for extensions?\
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?\
 //Multiple constraints on extension?\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \CocoaLigature1 -look into times extension in chapter 7 of Pro Swift
-\f1\fs22 \cf4 \CocoaLigature0 \
+\f1\fs22 \cf5 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 \
+\cf5 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Functions
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //What is the full official name of a function/method?\
+\cf5 //What is the full official name of a function/method?\
 //In, Out, Ref parameters?  inout?\
 //Forwarding variadic args?\
 //Can you use the internal name externally, or when _ is used?\
@@ -350,9 +400,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Functional Programming
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
+\cf5 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
 //@selector still a thing?\
 //methods on dictionary?\
 //Partial applications?  Unbound methods?\
@@ -373,9 +423,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Generics
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
+\cf5 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
 //What name do you use for the class inside a class generic?\
 //Covariance, contravariance, etc?\
 //What does it mean to constrain T as Any?\
@@ -384,34 +434,34 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Modules
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How to share code between Mac and iOS?\
+\cf5 //How to share code between Mac and iOS?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Operators
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
+\cf5 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
 //Does unary plus have the weird C++ and C# behavior?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Control Flow
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \CocoaLigature1 TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)
-\f1\fs22 \cf4 \CocoaLigature0 \
+\f1\fs22 \cf5 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 \
+\cf5 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Strings
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How to do case INSENSITIVE stuff?\
+\cf5 //How to do case INSENSITIVE stuff?\
 //How to do multiline strings?\
 //How to do mutable string/strinbuilder?\
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)\
@@ -422,16 +472,16 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Variables
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Attributes?  Decorators?\
+\cf5 //Attributes?  Decorators?\
 //Weak references?\
 //When can conversions be done implicitly vs. explicitly?  What about for custom types?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Reflection
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How?\
+\cf5 //How?\
 }

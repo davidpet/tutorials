@@ -9,10 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var mySwitch: UISwitch!
+    @IBOutlet weak var namePicker: UIPickerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +37,13 @@ class ViewController: UIViewController {
         ac.addAction(UIAlertAction(title: "Alert1", style: .default))
         ac.addAction(UIAlertAction(title: "Alert2", style: .default))
         present(ac, animated: true)
+    }
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            title = "ON"
+        } else {
+            title = "OFF"
+        }
     }
 }
 
