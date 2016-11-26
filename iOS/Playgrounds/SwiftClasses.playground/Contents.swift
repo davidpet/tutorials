@@ -2,7 +2,7 @@
 class Basic {
     var x: Int?
 }
-var basic = Basic()                             //if no non-default or non-optional properties, class has default initializer
+var basic = Basic()                             //if no non-default or non-optional properties (and no initializer), class has default initializer
 
 class Person {
     var clothes: String                         //defining properties just like with struct
@@ -200,3 +200,28 @@ class MyRequiredBaseClass {
 class MyRequiredClass: MyRequiredBaseClass {
 }                                                   //inits of base automatically included here (even required) since not providing own inits
 let mrc = MyRequiredClass(x: 100, y: 200)
+
+//DELEGATING INITIALIZERS
+class MyDelegatingThing {
+    var x: Int
+    var y: Int?
+    
+    convenience init() {                //unlike structs, you have to use the CONVENIENCE keyword to mark that you intend to call other init() in same level
+        self.init(x: 10, y: 20)             //also have to use SELF (normal rules about properties needing to be set by end apply)
+    }
+    
+    init(x: Int, y: Int) {
+        self.x = x
+        self.y = y
+    }
+}
+class MyBetterDelegatingThing: MyDelegatingThing {
+    override init(x: Int, y: Int) {         //need to use OVERRIDE to give same initializer again
+        super.init(x: x, y: y)                  //no special keyword needed to call base class initializer (just need to follow the property rules [see above])
+    }
+}
+let mbdt = MyBetterDelegatingThing()                //this is OK since there are no new properties in the subclass
+let mbdt2 = MyBetterDelegatingThing(x: 10, y: 20)
+
+//FAILABLE INITIALIZERS
+//see Structs playground

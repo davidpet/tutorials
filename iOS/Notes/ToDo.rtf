@@ -1,9 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
 {\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red59\green0\blue164;\red255\green39\blue18;
-\red0\green116\blue0;\red14\green14\blue255;}
+\red63\green105\blue30;\red0\green116\blue0;\red14\green14\blue255;}
 {\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c23137\c0\c64314;\csgenericrgb\c100000\c15294\c7059;
-\csgenericrgb\c0\c45600\c0;\csgenericrgb\c5500\c5500\c100000;}
+\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c5500\c5500\c100000;}
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -342,18 +342,18 @@ TODO: more advanced character classes like unicode characters, etc. (named chara
 
 \b\fs48 \cf0 \ul Arrays
 \b0\fs24 \ulnone \
-ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)\
-\
+\cf5 //ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)\
+\cf0 \
 
 \b\fs48 \ul Classes
 \b0\fs24 \ulnone \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 TODO: make sure to cover convenience initializers, failable initializers, delegating initializers, optional initializers, etc.\
-TODO: what are the protocols AnyClass and AnyObject?
-\f1\fs22 \cf5 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //How do you clone/copy a class instance?\
-//Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?\
+
+\f1\fs22 \cf5 \CocoaLigature0 //
+\f0\fs24 \CocoaLigature1 What are the protocols AnyClass and AnyObject?
+\f1\fs22 \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf6 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?\
 //How to do extension methods (or whatever joined() of Array<String> is)\
 //Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.\
 //Are there still convenience and designated initializers?\
@@ -368,9 +368,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Structs
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Can a struct have custom initializers?\
+\cf6 //Can a struct have custom initializers?\
 //Can you provide a default value in a struct, and how does that affect the initializer?\
 //Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?\
 //What are default access control levels and what are all the options?\
@@ -380,18 +380,18 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Documentation
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Can you link within the comment, to other types/functions that are documented, etc?\
+\cf6 //Can you link within the comment, to other types/functions that are documented, etc?\
 //Can you document member variables, local variables, etc?\
 //Check out documentation for other formats (eg. ///) and other important things\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Collections
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 -iterators?\
+\cf6 -iterators?\
 //Set literals?\
 //Set operations?\
 //tuple counts, enumerating?
@@ -403,7 +403,7 @@ TODO: what are the protocols AnyClass and AnyObject?
 \b0\fs24 \ulnone \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf5 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
+\f1\fs22 \cf6 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
 //_branchHint in CONDITIONAL COMPILATION\
 //_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION\
 //precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)\
@@ -412,17 +412,17 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Enums
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Other variations of that syntax like multiple extra values, using other names, etc?\
+\cf6 //Other variations of that syntax like multiple extra values, using other names, etc?\
 //How does OptionSet impart so much functionality when it's only a protocol?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Errors
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Can you rethrow (eg. with empty throw)?\
+\cf6 //Can you rethrow (eg. with empty throw)?\
 //What does rethrows do?  (maybe the video for the course makes it clearer)\
 //Can you specify specific types that are thrown in throws like in C++?\
 //Using the 'defer' keyword (equiv. of 'finally')\
@@ -430,24 +430,24 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Extensions
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf6 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
+\cf6 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf7 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
 //@objc keyword for extensions?\
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?\
 //Multiple constraints on extension?\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \CocoaLigature1 -look into times extension in chapter 7 of Pro Swift
-\f1\fs22 \cf5 \CocoaLigature0 \
+\f1\fs22 \cf6 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 \
+\cf6 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Functions
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //What is the full official name of a function/method?\
+\cf6 //What is the full official name of a function/method?\
 //In, Out, Ref parameters?  inout?\
 //Forwarding variadic args?\
 //Can you use the internal name externally, or when _ is used?\
@@ -458,9 +458,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Functional Programming
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
+\cf6 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
 //@selector still a thing?\
 //methods on dictionary?\
 //Partial applications?  Unbound methods?\
@@ -481,9 +481,9 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Generics
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
+\cf6 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
 //What name do you use for the class inside a class generic?\
 //Covariance, contravariance, etc?\
 //What does it mean to constrain T as Any?\
@@ -492,34 +492,34 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Modules
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //How to share code between Mac and iOS?\
+\cf6 //How to share code between Mac and iOS?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Operators
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
+\cf6 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
 //Does unary plus have the weird C++ and C# behavior?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Control Flow
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \CocoaLigature1 TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)
-\f1\fs22 \cf5 \CocoaLigature0 \
+\f1\fs22 \cf6 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 \
+\cf6 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Strings
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //How to do case INSENSITIVE stuff?\
+\cf6 //How to do case INSENSITIVE stuff?\
 //How to do multiline strings?\
 //How to do mutable string/strinbuilder?\
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)\
@@ -530,16 +530,16 @@ TODO: what are the protocols AnyClass and AnyObject?
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Variables
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //Attributes?  Decorators?\
+\cf6 //Attributes?  Decorators?\
 //Weak references?\
 //When can conversions be done implicitly vs. explicitly?  What about for custom types?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs48 \cf0 \ul \CocoaLigature1 Reflection
-\f1\b0\fs22 \cf5 \ulnone \CocoaLigature0 \
+\f1\b0\fs22 \cf6 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf5 //How?\
+\cf6 //How?\
 }

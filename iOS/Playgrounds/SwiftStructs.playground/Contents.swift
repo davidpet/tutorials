@@ -2,11 +2,53 @@
 struct Person {
     var clothes: String         //properties
     var shoes: String
+    //var myvalue: String?          //WARNING: even optional values are part of the memberwise initializer
 }
 
 //INITIALIZING
 var joe = Person(clothes: "t-shirt", shoes: "sneakers")     //automatically gets member-wise initializer
 //let bob = Person(shoes: "sneakers", clothes: "t-shirt")   //can't change the order of the members
+
+//DELEGATING INITIALIZER (and OVERLOADING)
+//simpler than classes because you can't inherit - initializers can call other initializers in same struct
+struct MyDelegator {
+    var x: Int
+    var y: Int
+    var z: Int?
+    
+    init(x: Int, y: Int, z: Int) {      //allowed to replace memberwise initializer
+        self.init(x: x, y: y)               //allowed to call other initializers
+        self.z = z                      //can initialize other members but only AFTER the other initializer is called
+    }
+    
+    init(x: Int, y: Int) {
+        self.x = x          //required to initialize x and y by end of initializer (but z is optional)
+        self.y = y
+    }
+    
+    init() {
+        self.init(x: 10, y: 20, z: 30)      //all non-optional values must be set before initializer returns
+    }
+}
+
+//FAILABLE INITIALIZERS (allowed on structs, classes, and enums)
+//all the normal initializer rules still apply (eg. inheritence)
+class MyFailableClass {
+    var x: Int
+    
+    init?(x: Int) {             //initializer that can fail marked with ?
+        guard x > 0 else { return nil }         //return nil to fail (but don't return anything to succeed)
+        self.x = x
+    }
+    
+    /*init!(x: Int) {       //could also make it implicitly unwrapped
+                            //NOTE: you can even switch between ? and ! when overriding
+    }*/
+    /*init(x: Int) {                //cannot overload by same name and params if failability is only difference (but having non-failable ones in here is fine)
+        self.x = x
+    }*/
+}
+let mfc: MyFailableClass? = MyFailableClass(x: 10)      //constructing using a failable initializer will return an optional value
 
 //ACCESSING MEMBERS
 joe.clothes = "jacket"      //just like C++
