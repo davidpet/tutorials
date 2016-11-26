@@ -830,7 +830,11 @@ Controls/views start with UI\
 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0
-\fs28 \cf0 {\listtext	\'95	}\ul UIApplicationDelegate\ulnone  - main application delegate (implemented by AppDelegate, which the templates create for you)\
+\fs28 \cf0 {\listtext	\'95	}\ul Points to Pixels\ulnone  - UIScreen.main.scale = 1.0, 2.0, or 3.0 (multiply it by point dimension to get pixels\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}available from SpriteKit as well\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 UIApplicationDelegate\ulnone  - main application delegate (implemented by AppDelegate, which the templates create for you)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}AppDelegate is also declared to have a 
 \i window
@@ -3179,6 +3183,9 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}
 \i init(name:float:)
 \i0  - create from a float value\
+{\listtext	\uc0\u8259 	}
+\i init(name:vectorFloat2:)
+\i0  - passing in vector (use the constructor that auto completion pops up)\
 {\listtext	\uc0\u8259 	}made available in the shader code by the name you give it (should probably start with u_ and be lowercase)\
 {\listtext	\uc0\u8259 	}lots of other overloads for the init\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
