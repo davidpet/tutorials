@@ -16,6 +16,7 @@
 		B9903AAC1DE9AA0500A732F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9903AAA1DE9AA0500A732F2 /* LaunchScreen.storyboard */; };
 		B9903AB41DE9AD1100A732F2 /* shader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB31DE9AD1100A732F2 /* shader1.fsh */; };
 		B9903AB61DE9B85B00A732F2 /* shader2.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB51DE9B85B00A732F2 /* shader2.fsh */; };
+		B9903AB81DE9BF1800A732F2 /* shader3.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB71DE9BF1800A732F2 /* shader3.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B9903AAD1DE9AA0500A732F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B9903AB31DE9AD1100A732F2 /* shader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader1.fsh; sourceTree = "<group>"; };
 		B9903AB51DE9B85B00A732F2 /* shader2.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader2.fsh; sourceTree = "<group>"; };
+		B9903AB71DE9BF1800A732F2 /* shader3.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader3.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				B9903AA81DE9AA0500A732F2 /* Assets.xcassets */,
 				B9903AB31DE9AD1100A732F2 /* shader1.fsh */,
 				B9903AB51DE9B85B00A732F2 /* shader2.fsh */,
+				B9903AB71DE9BF1800A732F2 /* shader3.fsh */,
 				B9903AAA1DE9AA0500A732F2 /* LaunchScreen.storyboard */,
 				B9903AAD1DE9AA0500A732F2 /* Info.plist */,
 			);
@@ -140,6 +143,7 @@
 				B9903A9E1DE9AA0500A732F2 /* GameScene.sks in Resources */,
 				B9903AA91DE9AA0500A732F2 /* Assets.xcassets in Resources */,
 				B9903AB61DE9B85B00A732F2 /* shader2.fsh in Resources */,
+				B9903AB81DE9BF1800A732F2 /* shader3.fsh in Resources */,
 				B9903AB41DE9AD1100A732F2 /* shader1.fsh in Resources */,
 				B9903AAC1DE9AA0500A732F2 /* LaunchScreen.storyboard in Resources */,
 			);

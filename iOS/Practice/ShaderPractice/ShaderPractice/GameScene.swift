@@ -23,6 +23,13 @@ class GameScene: SKScene {
         shaders.append(nil)
         shaders.append(SKShader(fileNamed: "shader1"))
         shaders.append(SKShader(fileNamed: "shader2"))
+        let shader3 = SKShader(fileNamed: "shader3")
+        shader3.uniforms = [
+            SKUniform(name: "u_gradient", texture: SKTexture(imageNamed: "shieldmask")),
+            SKUniform(name: "u_health", float: 0.75)
+        ]
+        shaders.append(shader3)
+        
         shield.shader = shaders[currentShader]
     }
     

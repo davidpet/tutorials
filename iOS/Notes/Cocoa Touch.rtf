@@ -3166,7 +3166,21 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
-\i0  - initialize a new instance using a shader file (.fsh) [can ommit the extension and just give name of an fsh file from your bundle]\ul \ulc0 \
+\i0  - initialize a new instance using a shader file (.fsh) [can ommit the extension and just give name of an fsh file from your bundle]\
+{\listtext	\uc0\u8259 	}
+\i uniforms
+\i0  - array of SKUniform representing values to pass into the shader\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKUniform\ulnone  - a value to be passed into a shader\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(name:texture:)
+\i0  - create from an SKTexture\
+{\listtext	\uc0\u8259 	}
+\i init(name:float:)
+\i0  - create from a float value\
+{\listtext	\uc0\u8259 	}made available in the shader code by the name you give it (should probably start with u_ and be lowercase)\
+{\listtext	\uc0\u8259 	}lots of other overloads for the init\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
