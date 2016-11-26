@@ -43,6 +43,14 @@ func myfunc(a: Int = 0, b: Int) -> Int {
 }
 myfunc(a: 10, b: 20)  //NOTE: unlike other languages, the optional args can go in front of non-optional ones too
 
+//IMPLICIT OPTIONAL PARAMETERS
+func myimplicitparamfunc(x: Int! = nil) {
+    if let y = x {
+        print(y)
+    }
+}
+myimplicitparamfunc(x: 5)
+
 //EXTERNAL PARAMETER NAME (multiple allowed)
 func countLettersInString(myString str: String) {       //str is the name inside the function while myString is the name when you call it
     print("There are \(str.characters.count) characters.")
@@ -97,6 +105,9 @@ func getHaterStatus(weather: String) -> String? {  //could return nil instead of
         return "Hate"
     }
 }
+
+//IGNORING RETURN VALUES
+_ = getDoubled(string: "hi")        //if the declaration isn't marked with @discardableResult, you need to do this to supress compiler warning
 
 //VARIADIC
 func addNumbers(nums: Int...) -> Int {      //put ... after the type to make an argument variadic (can supply as many as want)

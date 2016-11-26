@@ -1,35 +1,15 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red170\green13\blue145;\red0\green0\blue0;\red0\green116\blue0;
-\red14\green14\blue255;}
-{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c66500\c5200\c56900;\csgenericrgb\c0\c0\c0;\csgenericrgb\c0\c45600\c0;
-\csgenericrgb\c5500\c5500\c100000;}
+{\colortbl;\red255\green255\blue255;\red0\green116\blue0;\red14\green14\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;\csgenericrgb\c0\c45600\c0;\csgenericrgb\c5500\c5500\c100000;}
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 Swift
+\f0\b\fs36 \cf0 \ul \ulc0 Swift Language
 \b0\fs24 \ulnone \
-TODO: make sure to cover convenience initializers, failable initializers, delegating initializers, optional initializers, etc.\
-TODO: put stuff in this document in the appropriate playgrounds if applicable\
-TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)\
-TODO: is there a list type like in clojure that can be lazy, etc. or do you use array for that?\
-TODO: Is there a way to declare a reference variable (like int& in C++)?\
-TODO: modules (already have playground)\
-TODO: how to use http instead of https for WKWebView?\
-TODO: attributes (built-in, can you do custom?)\
-TODO: optional chaining can be used in top-level statements (eg. before function calls) too\
-TODO: putting ! on place that doesn\'92t need a ! like in function that implements closure?  (eg. askQuestion() in Project 2)\
-TODO: selector syntax (eg. #selector(methodName)) (
-\f1\fs22 \cf2 \CocoaLigature0 #selector\cf3 (image(\cf2 _\cf3 :didFinishSavingWithError:contextInfo:)))
-\f0\fs24 \cf0 \CocoaLigature1 \
-TODO: URL struct\
-TODO: enumerated() method of array\
 TODO: learn how webView(decidePolicyFor) from Project 4 works in detail (eg. what is @escaping)\
 TODO: look into using smootherStep function for smooth interpolation (and also the clipping technique used)\
 TODO: look into extending collections to allow safe nil for out of bound\
-TODO: macros?  #ifdef?\
-TODO: custom subscript operator\
-TODO: iterators?\
 TODO: bring in missing stuff (that still applies) from the Swift 2 tutorial\
 TODO: look into times extension in chapter 7 of Pro Swift\
 TODO: tip: use ?? after a try? to handle situations where throwing an error still results in valid state (eg. try to read a file that may not be there)\
@@ -55,9 +35,8 @@ TODO: can typealias types be interoperated without casting?\
 TODO: using . with nothing in front to call a method from the class you\'92re calling a method on when passing a parameter?  (example async deadline .now())\
 TODO: abstract base classes?\
 TODO: learn the checkboxes you get when you create project (unit tests, core data, also create xib file, blue vs. yellow folder, etc.)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b\fs36 \cf0 \ul \ulc0 \
+\b\fs36 \ul \
 Cocoa Touch
 \b0\fs24 \ulnone \
 TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
@@ -112,10 +91,12 @@ TODO: learn more of GameplayKit\
 TODO: find out if durations less than refresh rate get synced to refresh rate in SKAction methods (I don\'92t think so because it looks erratic)\
 TODO: starting sound system on start (w/ no music) so first sound effect doesn\'92t have a pause?\
 TODO: find out if SKAction removes itself or if stacking them endlessly is a problem\
-\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: how to use http instead of https for WKWebView?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 
-\b\fs36 \cf0 \ul \ulc0 XCode
+\b\fs36 \ul XCode
 \b0\fs24 \ulnone \
 TODO HIGH PRIORITY: learn about suppressing the \'93all interface orientations must be supported\'94 error in Info.plist\
 TODO HIGH PRIORITY: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1"}}{\fldrslt https://developer.apple.com/library/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator/TestingontheiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH4-SW1}}\
@@ -172,7 +153,7 @@ TODO: Code Coverage (https://developer.apple.com/library/content/documentation/D
 TODO: find out how to wait for an asynchronous call (eg. in a test)\
 \
 
-\b\fs36 \ul \ulc0 Git
+\b\fs36 \ul Git
 \b0\fs24 \ulnone \
 TODO: watch Git videos in Beyond Code\
 TODO: setup Beyond Compare diffing/merging on Mac and PC (document in cloud setup steps) [need to resolve issue with tech support]\
@@ -191,7 +172,7 @@ TODO: using difftool w/ commands that do unified diffs (eg. stash show -p)\
 TODO: sending stash to remotes?\
 \
 
-\b\fs36 \ul \ulc0 Mac
+\b\fs36 \ul Mac
 \b0\fs24 \ulnone \
 TODO: look up recursive wildcards (and any folder vs. filename differences)\
 TODO: look up executing simple loops and conditionals (like do all the time in DOS)\
@@ -222,7 +203,7 @@ TODO: try / at end of copy paths to avoid usr/local/bin issue\
 TODO: symbolic links and hard links (windows shortcuts?)\
 \
 
-\b\fs36 \ul \ulc0 Regex
+\b\fs36 \ul Regex
 \b0\fs24 \ulnone \
 TODO: watch Regular Expressions Videos in Beyond Code (except grep)\
 TODO: can you mix ^ and not ^ in same []?\
@@ -232,21 +213,23 @@ TODO: comments (and in Swift)\
 TODO: more advanced character classes like unicode characters, etc. (named characters ets) (and in Swift)\
 \
 
-\b\fs36 \ul \ulc0 Swift 2 Tutorial
+\b\fs36 \ul Swift 2 Tutorial
 \b0\fs24 \ulnone \
 TODO: how to apply a design scheme/skin/etc?  UI design guidelines?  setting app icon?  figure out what syntax of imagePickerController delegate method means? how can you see what control a gesture recognizer is controlling in design view?  how to create custom control visually instead of in code?  are sizes in pixels or what?,  what does setting intrinsic width for a custom control really do?  or for any control?\
 \
 
-\b\fs36 \ul \ulc0 Arrays
+\b\fs36 \ul Arrays
 \b0\fs24 \ulnone \
 ContinguousArray (haven't put above yet) (should act just like Array but be faster - is there a reason not to use it other than readability with the literals?)\
 \
 
-\b\fs36 \ul \ulc0 Classes
+\b\fs36 \ul Classes
 \b0\fs24 \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 TODO: make sure to cover convenience initializers, failable initializers, delegating initializers, optional initializers, etc.
+\f1\fs22 \cf2 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-
-\f1\fs22 \cf4 \CocoaLigature0 //How do you clone/copy a class instance?\
+\cf2 //How do you clone/copy a class instance?\
 //Is there a way to prevent variable references being taken to a constant?  Or to make it a true runtime constant?\
 //How to do extension methods (or whatever joined() of Array<String> is)\
 //Are there still failable initializers with ? behind?  If so, need to relearn it in Swift 3.\
@@ -260,10 +243,10 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Structs
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Structs
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can a struct have custom initializers?\
+\cf2 //Can a struct have custom initializers?\
 //Can you provide a default value in a struct, and how does that affect the initializer?\
 //Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?\
 //What are default access control levels and what are all the options?\
@@ -271,31 +254,31 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Documentation
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Documentation
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can you link within the comment, to other types/functions that are documented, etc?\
+\cf2 //Can you link within the comment, to other types/functions that are documented, etc?\
 //Can you document member variables, local variables, etc?\
 //Check out documentation for other formats (eg. ///) and other important things\
-\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 \
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Collections
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Collections
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Set literals?\
+\cf2 -iterators?\
+//Set literals?\
 //Set operations?\
 //tuple counts, enumerating?
 \f0\fs24 \cf0 \CocoaLigature1 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b\fs36 \cf0 \ul \ulc0 Debugging
+\b\fs36 \cf0 \ul Debugging
 \b0\fs24 \ulnone \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 
-\f1\fs22 \cf4 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
+\f1\fs22 \cf2 \CocoaLigature0 //Do the functions in CONDITIONAL COMPILATION actually do that or are they normal functions?  What about assert?\
 //_branchHint in CONDITIONAL COMPILATION\
 //_assertFailed and _fatalErrorFlags in CONDITIONAL COMPIlATION\
 //precondition() [like assert() but works in release mode unless build with -Ounchecked instead of -Onone] (may go in SwiftErrors playground)\
@@ -303,38 +286,38 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Enums
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Enums
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Other variations of that syntax like multiple extra values, using other names, etc?\
+\cf2 //Other variations of that syntax like multiple extra values, using other names, etc?\
 //How does OptionSet impart so much functionality when it's only a protocol?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Errors
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Errors
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Can you rethrow (eg. with empty throw)?\
+\cf2 //Can you rethrow (eg. with empty throw)?\
 //What does rethrows do?  (maybe the video for the course makes it clearer)\
 //Can you specify specific types that are thrown in throws like in C++?\
 //Using the 'defer' keyword (equiv. of 'finally')\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Extensions
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Extensions
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf5 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
+\cf2 //make sense of this: {\field{\*\fldinst{HYPERLINK "https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215"}}{\fldrslt \cf3 https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Initialization.html#//apple_ref/doc/uid/TP40014097-CH18-ID215}}\
 //@objc keyword for extensions?\
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?\
 //Multiple constraints on extension?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Functions
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Functions
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //What is the full official name of a function/method?\
+\cf2 //What is the full official name of a function/method?\
 //In, Out, Ref parameters?  inout?\
 //Forwarding variadic args?\
 //Can you use the internal name externally, or when _ is used?\
@@ -344,10 +327,10 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Functional Programming
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Functional Programming
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
+\cf2 //Is there a one liner for the way I'm changing the seeded reduce() dictionary in my examples?\
 //@selector still a thing?\
 //methods on dictionary?\
 //Partial applications?  Unbound methods?\
@@ -367,10 +350,10 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Generics
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Generics
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
+\cf2 //Is there a way to make it just work depending on what's inside type instead of having to explicitly conform to protocol?\
 //What name do you use for the class inside a class generic?\
 //Covariance, contravariance, etc?\
 //What does it mean to constrain T as Any?\
@@ -378,25 +361,35 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Modules
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Modules
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How to share code between Mac and iOS?\
+\cf2 //How to share code between Mac and iOS?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Operators
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Operators
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
+\cf2 //Fill in OPTIONALS and RANGES versions of PATTERN MATCHING\
 //Does unary plus have the weird C++ and C# behavior?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Strings
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Control Flow
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \CocoaLigature1 TODO: how to do generator/yield type stuff in Swift?  (like lazy sequence but have the elements totally computed when needed, hopefully with a closure)
+\f1\fs22 \cf2 \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //How to do case INSENSITIVE stuff?\
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Strings
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf2 //How to do case INSENSITIVE stuff?\
 //How to do multiline strings?\
 //How to do mutable string/strinbuilder?\
 //What is string.characters?  Seems to have array-like things but be readonly (find out what it can do)\
@@ -406,10 +399,10 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Variables
-\f1\b0\fs22 \cf4 \ulnone \CocoaLigature0 \
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Variables
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf4 //Attributes?  Decorators?\
+\cf2 //Attributes?  Decorators?\
 //Weak references?\
 //When can conversions be done implicitly vs. explicitly?  What about for custom types?\
 }

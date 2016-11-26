@@ -185,3 +185,56 @@ print(lazySquares[5])                    //the square is only computed for the v
 print(lazySquares[5])                    //lazy sequences DO NOT use MEMOIZATION
 //NOTE: lazy sequences are just special types that act like the non-lazy equivalents
 //NOTE: fibonacci lazy sequence would recursively add two previous values (but without memoization will be rather inefficient for repeated calls)
+
+//SELECTORS
+//for compatibility with existing code (holdover from Objective-C)
+//similar to closures but not as integrated into the syntax and only usable for class instance methods on classes that inherit from NSObject
+import Foundation           //required to use selectors
+func myselectortest() {
+}
+class myselectortestclass: NSObject {       //you must inherit from NSObject to use selectors for your class methods
+    func myfunc() {
+        print("no args")
+    }
+    func myfunc(_ x: Int) {
+        print("_ arg")
+    }
+    func myfunc(_ x: Int, y: Int) {
+        print("2 args")
+    }
+    func myfunc(a: Int, b: Int) {
+        print("2 explicit args")
+    }
+    func myuniquefunc(x: Int) {
+    }
+    static func mystaticfunc() {
+    }
+    static func testSelectors() {
+        //specifying for different arg scenarios
+        _ = #selector(myuniquefunc)     //unambiguous to ARGS NOT NEEDED (even though has some)
+        _ = #selector(myuniquefunc(x:)) //can specify the arg IF YOU WANT
+        _ = #selector(mystaticfunc)         //allowed to declare for STATIC and CLASS methods too (but there doesn't seem to be a way to call it)
+        //_ = #selector(myfunc)         //AMBIGUOUS
+        _ = #selector(myfunc(_:))           //refers to the one that takes an int with _ (doesn't seem to be a way to refer to the one that takes no arguments)
+        _ = #selector(myfunc(_:y:))       //specifying MULTIPLE parameters
+        _ = #selector(myfunc(a:b:))     //specified by NAMES, not types
+        _ = #selector(self.myuniquefunc)        //can use self (eg. if you were in a closure)
+        
+        //selector object
+        var sel: Selector = #selector(myuniquefunc)     //selectors are of type Selector and are not strongly typed
+        sel = #selector(myfunc(_:))                //selectors can be interchanged regardless of name and parameters in functions
+        
+        //calling selectors
+        let mstc = myselectortestclass()
+        mstc.perform(sel, with: 10)         //called through instance using NSObject perform (various overloads for different argument scenarios)
+        mstc.perform(sel, with: 10, afterDelay: 1)          //make it ASYNCHRONOUS (although it will be called back on the current thread (in the run loop when available)
+        mstc.performSelector(inBackground: sel, with: 10)       //ASYNCHRONOUSLY dispatch to BACKGROUND THREAD
+        //mstc.perform(#selector(mystaticfunc))         //pretending a static is an instance method does not work
+        //NSObject.perform(#selector(mystaticfunc))     //it looks like this should work, but it doesn't
+        //there are tons of overloads of these methods
+    }
+}
+//let sel1 = #selector(myselectortest)      //NOT ALLOWED for functions that are not methods
+print("testing SELECTORS")
+myselectortestclass.testSelectors()
+_ = #selector(myselectortestclass.myuniquefunc(x:))     //can take selectors EXTERNALLY just by putting class name in front

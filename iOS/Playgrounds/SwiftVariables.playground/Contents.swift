@@ -38,6 +38,9 @@ print(opt2!)                //can use implicitly unwrapped optional wherever you
 print((opt2)!)      //! is an operator that takes an EXPRESSION
 opt2 = nil              //even implicitly wrapped optionals can be re-unbound (or re-bound)
 opt2 = "hello"
+if let opt3 = opt2 {        //even though it's impliictly unwrapped, you can still do this kind of check!
+    print("yay!")
+}
 
 //OPTIONAL CHAINING
 let val = opt?.uppercased()     //can insert ? before things like . and [] operators (even multiple times in a long line)
