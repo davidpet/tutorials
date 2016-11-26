@@ -22,7 +22,7 @@ class GameScene: SKScene {
         
         shaders.append(nil)
         shaders.append(SKShader(fileNamed: "shader1"))
-        
+        shaders.append(SKShader(fileNamed: "shader2"))
         shield.shader = shaders[currentShader]
     }
     
