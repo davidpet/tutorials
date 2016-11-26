@@ -9,6 +9,14 @@ struct Person {
 var joe = Person(clothes: "t-shirt", shoes: "sneakers")     //automatically gets member-wise initializer
 //let bob = Person(shoes: "sneakers", clothes: "t-shirt")   //can't change the order of the members
 
+//DEFAULT AND OPTIONAL VALUES
+struct MyLooseStruct {
+    var x: Int
+    var y: Int = 10
+    var z: Int?
+}
+let mls = MyLooseStruct(x: 10, y: 20, z: 30)        //the default memberwise initializer still requires everything (if you don't like it, provide your own)
+
 //DELEGATING INITIALIZER (and OVERLOADING)
 //simpler than classes because you can't inherit - initializers can call other initializers in same struct
 struct MyDelegator {
