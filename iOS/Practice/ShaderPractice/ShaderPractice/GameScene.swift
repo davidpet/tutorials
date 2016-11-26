@@ -36,6 +36,9 @@ class GameScene: SKScene {
         let shader4 = SKShader(fileNamed: "shader4")
         shader4.uniforms = uniforms
         shaders.append(shader4)
+        let shader5 = SKShader(fileNamed: "shader5")
+        shader5.uniforms = uniforms
+        shaders.append(shader5)
         
         shield.shader = shaders[currentShader]
     }
