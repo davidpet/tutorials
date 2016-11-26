@@ -17,6 +17,7 @@
 //  NOTE: subclassing an @objc class automatically makes your class @objc too (eg. view controllers, app delegates, etc.)
 //  NOTE: this attribute also carries the extra requirement of inheriting from NSObject
 //  NOTE: interestingly, since NSObject is @objc, you can just inherit from NSObject and NOT WORRY ABOUT THIS ATTRIBUTE
+//  NOTE: marking a protocol objc does not require classes that conform to be objc
 //@nonobjc
 //  marks something that would otherwise be considered @objc by defualt as being not compatible with Objective-C
 //  eg. mark a class as @objc and mark a member as @nonobjc

@@ -182,6 +182,19 @@ class MyPropertyClass2: MyPropertyProtocol {
 protocol MyBetterProtocol: MyProtocol, MyPropertyProtocol {     //protocols can inherit one or more other protocols which forces the class to implement all of them
 }
 
+//PROTOCOL OPTIONAL MEMBERS
+import Foundation
+@objc protocol MyProtoclWithOptionals {         //to use optional members the protocol has to be marked with @objc (from Foundation)
+    var x: Int {get}
+    @objc optional var y: Int {get}         //optional members must be marked with @objc and optional keyword
+}
+@objc protocol MyProtocolWithOptionals2: MyProtoclWithOptionals {       //inheriting a protocol from another does not automatically transfer @objc
+    @objc optional var z: Int {get}
+}
+class MyClassWithOptionals: MyProtoclWithOptionals {        //class can conform to @objc protocol without being @objc
+    var x: Int = 10                         //only had to provide z, not y (because it's optional)
+}
+
 //FINAL
 final class MyFinalClass {var x = 5}
 //class MyFinalClass2: MyFinalClass {}      //can't inherit a final class
