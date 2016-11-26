@@ -7,3 +7,4 @@ type(of: a)     //array type
 
 //getting type literally in code (equivalent of typeof() in C#)
 print(Int.self)     //self of a type literal gives you the type in code
+

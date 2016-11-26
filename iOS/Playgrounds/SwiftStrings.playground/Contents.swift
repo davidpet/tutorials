@@ -29,6 +29,9 @@ var t = s + "_" + s
 var u = s + String(5)       //works if use conversion
 u += "bye"              //update existing string
 
+//MULTILINE STRINGS
+//just concatenate with + and keep opening and closing the quotes
+
 //COMPARISON
 s == "Hi"       //case sensitive comparison
 

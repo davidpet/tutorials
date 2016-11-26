@@ -129,9 +129,23 @@ struct MyOtherStruct {
 }
 //NOTE: there is no protected in Swift
 
+//FACTORY INFERENCE
+struct MySpecialStruct {
+    var x: Int
+    
+    func dostuff() -> Int { return x }
+    static func getvalue() -> MySpecialStruct { return MySpecialStruct(x: 10) }
+}
+let mss = MySpecialStruct(x: 10)
+let mss2: MySpecialStruct = .getvalue()         //special case that's allowed to let you infer factory methods (used in libraries)
+
 //CONVERSIONS
 //see SwiftExtensions for how to add conversion operators to convert your type to another type (like Int)
 
 //PROTOCOLS
 //see SwiftClasses for explanation of protocols
 //NOTE: structs automatically get initializer that sets all the fields by name, and this counts towards a protocol that needs it (eg. in bitfields - see SwiftEnums)
+
+//PRINTING
+//to support printing at the console or string interpolation, conform to the Printable protocol (or DebugPrintable)
+

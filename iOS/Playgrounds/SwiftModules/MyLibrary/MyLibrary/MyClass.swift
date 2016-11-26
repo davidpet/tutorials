@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GameplayKit
 
 public struct MyStruct {
     public var x: Int
@@ -15,3 +16,5 @@ public struct MyStruct {
         self.x = x
     }
 }
+
+public let gk = GKRandomSource.self

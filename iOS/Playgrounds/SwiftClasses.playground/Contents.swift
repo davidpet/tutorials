@@ -72,7 +72,7 @@ class Singer: Person {                          //only ONE base class allowed ju
     }
 }
 
-var singer = Singer(clothes: "tshirt", shoes: "sneakers")       //base INITIALIZER has been INHERITED
+var singer = Singer(clothes: "tshirt", shoes: "sneakers")       //base INITIALIZER has been INHERITED (if want to provide with same arguments you must OVERRIDE)
 singer.sing()                                                   //overridden method is called here
 
 class HeavyMetalSinger: Singer {
@@ -167,12 +167,30 @@ var mp2: MyProtocol = MyFloatingClass()         //within the scope of the extens
 //NOTE: see Swift Generics playground for Self keyword in protocols
 //NOTE: can extend Integer protocol to affect all integer types (not just Int)
 
+//PROTOCOL PROPERTIES  (protocol can be implemented by either COMPUTED or STORED property)
+protocol MyPropertyProtocol {
+    var x: Int { get }
+}
+class MyPropertyClass: MyPropertyProtocol {
+    var x: Int { return 10 }
+}
+class MyPropertyClass2: MyPropertyProtocol {
+    var x: Int = 10
+}
+
+//PROTOCOL INHERITENCE
+protocol MyBetterProtocol: MyProtocol, MyPropertyProtocol {     //protocols can inherit one or more other protocols which forces the class to implement all of them
+}
+
 //FINAL
 final class MyFinalClass {var x = 5}
 //class MyFinalClass2: MyFinalClass {}      //can't inherit a final class
 MyFinalClass().x = 10
 class MyOpenClass {final func x() -> Int { return 10}}
 //class MyOpenClass2 : MyOpenClass { override func x() -> Int { return 20 }}     //can't override a final method
+
+//ABSTRACT
+//Swift does not have the concept of abstract classes/methods -> but you can throw errors from your base methods if you want
 
 //REQUIRED
 class MyRequiredBaseClass {

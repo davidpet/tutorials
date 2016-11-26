@@ -1,3 +1,12 @@
+//SPLITTING LINES
+//if Swift can tell that the statement isn't over yet, you can split the line
+//applies to literals (except strings), function arguments, etc. just like C++
+var split = 1 +
+            2
+split = (
+    1 + 2
+)
+
 //CONDITIONALS
 let x = 5
 var y : Int

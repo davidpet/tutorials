@@ -12,6 +12,7 @@ func multiply(value1: Int, value2: Int) -> Int {        //define a function that
     return value1 * value2                      //NOTE: it doesn't matter what the param names are as long as the arg types are right
 }
 let multiplied = transform(array1: [1, 2, 3], array2: [4, 5, 6], with: multiply)    //can just pass function name as an argument
+//NOTE: see SELECTORS section for how to disambiguate overloaded functions
 
 //PASSING CLOSURE (lambda) TO FUNCTION
 let multiplied2 = transform(array1: [1, 2, 3], array2: [4, 5, 6], with: {(s1: Int, s2: Int) -> Int in       //closures have (args) -> ret in code
@@ -143,6 +144,33 @@ func autoTest2(_ closure: @autoclosure () -> String = String()) {       //defaul
 }
 autoTest2()
 
+//INSTANCE METHODS
+class MyClassClosureTestClass {
+    var x = 5
+    
+    func myfunc() {print("mcct")}
+    static func mystaticfunc() {print("static")}
+    
+    func getclosure() -> (Void) -> Void {
+        return myfunc                       //can return instance methods from other instance methods (and will be implicitly bound)
+    }
+    static func getstaticclosure() -> (Void) -> Void {
+        //return myfunc     not allowed because no instance
+        return mystaticfunc             //can return static methods from other static methods
+    }
+    
+    func getXAdder() -> (Void) -> Void { return {[unowned self] in      //closures sent outside of a class need to use self and probably want to take a weak reference to it
+            self.x += 1
+        }
+    }
+}
+print("CLASS METHODS")
+let mcct = MyClassClosureTestClass()
+let classclosure = mcct.myfunc
+let staticclosure = MyClassClosureTestClass.mystaticfunc
+classclosure()          //static and instance closures (once bound) are just like functions
+staticclosure()
+
 //FUNCTORS and MONADS
 //Functor = type that implements map (such as array)
 //Monad = functor that also implements flatMap (such as array)
@@ -185,6 +213,12 @@ print(lazySquares[5])                    //the square is only computed for the v
 print(lazySquares[5])                    //lazy sequences DO NOT use MEMOIZATION
 //NOTE: lazy sequences are just special types that act like the non-lazy equivalents
 //NOTE: fibonacci lazy sequence would recursively add two previous values (but without memoization will be rather inefficient for repeated calls)
+
+//HEAD AND TAIL
+let tail = lazySequence.dropFirst()
+let head = lazySequence.first
+let eleventandhigher = lazySequence.dropFirst(10)
+//NOTE: these are on arrays and stuff too (not just lazy sequences)
 
 //SELECTORS
 //for compatibility with existing code (holdover from Objective-C)

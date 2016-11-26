@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GameplayKit/GameplayKit.h>
 
 //! Project version number for MyLibrary.
 FOUNDATION_EXPORT double MyLibraryVersionNumber;

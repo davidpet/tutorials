@@ -76,6 +76,8 @@ let mot = MyOtherType()                     //use the type just like it were a r
 let mt: MyType? = nil                       //can also use modifiers like ? on it
 typealias MyOtherType2 = MyOtherType?       //can refer to other typealiases and can also include the ? in the type
 let mot2: MyOtherType2? = nil               //still somehow allows this (discards the extra ?)
+let mot3: MyOtherType2 = ["hi", "bye"]      //typedefs that are equivalent are interchangeable
+MyOtherType2.self                           //type is the real type, not the alias
 
 //DEFAULT VALUES
 Int.max
@@ -97,5 +99,5 @@ var ageCopy = theage
 var successCopy = success       //NUMBERS and BOOLEANS are value types
 //NOTE: built-in stuff like tuples, arrays, dictionaries, etc. are actually value types in Swift
 
-//GLOBAL VARIABLES
+//GLOBAL VARIABLES and GLOBAL FUNCTIONS
 //allowed

@@ -1,6 +1,10 @@
 //IMPORTING
-import UIKit        //symbols in this module now available
+import UIKit        //symbols in this module now available (but not other imports)
 //import MyLibrary  //if you had a library project with this name, this is how you'd import the types into a .swift file
+
+//IMPORT OTHER MODULES
+//by default, a module imported into your module does not get imported into other modules
+//to make this happen, add this to the .h file for your module (for instance to import GameplayKit): #import <GameplayKit/GameplayKit.h>
 
 //DECLARATION ORDER
 //var x = MyClass()     //type (or variable) must be declared first

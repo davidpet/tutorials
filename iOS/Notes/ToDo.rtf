@@ -5,39 +5,7 @@
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 Swift Language
-\b0\fs24 \ulnone \
-TODO: learn how webView(decidePolicyFor) from Project 4 works in detail (eg. what is @escaping)\
-TODO: look into using smootherStep function for smooth interpolation (and also the clipping technique used)\
-TODO: look into extending collections to allow safe nil for out of bound\
-TODO: bring in missing stuff (that still applies) from the Swift 2 tutorial\
-TODO: look into times extension in chapter 7 of Pro Swift\
-TODO: tip: use ?? after a try? to handle situations where throwing an error still results in valid state (eg. try to read a file that may not be there)\
-TODO: are parameters mutable or immutable?\
-TODO: table view basic cell vs. custom cell\
-TODO: warnings about calling function and ignoring value (do you just use _?)(is there a return ignored macro)?\
-TODO: Can you destructure such as head and tail of an array, first 3 items as variables, etc? like in Clojure?\
-TODO: how do you disambiguate methods with #selector, closures, etc. (eg. taking no parameters vs. 1)?\
-TODO: required to use self in closures explicitly\
-TODO: figure out layout issue with AutoLayout project (worked in simular but not real phone) (landscape mode)\
-TODO: make sure cover that lines can be split up across =, (), etc.\
-TODO: find out if UIImage and stuff like that support vector graphics (or else what resolutions you should make things at)\
-TODO: how to do underlined letters (like hangman)\
-TODO: what is the .now() when calling asyncAfter (why the dot and what is it getting and what else can you use?)\
-TODO: look into global variables\
-TODO: look into other notes about access modifiers\
-TODO: how to make your class support printing?\
-TODO: when you are required to have override in constructor\
-TODO: can you intermix stored and computed properties when implementing a protocol?\
-TODO: protocol can inherit from other protocols (look into hiding, overriding, etc.)\
-TODO: importing packages imports what they import automatically?\
-TODO: can typealias types be interoperated without casting?\
-TODO: using . with nothing in front to call a method from the class you\'92re calling a method on when passing a parameter?  (example async deadline .now())\
-TODO: abstract base classes?\
-TODO: learn the checkboxes you get when you create project (unit tests, core data, also create xib file, blue vs. yellow folder, etc.)\
-
-\b\fs36 \ul \
-Cocoa Touch
+\f0\b\fs36 \cf0 \ul \ulc0 Cocoa Touch
 \b0\fs24 \ulnone \
 TODO: Learn more VFL (eg. percentages, aspect ratio, margin vs. absolute, etc.)\
 TODO: Get better at Auto Layout in IB (via Attributes Inspector, popups, outline, etc.)\
@@ -93,6 +61,10 @@ TODO: starting sound system on start (w/ no music) so first sound effect doesn\'
 TODO: find out if SKAction removes itself or if stacking them endlessly is a problem\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 TODO: how to use http instead of https for WKWebView?\
+TODO: learn how webView(decidePolicyFor) from Project 4 works in detail (eg. what is @escaping)\
+TODO: look into using smootherStep function for smooth interpolation (and also the clipping technique used)\
+TODO: figure out layout issue with AutoLayout project (worked in simulator but not real phone) (landscape mode)\
+TODO: find out if UIImage and stuff like that support vector graphics (or else what resolutions you should make things at)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 
@@ -240,6 +212,7 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 //How to make protocol conform dynamically instead of doing extension\
 //Making classes equatable and comparable (and enabling == on address)(how to check if same object the normal way)?\
 //Does providing your own init hide the base inits for your class (and did I already cover that above?)\
+//Can you call a base method from outside like in C++?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -251,6 +224,7 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 //Why does Swift leave out protected, and how do you do the normal scenarios like template method pattern?\
 //What are default access control levels and what are all the options?\
 //Check out "Type methods" section of Methods document on apple.com (a bit complicated)\
+//Can you specify multiple versions of a method that are differentiated by protocols?\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -311,7 +285,12 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 //@objc keyword for extensions?\
 //Do you have to use mutating for all types when change self, or just built-in numerics?  Also what if changing member of self?\
 //Multiple constraints on extension?\
-\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \CocoaLigature1 -look into times extension in chapter 7 of Pro Swift
+\f1\fs22 \cf2 \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf2 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b\fs36 \cf0 \ul \CocoaLigature1 Functions
@@ -405,4 +384,11 @@ ContinguousArray (haven't put above yet) (should act just like Array but be fast
 \cf2 //Attributes?  Decorators?\
 //Weak references?\
 //When can conversions be done implicitly vs. explicitly?  What about for custom types?\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Reflection
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+\cf2 //How?\
 }

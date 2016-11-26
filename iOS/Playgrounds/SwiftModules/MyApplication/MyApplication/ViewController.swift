@@ -8,6 +8,7 @@
 
 import UIKit
 import MyLibrary
+//import GameplayKit  //did not get imported via MyLibrary
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         let m = MyStruct(x: 5)
+        
+        _ = GKRandomSource.self
+        _ = gk
+        
     }
 
     override func didReceiveMemoryWarning() {
