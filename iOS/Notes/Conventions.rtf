@@ -5,16 +5,35 @@
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 Classes
+\f0\b\fs36 \cf0 \ul \ulc0 Documentation\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 //use documentation comments to clarify the purpose in your mind and help other developers\
+//Document the complexity of any computed property that is not O(1)\
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Grammar\
+\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
+
+\f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 //method calls (method name and external parameter names) should read as grammatical phrases when possible\
+//Don\'92t do that in initializers or factory methods though\
+//This doesn\'92t always have to happen - just a tool to make the call clearer\
+//Besides that, most things should read as nouns/noun phrases except functions that have side effects (which should be verbs/verb phrases), boolean isXXX, and protocols that describe capabilities instead of objects (eg. Printable)\
+
+\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Classes
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //class names start with capital and methods/properties start with lowercase\
 //use structs unless you need to use classes (structs = safety, classes = flexibility)\
 //Mark things as final whenever you can - it provides a compiler optimization boost and reduces complexity\
+//Begin factory methods with \'91make\'92\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Structs
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Structs
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //computed properties tend to be more common in Apple code and less common in user code\
@@ -24,11 +43,10 @@
 //Also use structs if you want convenience of automatically generated init\
 //Prefer structs to classes when possible\
 //Use property observers for updating UI controls based on a change in a value (eg. score)\
-\pard\tx543\pardeftab543\pardirnatural\partightenfactor0
-\cf2 \
+\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Collections
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Collections
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Use set instead of array when either uniqueness or lookup speed matters\
@@ -36,7 +54,7 @@
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Enums
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Enums
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //enum types start with capitalize while enum values inside the type start with lowercase\
@@ -45,16 +63,16 @@
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Errors
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Errors
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Order of preference should be try, try?, try!\
 //Use guards to test positive conditions instead of negative (while avoiding deeply nested loops) and to be explicit\
-//guards typically all on one line (including the \{\})\
+//guard typically all on one line (including the \{\})\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Extensions
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Extensions
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Common naming scheme for extensions in source files: Type+Modifier.Swift (eg. String+RandomLetter.Swift)\
@@ -62,25 +80,24 @@
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Functional Programming
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Functional Programming
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Use trailing closures when possible (defining and calling)\
-//Consider only using self explicitly when in a closure so that you can find all closure references easily\
-//Also consider whether you should capture self as unowned to avoid cycles\
+//Consider whether you should capture self (or any other variable) as unowned to avoid cycles\
 //Only use autoclosures when really need them since they can make your code complicated\
 //Consider using a private method to compute a transformation that a lazy property will call\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Strings
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Strings
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Use 'characters.count' for your own code and 'utf16.count' for Apple library code\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\b\fs36 \cf0 \ul \ulc0 \CocoaLigature1 Variables
+\f0\b\fs36 \cf0 \ul \CocoaLigature1 Variables
 \f1\b0\fs22 \cf2 \ulnone \CocoaLigature0 \
 \pard\tx543\pardeftab543\pardirnatural\partightenfactor0
 \cf2 //Start with Capital: data types\
