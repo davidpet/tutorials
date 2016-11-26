@@ -14,6 +14,7 @@
 		B9903AA71DE9AA0500A732F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9903AA51DE9AA0500A732F2 /* Main.storyboard */; };
 		B9903AA91DE9AA0500A732F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9903AA81DE9AA0500A732F2 /* Assets.xcassets */; };
 		B9903AAC1DE9AA0500A732F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9903AAA1DE9AA0500A732F2 /* LaunchScreen.storyboard */; };
+		B9903AB41DE9AD1100A732F2 /* shader1.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB31DE9AD1100A732F2 /* shader1.fsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B9903AA81DE9AA0500A732F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9903AAB1DE9AA0500A732F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9903AAD1DE9AA0500A732F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9903AB31DE9AD1100A732F2 /* shader1.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader1.fsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				B9903AA31DE9AA0500A732F2 /* GameViewController.swift */,
 				B9903AA51DE9AA0500A732F2 /* Main.storyboard */,
 				B9903AA81DE9AA0500A732F2 /* Assets.xcassets */,
+				B9903AB31DE9AD1100A732F2 /* shader1.fsh */,
 				B9903AAA1DE9AA0500A732F2 /* LaunchScreen.storyboard */,
 				B9903AAD1DE9AA0500A732F2 /* Info.plist */,
 			);
@@ -133,6 +136,7 @@
 				B9903AA71DE9AA0500A732F2 /* Main.storyboard in Resources */,
 				B9903A9E1DE9AA0500A732F2 /* GameScene.sks in Resources */,
 				B9903AA91DE9AA0500A732F2 /* Assets.xcassets in Resources */,
+				B9903AB41DE9AD1100A732F2 /* shader1.fsh in Resources */,
 				B9903AAC1DE9AA0500A732F2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
