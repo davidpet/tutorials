@@ -33,16 +33,18 @@ vec3 getColor(float partitions, float partitionNumber, float partitionSize, floa
 
 void main() {
     //u_aspect = float aspect ratio (width/height)
+    //a_insideOut = bool for direction (use 0.0 for false, anything else for true)
     
     //constants
     const float rFrequency = 0.4;
-    const float tFrequency = -0.5;
+    const float tFrequency = 0.5;
     const float partitions = 6.0;
     
     //calculations
+    float direction = a_insideOut == 0.0 ? 1.0 : -1.0;
     vec2 point = vec2(v_tex_coord.x * u_aspect, v_tex_coord.y);
     float radius = length(point - vec2(u_aspect * 0.5, 0.5));
-    float magnitude = fract(u_time * tFrequency + radius * rFrequency);
+    float magnitude = fract(u_time * tFrequency * direction + radius * rFrequency);
     
     //color partitioning
     float partitionSize = 1.0 / partitions;
