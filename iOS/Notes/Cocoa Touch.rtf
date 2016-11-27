@@ -46,7 +46,10 @@
 \margl1440\margr1440\vieww28600\viewh15040\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 Cocoa Touch is the collection of libraries that help build applications\
+\f0\fs24 \cf0 https://developer.apple.com/reference\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Cocoa Touch is the collection of libraries that help build applications\
 NOTE: many of them, such as Foundation, are universal while some, such as UIKit, depend on the OS\
 	\'97Cocoa is the name for the set that is available on MacOS which includes many of these but uses AppKit instead of UIKit\
 \
@@ -2545,7 +2548,10 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}By following the step to set scene anchor to (0, 0), you make bottom-left the origin in the scene [although it would default to center screen]\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls17\ilvl0\cf0 {\listtext	\'95	}\ul FPS\ulnone  - displayed by default until you turn it off in GameViewController (SKView properties) -> aiming for 60 FPS for games\
-{\listtext	\'95	}\ul SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
+{\listtext	\'95	}\ul Tiling\ulnone  - there are some tile-related classes for using textures as tiles and creating a tile map (more efficient than doing it yourself)\
+\ls17\ilvl0{\listtext	\'95	}\ul Constraints\ulnone  - classes for constraining values, positions, etc.\
+{\listtext	\'95	}\ul Warping\ulnone  - classes that start with SKWarp* for stretching/squishing type effects\
+\ls17\ilvl0{\listtext	\'95	}\ul \ulc0 SKNode\ulnone  - base class for SpriteKit nodes (the classes that end in Node)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: most of what I put under SKSpriteNode below actually belongs here (will fix later) [see below]\
 {\listtext	\uc0\u8259 	}SKNode objects form a tree of ownership\
@@ -2718,7 +2724,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \i shader
 \i0  - see SKScene\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls19\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKSpriteNode\ulnone  - main image/sprite class\
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}most of the methods below are actually on SKNode (refactor this later)\
 {\listtext	\uc0\u8259 	}
@@ -3197,7 +3203,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}
 \i uniforms
 \i0  - array of SKUniform representing values to pass into the shader\
-\ls19\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i attributes
 \i0  - array of SKAttribute representing variable names and types to declare in the shader code to be 
 \b dynamically
@@ -3220,7 +3226,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \i0  - passing in vector (use the constructor that auto completion pops up)\
 {\listtext	\uc0\u8259 	}made available in the shader code by the name you give it (should probably start with u_ and be lowercase)\
 {\listtext	\uc0\u8259 	}lots of other overloads for the init\
-\ls19\ilvl1{\listtext	\uc0\u8259 	}generally start names with u_\
+{\listtext	\uc0\u8259 	}generally start names with u_\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKAttribute\ulnone  - a variable to declare in the shader (global variable that sprite can set when you use 
 \i setValue
@@ -3248,7 +3254,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}other 
 \i init
 \i0  for various types you can pass in\
-{\listtext	\uc0\u8259 	}no name because that\'92s specified by the method you pass this in with\ul \ulc0 \
+{\listtext	\uc0\u8259 	}no name because that\'92s specified by the method you pass this in with\ul \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
