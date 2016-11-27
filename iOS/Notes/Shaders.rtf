@@ -117,14 +117,14 @@ Shader File
 \fs36 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0
-\fs24 \cf0 {\listtext	\'95	}\ul gl_FragColor\ulnone  - 4D vector representing the color of the 
+\fs24 \cf0 {\listtext	\'95	}\ul gl_FragColor\ulnone  - 4D vector (vec4d) representing the color of the 
 \b output
 \b0  pixel\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}does not default to input (will be unset if you don\'92t set it)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul gl_FragCoord\ulnone  - 2D coordinate vector of the fragment (the sprite?)\
-{\listtext	\'95	}\ul u_texture\ulnone  - the input texture (sampler2D)\
+{\listtext	\'95	}\ul u_texture\ulnone  - the input texture (sampler2D) (the sprite itself)\
 {\listtext	\'95	}\ul v_tex_coord\ulnone  - pixel coordinates of the pixel being processed (vec2)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}components are between 0 and 1 where <1, 1> is top right corner of sprite\
@@ -166,6 +166,9 @@ Shader File
 \ls8\ilvl0
 \fs36 \cf0 Built-in Functions
 \fs24 \
+{\listtext	\'95	}a lot of these work on both 
+\b scalars and vectors
+\b0  (memberwise)\
 {\listtext	\'95	}\ul texture2D(texture ,coordinates)\ulnone  - obtain a vec4 representing the given pixel from the given texture\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls8\ilvl1\cf0 {\listtext	\uc0\u8259 	}references will show it as texture() instead because it was changed in later versions of GLSL\
