@@ -2592,7 +2592,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \i showsPhysics
 \i0  - for debugging, will show physics bodies outlined in blue\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls17\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit\
+\ls17\ilvl0\cf0 {\listtext	\'95	}\ul SKScene\ulnone  - represents a scene in SpriteKit (subclass of SKEffectNode)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls17\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: SKScene is an SKNode (the root node) (so certain things like coordinate transformations are available)\
 {\listtext	\uc0\u8259 	}TIP: to change scene properties, either use the Scene Editor (for something things) or edit GameViewController.Swift where the scene is created (already filled in by template)\
@@ -2703,8 +2703,22 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}HINT: can set to 0 to stop things (especially if done on scene)\
 \pard\tx2380\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2880\fi-2880\pardirnatural\partightenfactor0
 \ls19\ilvl3\cf0 {\listtext	\uc0\u8259 	}NOTE: doesn\'92t seem to stop particle effects (???)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i shader
+\i0  - like SKSpriteNode shader\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}only works if there\'92s at least one child node doing some rendering and if you set shouldEnableEffects to true\
+{\listtext	\uc0\u8259 	}this member actually comes from SKEffectNode\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKSpriteNode\ulnone  - main image/sprite class\
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKEffectNode\ulnone  - a node for applying effects\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}has a lot of the stuff from SKScene above because that is a subclass of this\
+{\listtext	\uc0\u8259 	}
+\i shader
+\i0  - see SKScene\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKSpriteNode\ulnone  - main image/sprite class\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}most of the methods below are actually on SKNode (refactor this later)\
 {\listtext	\uc0\u8259 	}
@@ -2839,7 +2853,10 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}
 \i shader
 \i0  - SKShader to apply pixel shading to filter the image (nil for none)\
-\ls19\ilvl1{\listtext	\uc0\u8259 	}
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}NOTE: oddly this is not on all SKNode (it is on scene and sprite, not sure what else)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i setValue(_:forAttribute:)
 \i0  - sets a shader attribute for a sprite (populates the global variable in compiled shader code)\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0

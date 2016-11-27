@@ -56,6 +56,10 @@ Shader File
 \ls1\ilvl0\cf0 {\listtext	\'95	}loaded by SpriteKit as SKShader and set to 
 \i shader
 \i0  property of an SKNode (like a sprite)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}to render a shader as a standalone scene instead of modifying an image, you can create an SKSpriteNode with clear color or something like that\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls1\ilvl0\cf0 {\listtext	\'95	}can define your own functions to call for modularity\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 
@@ -64,6 +68,7 @@ Shader File
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls2\ilvl0\cf0 {\listtext	\'95	}shadertoy (see licenses for each shader)\
 {\listtext	\'95	}see Shader Practice project for several examples\
+{\listtext	\'95	}my own disco ball shader project\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 
@@ -162,6 +167,7 @@ Shader File
 {\listtext	\'95	}\ul v_tex_coord\ulnone  - coordinates of the pixel being processed within the sprite as ratios of sprite dimensions (vec2)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls6\ilvl1\cf0 {\listtext	\uc0\u8259 	}components are between 0 and 1 where <1, 1> is top right corner of sprite\
+{\listtext	\uc0\u8259 	}WARNING: since the dimensions are scaled to the sprite\'92s dimensions, they are not directly comparable (eg. 0.1 in y direction may not be same size as 0.1 in x direction)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0\cf0 {\listtext	\'95	}\ul u_time\ulnone  - time since beginning of simulation in seconds (float)\
 {\listtext	\'95	}\ul u_sprite_size\ulnone  - supposed to be a vector with the dimensions of the sprite, but it has been removed (pass in your own uniform)\
@@ -198,7 +204,7 @@ Shader File
 \cf0 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0
-\fs36 \cf0 {\listtext	\'95	}Built-in Functions
+\fs36 \cf0 Built-in Functions
 \fs24 \
 {\listtext	\'95	}a lot of these work on both 
 \b scalars and vectors
