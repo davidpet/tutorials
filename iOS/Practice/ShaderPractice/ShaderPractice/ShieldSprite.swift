@@ -23,7 +23,10 @@ class ShieldSprite: SKNode {
         SKUniform(name: "u_size", vectorFloat2: vector_float2([Float(texture.size().width /** UIScreen.main.scale*/),
                                                                Float(texture.size().height /** UIScreen.main.scale*/)]))
     ]
-    private static let lastShader = 6
+    
+    //MARK: Configuration
+    private static let shadersWithUniforms = [3, 4, 5, 7]
+    private static let lastShader = 7
     
     //MARK Private Variables
     private var currentShader = 0
@@ -34,11 +37,7 @@ class ShieldSprite: SKNode {
         var shaders = [SKShader?]()
         shaders.append(nil)
         
-        var shaderHasUniforms = [Bool]()
-        (0...lastShader).forEach { _ in shaderHasUniforms.append(false) }
-        (3...5).forEach { shaderHasUniforms[$0] = true }
-        
-        (1...lastShader).forEach { shaders.append(makeShader($0, withUniforms: shaderHasUniforms[$0])) }
+        (1...lastShader).forEach { shaders.append(makeShader($0, withUniforms: shadersWithUniforms.contains($0))) }
         
         return shaders
     }
