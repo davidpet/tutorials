@@ -187,7 +187,7 @@ Shader File
 \cf0 \
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls8\ilvl0
-\fs36 \cf0 Built-in Functions
+\fs36 \cf0 {\listtext	\'95	}Built-in Functions
 \fs24 \
 {\listtext	\'95	}a lot of these work on both 
 \b scalars and vectors
@@ -205,6 +205,13 @@ Shader File
 {\listtext	\'95	}\ul pow(), sqrt(), abs()\ulnone  - useful math operations\
 {\listtext	\'95	}\ul distance(vector1, vector2)\ulnone  - distance between two points\
 {\listtext	\'95	}\ul fract()/floor()\ulnone  - for getting fractional and integral part of number\
+{\listtext	\'95	}\ul mix(float,float,float)/mix(vec,vec,float)/mix(vec,vec,vec)\ulnone  - linear mix of first 2 args using a (0 to 1) as mix amount (a is amount of 2nd item, 1-a is amount of first item)\
+{\listtext	\'95	}see 
+\i step
+\i0  and 
+\i smoothstep
+\i0  for making step functions or smooth interpolation\
+{\listtext	\'95	}reflections, matrices, boolean stuff, etc. also in there\
 {\listtext	\'95	}\ul SKDefaultShading()\ulnone  - does default shading behavior (probably pass-through with alpha multiplication) [can be passed directly to gl_FragColor]\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \

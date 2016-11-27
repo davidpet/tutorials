@@ -25,8 +25,8 @@ class ShieldSprite: SKNode {
     ]
     
     //MARK: Configuration
-    private static let shadersWithUniforms = [3, 4, 5, 7, 8]
-    private static let lastShader = 8
+    private static let shadersWithUniforms = [3, 4, 5, 7, 8, 9]
+    private static let lastShader = 9
     
     //MARK Private Variables
     private var currentShader = 0
