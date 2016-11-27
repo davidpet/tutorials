@@ -11,9 +11,11 @@ import GameplayKit
 
 class GameScene: SKScene {
     override func didMove(to view: SKView) {
+        addChild(ShieldSprite(at: CGPoint(x: 0, y: frame.height / 2)))
         addChild(ShieldSprite(at: CGPoint(x: frame.width / 2, y: frame.height / 2)))
         addChild(ShieldSprite(at: CGPoint(x: frame.width / 3, y: frame.height / 2)))
         addChild(ShieldSprite(at: CGPoint(x: frame.width * 2 / 3, y: frame.height / 2)))
+        addChild(ShieldSprite(at: CGPoint(x: frame.width, y: frame.height / 2)))
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
