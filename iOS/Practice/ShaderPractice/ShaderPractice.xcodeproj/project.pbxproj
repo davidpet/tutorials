@@ -19,6 +19,7 @@
 		B9903AB81DE9BF1800A732F2 /* shader3.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB71DE9BF1800A732F2 /* shader3.fsh */; };
 		B9903ABA1DE9C22E00A732F2 /* shader4.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903AB91DE9C22E00A732F2 /* shader4.fsh */; };
 		B9903ABC1DE9DCFF00A732F2 /* shader5.fsh in Resources */ = {isa = PBXBuildFile; fileRef = B9903ABB1DE9DCFF00A732F2 /* shader5.fsh */; };
+		B9B6CD061DEAC4460091F0D7 /* ShieldSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B6CD051DEAC4460091F0D7 /* ShieldSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B9903AB71DE9BF1800A732F2 /* shader3.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader3.fsh; sourceTree = "<group>"; };
 		B9903AB91DE9C22E00A732F2 /* shader4.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader4.fsh; sourceTree = "<group>"; };
 		B9903ABB1DE9DCFF00A732F2 /* shader5.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = shader5.fsh; sourceTree = "<group>"; };
+		B9B6CD051DEAC4460091F0D7 /* ShieldSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShieldSprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				B9903A9B1DE9AA0500A732F2 /* AppDelegate.swift */,
 				B9903A9D1DE9AA0500A732F2 /* GameScene.sks */,
 				B9903AA11DE9AA0500A732F2 /* GameScene.swift */,
+				B9B6CD051DEAC4460091F0D7 /* ShieldSprite.swift */,
 				B9903AA31DE9AA0500A732F2 /* GameViewController.swift */,
 				B9903AA51DE9AA0500A732F2 /* Main.storyboard */,
 				B9903AA81DE9AA0500A732F2 /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9903AA21DE9AA0500A732F2 /* GameScene.swift in Sources */,
+				B9B6CD061DEAC4460091F0D7 /* ShieldSprite.swift in Sources */,
 				B9903AA41DE9AA0500A732F2 /* GameViewController.swift in Sources */,
 				B9903A9C1DE9AA0500A732F2 /* AppDelegate.swift in Sources */,
 			);
@@ -328,6 +332,7 @@
 				B9903AB21DE9AA0500A732F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

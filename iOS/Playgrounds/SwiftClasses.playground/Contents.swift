@@ -231,6 +231,7 @@ class MyDelegatingThing {
 class MyBetterDelegatingThing: MyDelegatingThing {
     override init(x: Int, y: Int) {         //need to use OVERRIDE to give same initializer again
         super.init(x: x, y: y)                  //no special keyword needed to call base class initializer (just need to follow the property rules [see above])
+        //NOTE: you cannot call a convenience initializer in the base (has to be a DESIGNATED initializer) [which means not convenience]
     }
 }
 let mbdt = MyBetterDelegatingThing()                //this is OK since there are no new properties in the subclass
