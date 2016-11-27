@@ -23,8 +23,8 @@ class GameScene: SKScene {
         shaders.append(nil)
         shaders.append(SKShader(fileNamed: "shader1"))
         shaders.append(SKShader(fileNamed: "shader2"))
-        let pixelSize = vector_float2([Float(shield.frame.size.width * UIScreen.main.scale),
-                                       Float(shield.frame.size.height * UIScreen.main.scale)])
+        let pixelSize = vector_float2([Float(shield.frame.size.width /** UIScreen.main.scale*/),
+                                       Float(shield.frame.size.height /** UIScreen.main.scale*/)])
         let uniforms = [
             SKUniform(name: "u_gradient", texture: SKTexture(imageNamed: "shieldmask")),
             SKUniform(name: "u_health", float: 0.75),

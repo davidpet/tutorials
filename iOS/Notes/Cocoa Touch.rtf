@@ -834,7 +834,7 @@ Controls/views start with UI\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}available from SpriteKit as well\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls5\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 UIApplicationDelegate\ulnone  - main application delegate (implemented by AppDelegate, which the templates create for you)\
+\ls5\ilvl0\cf0 {\listtext	\'95	}\ul UIApplicationDelegate\ulnone  - main application delegate (implemented by AppDelegate, which the templates create for you)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}AppDelegate is also declared to have a 
 \i window
@@ -2836,9 +2836,15 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i convert(_:from:)
 \i0  - same but in reverse\
-\ls19\ilvl1{\listtext	\uc0\u8259 	}
+{\listtext	\uc0\u8259 	}
 \i shader
 \i0  - SKShader to apply pixel shading to filter the image (nil for none)\
+\ls19\ilvl1{\listtext	\uc0\u8259 	}
+\i setValue(_:forAttribute:)
+\i0  - sets a shader attribute for a sprite (populates the global variable in compiled shader code)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}first param is SKAttributeValue with the value to use\
+{\listtext	\uc0\u8259 	}2nd param is name of the attribute (as you defined in SKAttribute for the shader)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKTexture\ulnone  - an image, more basic than SKSpriteNode\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3166,7 +3172,7 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \b playing
 \b0  as soon as you add to something, like your scene\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls19\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 SKShader\ulnone  - a shader based on opengl es 2.0 shading language\
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKShader\ulnone  - a shader based on opengl es 2.0 shading language\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
 \i init(fileNamed:)
@@ -3174,6 +3180,15 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 {\listtext	\uc0\u8259 	}
 \i uniforms
 \i0  - array of SKUniform representing values to pass into the shader\
+\ls19\ilvl1{\listtext	\uc0\u8259 	}
+\i attributes
+\i0  - array of SKAttribute representing variable names and types to declare in the shader code to be 
+\b dynamically
+\b0  set via the sprite\'92s 
+\i setValue()
+\i0 \
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}this allows multiple sprites to use the same compiled shader with different dynamic values\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKUniform\ulnone  - a value to be passed into a shader\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
@@ -3187,7 +3202,36 @@ HINT: to start a new game, use present(_:transition:) in the SKView to transitio
 \i init(name:vectorFloat2:)
 \i0  - passing in vector (use the constructor that auto completion pops up)\
 {\listtext	\uc0\u8259 	}made available in the shader code by the name you give it (should probably start with u_ and be lowercase)\
-{\listtext	\uc0\u8259 	}lots of other overloads for the init\ul \ulc0 \
+{\listtext	\uc0\u8259 	}lots of other overloads for the init\
+\ls19\ilvl1{\listtext	\uc0\u8259 	}generally start names with u_\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKAttribute\ulnone  - a variable to declare in the shader (global variable that sprite can set when you use 
+\i setValue
+\i0 )\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(name:type:)
+\i0  - create a new instance with a variable name and type (based on an enum)\
+\pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
+\ls19\ilvl2\cf0 {\listtext	\uc0\u8259 	}similar types to uniforms such as float and vectorFloat2\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}made available as a global variable\
+{\listtext	\uc0\u8259 	}must populate with a value by calling 
+\i setValue
+\i0  on the 
+\b sprite
+\b0 \
+{\listtext	\uc0\u8259 	}generally want to start names with a_\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls19\ilvl0\cf0 {\listtext	\'95	}\ul SKAttributeValue\ulnone  - value to pass into a sprite to set in compiled shader code\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls19\ilvl1\cf0 {\listtext	\uc0\u8259 	}
+\i init(vectorFloat2:)
+\i0  - create an instance representing a vector_float2\
+{\listtext	\uc0\u8259 	}other 
+\i init
+\i0  for various types you can pass in\
+{\listtext	\uc0\u8259 	}no name because that\'92s specified by the method you pass this in with\ul \ulc0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \fs36 \cf0 \ulnone \
