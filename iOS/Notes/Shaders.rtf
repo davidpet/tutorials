@@ -116,6 +116,7 @@ Shader File
 \ls4\ilvl2\cf0 {\listtext	\uc0\u8259 	}if you try to do a modulo, you will never reach 1.0 fully (expect 1.0 to circle around to 0.0)\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls4\ilvl1\cf0 {\listtext	\uc0\u8259 	}NOTE: GLSL is much more strict than C and C++ when it comes to math (eg. you need to use . to make all integers into floats or math won\'92t compile)\
+{\listtext	\uc0\u8259 	}REMEMBER: values in computer graphics have gamma applied (0.5 is middle grey even though that\'92s not linear)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 
@@ -138,6 +139,8 @@ Shader File
 {\listtext	\uc0\u8259 	}In my testing, it seems to be the pixel coordinate (within the whole system, not the sprite) times 4\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
 \ls5\ilvl2\cf0 {\listtext	\uc0\u8259 	}arrived at this because dividing by sprite point size and then dividing by 12 on a Retina HD system gives a greyscale across the screen\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}On shadertoy, it is the pixel coordinate of the pixel on the screen (dividing by iResolution dimensions gives perfect 0.0 to 1.0 greyscale)\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul u_texture\ulnone  - the input texture (sampler2D) (the sprite itself)\
 {\listtext	\'95	}\ul v_tex_coord\ulnone  - coordinates of the pixel being processed within the sprite as ratios of sprite dimensions (vec2)\
@@ -151,8 +154,9 @@ Shader File
 {\listtext	\uc0\u8259 	}NOTE: the apple documentation passes in sprite.frame.size dimensions directly (doesn\'92t convert to pixels - not sure why)\
 {\listtext	\uc0\u8259 	}probably better to pass it in as attribute so you can use it for multiple sprites of differing sizes\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 
-\fs36 \cf0 Uniforms\
+\fs36 Uniforms\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls6\ilvl0
 \fs24 \cf0 {\listtext	\'95	}automatically available in your function with the names given in SpriteKit\
