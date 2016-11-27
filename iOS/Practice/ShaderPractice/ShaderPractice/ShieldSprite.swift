@@ -42,7 +42,8 @@ class ShieldSprite: SKNode {
         let shader5 = SKShader(fileNamed: "shader5")
         shader5.uniforms = uniforms
         shaders.append(shader5)
-
+        shaders.append(SKShader(fileNamed: "shader6"))
+        
         return shaders
     }
     
