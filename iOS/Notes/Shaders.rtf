@@ -19,8 +19,7 @@
 
 \f0\fs36 \cf0 Shading Language Reference (GLSL) (OpenGL ES 2.0)
 \fs24 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 https://developer.apple.com/reference/spritekit/skshader\
+https://developer.apple.com/reference/spritekit/skshader\
 \
 https://www.opengl.org/wiki/OpenGL_Shading_Language  (NOTE: the search on this wiki SUCKS but a lot of the information is there if you can dig through it)\
 https://www.opengl.org/wiki/Built-in_Variable_(GLSL) (NOTE: there are multiple top-level articles on opengl.org/wiki)\
@@ -128,6 +127,8 @@ Shader File
 \ls5\ilvl0\cf0 {\listtext	\'95	}\ul \ulc0 Floats\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls5\ilvl1\cf0 \ulnone {\listtext	\uc0\u8259 	}in general, color values are between 0.0 and 1.0\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls5\ilvl1\cf0 {\listtext	\uc0\u8259 	}scalars in GLSL, including simple things like sign, are floats\
 {\listtext	\uc0\u8259 	}if negative, color is clipped to black\
 {\listtext	\uc0\u8259 	}if above 1.0, color is clipped to white\
 \pard\tx1660\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li2160\fi-2160\pardirnatural\partightenfactor0
@@ -208,21 +209,45 @@ Shader File
 \fs24 \
 {\listtext	\'95	}a lot of these work on both 
 \b scalars and vectors
-\b0  (memberwise)\
-{\listtext	\'95	}\ul texture2D(texture ,coordinates)\ulnone  - obtain a vec4 representing the given pixel from the given texture\
+\b0  (memberwise) [assume they do unless it doesn\'92t make sense]\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}this can mean vector, vector, float, float, vector, float, etc. (memberwise or all members with a single float, etc.)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul texture2D(texture ,coordinates)\ulnone  - obtain a vec4 representing the given pixel from the given texture\
 \pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
 \ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}references will show it as texture() instead because it was changed in later versions of GLSL\
 \pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
 \ls9\ilvl0\cf0 {\listtext	\'95	}\ul sin(float)/cos(float)/tan(float)\ulnone  - trig values of the value (in radians) (also take vectors to do memberwise)\
-{\listtext	\'95	}\ul atan(floaty, floatx)\ulnone  - 2 component atan calls give you the correct angle because you give the y and x lengths\
+{\listtext	\'95	}\ul atan(floaty, floatx)/asin/acos\ulnone  - 2 component atan calls give you the correct angle because you give the y and x lengths\
 {\listtext	\'95	}\ul length(vec)\ulnone  - length of vector as float\
 {\listtext	\'95	}\ul radians()/degrees()
 \i  \ulnone - 
 \i0 conversion of scalar or vector\
 {\listtext	\'95	}\ul pow(), sqrt(), abs()\ulnone  - useful math operations\
 {\listtext	\'95	}\ul distance(vector1, vector2)\ulnone  - distance between two points\
-{\listtext	\'95	}\ul fract()/floor()\ulnone  - for getting fractional and integral part of number\
-{\listtext	\'95	}\ul mix(float,float,float)/mix(vec,vec,float)/mix(vec,vec,vec)\ulnone  - linear mix of first 2 args using a (0 to 1) as mix amount (a is amount of 2nd item, 1-a is amount of first item)\
+{\listtext	\'95	}\ul fract()/floor()/ceiling()\ulnone  - for getting fractional and integral part of number\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}for negative numbers, floor will go 
+\b down
+\b0  to next negative whole number\
+{\listtext	\uc0\u8259 	}for negative numbers, 
+\b fract
+\b0  will positive (fractional part of absolute value) [same result as if doing mod 1.0]\
+{\listtext	\uc0\u8259 	}for ngeative numbers, ceil will go 
+\b up
+\b0  to to next negative number (lower abs value)\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul mix(float,float,float)/mix(vec,vec,float)/mix(vec,vec,vec)\ulnone  - linear mix of first 2 args using a (0 to 1) as mix amount (a is amount of 2nd item, 1-a is amount of first item)\
+\ls9\ilvl0{\listtext	\'95	}\ul sign(float)/sign(vector)\ulnone  - -1.0, 0.0, or 1.0 depending on sign of the scalar\
+{\listtext	\'95	}\ul mod(float, float)/mod(vec,vec)/mod(vec,float)\ulnone  - modulo function (although it returns a float)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural\partightenfactor0
+\ls9\ilvl1\cf0 {\listtext	\uc0\u8259 	}same functionality as a regular modulo but works with floats (scales first number to range of 0 to 2nd number exclusive upper bound in same way)\
+{\listtext	\uc0\u8259 	}if first number is negative, the sign will be thrown away\
+{\listtext	\uc0\u8259 	}if 2nd number is negative, the sign will apply to the result\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
+\ls9\ilvl0\cf0 {\listtext	\'95	}\ul clamp(float,float,float)/clamp(vec,vec,vec)/vec,float,float)\ulnone  - clips a value between two boundaries (returns the boundary if out of bounds in one direction, otherwise returns the value)\
+{\listtext	\'95	}\ul dot()/cross()\ulnone  - dot product and cross product of two vectors\
+{\listtext	\'95	}\ul normalize(vec)\ulnone  - returns a vector in the same direction as the input that has length 1.0\
 {\listtext	\'95	}see 
 \i step
 \i0  and 

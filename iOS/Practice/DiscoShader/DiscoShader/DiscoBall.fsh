@@ -49,7 +49,7 @@ void main() {
     //color partitioning
     float partitionSize = 1.0 / partitions;
     vec3 color = getColor(partitions, floor(magnitude / partitionSize), partitionSize, magnitude);
-    
+
     //output
     gl_FragColor = vec4(color, 1.0);
 }
