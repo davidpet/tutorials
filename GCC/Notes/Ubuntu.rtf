@@ -7,9 +7,9 @@
 \pard\pardeftab720\sl340\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://help.ubuntu.com/"}}{\fldrslt 
 \f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \outl0\strokewidth0 \strokec2 https://help.ubuntu.com/}}
+\ul \ulc2 https://help.ubuntu.com/}}
 \f0\fs29\fsmilli14667 \cf3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec3  - official Ubuntu Documentation\
+ - official Ubuntu Documentation\
 \
 NOTE: The equivalent notes file for Mac contains many useful commands (the ones that aren\'92t marked as Mac only are potentially valid for Ubuntu)\
 [[this doc is subservient to the Mac one - anything placed here is assumed to be Linux only]]\
@@ -17,12 +17,15 @@ NOTE: The equivalent notes file for Mac contains many useful commands (the ones 
 Paths\
 	/media/username				Mount point for removable devices\
 \
+File Systems\
+	exFAT						install exfat-fuse and exfat-utils from apt-get to add support for this filesystem (supported by Windows and OS X)\
+\
 Command-Line\
 	Installation\
 	
 \fs29\fsmilli14660 	
-\f1 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 sudo apt-get install openssh-server		install an apt package called openssh-server (eg. to get ssh on the system)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\f1 \cf0 \kerning1\expnd0\expndtw0 sudo apt-get install openssh-server		install an apt package called openssh-server (eg. to get ssh on the system)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf0 		sudo apt-get install package1 package2		can install multiple packages at the same time\
 		sudo apt-get install package\
 		sudo apt-get -f install				fix dependency issues if you get an error\
