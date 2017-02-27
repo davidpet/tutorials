@@ -1,6 +1,44 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
-{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red16\green60\blue192;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c6667\c33333\c80000;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww28600\viewh15100\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://help.ubuntu.com/"}}{\fldrslt 
+\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://help.ubuntu.com/}}
+\f0\fs29\fsmilli14667 \cf3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3  - official Ubuntu Documentation\
+\
+NOTE: The equivalent notes file for Mac contains many useful commands (the ones that aren\'92t marked as Mac only are potentially valid for Ubuntu)\
+[[this doc is subservient to the Mac one - anything placed here is assumed to be Linux only]]\
+\
+Paths\
+	/media/username				Mount point for removable devices\
+\
+Command-Line\
+	Installation\
+	
+\fs29\fsmilli14660 	
+\f1 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 sudo apt-get install openssh-server		install an apt package called openssh-server (eg. to get ssh on the system)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		sudo apt-get install package1 package2		can install multiple packages at the same time\
+		sudo apt-get install package\
+		sudo apt-get -f install				fix dependency issues if you get an error\
+\
+		sudo apt-get update					refresh information about packages on local system (doesn\'92t update actual packages)\
+		sudo apt-get upgrade				update local packages based on information fetched from 
+\i update
+\i0 \
+	Modules\
+		modprobe wl				Add module wl to the kernel (not persistent) [sometimes needed after installing package]\
+		modprobe -r wl				Remove module wl from the kernel (not persistent)\
+		modprobe -v wl				Verbose option\
+	Disk Utilities\
+		fdisk -l					Approximately equivalent to \'91diskutil list\'92 in Mac (get list of partition/devices and sizes)\
+\
+		umount /dev/disk1			Unmount a device from the file system\
+		umount /media/user/disk1		Unmount a device by its mount point\
+		eject [devOrPath]			Physically eject a device based on device or mount point\
 }
