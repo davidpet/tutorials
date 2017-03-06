@@ -1,7 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c0\c0\c0;}
+{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green61\blue204;\red0\green0\blue0;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c0\c23922\c80000;\csgenericrgb\c0\c0\c0;
+}
 \margl1440\margr1440\vieww28600\viewh14980\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -217,11 +219,11 @@ Command line\
 		egrep \'93[regex]\'94 [file]			egrep is an alias for grep -E\
 							probably better to just always use this one unless it\'92s for some reason not installed (eg. an older grep) [highly unlikely these days]\
 	File System\
-		open [file]				opens a file with the default application based on file type\
+\cf3 		open [file]				opens a file with the default application based on file type\
 							sometimes this works on folders that have extensions and act like files (eg. .playground folders for XCode)\
 		open [file] \'85				can open multiple files at the same time (eg. multiple text documents with TextEdit or multiple Swift playgrounds)\
 		open [wildcard]			wildcard patterns work too (eg. *.txt)\
-		\
+\cf0 		\
 		dirname [file]				get the parent directory of a file or directory\
 \
 		mkdir\
@@ -312,6 +314,9 @@ Command line\
 		echo -n hi				prints without newline\
 		echo \'93[multiple lines]\'94		can echo multiline strings using quotes around the block\
 		> test.txt				can redirect emptiness without commands too (in this case, clears the file)\
+		echo >test.txt				create an empty file\
+\
+		echo | sudo tee /etc/sysfs.conf	Create an empty file at a protected path (the redirection may not inherit the sudo, especially on Ubuntu)\
 	Logging\
 		script					start a terminal session where commands and output are logged\
 		exit					end the script session\
@@ -337,6 +342,7 @@ Command line\
 		sudo [cmdline]			run the command as superuser (if you have permission to do so)(will prompt for password, then cache it for a time)\
 		sudo !!				repeat last command as admin (because presumably it failed)\
 		sudo -K				clear the sudo password cache (eg. if someone else uses your comp)\
+		su					Switch current terminal to superuser (so you don\'92t have to keep typing \'91sudo\'92)\
 	Web\
 		python -m SimpleHTTPServer	call python module that shares the current directory as http://127.0.0.1:8000 so you can access files [use your external IP outside of your machine]\
 \
@@ -363,14 +369,14 @@ Command line\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 	Disk Utilities\
 		\cf2 diskutil list								get the list of disk partitions with information such as the /dev path, identifiers, sizes, etc. (in many places you can use the identifier in place of the disk name in paths)\
-		\cf3 df -h									get the list of devices, where they\'92re mounted, and disk usage stats (the -h makes the numbers human readable by adding M and G)\cf2 \
+		\cf4 df -h									get the list of devices, where they\'92re mounted, and disk usage stats (the -h makes the numbers human readable by adding M and G)\cf2 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf3 		sudo mount /dev/disk0s1 \cf2 /Volumes/disk0\cf3 			Mount a disk or partition to a specified path (may require sudo depending on permissions of the output path)\
+\cf4 		sudo mount /dev/disk0s1 \cf2 /Volumes/disk0\cf4 			Mount a disk or partition to a specified path (may require sudo depending on permissions of the output path)\
 		sudo mount -t msdos /dev/disk2 /Volumes/disk2		Mount with specific filesystem type if system can\'92t figure it out\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf2 		diskutil unmount /dev/disk2					Unmount a disk from the file system (and the desktop) [still accessible via /dev]((doesn\'92t eject))\
-		diskutil eject /dev/disk2						Fully ejects a disk (may have to unmount it first)\cf3 \
+		diskutil eject /dev/disk2						Fully ejects a disk (may have to unmount it first)\cf4 \
 \
 		sudo dd if=/path/to/input.img of=/dev/disk2 bs=1m		Restore a .img file to a disk (eg. thumb drive) [existing data wiped out]\
 \

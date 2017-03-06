@@ -16,22 +16,44 @@ NOTE: The equivalent notes file for Mac contains many useful commands (the ones 
 \
 Paths\
 	/media/username				Mount point for removable devices\
+	/etc/rc.local					Configuration that runs on startup\
+\
+	NOTE: while Mac lets you get away with a certain amount of case insensitivity, Ubuntu does not\
 \
 File Systems\
 	exFAT						install exfat-fuse and exfat-utils from apt-get to add support for this filesystem (supported by Windows and OS X)\
+\
+Desktops\
+	Unity							Default desktop installed with Ubuntu (Launcher, Home button, etc.)\
+	Gnome						Was the default before Unity (Gnome 2 was looking old but Gnome 3 is more modern now)\
+	KDE							Another old desktop environment a lot of people prefer\
+\
+Windows Equivalents\
+	Make shortcut					\'93Make Link\'94 or drag URL from chrome to desktop\
+	Taskbar						Launcher\
+	Delete						Fn-Delete\
+	Backspace						Delete\
+	Delete selected file				Fn-Delete\
+	Show/Hide Desktop				Ctrl-cmd-d (type, don\'92t hold)\
+Mac Equivalents\
+	Open terminal for selected folder		Right-click option \'93Open in Terminal\'94\
+	Finder & Launch Pad				Home Button at top of Launcher bar\
+	open command					xdg-open command\
+	Cmd-Delete (eg. on desktop)		Fn-Delete\
+	Command Key					Referred to as \'91Super\'92 (and used in shortcuts)\
 \
 Command-Line\
 	Installation\
 	
 \fs29\fsmilli14660 	
-\f1 \cf0 \kerning1\expnd0\expndtw0 sudo apt-get install openssh-server		install an apt package called openssh-server (eg. to get ssh on the system)\
+\f1 \cf0 \kerning1\expnd0\expndtw0 sudo apt-get install openssh-server			install an apt package called openssh-server (eg. to get ssh on the system)\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
 \cf0 		sudo apt-get install package1 package2		can install multiple packages at the same time\
 		sudo apt-get install package\
-		sudo apt-get -f install				fix dependency issues if you get an error\
+		sudo apt-get -f install						fix dependency issues if you get an error\
 \
-		sudo apt-get update					refresh information about packages on local system (doesn\'92t update actual packages)\
-		sudo apt-get upgrade				update local packages based on information fetched from 
+		sudo apt-get update						refresh information about packages on local system (doesn\'92t update actual packages)\
+		sudo apt-get upgrade						update local packages based on information fetched from 
 \i update
 \i0 \
 	Modules\
@@ -47,4 +69,33 @@ Command-Line\
 	System Utilities\
 		sudo swapon --show			List the swap files/partitions used (eg. to verify you are using the swap partition at all)\
 		free -m					Show RAM usage and size, and usage and size of the swap(s) [can be used to make sure your swap is big enough for your RAM]\
+	Opening Files\
+		xdg-open [file]				open/edit a file with the preferred editor (GUI included) [xdg is from the group that created the command initially]\
+		sudo xdg-open [file]			open a protected file with the preferred editor (GUI included)\
+\
+Software/Packages\
+	JRE/JDK						OpenJDK is recommended alternative to Oracle and Sun (due to licensing complications) [package \'91default-jdk\'92 in apt]\
+								JDK is superset (includes JRE)\
+	Libre							OpenOffice suite that you can install with Ubuntu (eg. rtf and doc support in Writer)\
+	gedit							Default bare-bones text editor (no rtf) [available from terminal]\
+	Eclipse						install via installer from website (not Software Center) [defaults to installing to ~/eclipse/specificLanguage]\
+	GIMP/UFRaw					Linux world equivalents of Photoshop/Camera Raw (available in Software Center)\
+	gksu							apt package that you can install to get the gksudo command (required by some online steps for some configuration stuff)\
+								theoretically lets you elevate a GUI application (eg. to edit a system configuration) although that seems to often work with normal sudo\
+	git							available in apt (as \'91git\'92)\
+\
+Nautilus\
+	the built-in file manager (like Finder in Mac or Explorer in Windows)\
+	To add items to the left, add bookmark (will persist)\
+	Can be launched from shell as \'91nautilus [path]\'92\
+	To get to /, click on \'93Computer\'94 on left pane\
+\
+Installed by Default (updatable with apt):\
+	Perl\
+	Python\
+	GCC/make/etc.\
+\
+Updating:\
+	Software Center					handles OS updates + updates to apps installed via Software Center\
+	Apt							see command-line section above\
 }
