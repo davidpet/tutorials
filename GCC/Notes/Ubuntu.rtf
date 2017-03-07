@@ -1,101 +1,190 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
-{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red16\green60\blue192;\red0\green0\blue0;}
-{\*\expandedcolortbl;;\cssrgb\c6667\c33333\c80000;\cssrgb\c0\c0\c0;}
-\margl1440\margr1440\vieww28600\viewh15100\viewkind0
-\deftab720
-\pard\pardeftab720\sl340\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://help.ubuntu.com/"}}{\fldrslt 
-\f0\fs29\fsmilli14667 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://help.ubuntu.com/}}
-\f0\fs29\fsmilli14667 \cf3 \expnd0\expndtw0\kerning0
- - official Ubuntu Documentation\
-\
-NOTE: The equivalent notes file for Mac contains many useful commands (the ones that aren\'92t marked as Mac only are potentially valid for Ubuntu)\
-[[this doc is subservient to the Mac one - anything placed here is assumed to be Linux only]]\
-\
-Paths\
-	/media/username				Mount point for removable devices\
-	/etc/rc.local					Configuration that runs on startup\
-\
-	NOTE: while Mac lets you get away with a certain amount of case insensitivity, Ubuntu does not\
-\
-File Systems\
-	exFAT						install exfat-fuse and exfat-utils from apt-get to add support for this filesystem (supported by Windows and OS X)\
-\
-Desktops\
-	Unity							Default desktop installed with Ubuntu (Launcher, Home button, etc.)\
-	Gnome						Was the default before Unity (Gnome 2 was looking old but Gnome 3 is more modern now)\
-	KDE							Another old desktop environment a lot of people prefer\
-\
-Windows Equivalents\
-	Make shortcut					\'93Make Link\'94 or drag URL from chrome to desktop\
-	Taskbar						Launcher\
-	Delete						Fn-Delete\
-	Backspace						Delete\
-	Delete selected file				Fn-Delete\
-	Show/Hide Desktop				Ctrl-cmd-d (type, don\'92t hold)\
-Mac Equivalents\
-	Open terminal for selected folder		Right-click option \'93Open in Terminal\'94\
-	Finder & Launch Pad				Home Button at top of Launcher bar\
-	open command					xdg-open command\
-	Cmd-Delete (eg. on desktop)		Fn-Delete\
-	Command Key					Referred to as \'91Super\'92 (and used in shortcuts)\
-\
-Command-Line\
-	Installation\
-	
-\fs29\fsmilli14660 	
-\f1 \cf0 \kerning1\expnd0\expndtw0 sudo apt-get install openssh-server			install an apt package called openssh-server (eg. to get ssh on the system)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardeftab720\pardirnatural\partightenfactor0
-\cf0 		sudo apt-get install package1 package2		can install multiple packages at the same time\
-		sudo apt-get install package\
-		sudo apt-get -f install						fix dependency issues if you get an error\
-\
-		sudo apt-get update						refresh information about packages on local system (doesn\'92t update actual packages)\
-		sudo apt-get upgrade						update local packages based on information fetched from 
-\i update
-\i0 \
-	Modules\
-		modprobe wl				Add module wl to the kernel (not persistent) [sometimes needed after installing package]\
-		modprobe -r wl				Remove module wl from the kernel (not persistent)\
-		modprobe -v wl				Verbose option\
-	Disk Utilities\
-		fdisk -l					Approximately equivalent to \'91diskutil list\'92 in Mac (get list of partition/devices and sizes)\
-\
-		umount /dev/disk1			Unmount a device from the file system\
-		umount /media/user/disk1		Unmount a device by its mount point\
-		eject [devOrPath]			Physically eject a device based on device or mount point\
-	System Utilities\
-		sudo swapon --show			List the swap files/partitions used (eg. to verify you are using the swap partition at all)\
-		free -m					Show RAM usage and size, and usage and size of the swap(s) [can be used to make sure your swap is big enough for your RAM]\
-	Opening Files\
-		xdg-open [file]				open/edit a file with the preferred editor (GUI included) [xdg is from the group that created the command initially]\
-		sudo xdg-open [file]			open a protected file with the preferred editor (GUI included)\
-\
-Software/Packages\
-	JRE/JDK						OpenJDK is recommended alternative to Oracle and Sun (due to licensing complications) [package \'91default-jdk\'92 in apt]\
-								JDK is superset (includes JRE)\
-	Libre							OpenOffice suite that you can install with Ubuntu (eg. rtf and doc support in Writer)\
-	gedit							Default bare-bones text editor (no rtf) [available from terminal]\
-	Eclipse						install via installer from website (not Software Center) [defaults to installing to ~/eclipse/specificLanguage]\
-	GIMP/UFRaw					Linux world equivalents of Photoshop/Camera Raw (available in Software Center)\
-	gksu							apt package that you can install to get the gksudo command (required by some online steps for some configuration stuff)\
-								theoretically lets you elevate a GUI application (eg. to edit a system configuration) although that seems to often work with normal sudo\
-	git							available in apt (as \'91git\'92)\
-\
-Nautilus\
-	the built-in file manager (like Finder in Mac or Explorer in Windows)\
-	To add items to the left, add bookmark (will persist)\
-	Can be launched from shell as \'91nautilus [path]\'92\
-	To get to /, click on \'93Computer\'94 on left pane\
-\
-Installed by Default (updatable with apt):\
-	Perl\
-	Python\
-	GCC/make/etc.\
-\
-Updating:\
-	Software Center					handles OS updates + updates to apps installed via Software Center\
-	Apt							see command-line section above\
-}
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 ArialMT;}{\f6\froman\fprq2\fcharset0 Helvetica{\*\falt Arial};}{\f7\fnil\fprq2\fcharset0 Noto Sans CJK SC Regular;}{\f8\fnil\fprq2\fcharset0 FreeSans;}{\f9\fswiss\fprq0\fcharset128 FreeSans;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red16\green60\blue192;}
+{\stylesheet{\s0\snext0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\*\cs15\snext15\cf9\ul\ulc0\langfe255\alang255\lang255 Internet Link;}
+{\s16\sbasedon0\snext17\sb240\sa120\keepn\dbch\af7\dbch\af8\afs28\loch\f4\fs28 Heading;}
+{\s17\sbasedon0\snext17\sl288\slmult1\sb0\sa140 Text Body;}
+{\s18\sbasedon17\snext18\sl288\slmult1\sb0\sa140\dbch\af9 List;}
+{\s19\sbasedon0\snext19\sb120\sa120\noline\i\dbch\af9\afs24\ai\fs24 Caption;}
+{\s20\sbasedon0\snext20\noline\dbch\af9 Index;}
+}{\*\generator LibreOffice/5.1.6.2$Linux_X86_64 LibreOffice_project/10m0$Build-2}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2017\mo3\dy6\hr16\min29}{\printim\yr0\mo0\dy0\hr0\min0}}\deftab720
+\viewscale90
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn24480\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw24480\margl1440\margr1440\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn24480\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep}\pgndec\pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{{\field{\*\fldinst HYPERLINK "https://help.ubuntu.com/" }{\fldrslt {\cf9\ul\ulc0\langfe255\alang255\lang255\cf17\expnd0\expndtw0\ul\ulc0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+https://help.ubuntu.com/}{}}}\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+ - official Ubuntu Documentation}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+NOTE: The equivalent notes file for Mac contains many useful commands (the ones that aren\u8217\'92t marked as Mac only are potentially valid for Ubuntu)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+[[this doc is subservient to the Mac one - anything placed here is assumed to be Linux only]]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Paths}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab /media/username\tab \tab \tab \tab Mount point for removable devices}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab /etc/rc.local\tab \tab \tab \tab \tab Configuration that runs on startup}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab NOTE: while Mac lets you get away with a certain amount of case insensitivity, Ubuntu does not}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+File Systems}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab exFAT\tab \tab \tab \tab \tab \tab install exfat-fuse and exfat-utils from apt-get to add support for this filesystem (supported by Windows and OS X)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Desktops}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Unity\tab \tab \tab \tab \tab \tab \tab Default desktop installed with Ubuntu (Launcher, Home button, etc.)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Gnome\tab \tab \tab \tab \tab \tab Was the default before Unity (Gnome 2 was looking old but Gnome 3 is more modern now)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab KDE\tab \tab \tab \tab \tab \tab \tab Another old desktop environment a lot of people prefer}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Windows Equivalents}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Make shortcut\tab \tab \tab \tab \tab \u8220\'93Make Link\u8221\'94 or drag URL from chrome to desktop}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Taskbar\tab \tab \tab \tab \tab \tab Launcher}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Delete\tab \tab \tab \tab \tab \tab Fn-Delete}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Backspace\tab \tab \tab \tab \tab \tab Delete}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Delete selected file\tab \tab \tab \tab Fn-Delete}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Show/Hide Desktop\tab \tab \tab \tab Ctrl-cmd-d (type, don\u8217\'92t hold)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab }{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Window key (to search)\tab \tab \tab Command (Super)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Mac Equivalents}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Open terminal for selected folder\tab \tab Right-click option \u8220\'93Open in Terminal\u8221\'94}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Finder & Launch Pad\tab \tab \tab \tab Home Button at top of Launcher bar}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab open command\tab \tab \tab \tab \tab xdg-open command}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Cmd-Delete (eg. on desktop)\tab \tab Fn-Delete}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Command Key\tab \tab \tab \tab \tab Referred to as \u8216\'91Super\u8217\'92 (and used in shortcuts)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+Command-Line}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab Installation}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\sl340\slmult0{\cf1\expnd0\expndtw0\kerning0\rtlch \ltrch\loch\fs29\loch\f5
+\tab \tab }{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+sudo apt-get install openssh-server\tab \tab \tab install an apt package called openssh-server (eg. to get ssh on the system)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo apt-get install package1 package2\tab \tab can install multiple packages at the same time}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo apt-get install package}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo apt-get -f install\tab \tab \tab \tab \tab \tab fix dependency issues if you get an error}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo apt-get update\tab \tab \tab \tab \tab \tab refresh information about packages on local system (doesn\u8217\'92t update actual packages)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo apt-get upgrade\tab \tab \tab \tab \tab \tab update local packages based on information fetched from }{\cf1\expnd0\expndtw0\i\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+update}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Modules}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab modprobe wl\tab \tab \tab \tab Add module wl to the kernel (not persistent) [sometimes needed after installing package]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab modprobe -r wl\tab \tab \tab \tab Remove module wl from the kernel (not persistent)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab modprobe -v wl\tab \tab \tab \tab Verbose option}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Disk Utilities}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab fdisk -l\tab \tab \tab \tab \tab Approximately equivalent to \u8216\'91diskutil list\u8217\'92 in Mac (get list of partition/devices and sizes)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab umount /dev/disk1\tab \tab \tab Unmount a device from the file system}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab umount /media/user/disk1\tab \tab Unmount a device by its mount point}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab eject [devOrPath]\tab \tab \tab Physically eject a device based on device or mount point}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab System Utilities}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo swapon --show\tab \tab \tab List the swap files/partitions used (eg. to verify you are using the swap partition at all)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab free -m\tab \tab \tab \tab \tab Show RAM usage and size, and usage and size of the swap(s) [can be used to make sure your swap is big enough for your RAM]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Opening Files}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab xdg-open [file]\tab \tab \tab \tab open/edit a file with the preferred editor (GUI included) [xdg is from the group that created the command initially]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab sudo xdg-open [file]\tab \tab \tab open a protected file with the preferred editor (GUI included)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+Software/Packages}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab JRE/JDK\tab \tab \tab \tab \tab \tab OpenJDK is recommended alternative to Oracle and Sun (due to licensing complications) [package \u8216\'91default-jdk\u8217\'92 in apt]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab \tab \tab \tab \tab \tab \tab JDK is superset (includes JRE)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Libre\tab \tab \tab \tab \tab \tab \tab OpenOffice suite that you can install with Ubuntu (eg. rtf and doc support in Writer)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab gedit\tab \tab \tab \tab \tab \tab \tab Default bare-bones text editor (no rtf) [available from terminal]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Eclipse\tab \tab \tab \tab \tab \tab install via installer from website (not Software Center) [defaults to installing to ~/eclipse/specificLanguage]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab GIMP/UFRaw\tab \tab \tab \tab \tab Linux world equivalents of Photoshop/Camera Raw (available in Software Center)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab gksu\tab \tab \tab \tab \tab \tab \tab apt package that you can install to get the gksudo command (required by some online steps for some configuration stuff)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab \tab \tab \tab \tab \tab \tab \tab theoretically lets you elevate a GUI application (eg. to edit a system configuration) although that seems to often work with normal sudo}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab git\tab \tab \tab \tab \tab \tab \tab available in apt (as \u8216\'91git\u8217\'92)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+Nautilus}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab the built-in file manager (like Finder in Mac or Explorer in Windows)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab To add items to the left, add bookmark (will persist)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Can be launched from shell as \u8216\'91nautilus [path]\u8217\'92}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab To get to /, click on \u8220\'93Computer\u8221\'94 on left pane}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+Installed by Default (updatable with apt):}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Perl}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Python}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab GCC/make/etc.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+Updating:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Software Center\tab \tab \tab \tab \tab handles OS updates + updates to apps installed via Software Center}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af7\langfe2052\dbch\af8\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\expnd0\expndtw0\i0\kerning1\rtlch \ltrch\loch\fs29\loch\f6
+\tab Apt\tab \tab \tab \tab \tab \tab \tab see command-line section above}
+\par }
