@@ -1,396 +1,779 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red0\green68\blue254;\red0\green61\blue204;\red0\green0\blue0;
-}
-{\*\expandedcolortbl;;\csgenericrgb\c0\c26667\c99608;\csgenericrgb\c0\c23922\c80000;\csgenericrgb\c0\c0\c0;
-}
-\margl1440\margr1440\vieww28600\viewh14980\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+{\rtf1\ansi\deff3\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset2 Symbol;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\froman\fprq2\fcharset0 Liberation Serif{\*\falt Times New Roman};}{\f4\fswiss\fprq2\fcharset0 Liberation Sans{\*\falt Arial};}{\f5\froman\fprq2\fcharset0 Helvetica{\*\falt Arial};}{\f6\fnil\fprq2\fcharset0 Noto Sans CJK SC Regular;}{\f7\fnil\fprq2\fcharset0 FreeSans;}{\f8\fswiss\fprq0\fcharset128 FreeSans;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;\red0\green68\blue254;\red0\green61\blue204;}
+{\stylesheet{\s0\snext0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033 Normal;}
+{\s15\sbasedon0\snext16\sb240\sa120\keepn\dbch\af6\dbch\af7\afs28\loch\f4\fs28 Heading;}
+{\s16\sbasedon0\snext16\sl288\slmult1\sb0\sa140 Text Body;}
+{\s17\sbasedon16\snext17\sl288\slmult1\sb0\sa140\dbch\af8 List;}
+{\s18\sbasedon0\snext18\sb120\sa120\noline\i\dbch\af8\afs24\ai\fs24 Caption;}
+{\s19\sbasedon0\snext19\noline\dbch\af8 Index;}
+}{\*\generator LibreOffice/5.1.6.2$Linux_X86_64 LibreOffice_project/10m0$Build-2}{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr2017\mo3\dy6\hr16\min36}{\printim\yr0\mo0\dy0\hr0\min0}}\deftab720
+\viewscale90
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse451\pgwsxn24480\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\pgdscnxt0 Default Style;}}
+\formshade{\*\pgdscno0}\paperh15840\paperw24480\margl1440\margr1440\margt1440\margb1440\sectd\sbknone\sectunlocked1\pgndec\pgwsxn24480\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnrlc
+{\*\ftnsep}\pgndec\pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+This color means commands (or paths, etc.) that I have identified to be Mac only [[see Ubuntu doc for Ubuntu equivalents as applicable]]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
 
-\f0\fs24 \cf2 This color means commands (or paths, etc.) that I have identified to be Mac only [[see Ubuntu doc for Ubuntu equivalents as applicable]]\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\
-Things that are normally in Help on PC (in title bar) are spread between Help and the menu with the application\'92s name\
-\
-Alt vs. Option: same thing (don\'92t have to hold a function modifier or anything)\
-right-click on two button mouse == two-finger click on trackpad == control-click on single-button mouse (or old trackpad)\
-fn key: alters behavior of some keys in unindicated ways as well as makes the function keys act like Fn instead of the special Mac pictures\
-	can reverse the behavior of fn with regard to function keys by typing keyboard in search, launching the config app, and checking \'93use standard function keys\'94\
-ctrl, alt, command = like ctrl and alt in Windows (but 1 extra and not straight mapping of shortcuts)\
-\
-fn = function\
-^ = control\
-step function with - = alt/option\
-swirly grid = command\
-up arrow = shift\
-clock/power button = escape\
-left/right arrows with bars = tab left and tab right\
-\
-Keys that are missing from laptops but mapped to something else:\
-	page down/page up = up and down arrows with fn in front [symbol = up and down arrows with double lines through them]\
-		NOTE: only scrolls, doesn\'92t move cursor\
-	home/end = left and right arrows with fn in front [symbol = diagonal up and down arrows]\
-		NOTE: Unlike in Windows, home/end always mean whole doc, never just a line (no alt needed)\
-		NOTE: only scrolls, doesn\'92t move cursor\
-	home/end (w/ cursor movement) = left and right arrows with cmd\
-	beg and end of line = cmd-left and cmd-right (moves cursor)\
-		NOTE: for some reason have to use ctrl-a and ctrl-e in terminal\
-	forward delete (opposite of backspace on windows) = fn delete [symbol = x arrow pointing forward\
-	PrintScrn = cmd-shift-3 (saves as .png on desktop instead of clipboard)\
-		can also use cmd-shift-4 to take partial screenshots (draw in a box or space click on a window)\
-\
-If using Windows keyboard:\
-	use windows key for command\
-	use alt for alt/option\
-\
-Windows Equivalents:\
-	ctrl-v,ctrl-c,ctrl-x, ctrl-s, ctrl-z, ctrl-a, ctrl-f, ctrl-n -> same but with cmd instead of ctrl\
-	hide windows of all apps except front/current one -> option-command-h (without option it will hide the front/current app windows)\
-	click x on main app window -> cmd-q (cmd-w for just the current window)\
-	Show Desktop: pick thumb and three fingers apart OR F11\
-	Disk Management: Disk Utility\
-	Chkdsk: Disk Utility\
-\
-Special Combinations:\
-	move to previous or next word: alt-left and alt-right\
-		NOTE: works in terminal\
-\
-Bootup Hotkeys:\
-	***can hold these when hear the \'93chime\'94***\
-	Alt = menu for selection of OS to boot from disk partitions (including removable media)\
-	Cmd-r = Recovery mode (boots from recovery partition and gives limited functionality such as Utilities -> Terminal [can do things you couldn\'92t do when the boot partition is active]\
-	c = boot from optical disc (CD, DVD, etc.)\
-\
-To record video: open QuickTime Player and use the file menu (webcam will turn green) (if screen goes to sleep, camera keeps recording) [also supports recording from screen]\
-To take still photo: open Photo Boot application (that\'92s the one people use to apply strange effects as well)\
-\
-To add a favorite in Finder: drag the folder from the right panel into the position you want in the Favorites panel (it will persist after reboots unless maybe if it\'92s a network path)\
-To enable launching a folder in the terminal form Finder: go to System Preferences -> Keyboard -> Shortcuts -> Services and enable the New Terminal at Folder option (can also give it a hotkey like command-s) [must select folder in right pane first]\
-NOTE: for these tutorials, I have added the \'93tutorials\'94 folder as a favorite and mapped command-s to open terminal (select iOS folder first)\
-NOTE: if you add a service that opens up a terminal window, that window does not always show up in the dock\
-\
-Siri: hold command-space (do it again to have it offer suggestions for what you could search for)\
-Spotlight Search: touch command-space without holding and then type\
-\
-Utilities\
-	can be found via Spotlight Search\
-	can also be found directly via Finder -> Applications -> Utilities\
-	not in Launchpad (although could add later)\
-	see \'91Windows Equivalents\'92 for useful ones\
-\
-Keynote\
-	keynote presentation is a single file by default - can export to pdf, powerpoint, etc.\
-	option to save locally or in iCloud\
-	project type determines what kinds of stuff by default (start w/ a title slide)\
-	can edit a master slide to determine overall look\
-	when add new slide, will have several types to choose from\
-	can select 16:9 or 4:3 from document properties on right side\
-	\
-	Adding Assets in General\
-		the app prefers you to have stuff in iCloud, be in specific places, etc. instead of being browsable, but you can get around this by dragging files into the app\
-	Adding images\
-		Adjust margins on the image part of the slide first if desired\
-		Drag and drop an image from Finder or desktop into the image part of the slide (have to resize window to do it because dragging to dock icon doesn\'92t work)\
-		right-click and select Edit Mask if need to change how much of the image is included (can see other properties of it when you select the image)\
-		Once you save the image into the presentation, it is stored in the presentation (the original or a side loaded one are NOT needed)\
-		Animated gifs do not autoplay in a presentation (they are clickable to play)\
-\
-	click play button to present (might also want to enable coffee app) (if duplicating to another screen, notifications should automatically not bother you)\
-	playing will play from the slide you\'92re on, so make sure you\'92re on the first slide\
-\
-Boot Managers/Loaders\
-	Boot Manager = something that comes up to let you choose which OS to boot\
-	Boot Loader = something that a boot manager picks to load up its associated OS\
-	**some boot loaders also function as boot managers but can still function as loaders only (such as GRUB)\
-\
-	GRUB			default Linux boot loader/manager\
-	rEFInd		boot manager for EFI systems (able to load OS X, Linux (GRUB), and Windows) [install from Recovery mode due to SIP]\
-				configured via refind.conf and various *.efi files within EFI partition [have to mount to edit the files]\
-				rename .efi files to hide those bootloaders from rEFInd\
-\
-Power Management\
-	Sleep/Suspend = put machine in low power state (RAM stays in RAM) [on Macbook, this happens when you close the lid or wait until the timeout]\
-	Hibernate/Thaw = write RAM to swap disk and power down [on Mac, this happens if you are out of power or \'93after a very long time\'94]\
-	**both of these are available in Ubuntu but they are broken\
-\
-File Formats\
-	.img			OS X whole disk image format (like ISO)\
-	.dmg			OS X logical disk image format (like ZIP) (compressed and mountable)\
-\
-File Systems\
-	FAT32			Windows format with maximum file size of 4GB -1 (understood by Windows, Mac, and Linux by default)\
-	exFAT			Windows format for removable drives without size limit (understood by Windows and Mac but not Linux by default)\
-	NTFS			Windows format for hard disks, only understood by Windows by default (and possibly Linux)\
-	ext4			Linux format (with predecessors ext1, 2, and 3) [not understood by Windows or Mac]\
-	HFS+			OS X format\
-	CoreStorage		Layer above filesystem that organizes a drive into physical and logical volume hierarchy (OS X support is new and buggy) [undocumented APIs in diskutil command]\
-\
-Paths\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf2 	/Volumes		where removable devices tend to mount in OS X\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-Command line\
-	NOTE: only the most commonly used and easiest options are shown, but most have super big option lists that you can look up (including less, find, grep, ls, etc.)\
-	NOTE: can use ctrl-a to jump to beginning of command and ctrl-e to jump to end\
-	\
-	Prompt format: [computername]:[foldername] [username]$\
-	Switches\
-		switches are case sensitive, single letter switches can be combined into single - word, and must generally come before positional parameters like filenames\
-			(some special cases like find where - is used for whole word and comes after the directory parameter)\
-		word switches are usually specified with double dash\
-		order tends to be flexible between dash and doubledash but positional args should usually come in a certain place\
-		can often use \\ before a space (instead of quoting the whole string)\
-	Special Folders\
-		~ = your home directory (an alias)\
-	Wildcards\
-		many commands (especially ones that take multiple files) also support wildcards to pass in the files (even multiple wildcard strings)\
-		be careful because wildcards are a feature of the terminal, not the command (for instance, if you put them in \'93\'94 it will mean it literally)\
-		wildcards are case sensitive (eg. *.txt and *.TXT are different)\
-		a?.txt					? matches single character (not 0 or more)\
-		*.txt					all txt files\
-		a*b*.txt				multiple * allowed in name\
-		name.\{text,xml,md\}			expands to name.text name.xml name.md (combine with *, use for things that take multiple files, etc.)\
-	Basic Navigation\
-		cd, pwd, ls				already been using\
-		cd -					returns to previous directory in history\
-		cd					with no param, automatically defaults to ~\
-		pushd [directory]			switch to directory and push current one on stack\
-		pops					return to top directory on pushd stack\
-		up and down arrows, tab key\
-	File Listing\
-		ls					list contents of current directory\
-		ls [folder]				list contents of folder\
-		ls [wildcard]				list all files (or folders) that match the wildcard\
-		ls [token1] [token2]			can list multiple folders, wildcards, etc. at same time\
-		ls -a					include hidden items (start with .)\
-		ls -l					list in long format (permissions, stats, etc.)\
-							permissions start with - or d for file or directory, then 3 permissions (user, group, everyone), each containing 3 slots (read, write, execute)\
-		ls -lh					use letters like KB for sizes\
-		ls -R					recursive (print directory, then child directories, recursively)\
-		ls -S					sort by size (largest first)\
-		ls -t					sort by modified time (newest first)\
-		ls -Sr					r switch reverses sort order\
-	Searching\
-		find [folder] -iname [name]		recursively search within folder, case insensitive, for something called [name] (full match - can be file or folder)\
-		find [folder] -name [name]		same but case sensitive\
-		find . -name [name]			use . for current directory\
-		find [folder] -iname \'93*.txt\'94		to use wildcards, you need \'93\'94 or it will expand to files in the current directory (need to sneak past terminal and get wildcard into the tool)\
-		find . -iname \'93*.txt\'94 \'93*.xml\'94		find all xml and txt files in the current directory\
-		\
-		find . -size 10k			find files exactly 10 KB (note small k)\
-		find . -size +10G			find files greater than 10 GB (large G)\
-		find . -size -10M			find files smaller than 10 MB (large M)\
-\
-		find . -type f				find files (rather than folders)\
-		find . -type d				find directories\
-\
-		find . -mtime 0			find things modified within last 24 hours\
-\
-		find . -iname \'93*.swift\'94 -size +10k	combining criteria (in this case all swift files greater than 10 KB) [can do arbitrary combos as long as specify in correct pairs\
-\
-		find . -iname \'93*.txt\'94 -exec [cmd] \\;	Execute a command on each file found (use \{\} to represent the filename [safely quoted]) (command is terminated by \\;)(can safely use > and stuff like that after the \\;)\
-		find . -iname \'93*.txt\'94 -exec cat \{\} \\;	Prints the contents of all text files in current directory\
-		find . -name \'93*.txt\'94 -ok cat \{\} \\;	Same thing but ok asks you whether to run command on each file instead of just doing it like exec\
-		\'97\'97\'97\'97\'97\'97\'97\'97\'97\
-		grep \'93posts\'94 *			find all lines within files that contain the string \'93posts\'94 (without the quotes) and print filenames and lines (non-recursive) (case sensitive)[quotes needed for some reason]\
-							(unlike with find, you don\'92t need \'93\'94 around the wildcard)\
-		grep -r \'93posts\'94 .			recursive search [param is folder instead of file pattern]\
-		grep -i \'93posts\'94 *			case insensitive search\
-		grep -ir \'93posts\'94 .			can combine flags as usual\
-		grep -r --include \'93*.txt\'94 .		use the \'91include\'92 option (can be before or after pattern) to filter the directory results by filename pattern\
-		grep -r \'93posts\'94 folder1 folder2	recursive grep supports multiple folders too\
-		grep --color \'93posts\'94 *		colorize the match text (can go before or after the switches)\
-		grep -n \'93posts\'94 *			include line numbers\
-		grep -l \'93posts\'94 *			include only names of matching files (???)\
-		grep -c \'93posts\'94 *			include only names of matching files and number of matches in each (???)\
-		grep -v \'93posts\'94 *			inverts the search (find only lines that do not contain \'93posts\'94)\
-\
-		grep \'93posts\'94 *.txt			search for \'93posts\'94 within text files in current directory\
-		ls | grep \'93myfile\'94			data piped into grep replaces the wildcard/filename part at the end\
-		grep \'93posts\'94 *.txt | grep -v \'93the\'94	popular to pipe grep into itself to refine a search even more\
-\
-		grep \'93a.*b\'94 *.txt			the thing in \'93\'94 is actually a REGEX\
-		grep -o \'93a.*b\'94 *.txt			only show the text that matches on each line (useful if complicated regex)\
-		\
-		grep -E \'93[regex]\'94 [file]		by default grep only supports a small subset of regex and some weird escaping rules\
-							the -E option turns on the full power of regex in grep\
-		egrep \'93[regex]\'94 [file]			egrep is an alias for grep -E\
-							probably better to just always use this one unless it\'92s for some reason not installed (eg. an older grep) [highly unlikely these days]\
-	File System\
-\cf3 		open [file]				opens a file with the default application based on file type\
-							sometimes this works on folders that have extensions and act like files (eg. .playground folders for XCode)\
-		open [file] \'85				can open multiple files at the same time (eg. multiple text documents with TextEdit or multiple Swift playgrounds)\
-		open [wildcard]			wildcard patterns work too (eg. *.txt)\
-\cf0 		\
-		dirname [file]				get the parent directory of a file or directory\
-\
-		mkdir\
-		cp [file1] [file2]			create a copy of file1 named file2\
-		cp [file1] [file2] \'85 [directory]	copies a list of files (names, wildcards, etc.) into a target directory with original name\
-		cp -R [folder1] [folder2]		recursively copy a folder\
-							NOTE: if you specify a folder and it isn\'92t there, your file will get renamed (eg. if usr/local/bin is not on your installation and you try to copy a program there, that program will be called /usr/local/bin)\
-		mv [file1] [file2]			rename/move a file\
-		mv [file1] [file2] \'85 [directory]	move multiple files\
-		rm [file]				delete a file\
-		rm -rf [directory]			recursively delete a directory (which doesn\'92t have to be empty)\
-		rmdir [directory]			delete an empty directory\
-\
-		touch [file]				updates access and modified times of file\
-	File Content\
-		file [file]				get the type of a file (based on its content) [for .swift files just says ascii text][looks at identifiers, shebangs, etc.]\
-		\'97\'97\'97\'97\'97\'97\'97\'97\
-		cat [file]				print the contents of the file (if no newline, prompt will continue on same line)\
-		cat [file1] [file2] \'85			print multiple file contents one after the other\
-		cat -s [file]				print without blank lines\
-		cat -n [file]				print with line numbers (repeats if multiple files)\
-		\'97\'97\'97\'97\'97\'97\'97\'97\
-		less [file]				print contents of long file with paging [q to quit, arrow keys to scroll]\
-							less commands are similar to Vim commands but you don\'92t have to hit enter after : commands\
-							other commands include /[word] to search, / to find next, ? to find previous, 50g to go to line 50, 50p to go to 50% mark, m[letter] to set a marker (for current session), \'91[letter] to jump to marker\
-							to use terminal in less, use ![enter] to launch and ctrl-d to exit, use ![command] to run the command immediately and return, use % to represent current filename\
-		less -N [file]				show line numbers\
-		less -M [file]				show status information instead of colon (eg. how far through file you are)\
-		less +[command] [file]		rest of token after + gets run in less after the file is opened (eg. less +/the myfile.txt - /the is run which finds the first \'91the\'92)\
-		less [file1] [file2] \'85			less can work with multiple files\
-							within less, use :p and :n to navigate between files, :d to remove a file, :e to add a file\
-							/* to do multi-file search (instead of /), escape n or escape N to get next or previous hit\
-		\'97\'97\'97\'97\'97\'97\'97\
-		head [file]				print first 10 lines of file\
-		head -n [number] [file]		print first [number] lines of file\
-		tail [file]				print last 10 lines of file\
-		tail -n [number] [file]			print last [number] lines of file\
-		tail -f [file1] [file2] \'85			follow mode: keep watching for changes to the files and print the last lines when they change\
-		\'97\'97\'97\'97\'97\'97\
-		wc [file]				print lines, words, characters in file (in that order)\
-		wc [file1] [file2] \'85			print stats for multiple files and a sum row too\
-		wc -l [file]				print only lines (and filename)\
-		wc -w [file]				print only words (and filename)\
-		wc -c [file]				print only characters (and filename)\
-		\'97\'97\'97\'97\'97\'97\'97\'97\
-		sort [file]				print the lines of a file sorted alphabetically\
-		ls | sort				supports piping as well\
-		sort -r [file]				reverse the order\
-		sort -n [file]				numeric sort\
-		sort -u [file]				dedupe same line (like piping to uniq)\
-		sort [file1] \'85				merge multiple files together and then sort the result\
-		\'97\'97\'97\'97\'97\'97\'97\'97\'97\
-		uniq [file]				show lines of file with adjacent matching lines deduped\
-		sort [file] | uniq			handy to sort input first so that all matches will be deduped\
-		uniq -i [file]				case insensitive dedupe\
-		uniq -u [file]				only print lines that didn\'92t have dupes in the first place\
-		uniq -c [file]				count the occurence of each unique line (in addition to printing it)\
-		\'97\'97\'97\'97\'97\'97\'97\'97\'97\
-		dd -if=inputfile -of=outputfile -conv=ascii,lcase		convert a file to lowercase ascii (various options available) [ommit -of to get at stdout]\
-	Help\
-		whatis [command]			get super short description of command (instead of verbose incoherent man page)\
-		man [command]			get the full man page (interact like using \'91less\'92)\
-		which [command]			get the path to the binary for a command\
-	Redirection\
-		[command] > [file]			overwrite output file with standard out\
-		[command] >> [file]			append output file with standard out\
-		[command] | [command]		standard out of one command piped to standard in of next one\
-							many commands that take files will also take stdin from pipe (eg. the File Content commands above)\
-		[command] | [command] \'85		can pipe as much together as you want and data will flow through the chain\
-\
-		[command] | tee [file1] \'85		tee takes stdin and prints it to both stdout and to the file(s) given\
-							can put tees in between steps of a pipeline with | to save results of intermediate steps while performing the algorithm\
-		[command] | tee -a [file1] \'85	-a switch appends rather than overwriting the file\
-		\
-		[command] `[command]`		use backtick to execute a command in-place and give it in another command (can nest if want to)\
-							useful for commands that don\'92t support piping or where you want to provide an arg other than stdin\
-		[command] $([command])		use $() instead of backtick in cases where it\'92s easier to see (such as nesting)\
-\
-		mkfifo [pipename]			create a new FIFO pipe with a given name (acts as file that you can redirect to)\
-		echo hi > [pipename]		for output, treat FIFO pipe like any other file\
-		tail -f fifo_pipe			some commands have special input parameters for FIFO pipes\
-							if try to use directly as stdin, might hang\
-	Printing\
-		echo hi				just prints hi to the terminal (with newline)\
-		echo \'93hi\'94				same thing (quotes ignored)\
-		echo hi there				spaces fine\
-		echo hi there > test.txt		can print to a file (spaces around > ignored here)\
-		echo -n hi				prints without newline\
-		echo \'93[multiple lines]\'94		can echo multiline strings using quotes around the block\
-		> test.txt				can redirect emptiness without commands too (in this case, clears the file)\
-		echo >test.txt				create an empty file\
-\
-		echo | sudo tee /etc/sysfs.conf	Create an empty file at a protected path (the redirection may not inherit the sudo, especially on Ubuntu)\
-	Logging\
-		script					start a terminal session where commands and output are logged\
-		exit					end the script session\
-		less typescript			print the last session that used script/exit\
-	Terminal\
-		reset					if terminal gets screwed up (eg. outputting binary file), use this\
-		up and down arrays			command history from current session\
-		history					print history of commands\
-		#[command]				make a line a comment (useful if you type a long command and realize you\'92re not ready to run it yet)[still ends up in your history]\
-		time [command]			wrap a commandline with timing info about it by putting time in front\
-		sleep [seconds]			delay for given amount of time (can be fractional like 0.1)\
-		Ctrl-c					abort a command (eg. if it will never return because you screwed up)\
-		^[oldtext]^[newtext]			rerun last command but replace oldtext with newtext (useful if you had a typo in a command)\
-		uuidgen				generate a uuid (eg. when you need to use when in source code)\
-	Multiple Commands\
-		echo \'93hi\'94; echo \'93bye\'94		can run multiple commands (in sequence) with semicolons\
-		(echo \'93hi\'94; echo \'93bye\'94)		can use () to group where might be ambiguous (eg. with piping and redirecting)\
-		echo \'93hi\'94 | (sort; cat)			only the cat gets the piped input (I think)(???)\
-		cat somefile.txt | (sleep 0.1; tee somefile.txt)			trick to avoid race condition with tee onto same file\
-	Asynchronous\
-		& at end of command		run in background while you do other stuff at terminal\
-	Administrator\
-		sudo [cmdline]			run the command as superuser (if you have permission to do so)(will prompt for password, then cache it for a time)\
-		sudo !!				repeat last command as admin (because presumably it failed)\
-		sudo -K				clear the sudo password cache (eg. if someone else uses your comp)\
-		su					Switch current terminal to superuser (so you don\'92t have to keep typing \'91sudo\'92)\
-	Web\
-		python -m SimpleHTTPServer	call python module that shares the current directory as http://127.0.0.1:8000 so you can access files [use your external IP outside of your machine]\
-\
-		curl www.apple.com			print html content returned by a url (in this case figures out the http or https part on its own)\
-		curl http://www.apple.com		explicitly specifying http\
-		curl https://www.yahoo.com	able to do ssl transparently too\
-	Remoting\
-		NOTE: have to install ssh somehow (different depending on OS and distro)(stands for secure shell)(Putty on windows)\
-		ssh username@machinename	start an encrypted/authenticated session on a remote server (where, depending on your permissions, you can use all the other stuff you know about terminals)(uses the shell of the server)\
-		ssh machinename			can ommit username if same as local machine\
-		ssh -p 220 machinename		defaults to port 20 but you can change it\
-		Ctrl-d					to close the ssh session\
-\
-		scp myfile myuser@myserver:/home/documents		utilizes ssh to copy a file from the current system to the remote system\
-		sftp myuser@myserver		opens up FTP share with remote server where you can use commands like get and put to send/receive files interactively (faster than scp for large amounts of files)\
-\
-		screen				for loading multiple terminals in one remote session (eg. ssh) [has its own commands for switching][only need to learn it if ever need it]\
-							also has the ability to save sessions so you can continue later\
-	Installation\
-		\cf2 ***apt is not available here***\cf0 \
-	Conversions\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7948\tx8672\tx9393\tx10091\tx10828\tx11481\tx12211\tx12950\tx13649\tx14423\tx15118\tx15805\tx16544\tx17274\tx17996\tx18695\tx19408\tx20112\pardirnatural\partightenfactor0
-\cf2 		hdiutil convert /path/to/ubuntu.iso -format UDRW -o /path/to/target.img			convert ISO file to IMG file (.dmg will be appended which you can remove)\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 	Disk Utilities\
-		\cf2 diskutil list								get the list of disk partitions with information such as the /dev path, identifiers, sizes, etc. (in many places you can use the identifier in place of the disk name in paths)\
-		\cf4 df -h									get the list of devices, where they\'92re mounted, and disk usage stats (the -h makes the numbers human readable by adding M and G)\cf2 \
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf4 		sudo mount /dev/disk0s1 \cf2 /Volumes/disk0\cf4 			Mount a disk or partition to a specified path (may require sudo depending on permissions of the output path)\
-		sudo mount -t msdos /dev/disk2 /Volumes/disk2		Mount with specific filesystem type if system can\'92t figure it out\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf2 		diskutil unmount /dev/disk2					Unmount a disk from the file system (and the desktop) [still accessible via /dev]((doesn\'92t eject))\
-		diskutil eject /dev/disk2						Fully ejects a disk (may have to unmount it first)\cf4 \
-\
-		sudo dd if=/path/to/input.img of=/dev/disk2 bs=1m		Restore a .img file to a disk (eg. thumb drive) [existing data wiped out]\
-\
-		\cf2 diskutil cs list								List CoreStorage hierarchies of system if present (also gives sizing and uuid information)\
-		diskutil cs resizeVolume [uuid] 10g				Resize a given volume to 10 GB (leaving the rest as free space)\
-		diskutil cs revert [uuid]						Revert a Logical Volume back to HFS+ (may require reboot)\cf0 \
-	Useful Combinations\
-		ls -lS | head				show 10 biggest files in long format\
-		ls | wc -l				get number of files in current directory (works even though pure ls doesn\'92t look like that)\
-		ls -l | grep \'9323 May\'94			useful for finding files modified on a certain date\
-		find . -size +1G | wc -l		get number of files greater than 1 GB in current directory\
-		grep \'93posts\'94 * | wc -l			counting number of matches\
-		dirname `which ls`			get folder containing the ls command binary\
-		sort file1 file1 file2 | uniq -u		print all lines of file2 than aren\'92t in file1\
-		history | grep \'93ls\'94			print all ls commands you\'92ve done\
-		grep -o \'93[regex]\'94 [file] | sort | uniq -c		find all unique matches of a pattern in a file along with counts of how many times each match appears\
-}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Things that are normally in Help on PC (in title bar) are spread between Help and the menu with the application\u8217\'92s name}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Alt vs. Option: same thing (don\u8217\'92t have to hold a function modifier or anything)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+right-click on two button mouse == two-finger click on trackpad == control-click on single-button mouse (or old trackpad)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+fn key: alters behavior of some keys in unindicated ways as well as makes the function keys act like Fn instead of the special Mac pictures}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab can reverse the behavior of fn with regard to function keys by typing keyboard in search, launching the config app, and checking \u8220\'93use standard function keys\u8221\'94}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+ctrl, alt, command = like ctrl and alt in Windows (but 1 extra and not straight mapping of shortcuts)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+fn = function}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+^ = control}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+step function with - = alt/option}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+swirly grid = command}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+up arrow = shift}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+clock/power button = escape}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+left/right arrows with bars = tab left and tab right}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Keys that are missing from laptops but mapped to something else:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab page down/page up = up and down arrows with fn in front [symbol = up and down arrows with double lines through them]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: only scrolls, doesn\u8217\'92t move cursor}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab home/end = left and right arrows with fn in front [symbol = diagonal up and down arrows]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: Unlike in Windows, home/end always mean whole doc, never just a line (no alt needed)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: only scrolls, doesn\u8217\'92t move cursor}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab home/end (w/ cursor movement) = left and right arrows with cmd}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab beg and end of line = cmd-left and cmd-right (moves cursor)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: for some reason have to use ctrl-a and ctrl-e in terminal}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab forward delete (opposite of backspace on windows) = fn delete [symbol = x arrow pointing forward}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab PrintScrn = cmd-shift-3 (saves as .png on desktop instead of clipboard)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab can also use cmd-shift-4 to take partial screenshots (draw in a box or space click on a window)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+If using Windows keyboard:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab use windows key for command}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab use alt for alt/option}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Windows Equivalents:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab ctrl-v,ctrl-c,ctrl-x, ctrl-s, ctrl-z, ctrl-a, ctrl-f, ctrl-n -> same but with cmd instead of ctrl}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab hide windows of all apps except front/current one -> option-command-h (without option it will hide the front/current app windows)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab click x on main app window -> cmd-q (cmd-w for just the current window)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Show Desktop: pick thumb and three fingers apart OR F11}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Disk Management: Disk Utility}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Chkdsk: Disk Utility}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Special Combinations:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab move to previous or next word: alt-left and alt-right}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: works in terminal}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Bootup Hotkeys:}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab ***can hold these when hear the \u8220\'93chime\u8221\'94***}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Alt = menu for selection of OS to boot from disk partitions (including removable media)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Cmd-r = Recovery mode (boots from recovery partition and gives limited functionality such as Utilities -> Terminal [can do things you couldn\u8217\'92t do when the boot partition is active]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab c = boot from optical disc (CD, DVD, etc.)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+To record video: open QuickTime Player and use the file menu (webcam will turn green) (if screen goes to sleep, camera keeps recording) [also supports recording from screen]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+To take still photo: open Photo Boot application (that\u8217\'92s the one people use to apply strange effects as well)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+To add a favorite in Finder: drag the folder from the right panel into the position you want in the Favorites panel (it will persist after reboots unless maybe if it\u8217\'92s a network path)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+To enable launching a folder in the terminal form Finder: go to System Preferences -> Keyboard -> Shortcuts -> Services and enable the New Terminal at Folder option (can also give it a hotkey like command-s) [must select folder in right pane first]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+NOTE: for these tutorials, I have added the \u8220\'93tutorials\u8221\'94 folder as a favorite and mapped command-s to open terminal (select iOS folder first)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+NOTE: if you add a service that opens up a terminal window, that window does not always show up in the dock}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Siri: hold command-space (do it again to have it offer suggestions for what you could search for)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Spotlight Search: touch command-space without holding and then type}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Utilities}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab can be found via Spotlight Search}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab can also be found directly via Finder -> Applications -> Utilities}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab not in Launchpad (although could add later)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab see \u8216\'91Windows Equivalents\u8217\'92 for useful ones}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Keynote}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab keynote presentation is a single file by default - can export to pdf, powerpoint, etc.}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab option to save locally or in iCloud}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab project type determines what kinds of stuff by default (start w/ a title slide)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab can edit a master slide to determine overall look}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab when add new slide, will have several types to choose from}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab can select 16:9 or 4:3 from document properties on right side}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Adding Assets in General}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab the app prefers you to have stuff in iCloud, be in specific places, etc. instead of being browsable, but you can get around this by dragging files into the app}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Adding images}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Adjust margins on the image part of the slide first if desired}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Drag and drop an image from Finder or desktop into the image part of the slide (have to resize window to do it because dragging to dock icon doesn\u8217\'92t work)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab right-click and select Edit Mask if need to change how much of the image is included (can see other properties of it when you select the image)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Once you save the image into the presentation, it is stored in the presentation (the original or a side loaded one are NOT needed)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Animated gifs do not autoplay in a presentation (they are clickable to play)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab click play button to present (might also want to enable coffee app) (if duplicating to another screen, notifications should automatically not bother you)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab playing will play from the slide you\u8217\'92re on, so make sure you\u8217\'92re on the first slide}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Boot Managers/Loaders}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Boot Manager = something that comes up to let you choose which OS to boot}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Boot Loader = something that a boot manager picks to load up its associated OS}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab **some boot loaders also function as boot managers but can still function as loaders only (such as GRUB)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab GRUB\tab \tab \tab default Linux boot loader/manager}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab rEFInd\tab \tab boot manager for EFI systems (able to load OS X, Linux (GRUB), and Windows) [install from Recovery mode due to SIP]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab configured via refind.conf and various *.efi files within EFI partition [have to mount to edit the files]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab rename .efi files to hide those bootloaders from rEFInd}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Power Management}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Sleep/Suspend = put machine in low power state (RAM stays in RAM) [on Macbook, this happens when you close the lid or wait until the timeout]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Hibernate/Thaw = write RAM to swap disk and power down [on Mac, this happens if you are out of power or \u8220\'93after a very long time\u8221\'94]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab **both of these are available in Ubuntu but they are broken}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+File Formats}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab .img\tab \tab \tab OS X whole disk image format (like ISO)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab .dmg\tab \tab \tab OS X logical disk image format (like ZIP) (compressed and mountable)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+File Systems}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab FAT32\tab \tab \tab Windows format with maximum file size of 4GB -1 (understood by Windows, Mac, and Linux by default)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab exFAT\tab \tab \tab Windows format for removable drives without size limit (understood by Windows and Mac but not Linux by default)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab NTFS\tab \tab \tab Windows format for hard disks, only understood by Windows by default (and possibly Linux)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab ext4\tab \tab \tab Linux format (with predecessors ext1, 2, and 3) [not understood by Windows or Mac]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab HFS+\tab \tab \tab OS X format}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab CoreStorage\tab \tab Layer above filesystem that organizes a drive into physical and logical volume hierarchy (OS X support is new and buggy) [undocumented APIs in diskutil command]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Paths}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab /Volumes\tab \tab where removable devices tend to mount in OS X}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+Command line}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab NOTE: only the most commonly used and easiest options are shown, but most have super big option lists that you can look up (including less, find, grep, ls, etc.)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab NOTE: can use ctrl-a to jump to beginning of command and ctrl-e to jump to end}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Prompt format: [computername]:[foldername] [username]$}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Switches}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab switches are case sensitive, single letter switches can be combined into single - word, and must generally come before positional parameters like filenames}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab (some special cases like find where - is used for whole word and comes after the directory parameter)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab word switches are usually specified with double dash}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab order tends to be flexible between dash and doubledash but positional args should usually come in a certain place}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab can often use \\ before a space (instead of quoting the whole string)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Special Folders}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ~ = your home directory (an alias)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Wildcards}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab many commands (especially ones that take multiple files) also support wildcards to pass in the files (even multiple wildcard strings)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab be careful because wildcards are a feature of the terminal, not the command (for instance, if you put them in \u8220\'93\u8221\'94 it will mean it literally)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wildcards are case sensitive (eg. *.txt and *.TXT are different)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab a?.txt\tab \tab \tab \tab \tab ? matches single character (not 0 or more)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab *.txt\tab \tab \tab \tab \tab all txt files}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab a*b*.txt\tab \tab \tab \tab multiple * allowed in name}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab name.\{text,xml,md\}\tab \tab \tab expands to name.text name.xml name.md (combine with *, use for things that take multiple files, etc.)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Basic Navigation}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cd, pwd, ls\tab \tab \tab \tab already been using}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cd -\tab \tab \tab \tab \tab returns to previous directory in history}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cd\tab \tab \tab \tab \tab with no param, automatically defaults to ~}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab pushd [directory]\tab \tab \tab switch to directory and push current one on stack}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab pops\tab \tab \tab \tab \tab return to top directory on pushd stack}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab up and down arrows, tab key}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab File Listing}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls\tab \tab \tab \tab \tab list contents of current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls [folder]\tab \tab \tab \tab list contents of folder}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls [wildcard]\tab \tab \tab \tab list all files (or folders) that match the wildcard}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls [token1] [token2]\tab \tab \tab can list multiple folders, wildcards, etc. at same time}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -a\tab \tab \tab \tab \tab include hidden items (start with .)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -l\tab \tab \tab \tab \tab list in long format (permissions, stats, etc.)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab permissions start with - or d for file or directory, then 3 permissions (user, group, everyone), each containing 3 slots (read, write, execute)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -lh\tab \tab \tab \tab \tab use letters like KB for sizes}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -R\tab \tab \tab \tab \tab recursive (print directory, then child directories, recursively)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -S\tab \tab \tab \tab \tab sort by size (largest first)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -t\tab \tab \tab \tab \tab sort by modified time (newest first)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -Sr\tab \tab \tab \tab \tab r switch reverses sort order}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Searching}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find [folder] -iname [name]\tab \tab recursively search within folder, case insensitive, for something called [name] (full match - can be file or folder)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find [folder] -name [name]\tab \tab same but case sensitive}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -name [name]\tab \tab \tab use . for current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find [folder] -iname \u8220\'93*.txt\u8221\'94\tab \tab to use wildcards, you need \u8220\'93\u8221\'94 or it will expand to files in the current directory (need to sneak past terminal and get wildcard into the tool)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -iname \u8220\'93*.txt\u8221\'94 \u8220\'93*.xml\u8221\'94\tab \tab find all xml and txt files in the current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -size 10k\tab \tab \tab find files exactly 10 KB (note small k)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -size +10G\tab \tab \tab find files greater than 10 GB (large G)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -size -10M\tab \tab \tab find files smaller than 10 MB (large M)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -type f\tab \tab \tab \tab find files (rather than folders)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -type d\tab \tab \tab \tab find directories}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -mtime 0\tab \tab \tab find things modified within last 24 hours}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -iname \u8220\'93*.swift\u8221\'94 -size +10k\tab combining criteria (in this case all swift files greater than 10 KB) [can do arbitrary combos as long as specify in correct pairs}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -iname \u8220\'93*.txt\u8221\'94 -exec [cmd] \\;\tab Execute a command on each file found (use \{\} to represent the filename [safely quoted]) (command is terminated by \\;)(can safely use > and stuff like that after the \\;)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -iname \u8220\'93*.txt\u8221\'94 -exec cat \{\} \\;\tab Prints the contents of all text files in current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -name \u8220\'93*.txt\u8221\'94 -ok cat \{\} \\;\tab Same thing but ok asks you whether to run command on each file instead of just doing it like exec}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep \u8220\'93posts\u8221\'94 *\tab \tab \tab find all lines within files that contain the string \u8220\'93posts\u8221\'94 (without the quotes) and print filenames and lines (non-recursive) (case sensitive)[quotes needed for some reason]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab (unlike with find, you don\u8217\'92t need \u8220\'93\u8221\'94 around the wildcard)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -r \u8220\'93posts\u8221\'94 .\tab \tab \tab recursive search [param is folder instead of file pattern]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -i \u8220\'93posts\u8221\'94 *\tab \tab \tab case insensitive search}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -ir \u8220\'93posts\u8221\'94 .\tab \tab \tab can combine flags as usual}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -r --include \u8220\'93*.txt\u8221\'94 .\tab \tab use the \u8216\'91include\u8217\'92 option (can be before or after pattern) to filter the directory results by filename pattern}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -r \u8220\'93posts\u8221\'94 folder1 folder2\tab recursive grep supports multiple folders too}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep --color \u8220\'93posts\u8221\'94 *\tab \tab colorize the match text (can go before or after the switches)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -n \u8220\'93posts\u8221\'94 *\tab \tab \tab include line numbers}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -l \u8220\'93posts\u8221\'94 *\tab \tab \tab include only names of matching files (???)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -c \u8220\'93posts\u8221\'94 *\tab \tab \tab include only names of matching files and number of matches in each (???)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -v \u8220\'93posts\u8221\'94 *\tab \tab \tab inverts the search (find only lines that do not contain \u8220\'93posts\u8221\'94)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep \u8220\'93posts\u8221\'94 *.txt\tab \tab \tab search for \u8220\'93posts\u8221\'94 within text files in current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls | grep \u8220\'93myfile\u8221\'94\tab \tab \tab data piped into grep replaces the wildcard/filename part at the end}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep \u8220\'93posts\u8221\'94 *.txt | grep -v \u8220\'93the\u8221\'94\tab popular to pipe grep into itself to refine a search even more}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep \u8220\'93a.*b\u8221\'94 *.txt\tab \tab \tab the thing in \u8220\'93\u8221\'94 is actually a REGEX}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -o \u8220\'93a.*b\u8221\'94 *.txt\tab \tab \tab only show the text that matches on each line (useful if complicated regex)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -E \u8220\'93[regex]\u8221\'94 [file]\tab \tab by default grep only supports a small subset of regex and some weird escaping rules}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab the -E option turns on the full power of regex in grep}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab egrep \u8220\'93[regex]\u8221\'94 [file]\tab \tab \tab egrep is an alias for grep -E}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab probably better to just always use this one unless it\u8217\'92s for some reason not installed (eg. an older grep) [highly unlikely these days]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab File System}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf18\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab open [file]\tab \tab \tab \tab opens a file with the default application based on file type}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf18\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab sometimes this works on folders that have extensions and act like files (eg. .playground folders for XCode)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf18\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab open [file] \u8230\'85\tab \tab \tab \tab can open multiple files at the same time (eg. multiple text documents with TextEdit or multiple Swift playgrounds)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf18\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab open [wildcard]\tab \tab \tab wildcard patterns work too (eg. *.txt)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab dirname [file]\tab \tab \tab \tab get the parent directory of a file or directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab mkdir}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cp [file1] [file2]\tab \tab \tab create a copy of file1 named file2}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cp [file1] [file2] \u8230\'85 [directory]\tab copies a list of files (names, wildcards, etc.) into a target directory with original name}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cp -R [folder1] [folder2]\tab \tab recursively copy a folder}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab NOTE: if you specify a folder and it isn\u8217\'92t there, your file will get renamed (eg. if usr/local/bin is not on your installation and you try to copy a program there, that program will be called /usr/local/bin)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab mv [file1] [file2]\tab \tab \tab rename/move a file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab mv [file1] [file2] \u8230\'85 [directory]\tab move multiple files}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab rm [file]\tab \tab \tab \tab delete a file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab rm -rf [directory]\tab \tab \tab recursively delete a directory (which doesn\u8217\'92t have to be empty)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab rmdir [directory]\tab \tab \tab delete an empty directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab touch [file]\tab \tab \tab \tab updates access and modified times of file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab File Content}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab file [file]\tab \tab \tab \tab get the type of a file (based on its content) [for .swift files just says ascii text][looks at identifiers, shebangs, etc.]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cat [file]\tab \tab \tab \tab print the contents of the file (if no newline, prompt will continue on same line)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cat [file1] [file2] \u8230\'85\tab \tab \tab print multiple file contents one after the other}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cat -s [file]\tab \tab \tab \tab print without blank lines}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cat -n [file]\tab \tab \tab \tab print with line numbers (repeats if multiple files)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less [file]\tab \tab \tab \tab print contents of long file with paging [q to quit, arrow keys to scroll]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab less commands are similar to Vim commands but you don\u8217\'92t have to hit enter after : commands}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab other commands include /[word] to search, / to find next, ? to find previous, 50g to go to line 50, 50p to go to 50% mark, m[letter] to set a marker (for current session), \u8216\'91[letter] to jump to marker}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab to use terminal in less, use ![enter] to launch and ctrl-d to exit, use ![command] to run the command immediately and return, use % to represent current filename}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less -N [file]\tab \tab \tab \tab show line numbers}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less -M [file]\tab \tab \tab \tab show status information instead of colon (eg. how far through file you are)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less +[command] [file]\tab \tab rest of token after + gets run in less after the file is opened (eg. less +/the myfile.txt - /the is run which finds the first \u8216\'91the\u8217\'92)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less [file1] [file2] \u8230\'85\tab \tab \tab less can work with multiple files}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab within less, use :p and :n to navigate between files, :d to remove a file, :e to add a file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab /* to do multi-file search (instead of /), escape n or escape N to get next or previous hit}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab head [file]\tab \tab \tab \tab print first 10 lines of file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab head -n [number] [file]\tab \tab print first [number] lines of file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab tail [file]\tab \tab \tab \tab print last 10 lines of file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab tail -n [number] [file]\tab \tab \tab print last [number] lines of file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab tail -f [file1] [file2] \u8230\'85\tab \tab \tab follow mode: keep watching for changes to the files and print the last lines when they change}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wc [file]\tab \tab \tab \tab print lines, words, characters in file (in that order)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wc [file1] [file2] \u8230\'85\tab \tab \tab print stats for multiple files and a sum row too}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wc -l [file]\tab \tab \tab \tab print only lines (and filename)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wc -w [file]\tab \tab \tab \tab print only words (and filename)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab wc -c [file]\tab \tab \tab \tab print only characters (and filename)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort [file]\tab \tab \tab \tab print the lines of a file sorted alphabetically}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls | sort\tab \tab \tab \tab supports piping as well}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort -r [file]\tab \tab \tab \tab reverse the order}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort -n [file]\tab \tab \tab \tab numeric sort}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort -u [file]\tab \tab \tab \tab dedupe same line (like piping to uniq)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort [file1] \u8230\'85\tab \tab \tab \tab merge multiple files together and then sort the result}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab uniq [file]\tab \tab \tab \tab show lines of file with adjacent matching lines deduped}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort [file] | uniq\tab \tab \tab handy to sort input first so that all matches will be deduped}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab uniq -i [file]\tab \tab \tab \tab case insensitive dedupe}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab uniq -u [file]\tab \tab \tab \tab only print lines that didn\u8217\'92t have dupes in the first place}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab uniq -c [file]\tab \tab \tab \tab count the occurence of each unique line (in addition to printing it)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97\u8212\'97}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab dd -if=inputfile -of=outputfile -conv=ascii,lcase\tab \tab convert a file to lowercase ascii (various options available) [ommit -of to get at stdout]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Help}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab whatis [command]\tab \tab \tab get super short description of command (instead of verbose incoherent man page)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab man [command]\tab \tab \tab get the full man page (interact like using \u8216\'91less\u8217\'92)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab which [command]\tab \tab \tab get the path to the binary for a command}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Redirection}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] > [file]\tab \tab \tab overwrite output file with standard out}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] >> [file]\tab \tab \tab append output file with standard out}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] | [command]\tab \tab standard out of one command piped to standard in of next one}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab many commands that take files will also take stdin from pipe (eg. the File Content commands above)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] | [command] \u8230\'85\tab \tab can pipe as much together as you want and data will flow through the chain}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] | tee [file1] \u8230\'85\tab \tab tee takes stdin and prints it to both stdout and to the file(s) given}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab can put tees in between steps of a pipeline with | to save results of intermediate steps while performing the algorithm}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] | tee -a [file1] \u8230\'85\tab -a switch appends rather than overwriting the file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] `[command]`\tab \tab use backtick to execute a command in-place and give it in another command (can nest if want to)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab useful for commands that don\u8217\'92t support piping or where you want to provide an arg other than stdin}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab [command] $([command])\tab \tab use $() instead of backtick in cases where it\u8217\'92s easier to see (such as nesting)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab mkfifo [pipename]\tab \tab \tab create a new FIFO pipe with a given name (acts as file that you can redirect to)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo hi > [pipename]\tab \tab for output, treat FIFO pipe like any other file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab tail -f fifo_pipe\tab \tab \tab some commands have special input parameters for FIFO pipes}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab if try to use directly as stdin, might hang}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Printing}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo hi\tab \tab \tab \tab just prints hi to the terminal (with newline)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo \u8220\'93hi\u8221\'94\tab \tab \tab \tab same thing (quotes ignored)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo hi there\tab \tab \tab \tab spaces fine}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo hi there > test.txt\tab \tab can print to a file (spaces around > ignored here)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo -n hi\tab \tab \tab \tab prints without newline}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo \u8220\'93[multiple lines]\u8221\'94\tab \tab can echo multiline strings using quotes around the block}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab > test.txt\tab \tab \tab \tab can redirect emptiness without commands too (in this case, clears the file)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo >test.txt\tab \tab \tab \tab create an empty file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo | sudo tee /etc/sysfs.conf\tab Create an empty file at a protected path (the redirection may not inherit the sudo, especially on Ubuntu)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Logging}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab script\tab \tab \tab \tab \tab start a terminal session where commands and output are logged}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab exit\tab \tab \tab \tab \tab end the script session}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab less typescript\tab \tab \tab print the last session that used script/exit}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Terminal}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab reset\tab \tab \tab \tab \tab if terminal gets screwed up (eg. outputting binary file), use this}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab up and down arrays\tab \tab \tab command history from current session}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab history\tab \tab \tab \tab \tab print history of commands}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab #[command]\tab \tab \tab \tab make a line a comment (useful if you type a long command and realize you\u8217\'92re not ready to run it yet)[still ends up in your history]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab time [command]\tab \tab \tab wrap a commandline with timing info about it by putting time in front}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sleep [seconds]\tab \tab \tab delay for given amount of time (can be fractional like 0.1)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Ctrl-c\tab \tab \tab \tab \tab abort a command (eg. if it will never return because you screwed up)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ^[oldtext]^[newtext]\tab \tab \tab rerun last command but replace oldtext with newtext (useful if you had a typo in a command)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab uuidgen\tab \tab \tab \tab generate a uuid (eg. when you need to use when in source code)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Multiple Commands}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo \u8220\'93hi\u8221\'94; echo \u8220\'93bye\u8221\'94\tab \tab can run multiple commands (in sequence) with semicolons}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab (echo \u8220\'93hi\u8221\'94; echo \u8220\'93bye\u8221\'94)\tab \tab can use () to group where might be ambiguous (eg. with piping and redirecting)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab echo \u8220\'93hi\u8221\'94 | (sort; cat)\tab \tab \tab only the cat gets the piped input (I think)(???)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab cat somefile.txt | (sleep 0.1; tee somefile.txt)\tab \tab \tab trick to avoid race condition with tee onto same file}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Asynchronous}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab & at end of command\tab \tab run in background while you do other stuff at terminal}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Administrator}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo [cmdline]\tab \tab \tab run the command as superuser (if you have permission to do so)(will prompt for password, then cache it for a time)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo !!\tab \tab \tab \tab repeat last command as admin (because presumably it failed)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo -K\tab \tab \tab \tab clear the sudo password cache (eg. if someone else uses your comp)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab su\tab \tab \tab \tab \tab Switch current terminal to superuser (so you don\u8217\'92t have to keep typing \u8216\'91sudo\u8217\'92)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Web}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab python -m SimpleHTTPServer\tab call python module that shares the current directory as http://127.0.0.1:8000 so you can access files [use your external IP outside of your machine]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab curl www.apple.com\tab \tab \tab print html content returned by a url (in this case figures out the http or https part on its own)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab curl http://www.apple.com\tab \tab explicitly specifying http}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab curl https://www.yahoo.com\tab able to do ssl transparently too}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Remoting}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab NOTE: have to install ssh somehow (different depending on OS and distro)(stands for secure shell)(Putty on windows)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ssh username@machinename\tab start an encrypted/authenticated session on a remote server (where, depending on your permissions, you can use all the other stuff you know about terminals)(uses the shell of the server)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ssh machinename\tab \tab \tab can ommit username if same as local machine}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ssh -p 220 machinename\tab \tab defaults to port 20 but you can change it}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab Ctrl-d\tab \tab \tab \tab \tab to close the ssh session}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab scp myfile myuser@myserver:/home/documents\tab \tab utilizes ssh to copy a file from the current system to the remote system}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sftp myuser@myserver\tab \tab opens up FTP share with remote server where you can use commands like get and put to send/receive files interactively (faster than scp for large amounts of files)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab screen\tab \tab \tab \tab for loading multiple terminals in one remote session (eg. ssh) [has its own commands for switching][only need to learn it if ever need it]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab \tab \tab \tab \tab also has the ability to save sessions so you can continue later}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Installation}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+***apt is not available here***}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Conversions}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7948\tx8672\tx9393\tx10091\tx10828\tx11481\tx12211\tx12950\tx13649\tx14423\tx15118\tx15805\tx16544\tx17274\tx17996\tx18695\tx19408\tx20112{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab hdiutil convert /path/to/ubuntu.iso -format UDRW -o /path/to/target.img\tab \tab \tab convert ISO file to IMG file (.dmg will be appended which you can remove)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Disk Utilities}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+diskutil list\tab \tab \tab \tab \tab \tab \tab \tab get the list of disk partitions with information such as the /dev path, identifiers, sizes, etc. (in many places you can use the identifier in place of the disk name in paths)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+df -h\tab \tab \tab \tab \tab \tab \tab \tab \tab get the list of devices, where they\u8217\'92re mounted, and disk usage stats (the -h makes the numbers human readable by adding M and G)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf17\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo mount /dev/disk0s1 }{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+/Volumes/disk0}{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab \tab Mount a disk or partition to a specified path (may require sudo depending on permissions of the output path)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo mount -t msdos /dev/disk2 /Volumes/disk2\tab \tab Mount with specific filesystem type if system can\u8217\'92t figure it out}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab diskutil unmount /dev/disk2\tab \tab \tab \tab \tab Unmount a disk from the file system (and the desktop) [still accessible via /dev]((doesn\u8217\'92t eject))}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab diskutil eject /dev/disk2\tab \tab \tab \tab \tab \tab Fully ejects a disk (may have to unmount it first)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sudo dd if=/path/to/input.img of=/dev/disk2 bs=1m\tab \tab Restore a .img file to a disk (eg. thumb drive) [existing data wiped out]}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\cf1\rtlch \ltrch\loch\fs24\loch\f5
+
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab }{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+diskutil cs list\tab \tab \tab \tab \tab \tab \tab \tab List CoreStorage hierarchies of system if present (also gives sizing and uuid information)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab diskutil cs resizeVolume [uuid] 10g\tab \tab \tab \tab Resize a given volume to 10 GB (leaving the rest as free space)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf17\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab diskutil cs revert [uuid]\tab \tab \tab \tab \tab \tab Revert a Logical Volume back to HFS+ (may require reboot)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab Useful Combinations}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -lS | head\tab \tab \tab \tab show 10 biggest files in long format}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls | wc -l\tab \tab \tab \tab get number of files in current directory (works even though pure ls doesn\u8217\'92t look like that)}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab ls -l | grep \u8220\'9323 May\u8221\'94\tab \tab \tab useful for finding files modified on a certain date}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab find . -size +1G | wc -l\tab \tab get number of files greater than 1 GB in current directory}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep \u8220\'93posts\u8221\'94 * | wc -l\tab \tab \tab counting number of matches}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab dirname `which ls`\tab \tab \tab get folder containing the ls command binary}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab sort file1 file1 file2 | uniq -u\tab \tab print all lines of file2 than aren\u8217\'92t in file1}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab history | grep \u8220\'93ls\u8221\'94\tab \tab \tab print all ls commands you\u8217\'92ve done}
+\par \pard\plain \s0\nowidctlpar\hyphpar0\cf0\kerning1\dbch\af6\langfe2052\dbch\af7\afs24\alang1081\loch\f3\fs24\lang1033\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640{\cf1\rtlch \ltrch\loch\fs24\loch\f5
+\tab \tab grep -o \u8220\'93[regex]\u8221\'94 [file] | sort | uniq -c\tab \tab find all unique matches of a pattern in a file along with counts of how many times each match appears}
+\par }
