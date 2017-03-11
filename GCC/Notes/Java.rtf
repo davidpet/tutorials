@@ -12,10 +12,26 @@ Basic Terms\
 	JRE			Java Runtime Environment (the JVM that runs on end-user machines, generally installed by an installer like Oracle)\
 	JDK			What developers install -> has the JRE within it and also symbols and other things to make developing Java easier\
 				NOTE: Without the JDK, you can\'92t see parameter names or documentation for built-in Java library stuff (or even 3rd party libs)\
+	JNI			Library for native interfaces to Java code (C++ and Java talking)\
 \
 	JAR			Archive file containing classes (can act as class library or executable when run by java)\
 	.class			File containing bytecode for a single Java class (loadable and runnable by java)\
 	.java			Source code file for a Java class\
+\
+Java Versions/Editions/Distributions\
+	OpenJDK		Open-source free version of Java based on Java 7 w/ Java 8 features being added (probably the cool stuff like lambdas)\
+	Sun Java		The original (now bought by Oracle)\
+	Oracle Java		The official one which is ending up to be a lot of trouble for people due to them suing everyone\
+\
+	Java ME		Micro Edition (for limited resource devices)\
+	Java SE		The normal one (workstations)\
+	Java EE		Enterprise (large-scale distributed environments)\
+	Android		Uses subset of SE compatible with Java 7 & some Java 8 features (Android has its own JVM and bytecode)\
+				The cool stuff like lambadas are supported, but if you need all of Java 8 there is a compiler called Jack that you can set Android Studio to use\
+	\
+	Java SE 6		Version from 2006\
+	Java SE 7		Version from 2011\
+	Java SE 8		Version from 2014 (latest and only officially supported one)\
 \
 Classes\
 	Per File		Each .java file has to have only one top-level class (although it can have nested classes)\
