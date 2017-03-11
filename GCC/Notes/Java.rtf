@@ -1,6 +1,72 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
-{\fonttbl}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;}
 {\*\expandedcolortbl;;}
 \margl1440\margr1440\vieww28600\viewh15100\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 To expedite learning, I will compare things to C# when applicable below\
+\
+Basic Terms\
+	JVM			Java Virtual Machine (like CLR in .NET)\
+	JRE			Java Runtime Environment (the JVM that runs on end-user machines, generally installed by an installer like Oracle)\
+	JDK			What developers install -> has the JRE within it and also symbols and other things to make developing Java easier\
+				NOTE: Without the JDK, you can\'92t see parameter names or documentation for built-in Java library stuff (or even 3rd party libs)\
+\
+	JAR			Archive file containing classes (can act as class library or executable when run by java)\
+	.class			File containing bytecode for a single Java class (loadable and runnable by java)\
+	.java			Source code file for a Java class\
+\
+Classes\
+	Per File		Each .java file has to have only one top-level class (although it can have nested classes)\
+				NOTE: nested classes will have their own .class file when built\
+\
+Packages\
+	
+\i package com.jarofgoblins.tools;
+\i0 			Must define package that class goes into at top of the .java file (like C# namespace)\
+	
+\i import com.jarofgoblins.*;
+\i0 				Can import packages or specific classes from packages in other .java files to use in your code\
+								NOTE: just like C# using, you can ommit this and use the fully-qualified name in code\
+\
+Libraries\
+	Parameter Names			Unlike C#, parameter names are not part of method prototypes and are not generally included in .class and .jar files\
+						To see the built-in stuff, you need the JDK.  To see 3rd party stuff, you need to point the .jar/.class references to source code.\
+\
+Entry Point\
+	
+\i public static void main(String[] args)
+\i0 			Provide this to make a class runnable as a standalone program (eg. test code, or the entry point of the program)\
+\
+Printing\
+	
+\i System.out.println(\'93hi\'94);
+\i0 		Prints text followed by newline to the console\
+	\
+Casting\
+	
+\i DerivedClass d = (DerivedClass)b;
+\i0 			If it works, great.  If it doesn\'92t, you get 
+\i ClassCastException\
+
+\i0 	\
+Reflection\
+	
+\i b instanceof DerivedClass	
+\i0 				Boolean test of whether b is polymorphically castable to DerivedClass\
+	
+\i b.getClass() == DerivedClass.class
+\i0 			Alternative way to do the same thing as 
+\i instanceof
+\i0 \
+\
+	
+\i o.getClass()
+\i0 							Get the type of the object at runtime\
+	
+\i Class.class
+\i0 							Get the type of a class at compile time (comparable to runtime types from 
+\i getClass()
+\i0 )\
 }
