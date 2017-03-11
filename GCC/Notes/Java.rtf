@@ -88,6 +88,7 @@ Methods\
 	Variadic		
 \i void myfunc(String\'85 args)
 \i0 \
+				Gives you an array (you can also pass an array in instead)\
 \
 Synchronized\
 	Methods			Methods can be declared as \'91synchronized\'92 so that a mutex on the class instance (or class itself if static) is obtained before entering\
@@ -162,12 +163,14 @@ Basic Types\
 	String\
 	byte\
 	boolean\
-	char\
+	char								unicode character\
 	short								16-bit signed integer\
 	int								32-bit signed integer\
 	long								64-bit signed integer\
 	float\
 	double\
+\
+	Arrays								just like C# (and even support \{\} syntax) (.length variable for the length)\
 \
 	NOTE: the lowercase ones are primitives and basically act like value types\
 	NOTE: no unsigned numbers\
@@ -220,6 +223,16 @@ Functional Programming\
 									This seems to only allow capturing by value, but you can actually capture a final reference to an object, and the object will be changeable\
 									Thus, with a little extra work you can do the normal closure stuff\
 \
+	Declarative							Collection<E> has a stream() method to get a Stream<E>\
+									Also parallelStream() method to get one that will use multithreading\
+									Stream<T> is a lazy sequence with functional methods\
+									allMatch, anyMatch (w/ predicates)\
+									distinct, empty, filter, findFirst, findAny, map, max, min, reduce, sorted\
+									forEach to perform an action on each element\
+									Chain together calls just like LINQ and then convert to array at the end with toArray()\
+									Can also use .collect() method which takes a collector (returned by static methods of Stream<T>.Collectors) to transform the sequence into something\
+									Collectors.toList(), Collectors.groupBy(), etc.\
+\
 Disposable Pattern\
 	AutoCloseable						Interface which defines a single void method close() that takes no parameters (similar to IDisposable in C#)\
 	try (AutoClosable c = new Something()) \{\}		Equivalent of \'91using\'92 block in C#\
@@ -267,6 +280,8 @@ Generics\
 									As a result, unlike in C#, you cannot determine the type of the generic at runtime\
 									You also cannot instantiate an instance of the type\
 									Another consequence is that static members of the generic are shared among all the instances with any type args, and type args cannot be used in the statics\
+	\
+	NOTE: I\'92ve seen examples where type is ommited entirely from left side without even using <> (not sure if that means the type is object?)\
 \
 java.lang.Object\
 	equals()							Override to provide value comparison\
@@ -281,12 +296,67 @@ java.lang.Object\
 \
 	various wait() and notify() calls				For synchronization special stuff\
 \
+Collections\
+	java.util							Tends to be where collections come from\
+\
+	Arrays								Class with static methods for doing things like searching and sorting arrays\
+									asList() returns List<T> for an array (bridges arrays and collections) [or variadic args]\
+\
+	Iterable<T>							Interface that supports the range-for statement (single method that returns iterator)\
+	Collection<E>						Interface for modifiable collection of objects (can add, addAll [another collection], size(), toArray(), contains, containsAll, isEmpty, etc.) [NOTE: addAll has to be right element type but can be any collection]\
+									Also has a stream() method to return a Stream<E> which is the gateway to declarative LINQ-like stuff\
+	List<E>							Interface for ordered list (adds things like subList, indexOf)\
+	\
+	ArrayList<E>							Resizable implementation of List<E> (constructor can take collection)\
+									Because Java does not have operator overloading, you must use get() and set() to access the items (not subscript operator)\
+	Vector<E>							Like ArrayList, but thread-safe (synchronized)\
+\
+	Map<K, V>							Interface for key-value maps (dictionaries)\
+	HashMap<K, V>						Concrete implementation of map (NOTE: there was a dictionary class which is now obsolete)\
+	Set<E>							Interface for sets of unique values\
+	HashSet<E>							Concrete implementation of Set<E> based on hash\
+									NOTE: remember that it\'92s all methods (no [] operator)\
+\
+File I/O\
+	java.io								Package containing all the file I/O stuff\
+	\
+	FileInputStream/FileOutputStream			Byte streams (construct with filename, call read() to get a char at a time until it returns -1) [call close() at the end]\
+	FileReader/FileWriter					Unicode character streams (exactly same behavior as byte streams but the int is castable to char)\
+	\
+	System.out, System.in, System.err			Standard streams (available all the time statically)\
+									System.in can be read with InputStreamReader(System.in)\
+\
+	Creating directory						Instantiate File with the path and then call mkdir() or mkdirs() [the 2nd one creates appropriate parents]\
+	List Files							Instantiate File with the path and then call list() to get an array of strings\
+\
+	BufferedReader						Lets you read character by character or line by line\
+\
+Serialization\
+	Library Objects						To know if a type is serializable, see if it implements java.io.Serializable\
+	Custom Classes						To make a class serializable, implement the Serializable interface (don\'92t even have to implement anything to implement the interface)\
+									All fields of the class should also be serializable.  Those that aren\'92t should be marked as \'91transient\'92 (declaration keyword) so they aren\'92t included\
+	.ser								Convention for file extension of a serialized java object\
+	Serializing							Create FileOutputStream, then create ObjectOutputStream with it, then call writeObject() and then close() both\
+	Deserializing							Same in reverse (FileInputStream, ObjectInputStream, and readObject)\
+\
+	NOTE: it is possible to provide more customized serialization by providing writeObject() and readObject() in the class [can be private, not part of interface]\
+\
+Regular Expressions\
+	java.util.regex						Package containing regex classes\
+\
+Threading\
+	java.lang.Runnable						Interface for execution by thread without extending thread class\
+									Can assign a lamdba (void -> void) to a variable of type Runnable (which can then be used to construct and start a Thread)\
+	java.lang.Thread						Can be used directly or extended to create a separate thread of execution\
+									Implement run() method to provide the code that executes when the thread runs (if you extended it)\
+									Call start() to start the thread\
+									Various typical methods like join() and static sleep() stuff\
+\
 Missing Features\
 	Structs/Value Types						You\'92d have to create a class and copy it to get this kind of behavior\
 	Ref and Out Parameters					You\'92d have to pass in a class that holds the thing you want to change\
 	Default Parameters						Have to manually overload\
 	compiler-time Type Inference				No auto or var available (always have to specify type)\
-	LINQ-like stuff						No equivalent, have to implement loops manually\
 	Typedef							Out of Luck\
 	Unsigned Numbers						Not here\
 	Macros							Nope!\
@@ -296,7 +366,7 @@ Missing Features\
 	Operator Overloading					Ouch!\
 	Properties							No computed or stored properties, have to use setters/getters and member variables\
 	Events							There is something like delegates (functional interfaces) but nothing like events explicitly (though you can do something like it)\
-	Collection Initializers					can\'92t do \{\} like in C# and C++\
+	Collection Initializers					can\'92t do \{\} like in C# and C++ (except for arrays)\
 	Coalescing and \'91as\'92 operator				\
 	Passing in parameters by name\
 	Extension Methods\
