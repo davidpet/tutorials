@@ -33,18 +33,86 @@ Java Versions/Editions/Distributions\
 	Java SE 7		Version from 2011\
 	Java SE 8		Version from 2014 (latest and only officially supported one)\
 \
+Attributes\
+	Similar to C# but use @ instead of []\
+	Actually called Annotations in Java (static metadata on types and code)\
+	\
+	@FunctionalInterface		Used for declaring an interface that acts like a delegate in C#\
+	@Override				For overriding virtual methods\
+	@Deprecated\
+	@SuppressWarnings\
+\
+	Custom Annotations can be defined using a funky syntax\
+\
 Classes\
 	Per File		Each .java file has to have only one top-level class (although it can have nested classes)\
 				NOTE: nested classes will have their own .class file when built\
+	Base Object		All classes inherit from Object\
+	Inheritence		Single possible base plus interfaces (like C#) (but syntax is comparatively non-uniform)\
+				
+\i public class MyClass extends MyBaseClass implements MyInterface1, MyInterface2 \{\}
+\i0 \
+				
+\i public interface MyInterface extends MyInterface1, MyInterface2 \{\}
+\i0 \
+				NOTE: you can\'92t do the crazy explicit interface stuff you can in C# (it is simple like in C++)\
+	Protection Level	\'91package\'92 is equivalent of C# \'91internal\'92 (roughly) ((it is also the default))\
+	Nested		Java distinguishes between instance and static nested classes (have to be in instance to instantiate if you don\'92t make it static)\
+\
+	Virtual			All methods are virtual (instead of keyword like C# and C++) unless marked as final (like sealed in C#)\
+	Abstract		same as C# (can have abstract classes and methods)\
+	Sealed		Sealed keyword in C# = \'91final\'92 in Java\
+	Static			Works same way except you can\'92t declare a class as static (though it can have only static members if want)\
+\
+	Anonymous		can use \'91new\'92 keyword with an interface and then in \{\} you give a definition for the elements of the interface (like an inline class)\
+				This will return you an object that implements the interface, but you can\'92t just make up members like in C#\
+\
+	Static Constructors	Unlike in C#, you do not use the name of the class in a static constructor (unlike normal constructor), just the word static and the \{\} (with no access level)\
+				It is called first time class is used\
+	Constructor Blocks	Unique to Java, can have blocks with no name inside class and that code automatically goes into all constructors (common constructor code)\
+	Delegating c\'92tors	use this() to call another constructor, but it has to be the FIRST line in the constructor\
+	Base c\'92tors		use super() to call base constructor (has to be the FIRST line in the c\'92tor)\
+	Destructors		finalize() method (no ~ syntax)\
+\
+	Static Members	Can access through instance (unlike C#, but like C++)\
+\
+	this			Works same way as in C#\
+	super			Works the same way as base in C# (can call base class)\
+\
+	Default Methods				Interfaces can have methods declared as \'93default\'94 (no public needed) that provide default implementations (making it act like a base class kind of)\
+	Static Interface Methods			A method in an interface can be declared static (no public needed) and an implementation given\
+\
+	Overriding Virtual Methods			@Override attribute on the method\
+\
+Methods\
+	Variadic		
+\i void myfunc(String\'85 args)
+\i0 \
+\
+Synchronized\
+	Methods			Methods can be declared as \'91synchronized\'92 so that a mutex on the class instance (or class itself if static) is obtained before entering\
+	Objects			You can obtain a mutext on an object with synchronized(o) \{\}\
+\
+Enums\
+	public enum MyEnum \{VAL0, VAL1\}		Normal case is like C# and C++\
+	public enum MyEnum \{VAL0(0)\}			Values specified with () instead of =\
+	\
+	Declaring Values					Use enum name with dot like C# (but in switches you don\'92t have to)\
+	Iterating Values					Can iterate MyEnum.values() in a for loop\
+	Crazy Stuff						Can implement interfaces, have methods, constructors, and fields (unlike C#)\
+\
+	Type							Implicitly extend java.lang.Enum (and they are classes)\
 \
 Packages\
 	
 \i package com.jarofgoblins.tools;
 \i0 			Must define package that class goes into at top of the .java file (like C# namespace)\
+								NOTE: in Java, the package components must describe subfolders in the path to the src file\
 	
 \i import com.jarofgoblins.*;
 \i0 				Can import packages or specific classes from packages in other .java files to use in your code\
 								NOTE: just like C# using, you can ommit this and use the fully-qualified name in code\
+	java.lang						Default package that is always imported implicitly (contains the basic types)\
 \
 Libraries\
 	Parameter Names			Unlike C#, parameter names are not part of method prototypes and are not generally included in .class and .jar files\
@@ -59,7 +127,10 @@ Printing\
 	
 \i System.out.println(\'93hi\'94);
 \i0 		Prints text followed by newline to the console\
-	\
+	
+\i System.out.printf(\'93%s\'94, \'93hi\'94);
+\i0 	Formatted Printing\
+\
 Casting\
 	
 \i DerivedClass d = (DerivedClass)b;
@@ -85,4 +156,147 @@ Reflection\
 \i0 							Get the type of a class at compile time (comparable to runtime types from 
 \i getClass()
 \i0 )\
+\
+Basic Types\
+	Object								The base object type for all objects\
+	String\
+	byte\
+	boolean\
+	char\
+	short								16-bit signed integer\
+	int								32-bit signed integer\
+	long								64-bit signed integer\
+	float\
+	double\
+\
+	NOTE: the lowercase ones are primitives and basically act like value types\
+	NOTE: no unsigned numbers\
+\
+	To get things like maximum, minimum, etc. look at static methods in the wrapper classes (see Nullable Types section)\
+\
+	Default Initialization						local = have to initialize, class instance = normal defaults (like 0), static = same as class instance\
+	Member Variable Initialization				can be done in declaration or constructor like in C#\
+\
+Nullable Types\
+	Wrapper classes like Integer, Boolean, etc. are in java.lang to wrap primitives as class instances so that they can be null\
+	These wrappers also have static methods like MAX_VALUE and MIN_VALUE\
+\
+Declarations\
+	Constants							\'91final\'92 keyword (like \'91readonly\'92 in C# or \'91const\'92 in C++)\
+									NOTE: final references can point to objects that are still modifiable\
+	Statics							have to be on class, not inline (but can be final to make constants)\
+\
+Statements\
+	Range-fors							Exactly like the new C++ version of range-fors but no extra modifiers like &\
+\
+Functional Programming\
+	Delegates							Functional Interfaces (define an interface with a single method and use the @FunctionalInterface attribute on the interface or method)\
+									The interface becomes the delegate type which can be assigned things like lambdas\
+									Have to call the method as a member of the object that is passed in as the interface\
+									NOTE: I also saw an example that did not use @FunctionalInterface but made the method \'91default\'92 without a body\
+	Lambdas							Assignable to functional interfaces (like your\'92e providing a class that implements the interface)\
+									Uses -> instead of => like C#\
+									
+\i (int x, int y) -> x + y    //typical case
+\i0 \
+									
+\i (int x, int y) -> \{ return x + y; \} 
+\i0    //multiline case (explicit return needed)\
+									
+\i (x, y) -> x + y
+\i0 	    //can ommit parameter types if ommit ALL of them\
+									
+\i x -> x * x
+\i0 	//can ommit () only if one parameter [even 0 requires ()]\
+									
+\i x -> System.out.println(\'93hi\'94); 
+\i0   //same syntax even if not returning a value\
+	Method References						mylambda = MyClass::method;   //as long as the method fits the interface (note using :: instead of .)\
+									Allowed to do for instances methods as well as static (like C#)\
+	Closures							Any variable used in a lambda that is defined outside of it is captured, but the compiler requires it to be either \'91final\'92 or \'91effectively final\'92\
+									Effectively final means it is treated by code as if it\'92s final (so if other code changes it you probably need a copy)\
+									This seems to only allow capturing by value, but you can actually capture a final reference to an object, and the object will be changeable\
+									Thus, with a little extra work you can do the normal closure stuff\
+\
+Disposable Pattern\
+	AutoCloseable						Interface which defines a single void method close() that takes no parameters (similar to IDisposable in C#)\
+	try (AutoClosable c = new Something()) \{\}		Equivalent of \'91using\'92 block in C#\
+	Multiple objects						Just separate with comma in the try statement\
+	Exceptions							Since this is a try block, you can presumably catch exceptions here (???)\
+									Either way, you can assume if an exception is thrown, the object is closed properly (like in C#)\
+Cloning\
+	Cloneable interface						Defines clone() method that returns object\
+	Object								has clone() method that throws exception if class doesn\'92t implement Cloneable interface\
+\
+Exceptions\
+	java.lang.Throwable						Interface that all exceptions must implement in order to be throwable\
+	java.lang.Exception						Base exception provided by the language (implements Throwable)\
+	java.lang.RuntimeException				Special class of exceptions like divide by zero that you are not expected to declare in methods\
+\
+	Throwing							
+\i throw new MyException();
+\i0 \
+	Methods							A method must declare all its exceptions except the ones that inherit from RuntimeException (causes propagation to methods that call your method)\
+									
+\i public void mymethod() throws MyException1, MyException2 \{\}
+\i0 \
+	Catching							try/catch/finally like in C# (empty one is just catch \{\})\
+	Rethrowing							
+\i throw ex;
+\i0 \
+\
+Generics\
+	Methods							Type args go in <> before the method\'92s return type (not after the method name like C#)\
+									Type inference allowed just like in other languages\
+	Allowed Types						Type args have to be reference types, not primitives (String is fine but int is not) [remember numeric types have wrappers]\
+	Restricting Types						Can specify \'91extends\'92 or \'91implements\'92 (and even use the type param in it nested) to restrict what the type can be for a type arg (this will let you use the interface)\
+	Type Wildcards						For allowing some fuzziness in types when you specify the type of a generic in code (actual usage) [represents multiple types, not one type of mixed type]\
+									List<?> is a list of anything that derives from Object (and reading the list will give you an Object) [can\'92t add to collection because not type safe]\
+									List<? extends Number> is a list of anything that derives from Number (and thus you can use members of Number and the list will return Number)\
+									List<? super Number> is a list of anything that is Number or one of its bases (returns Object but can add as Number)\
+	Classes							Types go after classname like in C# (otherwise use same rules as above)\
+	Interfaces							Same as classes\
+\
+	Covariance/Contravariance				Implemented via type wildcards\
+									PECS (Producer Extends, Consumer Super) [from collection\'92s point of view -> producer = collection returns values, consumer = collection gets values]\
+	Diamond Operator						Use empty <> instead of the full type list on the right-hand side of an assignment (because types already on left of assignment)\
+									Not sure if works for other contexts and if works when thing on left is not perfect match (but has same type list)\
+	Type Erasure							Compiler checks type safety at complie-time and then compiles the type as non-generic (eg. simply List which deals with Object)\
+									As a result, unlike in C#, you cannot determine the type of the generic at runtime\
+									You also cannot instantiate an instance of the type\
+									Another consequence is that static members of the generic are shared among all the instances with any type args, and type args cannot be used in the statics\
+\
+java.lang.Object\
+	equals()							Override to provide value comparison\
+	hashCode()							Generally want to implement if you implement equals() [also needed for containers]\
+\
+	clone()							Clones object only if it implements ICloneable (otherwise throws)\
+	\
+	finalize()							Destructor\
+\
+	getClass()							Gets the type of the object at runtime (as Class<?>)\
+	toString()							Get string representation\
+\
+	various wait() and notify() calls				For synchronization special stuff\
+\
+Missing Features\
+	Structs/Value Types						You\'92d have to create a class and copy it to get this kind of behavior\
+	Ref and Out Parameters					You\'92d have to pass in a class that holds the thing you want to change\
+	Default Parameters						Have to manually overload\
+	compiler-time Type Inference				No auto or var available (always have to specify type)\
+	LINQ-like stuff						No equivalent, have to implement loops manually\
+	Typedef							Out of Luck\
+	Unsigned Numbers						Not here\
+	Macros							Nope!\
+	Static Classes						You can simulate by declaring as abstract and final, or just ignore not having this and make static methods anyway\
+	Partial Classes\
+	Anonymous Classes with Arbitrary Members		You can return anonymous classes that implement interfaces though\
+	Operator Overloading					Ouch!\
+	Properties							No computed or stored properties, have to use setters/getters and member variables\
+	Events							There is something like delegates (functional interfaces) but nothing like events explicitly (though you can do something like it)\
+	Collection Initializers					can\'92t do \{\} like in C# and C++\
+	Coalescing and \'91as\'92 operator				\
+	Passing in parameters by name\
+	Extension Methods\
+	Specifying Inline Method\
 }
