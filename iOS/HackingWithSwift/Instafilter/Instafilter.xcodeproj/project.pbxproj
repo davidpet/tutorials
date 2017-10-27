@@ -302,6 +302,7 @@
 				B924C5431DC08C6800CD5620 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

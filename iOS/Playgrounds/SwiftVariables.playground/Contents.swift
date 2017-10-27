@@ -82,7 +82,7 @@ MyOtherType2.self                           //type is the real type, not the ali
 //DEFAULT VALUES
 Int.max
 Int.min
-Int.allZeros
+//Int.allZeros (seems to be gone)
 
 //VARIANTS
 var anyVar: Any = 20       //any is like a variant
