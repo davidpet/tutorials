@@ -1,19 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeroesComponent } from './heroes.component';
-import { HEROES } from '../mock-heroes';
 
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
+import { HeroService } from '../hero.service';
+import { Hero } from '../hero';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
 
+  const HEROES = [
+    { name: 'Hero 1', id: 100 },
+    { name: 'Hero 2', id: 200 },
+    { name: 'Hero 3', id: 300 },
+  ];
+
+  class FakeHeroService implements HeroService {
+    getHeroes(): Hero[] {
+      return HEROES;
+    }
+  }
+
   beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [HeroesComponent, HeroDetailComponent],
       imports: [FormsModule],
+      providers: [{ provide: HeroService, useClass: FakeHeroService }],
     });
 
     fixture = TestBed.createComponent(HeroesComponent);
