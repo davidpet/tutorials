@@ -34,4 +34,25 @@ describe('HeroesComponent', () => {
       ).toBe(`id: ${component.hero.id}`);
     });
   });
+
+  it('should have two-way bound input', async () => {
+    await fixture.whenStable();
+    fixture.debugElement.nativeElement.querySelector('#name').value = 'bob';
+    fixture.debugElement.nativeElement
+      .querySelector('#name')
+      .dispatchEvent(new Event('input'));
+
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(component.hero.name).toBe('bob');
+    expect(
+      fixture.debugElement.nativeElement.querySelector('h2').textContent
+    ).toBe('BOB Details');
+    expect(
+      fixture.debugElement.nativeElement.querySelector('#name').value
+    ).toBe('bob');
+    expect(
+      fixture.debugElement.nativeElement.querySelector('#id').textContent
+    ).toBe(`id: ${component.hero.id}`);
+  });
 });
