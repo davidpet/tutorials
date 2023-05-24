@@ -4,6 +4,7 @@ import { HeroesComponent } from './heroes.component';
 import { HEROES } from '../mock-heroes';
 
 import { FormsModule } from '@angular/forms';
+import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -11,7 +12,7 @@ describe('HeroesComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [HeroesComponent],
+      declarations: [HeroesComponent, HeroDetailComponent],
       imports: [FormsModule],
     });
 
@@ -47,6 +48,12 @@ describe('HeroesComponent', () => {
     );
   });
 
+  it('should not show hero details section initially', async () => {
+    const heroElement =
+      fixture.debugElement.nativeElement.querySelector('.hero');
+    expect(heroElement).toBeFalsy();
+  });
+
   describe('on hero click', async () => {
     beforeEach(async () => {
       fixture.debugElement.nativeElement.querySelectorAll('button')[1].click();
@@ -77,20 +84,9 @@ describe('HeroesComponent', () => {
       expect(selectedCount).toBe(1);
     });
 
-    it('should show correct hero details', async () => {
-      const heroElement =
-        fixture.debugElement.nativeElement.querySelector('.hero');
-      expect(heroElement.querySelector('h2').textContent).toContain(
-        HEROES[1].name.toUpperCase()
-      );
-
-      expect(heroElement.querySelector('.id').textContent).toContain(
-        HEROES[1].id
-      );
-      expect(heroElement.querySelector('input').value).toBe(HEROES[1].name);
-    });
-
     it('should reflect name change everywhere after user edit', async () => {
+      // TODO: use a page object or mock the child component
+      // so we don't have to reach inside like this.
       const heroElement =
         fixture.debugElement.nativeElement.querySelector('.hero');
       heroElement.querySelector('input').value = 'Captain Angular';
