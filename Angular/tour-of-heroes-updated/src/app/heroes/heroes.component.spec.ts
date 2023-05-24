@@ -19,9 +19,15 @@ describe('HeroesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show hero', () => {
+  it('should show hero details', () => {
     expect(
       fixture.debugElement.nativeElement.querySelector('h2').textContent
-    ).toBe(component.hero);
+    ).toBe(`${component.hero.name.toUpperCase()} Details`);
+    expect(
+      fixture.debugElement.nativeElement.querySelector('.name').textContent
+    ).toBe(`name: ${component.hero.name}`);
+    expect(
+      fixture.debugElement.nativeElement.querySelector('.id').textContent
+    ).toBe(`id: ${component.hero.id}`);
   });
 });
