@@ -7,10 +7,13 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
 import { Observable, of } from 'rxjs';
+import { MessageService } from '../message.service';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
+
+  let messageServiceSpy: jasmine.SpyObj<MessageService>;
 
   const HEROES = [
     { name: 'Hero 1', id: 100 },
@@ -18,17 +21,27 @@ describe('HeroesComponent', () => {
     { name: 'Hero 3', id: 300 },
   ];
 
-  class FakeHeroService implements HeroService {
-    getHeroes(): Observable<Hero[]> {
+  class FakeHeroService extends HeroService {
+    override getHeroes(): Observable<Hero[]> {
       return of(HEROES);
     }
   }
 
   beforeEach(async () => {
+    messageServiceSpy = jasmine.createSpyObj(MessageService.name, [
+      'add',
+      'clear',
+      'messages',
+    ]);
+    messageServiceSpy.messages = [];
+
     TestBed.configureTestingModule({
       declarations: [HeroesComponent, HeroDetailComponent],
       imports: [FormsModule],
-      providers: [{ provide: HeroService, useClass: FakeHeroService }],
+      providers: [
+        { provide: HeroService, useClass: FakeHeroService },
+        { provide: MessageService, useValue: messageServiceSpy },
+      ],
     });
 
     fixture = TestBed.createComponent(HeroesComponent);
@@ -97,6 +110,12 @@ describe('HeroesComponent', () => {
         0
       );
       expect(selectedCount).toBe(1);
+    });
+
+    it('should send message', async () => {
+      expect(messageServiceSpy.add).toHaveBeenCalledWith(
+        'HeroesComponent: Selected hero id=200'
+      );
     });
 
     it('should reflect name change everywhere after user edit', async () => {
