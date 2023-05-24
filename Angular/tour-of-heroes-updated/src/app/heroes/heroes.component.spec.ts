@@ -21,38 +21,29 @@ describe('HeroesComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show hero details', async () => {
-    fixture.whenStable().then(() => {
-      expect(
-        fixture.debugElement.nativeElement.querySelector('h2').textContent
-      ).toBe(`${component.hero.name.toUpperCase()} Details`);
-      expect(
-        fixture.debugElement.nativeElement.querySelector('#name').value
-      ).toBe(component.hero.name);
-      expect(
-        fixture.debugElement.nativeElement.querySelector('#id').textContent
-      ).toBe(`id: ${component.hero.id}`);
-    });
-  });
-
-  it('should have two-way bound input', async () => {
+  it('should show title', async () => {
     await fixture.whenStable();
-    fixture.debugElement.nativeElement.querySelector('#name').value = 'bob';
-    fixture.debugElement.nativeElement
-      .querySelector('#name')
-      .dispatchEvent(new Event('input'));
 
-    fixture.detectChanges();
-    await fixture.whenStable();
-    expect(component.hero.name).toBe('bob');
     expect(
       fixture.debugElement.nativeElement.querySelector('h2').textContent
-    ).toBe('BOB Details');
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#name').value
-    ).toBe('bob');
-    expect(
-      fixture.debugElement.nativeElement.querySelector('#id').textContent
-    ).toBe(`id: ${component.hero.id}`);
+    ).toBe('My Heroes');
+  });
+
+  it('should show hero details', async () => {
+    await fixture.whenStable();
+
+    const nameElements: HTMLElement[] = Array.from(
+      fixture.debugElement.nativeElement.querySelectorAll('.name')
+    );
+    expect(nameElements.map((e) => e.textContent)).toEqual(
+      component.heroes.map((e) => e.name)
+    );
+
+    const badgeElements: HTMLElement[] = Array.from(
+      fixture.debugElement.nativeElement.querySelectorAll('.badge')
+    );
+    expect(badgeElements.map((e) => e.textContent)).toEqual(
+      component.heroes.map((e) => e.id.toString())
+    );
   });
 });
