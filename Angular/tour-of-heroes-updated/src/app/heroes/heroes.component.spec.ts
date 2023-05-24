@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
+import { Observable, of } from 'rxjs';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -18,8 +19,8 @@ describe('HeroesComponent', () => {
   ];
 
   class FakeHeroService implements HeroService {
-    getHeroes(): Hero[] {
-      return HEROES;
+    getHeroes(): Observable<Hero[]> {
+      return of(HEROES);
     }
   }
 
