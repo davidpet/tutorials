@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
 import { Subject, takeUntil } from 'rxjs';
 import { Hero } from '../hero';
@@ -15,6 +16,9 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
   hero?: Hero;
 
   constructor(
+    // to support navigating back (if deep linked, will go to
+    // previous whole website)
+    private location: Location,
     private route: ActivatedRoute, // to get ID parameter
     private heroService: HeroService
   ) {}
@@ -34,5 +38,9 @@ export class HeroDetailComponent implements OnInit, OnDestroy {
       .getHero(id)
       .pipe(takeUntil(this.destroy$))
       .subscribe((hero) => (this.hero = hero));
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

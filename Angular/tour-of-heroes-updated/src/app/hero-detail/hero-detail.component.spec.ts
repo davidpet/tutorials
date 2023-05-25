@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent } from '../heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HeroService } from '../hero.service';
@@ -79,5 +80,16 @@ describe('HeroDetailComponent', () => {
     expect(heroElement.querySelector('h2').textContent).toContain('DR. REACT');
     expect(heroElement.querySelector('.id').textContent).toContain(200);
     expect(heroElement.querySelector('input').value).toBe('Dr. React');
+  });
+
+  it('should navigate back on back button click', async () => {
+    const location = TestBed.inject(Location);
+    const backSpy = spyOn(location, 'back');
+
+    fixture.debugElement.nativeElement.querySelector('.back-button').click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(backSpy).toHaveBeenCalled();
   });
 });
