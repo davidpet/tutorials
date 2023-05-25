@@ -74,13 +74,14 @@ describe('HeroService', () => {
     expect(emitCount).toBe(1);
   }));
 
-  it('should send a message when it gets the heroes', () => {
+  it('should send a message when it gets the heroes', fakeAsync(() => {
     messageServiceSpy.add.calls.reset();
 
-    service.getHeroes();
+    service.getHeroes().subscribe();
+    flush();
 
     expect(messageServiceSpy.add).toHaveBeenCalled();
-  });
+  }));
 
   it('should get single hero', fakeAsync(() => {
     let emitted: Hero | undefined = undefined;
@@ -115,11 +116,12 @@ describe('HeroService', () => {
     expect(emitCount).toBe(1);
   }));
 
-  it('should send a message when it gets a hero', () => {
+  it('should send a message when it gets a hero', fakeAsync(() => {
     messageServiceSpy.add.calls.reset();
 
-    service.getHero(15);
+    service.getHero(15).subscribe();
+    flush();
 
     expect(messageServiceSpy.add).toHaveBeenCalled();
-  });
+  }));
 });

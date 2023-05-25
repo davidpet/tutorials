@@ -16,19 +16,20 @@ export class HeroService {
   ) {}
 
   getHeroes(): Observable<Hero[]> {
-    this.log('fetched heroes');
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
       tap((_) => this.log('fetched heroes')),
       catchError(this.handleError<Hero[]>('getHeroes', []))
     );
   }
 
+  /** GET hero by id. Will 404 if id not found */
   getHero(id: number): Observable<Hero> {
-    // For now, assume that a hero with the specified `id` always exists.
-    // Error handling will be added in the next step of the tutorial.
-    this.log(`fetched hero id=${id}`);
-    return this.getHeroes().pipe(
-      map((heroes) => heroes.find((h) => h.id === id)!)
+    const url = `${this.heroesUrl}/${id}`;
+    // The in-memory server automatically gives us
+    // this way of calling to get a single thing.
+    return this.http.get<Hero>(url).pipe(
+      tap((_) => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
 
