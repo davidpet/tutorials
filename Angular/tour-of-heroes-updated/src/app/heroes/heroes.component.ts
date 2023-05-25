@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
@@ -13,17 +12,8 @@ export class HeroesComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   heroes: Hero[] = [];
-  selectedHero?: Hero;
 
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) {}
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  constructor(private heroService: HeroService) {}
 
   getHeroes(): void {
     this.heroService

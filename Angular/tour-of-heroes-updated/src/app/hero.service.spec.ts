@@ -48,4 +48,25 @@ describe('HeroService', () => {
 
     expect(messageServiceSpy.add).toHaveBeenCalled();
   });
+
+  it('should get single hero', () => {
+    let emitted: Hero | undefined = undefined;
+    let emitCount = 0;
+
+    service.getHero(15).subscribe((hero) => {
+      emitted = hero;
+      emitCount++;
+    });
+
+    expect(emitted!).toEqual({ id: 15, name: 'Magneta' });
+    expect(emitCount).toBe(1);
+  });
+
+  it('should send a message when it gets a hero', () => {
+    messageServiceSpy.add.calls.reset();
+
+    service.getHero(15);
+
+    expect(messageServiceSpy.add).toHaveBeenCalled();
+  });
 });

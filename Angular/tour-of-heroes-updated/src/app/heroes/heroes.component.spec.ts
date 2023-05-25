@@ -7,13 +7,14 @@ import { HeroDetailComponent } from '../hero-detail/hero-detail.component';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
 import { Observable, of } from 'rxjs';
-import { MessageService } from '../message.service';
+import { Router } from '@angular/router';
+import { AppRoutingModule } from '../app-routing.module';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
   let fixture: ComponentFixture<HeroesComponent>;
 
-  let messageServiceSpy: jasmine.SpyObj<MessageService>;
+  let router: Router;
 
   const HEROES = [
     { name: 'Hero 1', id: 100 },
@@ -28,24 +29,16 @@ describe('HeroesComponent', () => {
   }
 
   beforeEach(async () => {
-    messageServiceSpy = jasmine.createSpyObj(MessageService.name, [
-      'add',
-      'clear',
-      'messages',
-    ]);
-    messageServiceSpy.messages = [];
-
     TestBed.configureTestingModule({
       declarations: [HeroesComponent, HeroDetailComponent],
-      imports: [FormsModule],
-      providers: [
-        { provide: HeroService, useClass: FakeHeroService },
-        { provide: MessageService, useValue: messageServiceSpy },
-      ],
+      imports: [AppRoutingModule, FormsModule],
+      providers: [{ provide: HeroService, useClass: FakeHeroService }],
     });
 
     fixture = TestBed.createComponent(HeroesComponent);
     component = fixture.componentInstance;
+    router = TestBed.inject(Router);
+
     fixture.detectChanges();
     await fixture.whenStable();
   });
@@ -76,69 +69,22 @@ describe('HeroesComponent', () => {
     );
   });
 
-  it('should not show hero details section initially', async () => {
-    const heroElement =
-      fixture.debugElement.nativeElement.querySelector('.hero');
-    expect(heroElement).toBeFalsy();
-  });
-
   describe('on hero click', async () => {
-    beforeEach(async () => {
-      fixture.debugElement.nativeElement.querySelectorAll('button')[1].click();
-      fixture.detectChanges();
-      await fixture.whenStable();
-    });
-
-    it('should show hero details section', async () => {
-      const heroElement =
-        fixture.debugElement.nativeElement.querySelector('.hero');
-      expect(heroElement).toBeTruthy();
-    });
-
-    it('should change button', async () => {
-      const buttonElements: HTMLElement[] = Array.from(
-        fixture.debugElement.nativeElement.querySelectorAll('button')
+    it('should reroute on hero button click', async () => {
+      const heroButtons: HTMLElement[] = Array.from(
+        fixture.nativeElement.querySelectorAll('.hero-button')
       );
-      const buttonClasses = buttonElements.map((e) => Array.from(e.classList));
-      const buttonSelections = buttonClasses.map((classes) =>
-        classes.includes('selected')
-      );
+      const heroButton = heroButtons[1];
+      spyOn(router, 'navigateByUrl');
 
-      expect(buttonSelections[1]).toBeTrue();
-      const selectedCount = buttonSelections.reduce(
-        (count, selected) => count + (selected ? 1 : 0),
-        0
-      );
-      expect(selectedCount).toBe(1);
-    });
-
-    it('should send message', async () => {
-      expect(messageServiceSpy.add).toHaveBeenCalledWith(
-        'HeroesComponent: Selected hero id=200'
-      );
-    });
-
-    it('should reflect name change everywhere after user edit', async () => {
-      // TODO: use a page object or mock the child component
-      // so we don't have to reach inside like this.
-      const heroElement =
-        fixture.debugElement.nativeElement.querySelector('.hero');
-      heroElement.querySelector('input').value = 'Captain Angular';
-      heroElement.querySelector('input').dispatchEvent(new Event('input'));
+      heroButton.click();
       fixture.detectChanges();
       await fixture.whenStable();
 
-      expect(heroElement.querySelector('h2').textContent).toContain(
-        'CAPTAIN ANGULAR'
+      expect(router.navigateByUrl).toHaveBeenCalledWith(
+        jasmine.stringMatching('/detail/200'),
+        jasmine.any(Object)
       );
-      expect(heroElement.querySelector('.id').textContent).toContain(
-        HEROES[1].id
-      );
-      expect(heroElement.querySelector('input').value).toBe('Captain Angular');
-      expect(
-        fixture.debugElement.nativeElement.querySelectorAll('button')[1]
-          .textContent
-      ).toContain('Captain Angular');
     });
   });
 });
