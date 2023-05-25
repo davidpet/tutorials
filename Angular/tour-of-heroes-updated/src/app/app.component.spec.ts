@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 
 describe('AppComponent', () => {
-  beforeEach(() =>
+  let router: Router;
+
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -14,9 +19,11 @@ describe('AppComponent', () => {
         HeroDetailComponent,
         MessagesComponent,
       ],
-      imports: [FormsModule],
-    })
-  );
+      imports: [AppRoutingModule, FormsModule, RouterTestingModule],
+    });
+
+    router = TestBed.inject(Router);
+  });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -39,11 +46,24 @@ describe('AppComponent', () => {
     );
   });
 
-  it('should render app heroes component', () => {
+  it('should not render app heroes component from root', async () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
+    await fixture.whenStable();
+
     const childComponent =
-      fixture.debugElement.nativeElement.querySelector('app-heroes');
+      fixture.debugElement.nativeElement.querySelector('.heroes');
+    expect(childComponent).toBeFalsy();
+  });
+
+  it('should render app heroes component from /heroes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    router.navigate(['/heroes']);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const childComponent =
+      fixture.debugElement.nativeElement.querySelector('.heroes');
     expect(childComponent).toBeTruthy();
   });
 
