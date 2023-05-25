@@ -23,9 +23,20 @@ describe('HeroesComponent', () => {
     { name: 'Hero 3', id: 300 },
   ];
 
+  const ADDED_ID = 142;
+
   class FakeHeroService extends HeroService {
+    addedHero?: Hero;
+
     override getHeroes(): Observable<Hero[]> {
-      return of(HEROES);
+      return of([...HEROES]);
+    }
+
+    override addHero(hero: Hero): Observable<Hero> {
+      this.addedHero = hero;
+      this.addedHero.id = 142;
+
+      return of(hero);
     }
   }
 
@@ -71,7 +82,7 @@ describe('HeroesComponent', () => {
   });
 
   describe('on hero click', async () => {
-    it('should reroute on hero button click', async () => {
+    it('should reroute', async () => {
       const heroButtons: HTMLElement[] = Array.from(
         fixture.nativeElement.querySelectorAll('.hero-button')
       );
@@ -86,6 +97,92 @@ describe('HeroesComponent', () => {
         jasmine.stringMatching('/detail/200'),
         jasmine.any(Object)
       );
+    });
+
+    describe('on save click', () => {
+      describe('with valid hero', () => {
+        const newName = '   Captain Angular ';
+        const trimmedNewName = newName.trim();
+        const expectedNewHeroes = [
+          ...HEROES,
+          { name: trimmedNewName, id: ADDED_ID },
+        ];
+
+        let fakeHeroService: FakeHeroService | undefined;
+
+        beforeEach(async () => {
+          fakeHeroService = TestBed.inject(HeroService) as FakeHeroService;
+
+          const nameInput = fixture.nativeElement.querySelector('#new-hero');
+          const buttonInput =
+            fixture.nativeElement.querySelector('.add-button');
+
+          nameInput.value = newName;
+          nameInput.dispatchEvent(new Event('input'));
+          buttonInput.click();
+          fixture.detectChanges();
+          await fixture.whenStable();
+        });
+
+        it('should "put" to server and update local list', async () => {
+          expect(fakeHeroService!.addedHero).toEqual({
+            name: trimmedNewName,
+            id: ADDED_ID,
+          });
+
+          const nameElements: HTMLElement[] = Array.from(
+            fixture.debugElement.nativeElement.querySelectorAll('.name')
+          );
+          expect(nameElements.map((e) => e.textContent)).toEqual(
+            expectedNewHeroes.map((e) => e.name)
+          );
+
+          const badgeElements: HTMLElement[] = Array.from(
+            fixture.debugElement.nativeElement.querySelectorAll('.badge')
+          );
+          expect(badgeElements.map((e) => e.textContent)).toEqual(
+            expectedNewHeroes.map((e) => e.id.toString())
+          );
+        });
+      });
+
+      describe('with empty name', () => {
+        const emptyName = '    ';
+
+        let fakeHeroService: FakeHeroService | undefined;
+
+        beforeEach(async () => {
+          fakeHeroService = TestBed.inject(HeroService) as FakeHeroService;
+
+          const nameInput = fixture.nativeElement.querySelector('#new-hero');
+          const buttonInput =
+            fixture.nativeElement.querySelector('.add-button');
+
+          nameInput.value = emptyName;
+          nameInput.dispatchEvent(new Event('input'));
+          buttonInput.click();
+          fixture.detectChanges();
+          await fixture.whenStable();
+        });
+
+        it('should do nothing if empty name', async () => {
+          expect(fakeHeroService!.addedHero).toBeUndefined();
+
+          const nameElements: HTMLElement[] = Array.from(
+            fixture.debugElement.nativeElement.querySelectorAll('.name')
+          );
+          expect(nameElements.map((e) => e.textContent)).toEqual(
+            HEROES.map((e) => e.name)
+          );
+
+          const badgeElements: HTMLElement[] = Array.from(
+            fixture.debugElement.nativeElement.querySelectorAll('.badge')
+          );
+          expect(badgeElements.map((e) => e.textContent)).toEqual(
+            HEROES.map((e) => e.id.toString())
+          );
+        });
+      });
     });
   });
 });

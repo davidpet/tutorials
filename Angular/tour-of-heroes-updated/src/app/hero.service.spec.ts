@@ -181,6 +181,71 @@ describe('HeroService', () => {
     expect(messageServiceSpy.add).toHaveBeenCalled();
   }));
 
+  it('should add hero', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'post');
+    spy.and.returnValue(of({ name: 'New Hero', id: 121 }));
+    const newHero = { name: 'New Hero' };
+    let emitCount = 0;
+    let emitted: Hero | undefined;
+
+    service.addHero(newHero as Hero).subscribe((hero) => {
+      emitCount++;
+      emitted = hero;
+    });
+    flush();
+
+    expect(spy).toHaveBeenCalledWith(
+      'api/heroes',
+      newHero,
+      jasmine.any(Object)
+    );
+    expect(emitCount).toBe(1);
+    expect(emitted).toEqual({ ...newHero, id: 121 });
+  }));
+
+  it('should fail gracefully on add error', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'post');
+    spy.and.returnValue(
+      throwError(() => new Error('failed because I said so'))
+    );
+    const newHero = { name: 'New Hero' };
+    let emitCount = 0;
+    let emitted: Hero | undefined;
+
+    service.addHero(newHero as Hero).subscribe((hero) => {
+      emitCount++;
+      emitted = hero;
+    });
+    flush();
+
+    expect(spy).toHaveBeenCalledWith(
+      'api/heroes',
+      newHero,
+      jasmine.any(Object)
+    );
+    expect(emitCount).toBe(1);
+    expect(emitted).toBeUndefined();
+  }));
+
+  it('should send a message when it adds a hero', fakeAsync(() => {
+    messageServiceSpy.add.calls.reset();
+
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'post');
+    spy.and.returnValue(of({ name: 'bla', id: 'bla' }));
+    const newHero = { name: 'Updated Hero' };
+
+    service.addHero(newHero as Hero).subscribe();
+    flush();
+
+    expect(messageServiceSpy.add).toHaveBeenCalled();
+  }));
+
   // TODO: I should be checking for message being sent on error as well
   // and possibly checking for console.error and stuff like that.
+
+  // TODO: refactor since there's a lot of repeated code, especially
+  // within each CRUD group.
 });
