@@ -67,6 +67,30 @@ describe('AppComponent', () => {
     expect(childComponent).toBeTruthy();
   });
 
+  it('should render app heroes component from /heroes', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    router.navigate(['/heroes']);
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const childComponent =
+      fixture.debugElement.nativeElement.querySelector('.heroes');
+    expect(childComponent).toBeTruthy();
+  });
+
+  it('should render app hereos component after clicking link', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    fixture.debugElement.nativeElement.querySelector('a').click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const childComponent =
+      fixture.debugElement.nativeElement.querySelector('.heroes');
+    expect(childComponent).toBeTruthy();
+  });
+
   it('should render messages component', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();

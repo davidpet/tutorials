@@ -1,4 +1,9 @@
 <h1>{{title}}</h1>
+<!-- link to navigate to a route within the page (the router outlet) -->
+<!-- NOTE: in this implementation the link is always there -->
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
 <!-- component will be loaded by routing after the <router-outlet> tag -->
 <!-- root url will leave it empty -->
 <router-outlet></router-outlet>
