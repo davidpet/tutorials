@@ -1,4 +1,5 @@
 import { TestBed, fakeAsync, flush } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
 
 import { HeroService } from './hero.service';
 import { HEROES } from './mock-heroes';
@@ -7,6 +8,7 @@ import { MessageService } from './message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { throwError } from 'rxjs';
 
 describe('HeroService', () => {
   let service: HeroService;
@@ -53,6 +55,25 @@ describe('HeroService', () => {
     expect(emitCount).toBe(1);
   }));
 
+  it('should get empty list on http error', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'get');
+    spy.and.returnValue(
+      throwError(() => new Error('failed because I said so'))
+    );
+    let emitted: Hero[] = [];
+    let emitCount = 0;
+
+    service.getHeroes().subscribe((heroes) => {
+      emitted = heroes;
+      emitCount++;
+    });
+    flush();
+
+    expect(emitted).toEqual([]);
+    expect(emitCount).toBe(1);
+  }));
+
   it('should send a message when it gets the heroes', () => {
     messageServiceSpy.add.calls.reset();
 
@@ -72,6 +93,25 @@ describe('HeroService', () => {
     flush();
 
     expect(emitted!).toEqual({ id: 15, name: 'Magneta' });
+    expect(emitCount).toBe(1);
+  }));
+
+  it('should get undefined hero on http error', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'get');
+    spy.and.returnValue(
+      throwError(() => new Error('failed because I said so'))
+    );
+    let emitted: Hero | undefined = { name: 'initial]', id: 0 };
+    let emitCount = 0;
+
+    service.getHero(15).subscribe((hero) => {
+      emitted = hero;
+      emitCount++;
+    });
+    flush();
+
+    expect(emitted).toBeUndefined();
     expect(emitCount).toBe(1);
   }));
 
