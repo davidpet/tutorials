@@ -1,19 +1,38 @@
 import { TestBed, fakeAsync, flush } from '@angular/core/testing';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { HeroService } from './hero.service';
 import { HEROES } from './mock-heroes';
 import { Hero } from './hero';
 import { MessageService } from './message.service';
-import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-import { of, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 describe('HeroService', () => {
   let service: HeroService;
 
   let messageServiceSpy: jasmine.SpyObj<MessageService>;
+  let httpSpy: jasmine.SpyObj<HttpClient>;
+
+  /**
+   * Wrap a service call and capture emitted observable values.
+   *
+   * This should be called in a fakeAsync context.
+   */
+  function callServiceMethod<T>(
+    method: () => Observable<T>,
+    defaultEmitted: T | undefined = undefined
+  ): [T | undefined, number] {
+    let emitted = defaultEmitted;
+    let emitCount = 0;
+
+    method().subscribe((ret) => {
+      emitCount++;
+      emitted = ret;
+    });
+    flush();
+
+    return [emitted, emitCount];
+  }
 
   beforeEach(() => {
     messageServiceSpy = jasmine.createSpyObj(MessageService.name, [
@@ -23,15 +42,17 @@ describe('HeroService', () => {
     ]);
     messageServiceSpy.messages = [];
 
+    httpSpy = jasmine.createSpyObj(HttpClient.name, [
+      'get',
+      'put',
+      'post',
+      'delete',
+    ]);
+
     TestBed.configureTestingModule({
-      providers: [{ provide: MessageService, useValue: messageServiceSpy }],
-      imports: [
-        HttpClientModule,
-        // You're supposed to stop using this in the app when you have a
-        // real server, but you could probably keep using it in the tests.
-        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-          dataEncapsulation: false,
-        }),
+      providers: [
+        { provide: MessageService, useValue: messageServiceSpy },
+        { provide: HttpClient, useValue: httpSpy },
       ],
     });
     service = TestBed.inject(HeroService);
@@ -41,211 +62,208 @@ describe('HeroService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should get the heroes', fakeAsync(() => {
-    let emitted: Hero[] = [];
-    let emitCount = 0;
+  describe('get heroes', () => {
+    it('should get the heroes', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of(HEROES));
 
-    service.getHeroes().subscribe((heroes) => {
-      emitted = heroes;
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() => service.getHeroes());
 
-    expect(emitted).toEqual(HEROES);
-    expect(emitCount).toBe(1);
-  }));
+      expect(httpSpy.get).toHaveBeenCalledWith('api/heroes');
+      expect(emitted).toEqual(HEROES);
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should get empty list on http error', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'get');
-    spy.and.returnValue(
-      throwError(() => new Error('failed because I said so'))
-    );
-    let emitted: Hero[] = [];
-    let emitCount = 0;
+    it('should get empty list on http error', fakeAsync(() => {
+      httpSpy.get.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
 
-    service.getHeroes().subscribe((heroes) => {
-      emitted = heroes;
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() => service.getHeroes());
 
-    expect(emitted).toEqual([]);
-    expect(emitCount).toBe(1);
-  }));
+      expect(emitted).toEqual([]);
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should send a message when it gets the heroes', fakeAsync(() => {
-    messageServiceSpy.add.calls.reset();
+    it('should send a message when it gets the heroes', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of(HEROES));
+      messageServiceSpy.add.calls.reset();
 
-    service.getHeroes().subscribe();
-    flush();
+      callServiceMethod(() => service.getHeroes());
 
-    expect(messageServiceSpy.add).toHaveBeenCalled();
-  }));
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
 
-  it('should get single hero', fakeAsync(() => {
-    let emitted: Hero | undefined = undefined;
-    let emitCount = 0;
+  describe('get hero', () => {
+    it('should return correct hero', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of({ id: 15, name: 'Magneta' }));
 
-    service.getHero(15).subscribe((hero) => {
-      emitted = hero;
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() => service.getHero(15));
 
-    expect(emitted!).toEqual({ id: 15, name: 'Magneta' });
-    expect(emitCount).toBe(1);
-  }));
+      expect(httpSpy.get).toHaveBeenCalledWith('api/heroes/15');
+      expect(emitted!).toEqual({ id: 15, name: 'Magneta' });
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should get undefined hero on http error', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'get');
-    spy.and.returnValue(
-      throwError(() => new Error('failed because I said so'))
-    );
-    let emitted: Hero | undefined = { name: 'initial]', id: 0 };
-    let emitCount = 0;
+    it('should get undefined hero on http error', fakeAsync(() => {
+      httpSpy.get.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
 
-    service.getHero(15).subscribe((hero) => {
-      emitted = hero;
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() => service.getHero(15), {
+        name: 'initial',
+        id: 0,
+      });
 
-    expect(emitted).toBeUndefined();
-    expect(emitCount).toBe(1);
-  }));
+      expect(emitted).toBeUndefined();
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should send a message when it gets a hero', fakeAsync(() => {
-    messageServiceSpy.add.calls.reset();
+    it('should send a message', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of({ id: 15, name: 'Magneta' }));
+      messageServiceSpy.add.calls.reset();
 
-    service.getHero(15).subscribe();
-    flush();
+      callServiceMethod(() => service.getHero(15));
 
-    expect(messageServiceSpy.add).toHaveBeenCalled();
-  }));
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
 
-  it('should update hero', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'put');
-    spy.and.returnValue(of([undefined]));
-    const newHero = { name: 'Updated Hero', id: 42 };
-    let emitCount = 0;
+  describe('update hero', () => {
+    it('should put and update', fakeAsync(() => {
+      httpSpy.put.and.returnValue(of(undefined));
+      const newHero = { name: 'Updated Hero', id: 42 };
 
-    service.updateHero(newHero).subscribe(() => {
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.updateHero(newHero)
+      );
 
-    expect(spy).toHaveBeenCalledWith(
-      'api/heroes',
-      newHero,
-      jasmine.any(Object)
-    );
-    expect(emitCount).toBe(1);
-  }));
+      expect(httpSpy.put).toHaveBeenCalledWith(
+        'api/heroes',
+        newHero,
+        jasmine.any(Object)
+      );
+      expect(emitted).toBeUndefined();
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should fail gracefully on update error', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'put');
-    spy.and.returnValue(
-      throwError(() => new Error('failed because I said so'))
-    );
-    const newHero = { name: 'Updated Hero', id: 42 };
-    let emitCount = 0;
+    it('should fail gracefully on error', fakeAsync(() => {
+      httpSpy.put.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
+      const newHero = { name: 'Updated Hero', id: 42 };
 
-    service.updateHero(newHero).subscribe(() => {
-      emitCount++;
-    });
-    flush();
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.updateHero(newHero)
+      );
 
-    expect(spy).toHaveBeenCalledWith(
-      'api/heroes',
-      newHero,
-      jasmine.any(Object)
-    );
-    expect(emitCount).toBe(1);
-  }));
+      expect(emitted).toBeUndefined();
+      expect(emitCount).toBe(1);
+    }));
 
-  it('should send a message when it updates a hero', fakeAsync(() => {
-    messageServiceSpy.add.calls.reset();
+    it('should send a message', fakeAsync(() => {
+      messageServiceSpy.add.calls.reset();
+      httpSpy.put.and.returnValue(of(undefined));
+      const newHero = { name: 'Updated Hero', id: 42 };
 
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'put');
-    spy.and.returnValue(of([undefined]));
-    const newHero = { name: 'Updated Hero', id: 42 };
+      callServiceMethod(() => service.updateHero(newHero));
 
-    service.updateHero(newHero).subscribe();
-    flush();
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
 
-    expect(messageServiceSpy.add).toHaveBeenCalled();
-  }));
+  describe('add hero', () => {
+    it('should post and update', fakeAsync(() => {
+      httpSpy.post.and.returnValue(of({ name: 'New Hero', id: 121 }));
+      const newHero = { name: 'New Hero' };
 
-  it('should add hero', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'post');
-    spy.and.returnValue(of({ name: 'New Hero', id: 121 }));
-    const newHero = { name: 'New Hero' };
-    let emitCount = 0;
-    let emitted: Hero | undefined;
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.addHero(newHero as Hero)
+      );
 
-    service.addHero(newHero as Hero).subscribe((hero) => {
-      emitCount++;
-      emitted = hero;
-    });
-    flush();
+      expect(httpSpy.post).toHaveBeenCalledWith(
+        'api/heroes',
+        newHero,
+        jasmine.any(Object)
+      );
+      expect(emitCount).toBe(1);
+      expect(emitted).toEqual({ ...newHero, id: 121 });
+    }));
 
-    expect(spy).toHaveBeenCalledWith(
-      'api/heroes',
-      newHero,
-      jasmine.any(Object)
-    );
-    expect(emitCount).toBe(1);
-    expect(emitted).toEqual({ ...newHero, id: 121 });
-  }));
+    it('should fail gracefully on error', fakeAsync(() => {
+      httpSpy.post.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
+      const newHero = { name: 'New Hero' };
 
-  it('should fail gracefully on add error', fakeAsync(() => {
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'post');
-    spy.and.returnValue(
-      throwError(() => new Error('failed because I said so'))
-    );
-    const newHero = { name: 'New Hero' };
-    let emitCount = 0;
-    let emitted: Hero | undefined;
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.addHero(newHero as Hero)
+      );
 
-    service.addHero(newHero as Hero).subscribe((hero) => {
-      emitCount++;
-      emitted = hero;
-    });
-    flush();
+      expect(httpSpy.post).toHaveBeenCalledWith(
+        'api/heroes',
+        newHero,
+        jasmine.any(Object)
+      );
+      expect(emitCount).toBe(1);
+      expect(emitted).toBeUndefined();
+    }));
 
-    expect(spy).toHaveBeenCalledWith(
-      'api/heroes',
-      newHero,
-      jasmine.any(Object)
-    );
-    expect(emitCount).toBe(1);
-    expect(emitted).toBeUndefined();
-  }));
+    it('should send a message', fakeAsync(() => {
+      messageServiceSpy.add.calls.reset();
+      httpSpy.post.and.returnValue(of({ name: 'bla', id: 'bla' }));
+      const newHero = { name: 'Updated Hero' };
 
-  it('should send a message when it adds a hero', fakeAsync(() => {
-    messageServiceSpy.add.calls.reset();
+      callServiceMethod(() => service.addHero(newHero as Hero));
 
-    const http = TestBed.inject(HttpClient);
-    const spy = spyOn(http, 'post');
-    spy.and.returnValue(of({ name: 'bla', id: 'bla' }));
-    const newHero = { name: 'Updated Hero' };
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
 
-    service.addHero(newHero as Hero).subscribe();
-    flush();
+  describe('delete hero hero', () => {
+    it('should http delete and remove', fakeAsync(() => {
+      const deletedHero: Hero = { name: 'New Hero', id: 121 };
+      httpSpy.delete.and.returnValue(of(deletedHero));
 
-    expect(messageServiceSpy.add).toHaveBeenCalled();
-  }));
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.deleteHero(deletedHero.id)
+      );
+
+      expect(httpSpy.delete).toHaveBeenCalledWith(
+        'api/heroes/121',
+        jasmine.any(Object)
+      );
+      expect(emitCount).toBe(1);
+      expect(emitted).toEqual(deletedHero);
+    }));
+
+    it('should fail gracefully on error', fakeAsync(() => {
+      httpSpy.delete.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
+
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.deleteHero(42)
+      );
+
+      expect(httpSpy.delete).toHaveBeenCalledWith(
+        'api/heroes/42',
+        jasmine.any(Object)
+      );
+      expect(emitCount).toBe(1);
+      expect(emitted).toBeUndefined();
+    }));
+
+    it('should send a message', fakeAsync(() => {
+      messageServiceSpy.add.calls.reset();
+      httpSpy.delete.and.returnValue(of({ name: 'bla', id: 42 }));
+
+      callServiceMethod(() => service.deleteHero(42));
+
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
 
   // TODO: I should be checking for message being sent on error as well
   // and possibly checking for console.error and stuff like that.
-
-  // TODO: refactor since there's a lot of repeated code, especially
-  // within each CRUD group.
 });

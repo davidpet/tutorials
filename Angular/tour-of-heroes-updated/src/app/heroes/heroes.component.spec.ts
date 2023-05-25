@@ -25,8 +25,10 @@ describe('HeroesComponent', () => {
 
   const ADDED_ID = 142;
 
+  // Just tracks and returns - doesn't modify the internal heroes list.
   class FakeHeroService extends HeroService {
     addedHero?: Hero;
+    deletedHero?: Hero;
 
     override getHeroes(): Observable<Hero[]> {
       return of([...HEROES]);
@@ -37,6 +39,12 @@ describe('HeroesComponent', () => {
       this.addedHero.id = 142;
 
       return of(hero);
+    }
+
+    override deleteHero(id: number): Observable<Hero> {
+      this.deletedHero = HEROES.find((h) => h.id === id);
+
+      return of(this.deletedHero!);
     }
   }
 
@@ -79,6 +87,42 @@ describe('HeroesComponent', () => {
     expect(badgeElements.map((e) => e.textContent)).toEqual(
       component.heroes.map((e) => e.id.toString())
     );
+  });
+
+  describe('on clicking delete', () => {
+    beforeEach(async () => {
+      const deleteButtons: HTMLElement[] = Array.from(
+        fixture.nativeElement.querySelectorAll('.delete')
+      );
+      const deleteButton = deleteButtons[1];
+
+      deleteButton.click();
+      fixture.detectChanges();
+      await fixture.whenStable();
+    });
+
+    it('calls hero service to delete hero', () => {
+      const fakeHeroService = TestBed.inject(HeroService) as FakeHeroService;
+      expect(fakeHeroService.deletedHero).toEqual(HEROES[1]);
+    });
+
+    it('removes hero from own list', () => {
+      expect(component.heroes).toEqual([HEROES[0], HEROES[2]]);
+
+      const nameElements: HTMLElement[] = Array.from(
+        fixture.debugElement.nativeElement.querySelectorAll('.name')
+      );
+      expect(nameElements.map((e) => e.textContent)).toEqual(
+        component.heroes.map((e) => e.name)
+      );
+
+      const badgeElements: HTMLElement[] = Array.from(
+        fixture.debugElement.nativeElement.querySelectorAll('.badge')
+      );
+      expect(badgeElements.map((e) => e.textContent)).toEqual(
+        component.heroes.map((e) => e.id.toString())
+      );
+    });
   });
 
   describe('on hero click', async () => {
