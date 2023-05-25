@@ -46,14 +46,15 @@ describe('AppComponent', () => {
     );
   });
 
-  it('should not render app heroes component from root', async () => {
+  it('should render dashboard component from root', async () => {
     const fixture = TestBed.createComponent(AppComponent);
+    router.initialNavigation();
     fixture.detectChanges();
     await fixture.whenStable();
 
     const childComponent =
-      fixture.debugElement.nativeElement.querySelector('.heroes');
-    expect(childComponent).toBeFalsy();
+      fixture.debugElement.nativeElement.querySelector('.dashboard');
+    expect(childComponent).toBeTruthy();
   });
 
   it('should render app heroes component from /heroes', async () => {
@@ -67,14 +68,14 @@ describe('AppComponent', () => {
     expect(childComponent).toBeTruthy();
   });
 
-  it('should render app heroes component from /heroes', async () => {
+  it('should render dsahboard component from /dashboard', async () => {
     const fixture = TestBed.createComponent(AppComponent);
-    router.navigate(['/heroes']);
+    router.navigate(['/dashboard']);
     fixture.detectChanges();
     await fixture.whenStable();
 
     const childComponent =
-      fixture.debugElement.nativeElement.querySelector('.heroes');
+      fixture.debugElement.nativeElement.querySelector('.dashboard');
     expect(childComponent).toBeTruthy();
   });
 
@@ -82,12 +83,25 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
 
-    fixture.debugElement.nativeElement.querySelector('a').click();
+    fixture.debugElement.nativeElement.querySelector('.heroes-link').click();
     fixture.detectChanges();
     await fixture.whenStable();
 
     const childComponent =
       fixture.debugElement.nativeElement.querySelector('.heroes');
+    expect(childComponent).toBeTruthy();
+  });
+
+  it('should render dashboard component after clicking link', async () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+
+    fixture.debugElement.nativeElement.querySelector('.dashboard-link').click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const childComponent =
+      fixture.debugElement.nativeElement.querySelector('.dashboard');
     expect(childComponent).toBeTruthy();
   });
 
