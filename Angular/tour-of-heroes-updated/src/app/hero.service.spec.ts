@@ -1,5 +1,5 @@
 import { TestBed, fakeAsync, flush } from '@angular/core/testing';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { HeroService } from './hero.service';
 import { HEROES } from './mock-heroes';
@@ -8,7 +8,7 @@ import { MessageService } from './message.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { throwError } from 'rxjs';
+import { of, throwError } from 'rxjs';
 
 describe('HeroService', () => {
   let service: HeroService;
@@ -124,4 +124,63 @@ describe('HeroService', () => {
 
     expect(messageServiceSpy.add).toHaveBeenCalled();
   }));
+
+  it('should update hero', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'put');
+    spy.and.returnValue(of([undefined]));
+    const newHero = { name: 'Updated Hero', id: 42 };
+    let emitCount = 0;
+
+    service.updateHero(newHero).subscribe(() => {
+      emitCount++;
+    });
+    flush();
+
+    expect(spy).toHaveBeenCalledWith(
+      'api/heroes',
+      newHero,
+      jasmine.any(Object)
+    );
+    expect(emitCount).toBe(1);
+  }));
+
+  it('should fail gracefully on update error', fakeAsync(() => {
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'put');
+    spy.and.returnValue(
+      throwError(() => new Error('failed because I said so'))
+    );
+    const newHero = { name: 'Updated Hero', id: 42 };
+    let emitCount = 0;
+
+    service.updateHero(newHero).subscribe(() => {
+      emitCount++;
+    });
+    flush();
+
+    expect(spy).toHaveBeenCalledWith(
+      'api/heroes',
+      newHero,
+      jasmine.any(Object)
+    );
+    expect(emitCount).toBe(1);
+  }));
+
+  it('should send a message when it updates a hero', fakeAsync(() => {
+    messageServiceSpy.add.calls.reset();
+
+    const http = TestBed.inject(HttpClient);
+    const spy = spyOn(http, 'put');
+    spy.and.returnValue(of([undefined]));
+    const newHero = { name: 'Updated Hero', id: 42 };
+
+    service.updateHero(newHero).subscribe();
+    flush();
+
+    expect(messageServiceSpy.add).toHaveBeenCalled();
+  }));
+
+  // TODO: I should be checking for message being sent on error as well
+  // and possibly checking for console.error and stuff like that.
 });

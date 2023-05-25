@@ -7,7 +7,7 @@ import { Location } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HeroService } from '../hero.service';
-import { Observable, of } from 'rxjs';
+import { Observable, ReplaySubject, of } from 'rxjs';
 import { Hero } from '../hero';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -20,12 +20,22 @@ describe('HeroDetailComponent', () => {
   let heroes: Hero[] = [];
 
   class FakeHeroService extends HeroService {
+    updatedHero?: Hero;
+
     override getHeroes(): Observable<Hero[]> {
       return of(heroes);
     }
 
     override getHero(id: number): Observable<Hero> {
       return of(heroes.find((h) => h.id === id)!);
+    }
+
+    override updateHero(hero: Hero): Observable<void> {
+      this.updatedHero = hero;
+      const subj = new ReplaySubject<void>(1);
+      subj.next();
+
+      return subj.asObservable();
     }
   }
 
@@ -91,6 +101,26 @@ describe('HeroDetailComponent', () => {
     fixture.detectChanges();
     await fixture.whenStable();
 
+    expect(backSpy).toHaveBeenCalled();
+  });
+
+  it('should update hero and go back on save button click', async () => {
+    const location = TestBed.inject(Location);
+    const backSpy = spyOn(location, 'back');
+    const fakeHeroService = TestBed.inject(HeroService) as FakeHeroService;
+
+    const heroElement =
+      fixture.debugElement.nativeElement.querySelector('.hero');
+
+    heroElement.querySelector('input').value = 'Dr. React';
+    heroElement.querySelector('input').dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    await fixture.whenStable();
+    fixture.debugElement.nativeElement.querySelector('.save-button').click();
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fakeHeroService.updatedHero).toEqual({ name: 'Dr. React', id: 200 });
     expect(backSpy).toHaveBeenCalled();
   });
 });
