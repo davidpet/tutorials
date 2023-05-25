@@ -9,6 +9,7 @@ import { ActivatedRoute, convertToParamMap } from '@angular/router';
 import { HeroService } from '../hero.service';
 import { Observable, of } from 'rxjs';
 import { Hero } from '../hero';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HeroDetailComponent', () => {
   const ID = '200';
@@ -37,7 +38,7 @@ describe('HeroDetailComponent', () => {
 
     TestBed.configureTestingModule({
       declarations: [HeroDetailComponent, HeroesComponent],
-      imports: [FormsModule, RouterTestingModule],
+      imports: [FormsModule, HttpClientModule, RouterTestingModule],
       providers: [
         {
           provide: ActivatedRoute,

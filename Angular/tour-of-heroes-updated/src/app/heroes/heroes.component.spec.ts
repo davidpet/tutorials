@@ -9,6 +9,7 @@ import { Hero } from '../hero';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('HeroesComponent', () => {
   let component: HeroesComponent;
@@ -31,7 +32,7 @@ describe('HeroesComponent', () => {
   beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [HeroesComponent, HeroDetailComponent],
-      imports: [AppRoutingModule, FormsModule],
+      imports: [AppRoutingModule, FormsModule, HttpClientModule],
       providers: [{ provide: HeroService, useClass: FakeHeroService }],
     });
 

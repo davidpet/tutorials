@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   let router: Router;
@@ -19,7 +20,12 @@ describe('AppComponent', () => {
         HeroDetailComponent,
         MessagesComponent,
       ],
-      imports: [AppRoutingModule, FormsModule, RouterTestingModule],
+      imports: [
+        AppRoutingModule,
+        FormsModule,
+        HttpClientModule,
+        RouterTestingModule,
+      ],
     });
 
     router = TestBed.inject(Router);

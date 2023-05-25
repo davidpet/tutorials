@@ -6,6 +6,7 @@ import { Hero } from '../hero';
 import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -31,7 +32,7 @@ describe('DashboardComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [AppRoutingModule],
+      imports: [AppRoutingModule, HttpClientModule],
       providers: [{ provide: HeroService, useClass: FakeHeroService }],
     });
     fixture = TestBed.createComponent(DashboardComponent);
