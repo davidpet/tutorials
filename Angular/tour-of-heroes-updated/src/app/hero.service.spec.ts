@@ -264,6 +264,53 @@ describe('HeroService', () => {
     }));
   });
 
+  describe('search heroes', () => {
+    it('should return correct hero', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of(HEROES));
+
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.searchHeroes(' searchHero   ')
+      );
+
+      expect(httpSpy.get).toHaveBeenCalledWith('api/heroes?name=searchHero');
+      expect(emitted!).toEqual(HEROES);
+      expect(emitCount).toBe(1);
+    }));
+
+    it('should get empty list on http error', fakeAsync(() => {
+      httpSpy.get.and.returnValue(
+        throwError(() => new Error('failed because I said so'))
+      );
+
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.searchHeroes('doesn"t matter')
+      );
+
+      expect(emitted).toEqual([]);
+      expect(emitCount).toBe(1);
+    }));
+
+    it('should get empty list on blank search term', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of(HEROES));
+
+      let [emitted, emitCount] = callServiceMethod(() =>
+        service.searchHeroes('    ')
+      );
+
+      expect(emitted).toEqual([]);
+      expect(emitCount).toBe(1);
+    }));
+
+    it('should send a message', fakeAsync(() => {
+      httpSpy.get.and.returnValue(of(HEROES));
+      messageServiceSpy.add.calls.reset();
+
+      callServiceMethod(() => service.searchHeroes('  searchedHero   '));
+
+      expect(messageServiceSpy.add).toHaveBeenCalled();
+    }));
+  });
+
   // TODO: I should be checking for message being sent on error as well
   // and possibly checking for console.error and stuff like that.
 });

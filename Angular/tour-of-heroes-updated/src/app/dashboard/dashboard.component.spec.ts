@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -31,7 +32,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
+      declarations: [DashboardComponent, HeroSearchComponent],
       imports: [AppRoutingModule, HttpClientModule],
       providers: [{ provide: HeroService, useClass: FakeHeroService }],
     });
@@ -69,5 +70,10 @@ describe('DashboardComponent', () => {
       jasmine.stringMatching('/detail/300'),
       jasmine.any(Object)
     );
+  });
+
+  it('should show search bar', () => {
+    // TODO: Use page objects instead of reaching in like this.
+    expect(fixture.nativeElement.querySelector('.search-bar')).toBeTruthy();
   });
 });

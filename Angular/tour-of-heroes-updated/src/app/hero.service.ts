@@ -65,6 +65,24 @@ export class HeroService {
     );
   }
 
+  /* GET heroes whose name contains search term */
+  // Input goes into name query field in url.
+  searchHeroes(term: string): Observable<Hero[]> {
+    const trimmedTerm = term.trim();
+    if (!trimmedTerm) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Hero[]>(`${this.heroesUrl}?name=${trimmedTerm}`).pipe(
+      tap((x) =>
+        x.length
+          ? this.log(`found heroes matching "${trimmedTerm}"`)
+          : this.log(`no heroes matching "${trimmedTerm}"`)
+      ),
+      catchError(this.handleError<Hero[]>('searchHeroes', []))
+    );
+  }
+
   /** Log a HeroService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`HeroService: ${message}`);
