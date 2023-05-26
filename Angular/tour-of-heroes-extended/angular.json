@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tour-of-heroes-updated": {
+    "tour-of-heroes-extended": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tour-of-heroes-updated",
+            "outputPath": "dist/tour-of-heroes-extended",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tour-of-heroes-updated:build:production"
+              "browserTarget": "tour-of-heroes-extended:build:production"
             },
             "development": {
-              "browserTarget": "tour-of-heroes-updated:build:development"
+              "browserTarget": "tour-of-heroes-extended:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tour-of-heroes-updated:build"
+            "browserTarget": "tour-of-heroes-extended:build"
           }
         },
         "test": {
