@@ -23,5 +23,8 @@
 <div class="diagnostic">
   text group observable value: {{ textGroupChanges$ | async | json}}
 </div>
+<div class="diagnostic">
+  form status: {{ textGroup.status }}
+</div>
 <button (click)="setValue()">Set Value</button>
 <button (click)="patchValue()">Patch Value</button>

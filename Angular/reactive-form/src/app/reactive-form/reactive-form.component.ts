@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 // Declare to protect it from name-mangling.
@@ -24,8 +24,10 @@ export class ReactiveFormComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.textGroup = fb.group({
-      'text1': [''], // array because can take sync & validator too
-      'text2': [''],
+      // The form still emits events and updates template on invalid
+      // input, but you can see that the status changes.
+      'text1': ['', Validators.required],
+      'text2': ['', Validators.minLength(3)],
       'subform': fb.group({
         'text3': [''],
       }),
