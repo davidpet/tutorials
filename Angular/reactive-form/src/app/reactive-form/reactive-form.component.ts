@@ -29,7 +29,7 @@ export class ReactiveFormComponent implements OnInit {
       // The form still emits events and updates template on invalid
       // input, but you can see that the status changes.
       'text1': ['initial', Validators.required],
-      'text2': ['', Validators.minLength(3)],
+      'text2': ['', [Validators.required, Validators.minLength(3)]],
       'subform': fb.nonNullable.group({
         'text3': [''],
       }),
@@ -39,6 +39,10 @@ export class ReactiveFormComponent implements OnInit {
 
   get aliases(): FormArray {
     return this.textGroup.get('dynamicFields') as FormArray;
+  }
+
+  get text2() {
+    return this.textGroup.get('text2')!;
   }
 
   addAlias() {

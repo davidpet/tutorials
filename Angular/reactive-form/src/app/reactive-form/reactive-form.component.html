@@ -4,6 +4,21 @@
 
   <label for="text-input-2">Enter text2</label>
   <input type="text" id="text-input-2" formControlName="text2">
+
+  <div *ngIf="text2.invalid && (text2.dirty || text2.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="text2.errors?.['required']">
+    Name is required.
+  </div>
+  <div *ngIf="text2.errors?.['minlength']">
+    Name must be at least 4 characters long.
+  </div>
+  <div *ngIf="text2.errors?.['forbiddenName']">
+    Name cannot be Bob.
+  </div>
+</div>
+
   <div formGroupName="subform" class="form-group">
     <label for="text-input-3">Enter text3</label>
     <input type="text" id="text-input-3" formControlName="text3">
