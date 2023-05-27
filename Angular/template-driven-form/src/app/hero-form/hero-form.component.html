@@ -1,4 +1,4 @@
-<form #heroForm="ngForm">
+<form #heroForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text"
