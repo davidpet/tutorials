@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 
 // Declare to protect it from name-mangling.
 declare interface TextGroup {
-  text1?: string;
-  text2?: string;
-  subform?: {
-    text3?: string;
+  text1: string;
+  text2: string;
+  subform: {
+    text3: string;
   };
 
-  dynamicFields?: string[];
+  dynamicFields: string[];
 }
 
 @Component({
