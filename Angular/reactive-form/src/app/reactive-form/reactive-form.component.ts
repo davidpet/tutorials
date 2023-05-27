@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,24 +8,30 @@ import { Observable } from 'rxjs';
   styleUrls: ['./reactive-form.component.scss'],
 })
 export class ReactiveFormComponent implements OnInit {
-  textChanges$!: Observable<string | null>;
+  textGroupChanges$!: Observable<{
+    text1?: string | null;
+    text2?: string | null;
+  }>;
+  text1Changes$!: Observable<string | null>;
 
   // Form is driven from here instead of the template.
   readonly textControl = new FormControl('');
 
+  readonly textGroup = new FormGroup({
+    text1: new FormControl(''),
+    text2: new FormControl(''),
+  });
+
   ngOnInit() {
-    this.textChanges$ = this.textControl.valueChanges;
+    this.textGroupChanges$ = this.textGroup.valueChanges;
+    this.text1Changes$ = this.textGroup.get('text1')!.valueChanges;
   }
 
   setValue() {
-    // Reflected in text box right away because change detection will run
-    // after the click handler returns.
-    // In a template-driven form, you would just set the two-way bound
-    // value here.
-    // It also emits to the observable.
-    // NOTE: setValue() is called both by this code and by the directive
-    // when the user changes the input text manually, triggering
-    // the observable to emit.
-    this.textControl.setValue('42');
+    this.textGroup.setValue({
+      text1: '42',
+      text2: '44', // We'll never physically see this because of below.
+    });
+    this.textGroup.get('text2')?.setValue('46');
   }
 }

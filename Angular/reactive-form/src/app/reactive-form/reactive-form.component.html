@@ -1,12 +1,22 @@
-<label for="text-input">Enter text</label>
-<!-- formControl directive binds the element to the control we created. -->
-<input type="text" id="text-input" [formControl]="textControl">
+<div [formGroup]="textGroup">
+  <label for="text-input-1">Enter text1</label>
+  <input type="text" id="text-input-1" formControlName="text1">
+
+  <label for="text-input-2">Enter text2</label>
+  <input type="text" id="text-input-2" formControlName="text2">
+</div>
 
 <!-- Notice this is in sync without needing 2-way binding setup -->
 <div class="diagnostic">
-  textControl direct value: {{ textControl.value }}
+  text1 direct value: {{ textGroup.get('text1')?.value }}
 </div>
 <div class="diagnostic">
-  textChanges$ observable value: {{ textChanges$ | async }}
+  text1 observable value: {{ text1Changes$ | async }}
+</div>
+<div class="diagnostic">
+  text group direct value: {{ textGroup.value | json }}
+</div>
+<div class="diagnostic">
+  text group observable value: {{ textGroupChanges$ | async | json}}
 </div>
 <button (click)="setValue()">Set Value</button>
