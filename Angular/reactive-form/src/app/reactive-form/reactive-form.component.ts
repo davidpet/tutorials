@@ -43,4 +43,12 @@ export class ReactiveFormComponent implements OnInit {
     });
     this.textGroup.get('text2')?.setValue('46');
   }
+
+  patchValue() {
+    // Values you don't specify are left alone.
+    this.textGroup.patchValue({
+      text2: '200',
+      subform: { text3: '300' },
+    });
+  }
 }
