@@ -1,2 +1,8 @@
 <label for="text-input">Enter text</label>
-<input type="text" id="text-input">
+<!-- formControl directive binds the element to the control we created. -->
+<input type="text" id="text-input" [formControl]="textControl">
+
+<!-- Notice this is in sync without needing 2-way binding setup -->
+<div class="diagnostic">
+  textControl value: {{ textControl.value }}
+</div>
