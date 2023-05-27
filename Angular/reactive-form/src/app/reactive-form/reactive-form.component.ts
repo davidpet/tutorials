@@ -25,21 +25,15 @@ export class ReactiveFormComponent implements OnInit {
   readonly textGroup!: FormGroup;
 
   constructor(private fb: FormBuilder) {
-    this.textGroup = fb.group({
+    this.textGroup = fb.nonNullable.group({
       // The form still emits events and updates template on invalid
       // input, but you can see that the status changes.
-      'text1': fb.control('initial', {
-        nonNullable: true,
-        validators: [Validators.required],
+      'text1': ['initial', Validators.required],
+      'text2': ['', Validators.minLength(3)],
+      'subform': fb.nonNullable.group({
+        'text3': [''],
       }),
-      'text2': fb.control('', {
-        nonNullable: true,
-        validators: [Validators.required, Validators.minLength(3)],
-      }),
-      'subform': fb.group({
-        'text3': fb.control('', { nonNullable: true }),
-      }),
-      'dynamicFields': fb.array([fb.control('', { nonNullable: true })]),
+      'dynamicFields': fb.nonNullable.array([['']]),
     });
   }
 
@@ -48,7 +42,7 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   addAlias() {
-    this.aliases.push(this.fb.control(''));
+    this.aliases.push(this.fb.nonNullable.control(''));
   }
 
   ngOnInit() {
