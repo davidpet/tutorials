@@ -1,4 +1,4 @@
-<div [hidden]="submitted">
+<div *ngIf="!submitted">
   <h1>Hero Form</h1>
   <form #heroForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -49,7 +49,7 @@
     </button>
   </form>
 </div>
-<div [hidden]="!submitted">
+<div *ngIf="submitted">
   <h2>You submitted the following:</h2>
   <div class="row">
     <div class="col-xs-3">Name</div>
