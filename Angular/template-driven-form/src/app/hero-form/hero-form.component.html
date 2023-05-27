@@ -1,12 +1,26 @@
 <div class="form-group">
   <label for="name">Name</label>
-  <input type="text" class="form-control" id="name" name="name" required [placeholder]="model.name">
+  <input type="text"
+         class="form-control"
+         id="name"
+         name="name"
+         required
+         [(ngModel)]="model.name"
+         name="name">
   <label for="alter-ego">Alter Ego</label>
-  <input type="text" class="form-control" id="alter-ego" name="alter-ego" [placeholder]="model.alterEgo">
+  <input type="text"
+         class="form-control"
+         id="alter-ego"
+         name="alter-ego"
+         [(ngModel)]="model.alterEgo">
   <label for="power">Hero Power</label>
-  <select class="form-control" id="power" required>
+  <select class="form-control"
+          id="power"
+          required
+          [ngModel]="model.power">
     <option *ngFor="let pow of powers"
-            [value]="pow"
-            [selected]="model.power === pow">{{pow}}</option>
+            [value]="pow">
+      {{pow}}
+    </option>
   </select>
 </div>
