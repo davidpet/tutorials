@@ -28,7 +28,7 @@ export class ReactiveFormComponent implements OnInit {
     this.textGroup = fb.group({
       // The form still emits events and updates template on invalid
       // input, but you can see that the status changes.
-      'text1': fb.control('', {
+      'text1': fb.control('initial', {
         nonNullable: true,
         validators: [Validators.required],
       }),
@@ -80,5 +80,9 @@ export class ReactiveFormComponent implements OnInit {
       'text2': '200',
       'subform': { 'text3': '300' },
     });
+  }
+
+  resetForm() {
+    this.textGroup.reset();
   }
 }
