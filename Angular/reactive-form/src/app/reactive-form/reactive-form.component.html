@@ -8,6 +8,16 @@
     <label for="text-input-3">Enter text3</label>
     <input type="text" id="text-input-3" formControlName="text3">
   </div>
+  <div formArrayName="dynamicFields">
+    <h2>Aliases</h2>
+    <button type="button" (click)="addAlias()">+ Add another alias</button>
+
+    <div *ngFor="let alias of aliases.controls; let i=index">
+      <!-- The repeated alias template -->
+      <label for="alias-{{ i }}">Alias:</label>
+      <input id="alias-{{ i }}" type="text" [formControlName]="i">
+    </div>
+  </div>
 </div>
 
 <!-- Notice this is in sync without needing 2-way binding setup -->
@@ -26,5 +36,6 @@
 <div class="diagnostic">
   form status: {{ textGroup.status }}
 </div>
+
 <button (click)="setValue()">Set Value</button>
 <button (click)="patchValue()">Patch Value</button>

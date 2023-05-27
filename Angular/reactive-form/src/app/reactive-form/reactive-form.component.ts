@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 // Declare to protect it from name-mangling.
@@ -9,6 +9,8 @@ declare interface TextGroup {
   subform?: {
     text3?: string | null;
   };
+
+  dynamicFields?: (string | null)[];
 }
 
 @Component({
@@ -31,7 +33,16 @@ export class ReactiveFormComponent implements OnInit {
       'subform': fb.group({
         'text3': [''],
       }),
+      'dynamicFields': fb.array([fb.control('')]),
     });
+  }
+
+  get aliases(): FormArray {
+    return this.textGroup.get('dynamicFields') as FormArray;
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
   }
 
   ngOnInit() {
@@ -40,12 +51,19 @@ export class ReactiveFormComponent implements OnInit {
   }
 
   setValue() {
+    // setValue can't build a new array
+    // so we need to make it match the shape we want
+    // then we can set the value(s) below
+    this.aliases.clear();
+    this.aliases.push(this.fb.control(''));
+
     this.textGroup.setValue({
       'text1': '42',
       'text2': '44', // We'll never physically see this because of below.
       'subform': {
         'text3': '100',
       },
+      'dynamicFields': [''],
     });
     this.textGroup.get('text2')?.setValue('46');
   }
