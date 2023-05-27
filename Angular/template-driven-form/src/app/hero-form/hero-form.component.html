@@ -40,4 +40,9 @@
           (click)="newHero(); heroForm.reset()">
     New Hero
   </button>
+  <button type="submit"
+          class="btn btn-success"
+          [disabled]="!heroForm.form.valid">
+    Submit
+  </button>
 </form>
