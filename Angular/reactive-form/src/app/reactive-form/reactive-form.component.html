@@ -4,7 +4,9 @@
 
 <!-- Notice this is in sync without needing 2-way binding setup -->
 <div class="diagnostic">
-  textControl value: {{ textControl.value }}
+  textControl direct value: {{ textControl.value }}
 </div>
-
+<div class="diagnostic">
+  textChanges$ observable value: {{ textChanges$ | async }}
+</div>
 <button (click)="setValue()">Set Value</button>
