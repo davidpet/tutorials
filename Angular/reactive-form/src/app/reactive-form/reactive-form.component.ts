@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 // Declare to protect it from name-mangling.
@@ -20,16 +20,17 @@ export class ReactiveFormComponent implements OnInit {
   textGroupChanges$!: Observable<TextGroup>;
   text1Changes$!: Observable<string | null>;
 
-  // Form is driven from here instead of the template.
-  readonly textControl = new FormControl('');
+  readonly textGroup!: FormGroup;
 
-  readonly textGroup = new FormGroup({
-    'text1': new FormControl(''),
-    'text2': new FormControl(''),
-    'subform': new FormGroup({
-      'text3': new FormControl(''),
-    }),
-  });
+  constructor(private fb: FormBuilder) {
+    this.textGroup = fb.group({
+      'text1': [''], // array because can take sync & validator too
+      'text2': [''],
+      'subform': fb.group({
+        'text3': [''],
+      }),
+    });
+  }
 
   ngOnInit() {
     this.textGroupChanges$ = this.textGroup.valueChanges;
