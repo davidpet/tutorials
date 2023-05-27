@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 
 // Declare to protect it from name-mangling.
 declare interface TextGroup {
-  text1?: string | null;
-  text2?: string | null;
+  text1?: string;
+  text2?: string;
   subform?: {
-    text3?: string | null;
+    text3?: string;
   };
 
-  dynamicFields?: (string | null)[];
+  dynamicFields?: string[];
 }
 
 @Component({
@@ -28,12 +28,18 @@ export class ReactiveFormComponent implements OnInit {
     this.textGroup = fb.group({
       // The form still emits events and updates template on invalid
       // input, but you can see that the status changes.
-      'text1': ['', Validators.required],
-      'text2': ['', Validators.minLength(3)],
-      'subform': fb.group({
-        'text3': [''],
+      'text1': fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required],
       }),
-      'dynamicFields': fb.array([fb.control('')]),
+      'text2': fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required, Validators.minLength(3)],
+      }),
+      'subform': fb.group({
+        'text3': fb.control('', { nonNullable: true }),
+      }),
+      'dynamicFields': fb.array([fb.control('', { nonNullable: true })]),
     });
   }
 
@@ -55,7 +61,7 @@ export class ReactiveFormComponent implements OnInit {
     // so we need to make it match the shape we want
     // then we can set the value(s) below
     this.aliases.clear();
-    this.aliases.push(this.fb.control(''));
+    this.aliases.push(this.fb.control('', { nonNullable: true }));
 
     this.textGroup.setValue({
       'text1': '42',
