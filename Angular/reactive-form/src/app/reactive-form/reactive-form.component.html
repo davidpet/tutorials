@@ -1,9 +1,9 @@
 <div [formGroup]="textGroup">
   <label for="text-input-1">Enter text1</label>
-  <input type="text" id="text-input-1" formControlName="text1">
+  <input type="text" id="text-input-1" formControlName="text1" class="required">
 
   <label for="text-input-2">Enter text2</label>
-  <input type="text" id="text-input-2" formControlName="text2">
+  <input type="text" id="text-input-2" formControlName="text2" class="required">
 
   <div *ngIf="text2.invalid && (text2.dirty || text2.touched)"
     class="alert alert-danger">
