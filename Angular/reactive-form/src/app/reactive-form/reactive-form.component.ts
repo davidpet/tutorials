@@ -2,29 +2,32 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 
+// Declare to protect it from name-mangling.
+declare interface TextGroup {
+  text1?: string | null;
+  text2?: string | null;
+  subform?: {
+    text3?: string | null;
+  };
+}
+
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.scss'],
 })
 export class ReactiveFormComponent implements OnInit {
-  textGroupChanges$!: Observable<{
-    text1?: string | null;
-    text2?: string | null;
-    subform?: {
-      text3?: string | null;
-    };
-  }>;
+  textGroupChanges$!: Observable<TextGroup>;
   text1Changes$!: Observable<string | null>;
 
   // Form is driven from here instead of the template.
   readonly textControl = new FormControl('');
 
   readonly textGroup = new FormGroup({
-    text1: new FormControl(''),
-    text2: new FormControl(''),
-    subform: new FormGroup({
-      text3: new FormControl(''),
+    'text1': new FormControl(''),
+    'text2': new FormControl(''),
+    'subform': new FormGroup({
+      'text3': new FormControl(''),
     }),
   });
 
@@ -35,10 +38,10 @@ export class ReactiveFormComponent implements OnInit {
 
   setValue() {
     this.textGroup.setValue({
-      text1: '42',
-      text2: '44', // We'll never physically see this because of below.
-      subform: {
-        text3: '100',
+      'text1': '42',
+      'text2': '44', // We'll never physically see this because of below.
+      'subform': {
+        'text3': '100',
       },
     });
     this.textGroup.get('text2')?.setValue('46');
@@ -47,8 +50,8 @@ export class ReactiveFormComponent implements OnInit {
   patchValue() {
     // Values you don't specify are left alone.
     this.textGroup.patchValue({
-      text2: '200',
-      subform: { text3: '300' },
+      'text2': '200',
+      'subform': { 'text3': '300' },
     });
   }
 }
