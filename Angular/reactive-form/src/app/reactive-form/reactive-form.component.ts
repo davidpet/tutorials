@@ -11,6 +11,9 @@ export class ReactiveFormComponent implements OnInit {
   textGroupChanges$!: Observable<{
     text1?: string | null;
     text2?: string | null;
+    subform?: {
+      text3?: string | null;
+    };
   }>;
   text1Changes$!: Observable<string | null>;
 
@@ -20,6 +23,9 @@ export class ReactiveFormComponent implements OnInit {
   readonly textGroup = new FormGroup({
     text1: new FormControl(''),
     text2: new FormControl(''),
+    subform: new FormGroup({
+      text3: new FormControl(''),
+    }),
   });
 
   ngOnInit() {
@@ -31,6 +37,9 @@ export class ReactiveFormComponent implements OnInit {
     this.textGroup.setValue({
       text1: '42',
       text2: '44', // We'll never physically see this because of below.
+      subform: {
+        text3: '100',
+      },
     });
     this.textGroup.get('text2')?.setValue('46');
   }
