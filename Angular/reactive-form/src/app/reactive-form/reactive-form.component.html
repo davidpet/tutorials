@@ -14,6 +14,7 @@
   <div *ngIf="text2.errors?.['minlength']">
     Name must be at least 4 characters long.
   </div>
+  <!-- our custom errors object has this field -->
   <div *ngIf="text2.errors?.['forbiddenName']">
     Name cannot be Bob.
   </div>

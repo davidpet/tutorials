@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { forbiddenNameValidator } from '../forbidden-name-validator';
 
 // Declare to protect it from name-mangling.
 declare interface TextGroup {
@@ -29,7 +30,14 @@ export class ReactiveFormComponent implements OnInit {
       // The form still emits events and updates template on invalid
       // input, but you can see that the status changes.
       'text1': ['initial', Validators.required],
-      'text2': ['', [Validators.required, Validators.minLength(3)]],
+      'text2': [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          forbiddenNameValidator(/bob/i),
+        ],
+      ],
       'subform': fb.nonNullable.group({
         'text3': [''],
       }),
