@@ -5,10 +5,11 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { ForbiddenValidatorDirective } from './forbidden-name.directive';
 
 @NgModule({
   imports: [BrowserModule, CommonModule, FormsModule],
-  declarations: [AppComponent, HeroFormComponent],
+  declarations: [AppComponent, HeroFormComponent, ForbiddenValidatorDirective],
   providers: [],
   bootstrap: [AppComponent],
 })

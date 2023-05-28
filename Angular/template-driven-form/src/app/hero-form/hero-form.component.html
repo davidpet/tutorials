@@ -10,6 +10,7 @@
               name="name"
               required
               minlength="3"
+              appForbiddenName="bob"
               [(ngModel)]="model.name"
               name="name"
               #name="ngModel">
@@ -20,6 +21,9 @@
           </div>
           <div *ngIf="name.errors?.['minlength']">
             Name must be at least 3 characters long.
+          </div>
+          <div *ngIf="name.errors?.['forbiddenName']">
+            Name must not be Bob.
           </div>
         </div>
       </div>
