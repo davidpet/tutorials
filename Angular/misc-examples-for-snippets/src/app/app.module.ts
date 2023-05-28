@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { TestStateLeakageComponent } from './test-state-leakage/test-state-leakage.component';
+import { ParentComponent } from './inputs-outputs/parent/parent.component';
+import { ChildComponent } from './inputs-outputs/child/child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestStateLeakageComponent
+    TestStateLeakageComponent,
+    ParentComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule

@@ -1,0 +1,5 @@
+<!-- $event contains the value emitted by the output stream. -->
+<!-- Sometimes you only care that an event happened and don't reference $event at all. -->
+<app-child [inValue]="42" (outValue)="captureValue($event)"></app-child>
+
+Captured Value: {{ value }}
