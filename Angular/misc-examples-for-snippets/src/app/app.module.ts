@@ -7,6 +7,8 @@ import { ParentComponent } from './inputs-outputs/parent/parent.component';
 import { ChildComponent } from './inputs-outputs/child/child.component';
 import { DefaultChangeDetectionComponent } from './change-detection/default-change-detection/default-change-detection.component';
 import { ChangeDetectionHostComponent } from './change-detection/change-detection-host/change-detection-host.component';
+import { ViewChildComponent } from './view-child/view-child.component';
+import { ChildComponentComponent } from './view-child/child-component/child-component.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ChangeDetectionHostComponent } from './change-detection/change-detectio
     ParentComponent,
     ChildComponent,
     DefaultChangeDetectionComponent,
-    ChangeDetectionHostComponent
+    ChangeDetectionHostComponent,
+    ViewChildComponent,
+    ChildComponentComponent
   ],
   imports: [
     BrowserModule

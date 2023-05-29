@@ -1,0 +1,14 @@
+<app-child-component [x]="42" *ngIf="!removedFirst"></app-child-component>
+<app-child-component [x]="142"></app-child-component>
+<app-child-component [x]="11111"></app-child-component>
+
+<div>
+  <button #mybutton>Useless Button</button>
+</div>
+
+<button (click)="disable()">Disable</button>
+<button (click)="showX()">Show X</button>
+
+<button (click)="removeFirst()"> Remove First child</button>
+
+<div>X from ViewChild: {{ shownX }}</div>
