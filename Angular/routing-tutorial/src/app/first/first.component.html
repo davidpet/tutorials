@@ -1,1 +1,15 @@
-<p>first works!</p>
+<h2>First Component</h2>
+
+<nav>
+  <ul>
+    <!-- This page only knows the relative path and its own primary outlet. -->
+    <!-- Only the routermodule needs to know these are children. -->
+    <!-- The url includes the nesting. -->
+    <!-- eg. http://localhost:4200/first-component/child-b -->
+    <li><a routerLink="child-a">Child A</a></li>
+    <li><a routerLink="child-b">Child B</a></li>
+  </ul>
+</nav>
+
+<!-- This is not populated until one of the links above are clicked (suburl not blank). -->
+<router-outlet></router-outlet>
