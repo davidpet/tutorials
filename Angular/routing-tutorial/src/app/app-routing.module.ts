@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
 import { Title } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
 export class TemplatePageTitleStrategy extends TitleStrategy {
@@ -34,7 +35,8 @@ const routes: Routes = [
   // Order is more specific to less specific because first
   // match wins.
   {
-    path: 'first-component',
+    // Expect an ID param in the URL.
+    path: 'first-component/:id',
     component: FirstComponent,
     // Overwrites the browser title that was statically specified in index.html.
     title: 'First Component',
@@ -58,6 +60,16 @@ const routes: Routes = [
       },
     ],
   },
+  // Accept no ID param given and default it to 0.
+  // This won't work if you try to ommit the ID from a child path
+  // (eg. first-component/child-a).  If you needed to make that
+  // work, you could make more redirects, wildcards, etc.
+  {
+    path: 'first-component',
+    redirectTo: '/first-component/0',
+    pathMatch: 'full',
+  },
+
   {
     path: 'second-component',
     component: SecondComponent,
@@ -81,7 +93,7 @@ const routes: Routes = [
     ChildAComponent,
     ChildBComponent,
   ],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), CommonModule],
   exports: [RouterModule],
   providers: [{ provide: TitleStrategy, useClass: TemplatePageTitleStrategy }],
 })

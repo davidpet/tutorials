@@ -1,14 +1,13 @@
 <h1>Angular Router App</h1>
 <nav>
   <ul>
-    <!-- routerLink can be on button or anchor (and probably other things) -->
-    <!-- routerLinkAcive adds CSS class when a link is active so you can style it -->
-    <!-- ariaCurrentWhenActive is for screen readers and has certain values -->
-    <li><a routerLink="../first-component"
-           routerLinkActive="active"
-           ariaCurrentWhenActive="page">
+    <!-- Using routerLink for this kind of dynamic link has strange behavior. -->
+    <!-- Instead you can use the Router service to navigate on the TS side. -->
+    <!-- The style doesn't look quite right anymore - you'd have to manually fix it. -->
+    <li><a class="link" (click)="navigateToFirst(id.value)" [class.active]="isActive()"
+                                                            [attr.aria-current]="isCurrent()">
       First Component
-    </a></li>
+    </a><input type="text" #id></li>
     <!-- Links can be absolute from the root with /. -->
     <!-- But they can also be relative with ../ or ./ -->
     <li><a routerLink="../second-component"
