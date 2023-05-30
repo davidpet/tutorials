@@ -58,6 +58,13 @@ const routes: Routes = [
         // that returns a string (eg. so you can do an async call).
         title: resolvedChildATitle,
       },
+      {
+        // Can do things like defaults and wildcards in the children too.
+        // In this case, child-a is now the default for first-component.
+        path: '',
+        redirectTo: 'child-a',
+        pathMatch: 'full',
+      },
     ],
   },
   // Accept no ID param given and default it to 0.

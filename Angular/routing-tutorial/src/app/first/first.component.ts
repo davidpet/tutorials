@@ -25,6 +25,9 @@ export class FirstComponent implements OnInit {
       // emit.
       // If you change the url id and hit Enter instead, the
       // component will reload.
+      // If you use router.navigate() and only the id and/or child
+      // route are different, it will emit but not reload because
+      // the primary outlet is not changed.
       this.id$ = this.route.paramMap.pipe(
         map((paramMap) => paramMap.get('id') ?? '')
       );
