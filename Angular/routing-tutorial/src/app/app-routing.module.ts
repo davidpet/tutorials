@@ -67,7 +67,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/first-component', pathMatch: 'full' },
 
   // Any path that gets to this point is a 404.
-  { path: '**', component: PageNotFoundComponent },
+  // If you don't set this title, it will stay at the last title
+  // set (not the default one in index.html).
+  { path: '**', component: PageNotFoundComponent, title: '404 Page Not Found' },
 ];
 
 @NgModule({
