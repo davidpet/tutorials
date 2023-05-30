@@ -7,7 +7,8 @@
     <!-- Only the routermodule needs to know these are children. -->
     <!-- The url includes the nesting. -->
     <!-- eg. http://localhost:4200/first-component/child-b -->
-    <li><a routerLink="child-a" routerLinkActive="active">Child A</a></li>
+    <li><a (click)="navigateToA()" [class.active]="isActive()"
+           [attr.aria-current]="isCurrent()">Child A</a></li>
     <li><a routerLink="child-b" routerLinkActive="active">Child B</a></li>
   </ul>
 </nav>
