@@ -34,9 +34,9 @@ export class AppComponent {
     // In this case, it simulates configuring animation names at the module
     // level and then applying the animations in the root component.
     const data = this.contexts.getContext('primary')?.route?.snapshot?.data as {
-      animationName: string;
+      animationName?: string;
     };
 
-    return data.animationName || '';
+    return data?.animationName || '';
   }
 }
