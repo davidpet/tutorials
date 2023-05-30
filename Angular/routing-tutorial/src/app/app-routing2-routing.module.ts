@@ -9,6 +9,16 @@ const routes: Routes = [
     path: '',
     component: SecondComponent,
     title: 'Second Component',
+    // Data is statically passed to the component via the
+    // routing system (not the url). One example of how
+    // to use this is to configure animation names at the
+    // module level like this.
+    data: {
+      x: 100,
+      y: 200,
+      z: 300,
+      animationName: 'second',
+    },
   },
 ];
 
