@@ -9,6 +9,9 @@ import { DefaultChangeDetectionComponent } from './change-detection/default-chan
 import { ChangeDetectionHostComponent } from './change-detection/change-detection-host/change-detection-host.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ChildComponentComponent } from './view-child/child-component/child-component.component';
+import { ProjectionParentComponent } from './content-projection/projection-parent/projection-parent.component';
+import { ProjectionSingleComponent } from './content-projection/projection-single/projection-single.component';
+import { ProjectionMultiComponent } from './content-projection/projection-multi/projection-multi.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { ChildComponentComponent } from './view-child/child-component/child-comp
     DefaultChangeDetectionComponent,
     ChangeDetectionHostComponent,
     ViewChildComponent,
-    ChildComponentComponent
+    ChildComponentComponent,
+    ProjectionParentComponent,
+    ProjectionSingleComponent,
+    ProjectionMultiComponent
   ],
   imports: [
     BrowserModule

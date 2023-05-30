@@ -1,0 +1,9 @@
+<div>Projected content coming next</div>
+<!-- You can narrow down what gets included via CSS selectors. -->
+<!-- ng-content will get replaced by 0 or more instances of the selected elements (no wrap). -->
+<ng-content select="button"></ng-content>
+<!-- You can selectively interleave with other stuff this way. -->
+<div>In between buttons and divs</div>
+<!-- You can project multiple times with different selectors. -->
+<ng-content select="div.project-me"></ng-content>
+<div>Projected content just happened</div>

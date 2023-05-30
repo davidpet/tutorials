@@ -1,0 +1,16 @@
+<H1>Single-slot Projection</H1>
+<app-projection-single>
+  <!-- This content won't be here unless you use ng-content in app-projection-single. -->
+  <!-- The click handler will run on this component, not the component projecting it. -->
+  <button (click)="clickHandler()">Click Here</button>
+  <div>Hi, this is some projected content.</div>
+  <!-- the result has the 2 elements from here and the two elements from there as 4
+       equal siblings. -->
+</app-projection-single>
+<hr>
+
+<H1>Multi-slot Projection</H1>
+<app-projection-multi>
+  <button (click)="clickHandler()">Click Here</button>
+  <div class="project-me">Hi, this is some projected content.</div>
+</app-projection-multi>
