@@ -4,17 +4,19 @@
     <!-- routerLink can be on button or anchor (and probably other things) -->
     <!-- routerLinkAcive adds CSS class when a link is active so you can style it -->
     <!-- ariaCurrentWhenActive is for screen readers and has certain values -->
-    <li><a routerLink="/first-component"
+    <li><a routerLink="../first-component"
            routerLinkActive="active"
            ariaCurrentWhenActive="page">
       First Component
     </a></li>
-    <li><a routerLink="/second-component"
+    <!-- Links can be absolute from the root with /. -->
+    <!-- But they can also be relative with ../ or ./ -->
+    <li><a routerLink="../second-component"
            routerLinkActive="active"
            ariaCurrentWhenActive="page">
       Second Component
     </a></li>
-    <li><a routerLink="/third-component"
+    <li><a routerLink="../third-component"
            routerLinkActive="active"
            ariaCurrentWhenActive="page">
       Non-existent Component
