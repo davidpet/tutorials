@@ -4,7 +4,7 @@
     <!-- Using routerLink for this kind of dynamic link has strange behavior. -->
     <!-- Instead you can use the Router service to navigate on the TS side. -->
     <!-- The style doesn't look quite right anymore - you'd have to manually fix it. -->
-    <li><a class="link" (click)="navigateToFirst(id.value)" [class.active]="isActive()"
+    <li><a (click)="navigateToFirst(id.value)" [class.active]="isActive()"
                                                             [attr.aria-current]="isCurrent()">
       First Component
     </a><input type="text" #id></li>

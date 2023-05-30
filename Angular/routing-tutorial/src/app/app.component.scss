@@ -1,17 +1,3 @@
 input {
   margin-left: 8px;
 }
-
-a.link {
-  color: blue;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-a.link:hover {
-  text-decoration: none;
-}
-
-a.link.active {
-  font-weight: bold;
-}
