@@ -24,6 +24,9 @@
                                            [attr.aria-current]="secondaryIsCurrent()">
       Secondary Route
     </a></li>
+    <li><a (click)="clearSecondary()">
+      Clear Secondary
+    </a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>

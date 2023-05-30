@@ -84,10 +84,11 @@ const routes: Routes = [
   // set (not the default one in index.html).
   { path: '**', component: PageNotFoundComponent, title: '404 Page Not Found' },
 
+  // This is independent of all the routes above.
   {
     path: 'secondary',
     component: SecondaryOutletComponent,
-    title: 'secondary',
+    title: 'secondary', // this doesn't apply
     outlet: 'bobTheOutlet',
   },
 ];

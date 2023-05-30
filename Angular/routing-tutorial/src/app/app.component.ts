@@ -62,4 +62,11 @@ export class AppComponent {
       ? 'page'
       : '';
   }
+
+  clearSecondary() {
+    // Setting component to null resets it to have no component.
+    // Notice it also resets the isActive state and removes
+    // that part of the URL.
+    this.router.navigate([{ outlets: { bobTheOutlet: null } }]);
+  }
 }
