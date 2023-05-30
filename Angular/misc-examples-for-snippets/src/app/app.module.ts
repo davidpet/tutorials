@@ -12,6 +12,9 @@ import { ChildComponentComponent } from './view-child/child-component/child-comp
 import { ProjectionParentComponent } from './content-projection/projection-parent/projection-parent.component';
 import { ProjectionSingleComponent } from './content-projection/projection-single/projection-single.component';
 import { ProjectionMultiComponent } from './content-projection/projection-multi/projection-multi.component';
+import { DirectiveParentComponent } from './directives/directive-parent/directive-parent.component';
+import { AttributeDirectiveDirective } from './directives/attribute-directive.directive';
+import { OtherDirectiveDirective } from './directives/other-directive.directive';
 
 @NgModule({
   declarations: [
@@ -25,12 +28,13 @@ import { ProjectionMultiComponent } from './content-projection/projection-multi/
     ChildComponentComponent,
     ProjectionParentComponent,
     ProjectionSingleComponent,
-    ProjectionMultiComponent
+    ProjectionMultiComponent,
+    DirectiveParentComponent,
+    AttributeDirectiveDirective,
+    OtherDirectiveDirective,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
