@@ -10,6 +10,9 @@ const routes: Routes = [
   { path: 'first-component', component: FirstComponent },
   { path: 'second-component', component: SecondComponent },
 
+  // Default empty path to first component (shows in address bar).
+  { path: '', redirectTo: '/first-component', pathMatch: 'full' },
+
   // Any path that gets to this point is a 404.
   { path: '**', component: PageNotFoundComponent },
 ];
