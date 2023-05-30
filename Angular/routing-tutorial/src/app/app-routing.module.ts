@@ -1,10 +1,30 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Injectable, NgModule } from '@angular/core';
+import {
+  RouterModule,
+  RouterStateSnapshot,
+  Routes,
+  TitleStrategy,
+} from '@angular/router';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
+import { Title } from '@angular/platform-browser';
+
+@Injectable({ providedIn: 'root' })
+export class TemplatePageTitleStrategy extends TitleStrategy {
+  constructor(private readonly title: Title) {
+    super();
+  }
+
+  override updateTitle(routerState: RouterStateSnapshot) {
+    const title = this.buildTitle(routerState);
+    if (title !== undefined) {
+      this.title.setTitle(`My Application | ${title}`);
+    }
+  }
+}
 
 // Promise to return a title asynchronously.
 const resolvedChildATitle = () => Promise.resolve('Child B');
@@ -60,5 +80,6 @@ const routes: Routes = [
   ],
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [{ provide: TitleStrategy, useClass: TemplatePageTitleStrategy }],
 })
 export class AppRoutingModule {}
