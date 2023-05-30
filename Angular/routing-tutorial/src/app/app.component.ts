@@ -39,4 +39,27 @@ export class AppComponent {
 
     return data?.animationName || '';
   }
+
+  navigateToSecondary() {
+    // Route secondary outlet only, leaving the primary one alone.
+    // inner [] is url components
+    // outer {} presumably lets you route multiple outlets together
+    // I have no idea what the outer [] implies in this context as
+    // it is usually the url components.  I couldn't find much info.
+    this.router.navigate([{ outlets: { bobTheOutlet: ['secondary'] } }]);
+  }
+
+  // For isActive, you need to put () around and give the outlet name
+  // like this.
+  secondaryIsActive(): boolean {
+    // replacing the routerLinkActive attribute
+    return this.router.isActive('(bobTheOutlet:secondary)', false);
+  }
+
+  secondaryIsCurrent(): string {
+    // replacing the aria attribute
+    return this.router.isActive('(bobTheOutlet:secondary)', false)
+      ? 'page'
+      : '';
+  }
 }

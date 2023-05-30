@@ -11,6 +11,7 @@ import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
+import { SecondaryOutletComponent } from './secondary-outlet/secondary-outlet.component';
 
 @Injectable({ providedIn: 'root' })
 export class TemplatePageTitleStrategy extends TitleStrategy {
@@ -82,6 +83,13 @@ const routes: Routes = [
   // If you don't set this title, it will stay at the last title
   // set (not the default one in index.html).
   { path: '**', component: PageNotFoundComponent, title: '404 Page Not Found' },
+
+  {
+    path: 'secondary',
+    component: SecondaryOutletComponent,
+    title: 'secondary',
+    outlet: 'bobTheOutlet',
+  },
 ];
 
 @NgModule({
@@ -90,6 +98,7 @@ const routes: Routes = [
     PageNotFoundComponent,
     ChildAComponent,
     ChildBComponent,
+    SecondaryOutletComponent,
   ],
   // The enableTracing option shows in extremely verbose detail what the router
   // is doing, which might be very helpful in debugging routing issues.

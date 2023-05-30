@@ -20,8 +20,20 @@
            ariaCurrentWhenActive="page">
       Non-existent Component
     </a></li>
+    <li><a (click)="navigateToSecondary()" [class.active]="secondaryIsActive()"
+                                           [attr.aria-current]="secondaryIsCurrent()">
+      Secondary Route
+    </a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>
 <!-- In real usage, you might apply an Angular animation by name here. -->
 <p>Animation Name: {{ getAnimationData() }} </p>
+<hr>
+
+<!-- Named outlet for secondary routes. -->
+<!-- The name is case sensitive and cannot have spaces. -->
+<!-- Note that you cannot have multiple outlets for the same name. -->
+<!-- If you have multiple of same name, only last one is used. -->
+<!-- Also note that the above outlet impliictly has a name of 'primary'. -->
+<router-outlet name="bobTheOutlet"></router-outlet>
