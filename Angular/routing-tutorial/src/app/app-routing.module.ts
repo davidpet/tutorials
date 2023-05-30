@@ -11,7 +11,6 @@ import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { AppRouting2RoutingModule } from './app-routing2-routing.module';
 
 @Injectable({ providedIn: 'root' })
 export class TemplatePageTitleStrategy extends TitleStrategy {
@@ -75,16 +74,6 @@ const routes: Routes = [
     path: 'first-component',
     redirectTo: '/first-component/0',
     pathMatch: 'full',
-  },
-
-  // Delegate to another routing module for the given route.
-  // It's important this happens here so that it doesn't
-  // hit the wildcard and trigger 404.
-  {
-    path: 'second-component',
-    // The other routing module will now be interpretted as
-    // having paths relative to second-component.
-    loadChildren: () => AppRouting2RoutingModule,
   },
   // Default empty path to first component (shows in address bar).
   { path: '', redirectTo: '/first-component', pathMatch: 'full' },

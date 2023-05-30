@@ -4,9 +4,9 @@ import { SecondComponent } from './second/second.component';
 
 const routes: Routes = [
   {
-    // Path is relative to whatever path the app routing module
-    // loads this module for.
-    path: '',
+    // Path is absolute because we're not using loadChild
+    // anymore.
+    path: 'second-component',
     component: SecondComponent,
     title: 'Second Component',
     // Data is statically passed to the component via the
