@@ -18,6 +18,7 @@ export class TemplatePageTitleStrategy extends TitleStrategy {
     super();
   }
 
+  // Prepend app prefx to titles set by routing.
   override updateTitle(routerState: RouterStateSnapshot) {
     const title = this.buildTitle(routerState);
     if (title !== undefined) {
