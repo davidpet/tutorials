@@ -6,6 +6,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ChildAComponent } from './child-a/child-a.component';
 import { ChildBComponent } from './child-b/child-b.component';
 
+// Promise to return a title asynchronously.
+const resolvedChildATitle = () => Promise.resolve('Child B');
+
 const routes: Routes = [
   // Order is more specific to less specific because first
   // match wins.
@@ -28,7 +31,9 @@ const routes: Routes = [
       {
         path: 'child-b',
         component: ChildBComponent,
-        title: 'Child B',
+        // This is just to demonstrate that the title can be a string or a promise
+        // that returns a string (eg. so you can do an async call).
+        title: resolvedChildATitle,
       },
     ],
   },
