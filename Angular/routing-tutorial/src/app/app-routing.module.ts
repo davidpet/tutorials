@@ -100,7 +100,12 @@ const routes: Routes = [
     ChildAComponent,
     ChildBComponent,
   ],
-  imports: [RouterModule.forRoot(routes), CommonModule],
+  // The enableTracing option shows in extremely verbose detail what the router
+  // is doing, which might be very helpful in debugging routing issues.
+  imports: [
+    RouterModule.forRoot(routes /*{enableTracing: true}*/),
+    CommonModule,
+  ],
   exports: [RouterModule],
   providers: [{ provide: TitleStrategy, useClass: TemplatePageTitleStrategy }],
 })
