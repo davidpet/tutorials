@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ChildrenOutletContexts, Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ export class AppComponent {
   title = 'routing-tutorial';
 
   constructor(
+    public authService: AuthService,
     private router: Router,
     private contexts: ChildrenOutletContexts
   ) {}

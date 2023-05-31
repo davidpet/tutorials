@@ -7,7 +7,9 @@
     <li><a (click)="navigateToFirst(id.value)" [class.active]="isActive()"
                                                             [attr.aria-current]="isCurrent()">
       First Component
-    </a><input type="text" #id></li>
+    </a><input type="text" #id>
+    <input type="checkbox" [(ngModel)]="authService.authorized" id="auth">
+    <label for="auth">Authorized</label></li>
     <!-- Links can be absolute from the root with /. -->
     <!-- But they can also be relative with ../ or ./ -->
     <li><a routerLink="../second-component"

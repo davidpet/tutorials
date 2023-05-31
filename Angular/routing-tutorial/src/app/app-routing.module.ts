@@ -12,6 +12,7 @@ import { ChildBComponent } from './child-b/child-b.component';
 import { Title } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { SecondaryOutletComponent } from './secondary-outlet/secondary-outlet.component';
+import { authGuardAsync } from './auth.guard';
 
 @Injectable({ providedIn: 'root' })
 export class TemplatePageTitleStrategy extends TitleStrategy {
@@ -40,6 +41,11 @@ const routes: Routes = [
     component: FirstComponent,
     // Overwrites the browser title that was statically specified in index.html.
     title: 'First Component',
+    // Guard activation of the route and children.
+    canActivate: [authGuardAsync],
+    // Another useful one is canDeactivate, which lets you save unsaved changes
+    // with a dialog or whatever.
+
     // Within FirstComponent, you can have another unnamed
     // outlet and router links that pretend it's the root.
     children: [
