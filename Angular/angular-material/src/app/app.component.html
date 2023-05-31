@@ -1,6 +1,8 @@
-<app-my-nav></app-my-nav>
-<mat-slide-toggle>Toggle this!</mat-slide-toggle>
-<!-- mat-button is an attribute instead of a component -->
-<button mat-button>Click</button>
+<app-my-nav>
+  <mat-slide-toggle [(ngModel)]="showAddressForm">Show Address Form</mat-slide-toggle>
+  <!-- mat-button is an attribute instead of a component -->
+  <button mat-button>Click</button>
 
-<app-my-address-form></app-my-address-form>
+  <app-my-address-form *ngIf="showAddressForm"></app-my-address-form>
+  <app-my-dashboard *ngIf="!showAddressForm"></app-my-dashboard>
+</app-my-nav>

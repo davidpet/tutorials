@@ -10,18 +10,27 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyNavComponent } from './my-nav/my-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
-  declarations: [AppComponent, MyAddressFormComponent, MyNavComponent],
+  declarations: [
+    AppComponent,
+    MyAddressFormComponent,
+    MyNavComponent,
+    MyDashboardComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MatButtonModule,
     MatSlideToggleModule,
     MatInputModule,
@@ -33,6 +42,8 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
