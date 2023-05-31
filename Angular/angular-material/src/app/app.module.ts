@@ -23,6 +23,8 @@ import { MyTableComponent } from './my-table/my-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MyTreeComponent } from './my-tree/my-tree.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { MatSortModule } from '@angular/material/sort';
     MyNavComponent,
     MyDashboardComponent,
     MyTableComponent,
+    MyTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
