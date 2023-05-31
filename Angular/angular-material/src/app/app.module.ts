@@ -25,6 +25,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MyTreeComponent } from './my-tree/my-tree.component';
 import { MatTreeModule } from '@angular/material/tree';
+import { MyDragDropComponent } from './my-drag-drop/my-drag-drop.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MyDashboardComponent,
     MyTableComponent,
     MyTreeComponent,
+    MyDragDropComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { MatTreeModule } from '@angular/material/tree';
     MatPaginatorModule,
     MatSortModule,
     MatTreeModule,
+    DragDropModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
