@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   showAddressForm = true;
+  showTable = false;
 
   title = 'angular-material';
+
+  toggleTable() {
+    this.showTable = !this.showTable;
+  }
 }
