@@ -1,0 +1,11 @@
+# This file will get used for the whole workspace.
+
+# These lines will be merged to provide options that will be
+# prepended to all 'bazel build' commands.
+
+# Version for compiling
+build --java_language_version=17 # so far this only allows up to 18
+# Version for running/testing
+# Default is supposed to be locally installed JDK, but for me it
+# is not.
+build --java_runtime_version=17 # so far this only allows up to 18
