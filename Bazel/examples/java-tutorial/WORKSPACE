@@ -1,0 +1,52 @@
+# @bazel_tools is a built-in rule repo
+# //tools/build_defs/repo is a path within that repo
+# http.bzl is the bzl file we want to import from
+# http_archive is a rule we are importing
+# http-archive rule lets you specify a dependency on something that
+# can be fetched via HTTP.
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# These have to be hardcoded and can be found on the Releases page of the rules_jvm_external
+# github repo.
+RULES_JVM_EXTERNAL_TAG = "5.2"
+RULES_JVM_EXTERNAL_SHA ="f86fd42a809e1871ca0aabe89db0d440451219c3ce46c58da240c7dcdc00125f"
+
+# Fetch (and unzip) archive of Maven-related rules.
+# Strip leading folder name from paths for more convenient target names.
+# SHA256 to prevent remote changes.
+http_archive(
+    name = "rules_jvm_external",
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    url = "https://github.com/bazelbuild/rules_jvm_external/releases/download/%s/rules_jvm_external-%s.tar.gz" % (RULES_JVM_EXTERNAL_TAG, RULES_JVM_EXTERNAL_TAG)
+)
+
+# These 2 rules must be loaded and instantiated for the rest to work.
+# They are loaded from the unziped and stripped version of the http
+# package above.
+load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
+
+rules_jvm_external_deps()
+
+load("@rules_jvm_external//:setup.bzl", "rules_jvm_external_setup")
+
+rules_jvm_external_setup()
+
+# Load the main maven dependency rule.
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+
+# Download maven packages locally for inclusion in projects.
+maven_install(
+    # List maven packages here.
+    artifacts = [
+        # Get this version from the Releases tab of the GitHub repo for Guava.
+        "com.google.guava:guava:32.0.1-jre",
+        # You can add more packages from the same repo here as needed.
+    ],
+    # List repos for maven packages here.
+    repositories = [
+        # This is the main Maven Central Repository.
+        "https://repo1.maven.org/maven2",
+        # You can add more repos here as needed.
+    ],
+)
