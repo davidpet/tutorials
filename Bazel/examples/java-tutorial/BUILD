@@ -22,3 +22,21 @@ java_library(
         "@maven//:com_google_guava_guava",
     ],
 )
+
+# You could run this target directly with 'bazel test //:GreetingTest'.
+java_test(
+    name = "GreetingTest",
+    srcs = ["src/main/java/com/example/GreetingTest.java"],
+    deps = [
+        ":greeter",
+    ],
+)
+
+# This will aggregate (via the tests array) all the tests.
+# You can run it with 'bazel test //:AllTests'.
+test_suite(
+    name = "AllTests",
+    tests = [
+        ":GreetingTest",
+    ],
+)
