@@ -9,3 +9,6 @@ build --java_language_version=17 # so far this only allows up to 18
 # Default is supposed to be locally installed JDK, but for me it
 # is not.
 build --java_runtime_version=17 # so far this only allows up to 18
+
+# By default, no failure information is shown.  That sucks.
+test --test_output=streamed

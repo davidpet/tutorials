@@ -3,18 +3,23 @@ package com.example;
 // This is available because of the BUILD dep we set up.
 // It is part of GUAVA.
 import com.google.common.collect.ImmutableList;
+import java.util.Optional;
 
 public class Greeting {
-    public static void sayHi() {
-        // This line won't compile in Java 8 but will compile in Java 11.
-        var x = 5;
+    public static class Printer {
+        void print(String message) {
+            System.out.println(message);
+        }
+    }
+
+    public static void sayHi(Optional<Printer> printer) {
+        Printer printerInstance = printer.orElse(new Greeting.Printer());
 
         ImmutableList<String> list = ImmutableList.<String>builder()
             .add("Hello")
             .add("World")
             .build();
 
-        System.out.println(list);
-        System.out.println(x);
+        printerInstance.print(list.toString());
     }
 }

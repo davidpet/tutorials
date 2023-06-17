@@ -29,6 +29,7 @@ java_test(
     srcs = ["src/main/java/com/example/GreetingTest.java"],
     deps = [
         ":greeter",
+        "@maven//:org_mockito_mockito_core",
     ],
 )
 
