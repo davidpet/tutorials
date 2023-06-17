@@ -17,18 +17,17 @@ import org.mockito.MockitoAnnotations;
 // from Angular world, I find this way nicer to deal with.
 
 public class GreetingTest {
-    @Mock
-    Greeting.Printer printer;
+  @Mock Greeting.Printer printer;
 
-    @Before
-    public void setup() {
-        MockitoAnnotations.openMocks(this);
-    }
+  @Before
+  public void setup() {
+    MockitoAnnotations.openMocks(this);
+  }
 
-    @Test
-    public void testSomething() {
-        Greeting.sayHi(Optional.of(printer));
+  @Test
+  public void testSomething() {
+    Greeting.sayHi(Optional.of(printer));
 
-        verify(printer, times(1)).print("[Hello, World]");
-    }
+    verify(printer, times(1)).print("[Hello, World]");
+  }
 }
