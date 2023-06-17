@@ -2,14 +2,15 @@ package com.example;
 
 // Bazel makes these automatically available without any
 // specified dependencies.
-import org.junit.Test;
-import org.junit.Before;
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import java.util.Optional;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 // Technically, the idiomatic Java way is to put the tests
 // in their own folder with parallel structure, but coming
