@@ -42,3 +42,11 @@ test_suite(
         ":GreetingTest",
     ],
 )
+
+# Buildifier setup.
+load("@com_github_bazelbuild_buildtools//buildifier:def.bzl", "buildifier")
+
+# Now you can bazel run //:buildifier
+buildifier(
+    name = "buildifier",
+)
