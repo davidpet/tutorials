@@ -20,6 +20,7 @@ java_library(
         # with _ in the maven coordaintes
         # com.google.guava:guava
         "@maven//:com_google_guava_guava",
+        "@maven//:com_google_errorprone_error_prone_annotations",
     ],
 )
 
