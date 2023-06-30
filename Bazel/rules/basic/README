@@ -1,6 +1,7 @@
 # bazel-bin
 
 I purposely left bazel-bin in git because the structure demonstrates the concepts in the comments of the targets.
+However, at the time I didn't realize it was a symbolic link and thus doesn't show anything useful.
 
 # TODO
 
