@@ -251,17 +251,13 @@ genrule(
     cmd = "echo $(OUTS) >$(location multiple_outputs_1.txt) && echo done >$(location multiple_outputs_2.txt)"
 )
 
-# To index the output files, you can use this trick/hack/technique.
-# For some reason, assigning $(OUTS) or indexing it directly
-# doesn't work - probably because it's substituted before bash gets to it.
-# But if you use $$(echo $(OUTS)) to print it and get the string value,
-# then you can use bash () operator to turn it into an array, and
-# then you can index that with Bash array syntax.
+# $(OUTS) is a string, so to index it in Bash, you need to make it an array with ().
+# Then you can use the bash ${array[i]} syntax (with $$ to escape).
 genrule(
     name = "multiple_outputs_indexed",
     outs = ["multiple_outputs_indexed_1.txt", "multiple_outputs_indexed_2.txt",],
     cmd = """
-        export outsval=($$(echo $(OUTS)))
+        export outsval=($(OUTS))
         echo $${outsval[0]} >$(location multiple_outputs_indexed_1.txt)
         echo $${outsval[1]} >$(location multiple_outputs_indexed_2.txt)
         echo 
