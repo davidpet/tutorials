@@ -5,6 +5,7 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
+-       multiple outputs getting saved into bazel-bin - how? (since outs fails on more than 1 and outs go into sandbox I think?)
 -       runfiles/data/deps
 -       glob in-depth
 -       proto_library (dependencies, protoc, cwd)
