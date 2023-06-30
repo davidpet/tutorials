@@ -4,7 +4,6 @@ I purposely left bazel-bin in git because the structure demonstrates the concept
 
 # TODO
 
--       genrule depend on other genrule
 -       runfiles/data/deps
 -       glob in-depth
 -       proto_library (dependencies, protoc, cwd)

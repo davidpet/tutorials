@@ -211,3 +211,31 @@ genrule(
 # Other options you can use:
 # executable = to make the output executable (eg. script generation) [boolean]
 # local = to run locally instead of in sandbox [boolean]
+
+# This rule will serve as a dependency of another genrule below.
+# It will copy tool.sh and somefile.txt into its sandbox,
+# then run the command, then copy its output to bazel-bin, and
+# destroy the sandbox.
+genrule(
+    name = "base",
+    outs = ["base_out.txt"],
+    tools = ["tool.sh"],
+    srcs = ["somefile.txt"],
+    cmd = "$(location tool.sh) > $@",
+)
+
+# This rule depends on the one above.
+# Only the output file from above (not the srcs or tools) is used.
+# But this is an interesting case because the src file is not
+# directly in the sandbox under the workspace-like path like usual.
+# It is in a bazel-out subpath of the sandbox, with $(SRCS) giving
+# the right relative path (which looks different than usual).
+# If the output of the "base" rule depended on its tool or srcs at
+# runtime (eg. if it was a generated script), that wouldn't work
+# here without defining those dependencies in the derived rule.
+genrule(
+    name = "derived",
+    outs = ["derived_out.txt"],
+    srcs = [":base"],
+    cmd = "echo $(SRCS) > $@ && cat $(SRCS) >> $@ && ls -R -1 >> $@"
+)
