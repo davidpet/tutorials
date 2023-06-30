@@ -32,3 +32,5 @@
 #    to bazel-bin to be run or used in another build's sandbox.
 #    The structure mostly mirrors the workspace, but sometimes there are exceptions.
 #    The $(location) function helps abstract that away.
+#    Outputs are in bazel-out (within sandbox) during execution and then get copied to bazel-bin due to
+#    target config.

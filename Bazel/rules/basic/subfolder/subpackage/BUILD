@@ -58,8 +58,6 @@ genrule(
     # 3 source files total
     srcs = [":text_files_specific", "somefile.txt"],
     # This is required - you can't just print to the console.
-    # You're only supposed to put 1 file here.
-    # If you need multiple outputs, you need to use a macro that puts them directly into cmd.
     outs = ["list_files_out.txt"],
     # The $@ is special notation that is replaced by the path to the outfile you listed.
     # The $(SRCS) is bazel (not bash) function call to get all src files (specific) relative to workspace.
@@ -208,10 +206,6 @@ genrule(
     cmd = "$(location tool.sh) > $@",
 )
 
-# Other options you can use:
-# executable = to make the output executable (eg. script generation) [boolean]
-# local = to run locally instead of in sandbox [boolean]
-
 # This rule will serve as a dependency of another genrule below.
 # It will copy tool.sh and somefile.txt into its sandbox,
 # then run the command, then copy its output to bazel-bin, and
@@ -239,3 +233,48 @@ genrule(
     srcs = [":base"],
     cmd = "echo $(SRCS) > $@ && cat $(SRCS) >> $@ && ls -R -1 >> $@"
 )
+
+# This is how you handle multiple outputs.
+# You are not allowed to use the variable $@ when there is more than 1 output.
+# $(OUTS) is a list of all the output files, so if you had a script that takes
+# multiple paths, you could pass that there.
+# The $(location) function can automatically figure out you want outputs by
+# name of file as shown here, and that can be used to send different output to
+# different files.
+# Bazel doesn't care how the files are made - just that they exist after building.
+# In this example, we had to hardcode by name - that is unfortunately always
+# true, but you can write a macro to hide that for a specific pattern (eg. 
+# if you need to call a command with specific args that are output paths).
+genrule(
+    name = "multiple_outputs",
+    outs = ["multiple_outputs_1.txt", "multiple_outputs_2.txt",],
+    cmd = "echo $(OUTS) >$(location multiple_outputs_1.txt) && echo done >$(location multiple_outputs_2.txt)"
+)
+
+# To index the output files, you can use this trick/hack/technique.
+# For some reason, assigning $(OUTS) or indexing it directly
+# doesn't work - probably because it's substituted before bash gets to it.
+# But if you use $$(echo $(OUTS)) to print it and get the string value,
+# then you can use bash () operator to turn it into an array, and
+# then you can index that with Bash array syntax.
+genrule(
+    name = "multiple_outputs_indexed",
+    outs = ["multiple_outputs_indexed_1.txt", "multiple_outputs_indexed_2.txt",],
+    cmd = """
+        export outsval=($$(echo $(OUTS)))
+        echo $${outsval[0]} >$(location multiple_outputs_indexed_1.txt)
+        echo $${outsval[1]} >$(location multiple_outputs_indexed_2.txt)
+        echo 
+    """
+)
+
+# Other options you can use:
+# executable = to make the output executable (eg. script generation) [boolean]
+# local = to run locally instead of in sandbox [boolean]
+
+# Bazel functions/keywords/escapes to remember (within genrules):
+# $(location)
+# $(SRCS)
+# $@
+# $(OUTS)
+# $$
