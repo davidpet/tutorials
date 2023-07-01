@@ -14,7 +14,6 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       https://bazel.build/extending/rules
 -       what repos archives, and calls in WORKSPACE actually do underneath
 -       proto_library (dependencies, protoc, cwd, imports, grpcio-tools)
 -       test and document usage of output file with $(location) for genrule with single output

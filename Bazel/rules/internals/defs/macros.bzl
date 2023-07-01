@@ -29,6 +29,7 @@ def probe_sandbox_for_file(name, srcs = [], visibility = None):
     base_out_name = name + "_out.txt"
     intermediate_rule_name = name + "_ls"
     # This shows as DEBUG line in console and should be removed in production (by you).
+    # It prints at macro expansion (so even if the target is not built).
     print(base_out_name)
     if not srcs:
         # Unconditional build failure that cannot be caught.
