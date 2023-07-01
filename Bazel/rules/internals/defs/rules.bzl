@@ -10,5 +10,6 @@
 
 # https://bazel.build/extending/rules
 # https://bazel.build/rules/rules-tutorial
+# https://bazel.build/extending/concepts - more topics like depsets, aspects, etc.
 
 # TODO: add examples here if ever need to make custom rules (most people won't need to)
