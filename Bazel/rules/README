@@ -15,6 +15,8 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 # TODO
 
 -       what repos archives, and calls in WORKSPACE actually do underneath
+  - https://bazel.build/extending/repo
+  - https://bazel.build/external/overview
 -       proto_library (dependencies, protoc, cwd, imports, grpcio-tools)
 -       test and document usage of output file with $(location) for genrule with single output
-    -   seems to only work with target name and not output file name, and works ok if only 1 output
+  - seems to only work with target name and not output file name, and works ok if only 1 output
