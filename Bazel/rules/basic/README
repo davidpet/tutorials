@@ -12,9 +12,9 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       proto_library (dependencies, protoc, cwd)
--       what repos archives, and calls in WORKSPACE actually do underneath
 -       https://github.com/bazelbuild/bazel-skylib/blob/main/docs/run_binary_doc.md
 -       https://bazel.build/reference/be/shell
 -       https://bazel.build/extending/macros
 -       https://bazel.build/extending/rules
+-       what repos archives, and calls in WORKSPACE actually do underneath
+-       proto_library (dependencies, protoc, cwd, imports, grpcio-tools)
