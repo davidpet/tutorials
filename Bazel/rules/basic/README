@@ -5,7 +5,6 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       runfiles/data/deps
 -       glob in-depth
 -       proto_library (dependencies, protoc, cwd)
 -       what repos archives, and calls in WORKSPACE actually do underneath
