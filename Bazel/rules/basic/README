@@ -12,7 +12,6 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       https://bazel.build/reference/be/shell
 -       https://bazel.build/extending/macros
 -       https://bazel.build/extending/rules
 -       what repos archives, and calls in WORKSPACE actually do underneath
