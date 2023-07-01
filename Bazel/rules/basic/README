@@ -12,7 +12,6 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       https://github.com/bazelbuild/bazel-skylib/blob/main/docs/run_binary_doc.md
 -       https://bazel.build/reference/be/shell
 -       https://bazel.build/extending/macros
 -       https://bazel.build/extending/rules
