@@ -2,7 +2,7 @@
 
 - [WORKSPACE](WORKSPACE) - just there to make this folder into a bazel workspace.
 - [BUILD](BUILD) - comments describe some high-level concepts like `bazel clean` and `bazel-bin`, etc.
-- [subpackage](subpackage) - basics of filegroup and genrule targets
+- [subpackage](subpackage) - basics of filegroup and genrule targets, and globbing
 - [pypackage](pypackage) - basics of libraries, binaries, srcs, data, deps, and runfiles. Python is used as the example, but the concepts are widely applicable.
 
 # bazel-bin
@@ -12,13 +12,9 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       glob in-depth
 -       proto_library (dependencies, protoc, cwd)
 -       what repos archives, and calls in WORKSPACE actually do underneath
 -       https://github.com/bazelbuild/bazel-skylib/blob/main/docs/run_binary_doc.md
--       https://bazel.build/reference/be/common-definitions#common.data
--       https://bazel.build/reference/be/functions#glob
--       https://bazel.build/concepts/dependencies#data-dependencies
 -       https://bazel.build/reference/be/shell
 -       https://bazel.build/extending/macros
 -       https://bazel.build/extending/rules

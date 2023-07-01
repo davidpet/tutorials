@@ -70,6 +70,7 @@ genrule(
 # for the purpose of building.  When a target is used by another build or a run, only the output is used, so the
 # sandbox doesn't (or should be assumed not to) exist anymore.
 # Instead, the dependencies from bazel-bin will get copied into the next sandbox or runfiles as needed.
+# Also note that the working directory looks like the workspace, not the package.
 genrule(
     name = "working_directory",
     outs = ["working_directory_out.txt"],
@@ -262,6 +263,23 @@ genrule(
         echo $${outsval[1]} >$(location multiple_outputs_indexed_2.txt)
         echo 
     """
+)
+
+# This shows the basic mechanics of globbing.
+# Import points to note:
+# - globbing returns a list
+# - you can only glob srcs and data (exist prior to build)
+# - globbing retains the folder structure
+genrule(
+    name = "globbing",
+    # ** is 0 or more folders (recursive) relative to package
+    # you can have multiple ** at any level in glob path
+    srcs = glob(["**/*.txt"], exclude=["somefile.txt"]) + 
+    # the result of globbing is an array, so if you want
+    # non-glob stuff too, you have to append like this
+           ["somefile.txt"],
+    outs = ["globbing_out.txt"],
+    cmd = "ls -R -1 ./subfolder/subpackage > $@",
 )
 
 # Other options you can use:
