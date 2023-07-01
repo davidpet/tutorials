@@ -2,8 +2,9 @@
 
 - [WORKSPACE](WORKSPACE) - just there to make this folder into a bazel workspace.
 - [BUILD](BUILD) - comments describe some high-level concepts like `bazel clean` and `bazel-bin`, etc.
-- [subpackage](subpackage) - basics of filegroup and genrule targets, and globbing
-- [pypackage](pypackage) - basics of libraries, binaries, srcs, data, deps, and runfiles. Python is used as the example, but the concepts are widely applicable.
+- [subpackage](subfolder/subpackage) - basics of filegroup and genrule targets, and globbing
+- [pypackage](subfolder/pypackage) - basics of libraries, binaries, srcs, data, deps, and runfiles. Python is used as the example, but the concepts are widely applicable.
+- [shell](subfolder/shell) - run_binary, sh_binary, sh_library, sh_test
 
 # bazel-bin
 
