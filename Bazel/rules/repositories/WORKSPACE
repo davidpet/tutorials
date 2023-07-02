@@ -1,0 +1,145 @@
+# WORKSPACE rules get run before BUILD rules each time a bazel command is executed
+# But WORKSPACE rules are not normal build rules - they have their own behavior
+# In general, WORKSPACE rules are for non-hermetically preparing the environment
+# (eg. external dependencies)
+
+# BzlMod is supposed to replace WORKSPACE for this purpose in the future, but it is
+# still considered experimental (ie. buggy and/or incomplete).
+
+# The presence of a WORKSPACE file (and BUILD files) makes this folder tree a REPOSITORY
+# From the point of view of commands run inside this repository, this is the
+# MAIN REPOSITORY (what you usually call your workspace).
+
+# CANONICAL NAMES (global names) for repos start with @@ (double @)
+# APPARENT NAMES (local names, to the current workspace) for repos start with @ (single @)
+# Apparent name usually equals canonical name, but it's possible to remap it if you want.
+
+# REPOSITORY RULES (such as http_archive, local_repository, and custom ones you can make)
+# are responsible for getting a repository onto the system and naming it (for single @ usage).
+# The exact location where repositories are stored is mysterious and not supposed to be
+# directly known or managed by you.  It is not, for instance, in your bazel-bin.
+# But since you're not modifying it when you build things, all targets in the workspace
+# can share the same cached copy persistently.
+# If you really want to, you can find the repo storage here:
+# 'ls $(bazel info output_base)/external/canonical_name'
+
+# Bazel will usually only FETCH if the repo hasn't been fetched yet or if the definition
+# has been changed.  According to ChatGPT (which may be hallucinating), different
+# workspaces will have their own copy of external repos, even if they are identical.
+# That would be good news in the case where you have PATCHED a file in the workspace in
+# one but not the other.
+
+# Some built-in functions that you can call in a WORKSPACE file are at:
+# https://bazel.build/rules/lib/globals/workspace
+# Besides setting up repositories, you can also set up toolchains, platforms, etc.
+
+# Also note that a remote repository has its own WORKSPACE and BUILD files, and thus
+# defines its own dependencies - thus fetching 1 repo may fetch many repos via
+# transitive dependencies.  It is best practice to explicitly declare all of your
+# directive dependencies in your WORKSPACE even if you know/think they are available
+# transitively.
+
+# Some of the issues with WORKSPACE and the reasoning behind abandonging it in the
+# future are at: https://bazel.build/external/overview#workspace-shortcomings
+
+# load() command available in WORKSPACE just like it is in BUILD
+# @bazel_tools is a repository that is installed with Bazel and always available.
+# notice the repository goes before // so that you are getting a file relative
+# to that repo root instead of your workspace root.
+# Otherwise, this is just like any other load() of your own bzl as shown in the
+# 'internals' sub-tutorial.
+# Here, we are loading the http_archive rule (built-in via the @bazel_tools repo).
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+
+################# EXAMPLE FLOW: JAVA DEPENDENCIES ############################
+# This is still a Starlark file and thus can have things like variables.
+RULES_JVM_EXTERNAL_TAG = "5.2"
+RULES_JVM_EXTERNAL_SHA = "f86fd42a809e1871ca0aabe89db0d440451219c3ce46c58da240c7dcdc00125f"
+
+# Use the rule we loaded from @bazel_tools to define a fetched repository.
+# The name will become the name we refer to it as with @ in our workspace.
+# The sha256 is to make sure the file that gets fetched is not corrupted.
+#       If you aren't provided it, you can download the .tar.gz file yourself
+#       and run 'shasum -a 256 [file]' to get the value to put here.
+# The url tells it where to download from (will automatically unzip for you).
+#       The hash is of the zip files before extraction.
+# The strip prefix setting is to get more convenient target names instead of
+#       having to preface them with the repo and version, for instance.
+# NOTE: Once you get past this rule, the repo @rules_jvm_external becomes
+# available for the reset of this WORKSPACE file and also in any BUILD files
+# in the workspace.
+http_archive(
+    name = "rules_jvm_external",
+    sha256 = RULES_JVM_EXTERNAL_SHA,
+    strip_prefix = "rules_jvm_external-%s" % RULES_JVM_EXTERNAL_TAG,
+    # NOTE: if you have this path from somewhere already, you can use the first part of it to find the
+    #       GitHub repo for the ruleset.
+    url = "https://github.com/bazelbuild/rules_jvm_external/releases/download/%s/rules_jvm_external-%s.tar.gz" % (RULES_JVM_EXTERNAL_TAG, RULES_JVM_EXTERNAL_TAG),
+)
+
+# Loading rules works just like in BUILD files (but here uses an external repo with @).
+load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
+
+# External repos often come with these setup and dependency rules that set up to be
+# able to properly use rules from that repo in your BUILD files.  This part is
+# unique to WORKSPACE (compared to BUILD).
+# Note that these are just python function calls (as are rules/macros in BUILD), and
+# that they do things you could normally do in here like load(), http_archive(), etc.
+# For instance, they might set up dependencies that you need in your workspace,
+# do other network setup, configure metadata for the repo, etc.
+# 3 naming conventions you commonly see: *_setup, *_deps, *_repo.
+# You usually need to check the Releases page or README doc on the github page of a
+# repo to see what you should run.
+# NOTE: These kind of rules often bring down new .bzl files you can reference and
+#       also even other repos.
+rules_jvm_external_deps()
+
+# This rule has to be loaded after calling deps or the load will fail.
+load("@rules_jvm_external//:setup.bzl", "rules_jvm_external_setup")
+rules_jvm_external_setup()
+
+# This rule has to be loaded after deps and setup because it doesn't exist until the above rules
+# have been called.
+load("@rules_jvm_external//:defs.bzl", "maven_install")
+
+# This is an example of a rule that is included from a downloaded repository for use
+# in WORKSPACE.  Repos can also have rules to use in your BUILD files, and they're
+# imported exactly the same way.
+# This particular example shows downloading packages from Maven for Java
+# dependencies.
+# The rule you are calling defines how you will access those packages later.
+# For instance, maven_install puts them in a repo called @maven for you to
+# reference in your BUILD.
+maven_install(
+    # List maven packages here.
+    artifacts = [
+        # Get this version from the Releases tab of the GitHub repo for Guava.
+        "com.google.guava:guava:32.0.1-jre",
+        # You can add more packages from the same repo here as needed.
+        "org.mockito:mockito-core:5.3.1",
+        "com.google.errorprone:error_prone_annotations:2.10.0",
+    ],
+    # List repos for maven packages here.
+    repositories = [
+        # This is the main Maven Central Repository.
+        "https://repo1.maven.org/maven2",
+        # You can add more repos here as needed.
+    ],
+)
+
+# Other Useful Rules:
+# local_repository(name, path) binds a local folder as a repository.
+#   For instance, if you downloaded and unzipped an archive already (like http_archive does).
+#       Or if you have your own repo locally that you want to act as an external repo.
+# new_local_repository() is just a way to create a new repo (but that's easy to do manually).
+
+# Custom repo Rules:
+# work just like custom build rules
+# You set a global variable w/ the rule name to a call to repository_rule() with an impl and attrs.
+# Then the impl uses ctx to queue actions.
+# See https://bazel.build/extending/repo if you need it.
+
+# Use 'bazel sync' if you need to update repositories where the remote copy has changed.
+# Use 'bazel sync --configure' if you need to update when the local environment has changed.
+#   Only for rules that use 'configure' attribute and depened on local environment.

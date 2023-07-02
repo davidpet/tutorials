@@ -6,6 +6,8 @@
   - [subpackage](basic/subfolder/subpackage) - basics of filegroup and genrule targets, and globbing
   - [pypackage](basic/subfolder/pypackage) - basics of libraries, binaries, srcs, data, deps, and runfiles. Python is used as the example, but the concepts are widely applicable.
   - [shell](basic/subfolder/shell) - run_binary, sh_binary, sh_library, sh_test
+  - [internals](internals) - .bzl files, macros, rules, variables
+  - [repositories](repositories) - repos and external dependencies
 
 # bazel-bin
 
@@ -14,9 +16,7 @@ However, at the time I didn't realize it was a symbolic link and thus doesn't sh
 
 # TODO
 
--       what repos archives, and calls in WORKSPACE actually do underneath
-  - https://bazel.build/extending/repo
-  - https://bazel.build/external/overview
 -       proto_library (dependencies, protoc, cwd, imports, grpcio-tools)
 -       test and document usage of output file with $(location) for genrule with single output
   - seems to only work with target name and not output file name, and works ok if only 1 output
+-       consider moving some of the text-heavy comments from this tutorial into markdown files (such as this one itself)
