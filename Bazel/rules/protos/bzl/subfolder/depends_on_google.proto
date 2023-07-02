@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// com_google_protobuf targets create this folder structure in your sandbox.
+import "google/protobuf/duration.proto";
+import "google/protobuf/empty.proto";
+
+message MyMessage {
+  // Note the package name matches the path for these google targets.
+  google.protobuf.Duration duration = 1;
+  // This symbol is useful for returning nothing from an rpc call.
+  // Note that it's literally just message Empty {};
+  google.protobuf.Empty empty = 2;
+}
+
+// Here are some others you could use:
+/*
+"@com_google_protobuf//:timestamp_proto",
+"@com_google_protobuf//:any_proto",
+"@com_google_protobuf//:field_mask_proto",
+"@com_google_protobuf//:struct_proto",
+"@com_google_protobuf//:list_value_proto",
+"@com_google_protobuf//:value_proto",
+*/
