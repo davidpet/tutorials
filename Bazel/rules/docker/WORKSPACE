@@ -1,0 +1,4 @@
+# Dependencies:
+# 1. You must have the docker CLI runnable locally (eg. by installing Docker Desktop on Mac).
+# 2. dockerd (or Docker Desktop) must be running so that the docker CLI can load images
+#    (eg. by setting to run on startup).

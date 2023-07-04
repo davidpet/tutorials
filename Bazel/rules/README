@@ -67,14 +67,29 @@ In my testing, I found out the following things about proto and grpc in Python t
    1. gRPC works just by adding a parameter to the command.
    1. Regarding using Docker in Bazel, it seems that at the moment rules_docker is soft deprecated while rules_oci is softly recommended as the replacement. It is possible to build and send commands to a docker image within a bazel build. It is also possible to do it by installing Docker and using genrules - so if I run into any limitations with the above rulesets, that is a fallback option.
 
-1. Now that I know it's possible to do the above in a standalone Conda environment, in order to still be compatible with the monorepo style, the next steps are: 1. Set up the bazel build to build a docker image just for grpcio-tools (and in the future for other things that require their own environment). 1. The image should be set up inside to look like the grpcio-tools conda environment I created above. 1. The sandbox directory during a build should be mounted to the docker image so that protoc inside can read protos and write python files. 1. Assuming genrule as an example, SRCS should be all the proto files (including dependencies) and should be passed as the list of protos. Then all the corresponding _*pb2*_ files should be the OUTS so that they will get copied into bazel-bin (and eventually runfiles). 1. Figure out how to make this work on both Mac and Linux environments (2 docker images? a multilayer image?)
+1. Now that I know it's possible to do the above in a standalone Conda environment, in order to still be compatible with the monorepo style, the next steps are:
 
+   1. Set up the bazel build to build a docker image just for grpcio-tools (and in the future for other things that require their own environment).
+   1. The image should be set up inside to look like the grpcio-tools conda environment I created above.
+   1. The sandbox directory during a build should be mounted to the docker image so that protoc inside can read protos and write python files.
+   1. Assuming genrule as an example, SRCS should be all the proto files (including dependencies) and should be passed as the list of protos. Then all the corresponding _*pb2*_ files should be the OUTS so that they will get copied into bazel-bin (and eventually runfiles).
+   1. Figure out how to make this work on both Mac and Linux environments (2 docker images? a multilayer image?)
+
+1. Because I wanted to document the research steps I went through, I am providing updates here in a separate step instead of editing the above points:
+   1. oci_image doesn't have a rule for running a docker image and getting results back. You still have to run a 'docker' command. Thus, for my purpose, if I have to install docker as a dependency anyway, why not just 'docker' all the things.
+      1. If I was just building a container to deploy into the cloud, oci_image would be a great option though (and I may use it later).
+   1. I'm not sure if rules_docker has it or not (I seem to remember seeing one before but I might have been wrong) - however, I'm not a fan of using libraries where the authors basically tell you not to use it because they can't maintain it, so I'm going to try just using genrule and docker directly.
+      1. On further research, rules_docker does have it but it doesn't have volume mounting and only allows exporting 1 file, so you'd have to zip and copy around.
+   1. I managed to get some genrules using Docker working (see [here](docker)).  Some slight tweaks were needed to get it to work from within the sandbox, but it does.
+   
 # TODO
 
 - protoc rules exploration (and merge into projects repo of any that work out)
 - alias() rule [esp. as a way to make macros more friendly]
 - visibility
 - this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
+- this syntax: load("@rules_oci//oci:defs.bzl", ...)
+- $(GENDIR), $(GENFILES), $$(realpath)
 - test and document usage of output file with $(location) for genrule with single output
 
   - seems to only work with target name and not output file name, and works ok if only 1 output
