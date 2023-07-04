@@ -90,11 +90,15 @@ In my testing, I found out the following things about proto and grpc in Python t
 
 # TODO
 
+- specifying protoc output (pick solution and test it)
 - alias() rule [esp. as a way to make macros more friendly]
 - visibility
 - this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
 - this syntax: load("@rules_oci//oci:defs.bzl", ...)
 - $(GENDIR), $(GENFILES), $$(realpath)
+- script_path parameter (to output script)
+- using binaries (from script_path or bazel-bin ) to avoid deadlock since bazel * commands all lock the workspace (even during just running)
+- SkyLib to provide python standard lib like stuff
 - test and document usage of output file with $(location) for genrule with single output
 
   - seems to only work with target name and not output file name, and works ok if only 1 output
