@@ -101,3 +101,4 @@ In my testing, I found out the following things about proto and grpc in Python t
 
 - consider moving some of the text-heavy comments from this tutorial into markdown files (such as this one itself)
 - try to find some of the reasons for the bugs listed in protos/bzl/subfolder/BUILD and send pull requests
+- defs in ~/repos/projects for docker and protobuf stuff I figured out here -> then resume turning SpaceBot into a gRPC system

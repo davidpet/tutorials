@@ -16,6 +16,12 @@ filegroup(
 )
 
 # Run protoc in the docker image.
+# NOTE: you need to pass in all the protos as srcs to get them there for protoc to see,
+#       but you do not have to specify all of them to protoc itself.  Thus, you could
+#       build iterative bottom-up instances of this rule and aggregate them all with
+#       a py_library.
+#       The generated py files will reference the ones that don't exist, but if you
+#       put them together properly it all works out.
 genrule(
     name = "run_docker_container",
     srcs = [":build_docker_image", ":proto_files"],
@@ -27,6 +33,9 @@ genrule(
     #                    in cases where they are generated (rare anyway), you have to declare the generated ones here.
     #                    In this scenario, since we can't use filegroups and proto_library targets, the only purpose those would serve is to allow us
     #                    to use proto_library to check individual groups of protos.
+    #                    You could break it up into multiple targets that depend on the same protoc docker image.
+    #                    each target specifies the outputs based on its own proto files (you have to make them for external dependencies).
+    #                    Then you would be able to aggregate them with a py_library.
     # Another issue: if a dependency adds a proto - how to know to update this one if we have to hardcode it?
     #                buildozer?
     # Better but too complex for now solution: custom rules so I can control the flow and not be trapped by genrule's requirements
