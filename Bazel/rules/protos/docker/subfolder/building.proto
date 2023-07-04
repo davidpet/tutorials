@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+// This becomes required prefix in front of symbols defined in this proto.
+// If no package specified, will be in global namespace instead.
+// Typically the package name would be something like subfolder.subsubfolder
+// to mirror the folder structure, but as this shows, that's not required.
+package package1;
+
+message Building {
+  int32 windows = 1;
+  int32 color = 2;
+}

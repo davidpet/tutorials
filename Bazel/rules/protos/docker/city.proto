@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package package2;
+
+// Uses full workspace-relative path because cwd in sandbox is workspace-like, 
+// and that is how protoc sees it.
+import "subfolder/building.proto";
+import "subfolder/bridge.proto";
+
+message City {
+  // Note the use of the package name prefix.
+  package1.Building building1 = 1;
+  package1.Building building2 = 2;
+  package1.Building building3 = 3;
+
+  // Note the use of the same package name in a different proto is ok.
+  package1.Bridge bridge1 = 4;
+}

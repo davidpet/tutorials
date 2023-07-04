@@ -27,7 +27,16 @@ genrule(
     # at the mounted filesystem from the sandbox.
     srcs = ["docker_image.tar", "input.txt"],
     outs = ["run_docker_container_output.txt"],
-    # First load the image from the file (instead of relying on Docker state).
+    # Before we do the docker stuff, we've got to do some weird tarring and
+    # untarring to get around the fact that Bazel actually makes symlinks instead
+    # of copying the files. When you mount the bazel sandbox, the files look
+    # like they're there, but when you try to read them, they're not there.
+    # So we are tarring with dereferencing and untarring to get a copy of the fold
+    # that is not symlinked.
+    # Because you can't tar a folder into itself, we have to use tmpdir and clean up
+    # after it.
+
+    # Next, load the image from the file (instead of relying on Docker state).
     # Then run it with the following options:
     #   - --rm = remove the container when done executing (don't leave in stopped state)
     #   - -v = mount volumes from the local (sandbox) filesystem into the container
@@ -38,10 +47,24 @@ genrule(
     #   -c = command to run and then destroy the container
     #       without this, it would run until explicitly stopped (eg. a web server)
     #   the specific command we send is just listing files in the working directory
+    # Any errors in the command inside the image will propagate to docker cli outside
+    # and cause a build error.
     cmd = """
+        export TMPDIR=$$(mktemp -d)
+        export TARFILE=$$TMPDIR/docker_rollup.tar
+        export TARFOLDER=$(GENDIR)/docker_rollup
+        cleanup() {
+            rm -rf "$$TMPDIR"
+        }
+        trap cleanup EXIT
+
+        tar -cvhf "$$TARFILE" .
+        mkdir "$$TARFOLDER"
+        tar -xf "$$TARFILE" -C "$$TARFOLDER"
+
         docker load < $(location docker_image.tar)
-        docker run --rm -v $$(pwd):/sandbox_src -v $$(realpath $(GENDIR)):/sandbox_out -w /sandbox_src my_ubuntu_image bash -c \
-            "ls -R -1 >/sandbox_out/run_docker_container_output.txt"
+        docker run --rm -v $$(realpath "$$TARFOLDER"):/sandbox_src -v $$(realpath $(GENDIR)):/sandbox_out -w /sandbox_src my_ubuntu_image bash -c \
+            "cat input.txt >/sandbox_out/run_docker_container_output.txt"
     """,
 )
 

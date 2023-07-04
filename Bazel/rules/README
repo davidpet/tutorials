@@ -6,10 +6,12 @@
   - [subpackage](basic/subfolder/subpackage) - basics of filegroup and genrule targets, and globbing
   - [pypackage](basic/subfolder/pypackage) - basics of libraries, binaries, srcs, data, deps, and runfiles. Python is used as the example, but the concepts are widely applicable.
   - [shell](basic/subfolder/shell) - run_binary, sh_binary, sh_library, sh_test
+- [docker](docker) - basics of building and running docker images (without external imports)
 - [internals](internals) - .bzl files, macros, rules, variables
 - [repositories](repositories) - repos and external dependencies
 - protobuf
   - [protos/bzl](protos/bzl) - protobuf stuff you can do based on rules you can declare in WORKSPACE
+  - [protobs/docker](protos/docker) - protobuff stuff using docker to get around conda dependency issues on Mac
 
 # bazel-bin
 
@@ -80,11 +82,13 @@ In my testing, I found out the following things about proto and grpc in Python t
       1. If I was just building a container to deploy into the cloud, oci_image would be a great option though (and I may use it later).
    1. I'm not sure if rules_docker has it or not (I seem to remember seeing one before but I might have been wrong) - however, I'm not a fan of using libraries where the authors basically tell you not to use it because they can't maintain it, so I'm going to try just using genrule and docker directly.
       1. On further research, rules_docker does have it but it doesn't have volume mounting and only allows exporting 1 file, so you'd have to zip and copy around.
-   1. I managed to get some genrules using Docker working (see [here](docker)).  Some slight tweaks were needed to get it to work from within the sandbox, but it does.
-   
+   1. I managed to get some genrules using Docker working (see [here](docker)). Some slight tweaks were needed to get it to work from within the sandbox, but it does.
+      1. One weird additional complication was that it turns out bazel uses symlinks to speed up copying into the sandbox, so I had to tar and untar to dereference those.
+   1. I successfully got my docker-based solution to generat importable protobuf and grpc code for a py_binary target, so mission accomplished!
+
 # TODO
 
-- protoc rules exploration (and merge into projects repo of any that work out)
+- proto docker issue with having to manually specify the output files due to macro
 - alias() rule [esp. as a way to make macros more friendly]
 - visibility
 - this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
