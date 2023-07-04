@@ -99,6 +99,7 @@ In my testing, I found out the following things about proto and grpc in Python t
 - script_path parameter (to output script)
 - using binaries (from script_path or bazel-bin ) to avoid deadlock since bazel * commands all lock the workspace (even during just running)
 - SkyLib to provide python standard lib like stuff
+- custom rules, toolchains, providers, platforms, etc. [ChatGPT Chat](https://chat.openai.com/share/8689ba7b-0777-4770-83ef-1749b9ea16a6)
 - test and document usage of output file with $(location) for genrule with single output
 
   - seems to only work with target name and not output file name, and works ok if only 1 output
