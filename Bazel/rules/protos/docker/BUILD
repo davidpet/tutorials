@@ -19,8 +19,17 @@ filegroup(
 genrule(
     name = "run_docker_container",
     srcs = [":build_docker_image", ":proto_files"],
-    # We have to hardcode these for now - I need to work on figuring out what to do about that.
-    # In deeper hiearchies this will be super annoying, and break the separation between dependent targets.
+    # Possible solution: have the container write to a temp folder (clean up after it of course), and tar that folder afterward.
+    #                    Then declare that tar file as the genrule output.
+    #                    Then what???
+    # Fallback solution: have a macro where you have to list all the proto files (unfortunately) and then generate the outs based on that.
+    #                    in cases where the protos are from unknown places or google, etc. you have to track all of them down and declare them here.
+    #                    in cases where they are generated (rare anyway), you have to declare the generated ones here.
+    #                    In this scenario, since we can't use filegroups and proto_library targets, the only purpose those would serve is to allow us
+    #                    to use proto_library to check individual groups of protos.
+    # Another issue: if a dependency adds a proto - how to know to update this one if we have to hardcode it?
+    #                buildozer?
+    # Better but too complex for now solution: custom rules so I can control the flow and not be trapped by genrule's requirements
     outs = ["city_pb2.py", "subfolder/bridge_pb2.py", "subfolder/building_pb2.py", "city_pb2_grpc.py", "subfolder/bridge_pb2_grpc.py", "subfolder/building_pb2_grpc.py"],
     # Most of this is copied over from //docker in this tutorial.
     # Basically we just send all the proto files to protoc and tell it to generate _pb.py and _py_grpc.py files.

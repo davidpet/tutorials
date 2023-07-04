@@ -85,10 +85,11 @@ In my testing, I found out the following things about proto and grpc in Python t
    1. I managed to get some genrules using Docker working (see [here](docker)). Some slight tweaks were needed to get it to work from within the sandbox, but it does.
       1. One weird additional complication was that it turns out bazel uses symlinks to speed up copying into the sandbox, so I had to tar and untar to dereference those.
    1. I successfully got my docker-based solution to generat importable protobuf and grpc code for a py_binary target, so mission accomplished!
+   1. I'm not sure how to deal with the issue of having to specify the output files manually to the genrule/macro!
+      1. Can't use glob() because it's on generated files, and can't expand the srcs in the place I need to.
 
 # TODO
 
-- proto docker issue with having to manually specify the output files due to macro
 - alias() rule [esp. as a way to make macros more friendly]
 - visibility
 - this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
