@@ -93,11 +93,15 @@ In my testing, I found out the following things about proto and grpc in Python t
 
 # TODO
 
-- custom rules, toolchains, providers, platforms, etc. [ChatGPT Chat](https://chat.openai.com/share/a9a30d13-5e99-4c90-a369-7d0e0a3a1dab)
+- custom rules, toolchains, providers, platforms, etc.
+- run and test in command rules
 - specifying protoc output (pick solution and test it)
 
+- use of "".format() (even though f"" doesn't work in starlark)
+- lambdas and function objects in starlark (chatgpt said no, but custom rules use it)
 - alias() rule [esp. as a way to make macros more friendly]
 - visibility
+- export_files
 - this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
 - this syntax: load("@rules_oci//oci:defs.bzl", ...)
 - $(GENDIR), $(GENFILES), $$(realpath)
