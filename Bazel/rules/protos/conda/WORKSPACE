@@ -1,0 +1,2 @@
+# Dependencies for this approach to work:
+# 1. Need a conda environment called "bazel-protoc" with grpcio-tools conda installed (python 3.11)

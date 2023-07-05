@@ -11,7 +11,8 @@
 - [repositories](repositories) - repos and external dependencies
 - protobuf
   - [protos/bzl](protos/bzl) - protobuf stuff you can do based on rules you can declare in WORKSPACE
-  - [protobs/docker](protos/docker) - protobuff stuff using docker to get around conda dependency issues on Mac
+  - [protos/docker](protos/docker) - protobuf stuff using docker to get around conda dependency issues on Mac
+  - [protos/conda](protos/conda) - protobuf stuff using a separate conda environment to get around the Mac dependency issue
 
 # bazel-bin
 
@@ -87,6 +88,8 @@ In my testing, I found out the following things about proto and grpc in Python t
    1. I successfully got my docker-based solution to generat importable protobuf and grpc code for a py_binary target, so mission accomplished!
    1. I'm not sure how to deal with the issue of having to specify the output files manually to the genrule/macro!
       1. Can't use glob() because it's on generated files, and can't expand the srcs in the place I need to.
+   1. I realized after I got the docker stuff to work that in this particular case, just using a separate conda environment (which can be called out as a repo dependency) and then activating that in the genrule would replace having to use Docker. This wouldn't work in the general case of dependency hell, such as if apt/homebrew and npm are involved, but in a pure python conda/pip type situation, it works. I stayed away from it at first because it felt like conda activating in a bazel rule broke hermeticity, but I realized later that since it's a subprocess, it doesn't. I had to do some extra work to fake a $HOME directory in the sandbox so that conda would be willing to run.
+      1. It's still good I got the docker stuff working because the conda way won't always be good enough, and I learned a LOT about bazel, docker, and protoc that I wouldn't have if I hadn't gone through that.
 
 # TODO
 

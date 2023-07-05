@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package package1;
+
+message Bridge {
+  int32 length = 1;
+  int32 color = 2;
+}
