@@ -18,6 +18,7 @@
 # https://github.com/bazelbuild/examples/tree/main/rules
 
 
+load("@bazel_skylib//lib:paths.bzl", "paths")
 
 # This particular rule does nothing and is just to demonstrate some basic structure.
 # ctx = the context parameter passed to all rule implementations
@@ -316,4 +317,57 @@ def _touch_impl(ctx):
 
 touch = rule(
     implementation = _touch_impl,
+)
+
+# This rule demonstrates a few things:
+# 1. using skylib paths module to do path transformations
+# 2. dybamically specifying outputs based on transformed inputs
+# 3. ctx.actions.args for wrapping adding of args to command
+# NOTE: this rule won't work because it depends on having //tools:protoc defined.
+#       It's just here for demonstration purposes.
+def _protoc_py_impl(ctx):
+    """Implementation of the protoc_py rule."""
+    srcs = ctx.files.srcs
+    # Calculate output directory based on bin dir and package path.
+    output_dir = paths.join(ctx.bin_dir.path, ctx.label.package)
+    print("output_dir: {}".format(output_dir)
+
+    # Get the protoc executable from the system
+    protoc = ctx.executable._protoc
+
+    # Create the list of arguments for protoc.
+    # Output to the bin directory, package subdirectory.
+    # The proto_path part may not be right - just for demonstration purposes.
+    # The last part shows adding positional args.
+    args = ctx.actions.args()
+    args.add_all(["--python_out", output_dir])
+    args.add_all(["--proto_path", paths.dirname(src.path) for src in srcs])
+    args.add_all([src.path for src in srcs])
+
+    # Define the output files
+    outs = [ctx.actions.declare_file(paths.join(output_dir, paths.relativize(src.path, paths.dirname(src.path)) + ".pb2.py") for src in srcs)]
+
+    # Create the action that runs protoc
+    ctx.actions.run(
+        inputs = srcs,
+        outputs = outs,
+        executable = protoc,
+        arguments = [args],
+        # mnemonics are for logging and debug purposes
+        mnemonic = "ProtocPy",
+        use_default_shell_env = True,
+        progress_message = "Generating Python code from %d .proto files" % len(srcs)
+    )
+
+    # Return a struct that represents the output of the rule
+    return [DefaultInfo(files = depset(outs))]
+
+protoc_py = rule(
+    implementation = _protoc_py_impl,
+    attrs = {
+        "srcs": attr.label_list(allow_files = [".proto"]),
+        # Specifying the target tool to use, and that it's an executable target and runs in host config.
+        "_protoc": attr.label(default = Label("//tools:protoc"), executable = True, cfg = "host"),
+    },
+    doc = "Generates Python code from .proto files using protoc."
 )
