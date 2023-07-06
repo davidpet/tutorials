@@ -288,16 +288,35 @@ genrule(
     cmd = "ls -R -1 ./subfolder/subpackage > $@",
 )
 
-# Other options you can use:
+# Summary of special symbols within genrule.
+genrule(
+    name = "special_symbols_summary",
+    srcs = ["somefile.txt", "tool.sh", ":globbing", ":multiple_outputs"],
+    outs = ["special_symbols_summary_out.txt"],
+    # Note the following:
+    # 1. genrule special symbols are CASE SENSITIVE
+    #    eg. you cannot use $(srcs) or $(LOCATION) because those are wrong case
+    # 2. $(location) on multiple targets fails - use $(locations) instead
+    #    but $(locations) on single target works because it's just multiple with 1
+    # 3. ChatGPT keeps using $(GENFILES) in its examples - that does not appear to be real
+    # 4. realpath is a shell command that is very helpful for getting absolute paths
+    #    just make sure to use $$ instead of $ when calling it
+    cmd = """
+        export x=10
+
+        echo location on target with single output: $(location :globbing) >$@
+        echo locations on target with single output: $(locations :globbing) >>$@
+        echo locations on target with multiple outputs: $(locations :multiple_outputs) >>$@
+        echo SRCS: $(SRCS) >>$@
+        echo OUTS: $(OUTS) >>$@
+        echo GENDIR: $(GENDIR) >>$@
+        echo ESCAPING: $$x $$(pwd) >>$@
+        echo REALPATH: $$(realpath .) >>$@
+        echo REALPATH on targets: $$(realpath $(locations :multiple_outputs)) >>$@
+        echo REALPATH on gendir: $$(realpath $(GENDIR)) >>$@
+    """
+)
+
+# Other genrule options you can use:
 # executable = to make the output executable (eg. script generation) [boolean]
 # local = to run locally instead of in sandbox [boolean]
-
-# Bazel functions/keywords/escapes to remember (within genrules):
-# $(location)
-# $(SRCS)
-# $@
-# $(OUTS)
-# (GENDIR)
-# (GENFILES)
-# (REALPATH)
-# $$

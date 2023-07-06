@@ -19,9 +19,15 @@
 #        are on top of that and hermetic
 # 'bazel-bin/subfolder/pypackage/pyfile' will do the following:
 # Directly execute the script without rebuilding or sandboxing.
-# Thus, the working directory is the current working directory.
-# However, PYTHONPATH has the bazel-bin versions of paths instead of sandboxed ones.
-# Otherwise, it's just like 'bazel run'.
+# 1. Thus, the working directory is the current working directory.
+# 2. However, PYTHONPATH has the bazel-bin versions of paths instead of sandboxed ones.
+# 3. Otherwise, it's just like 'bazel run'.
+# 'bazel run --script_path=/path/to/file.sh //subfolder/pypackage:pyfile' will do the following:
+# 1. Build and copy the files as if you were doing a normal bazel run
+# 2. Don't actually run the binary yet.
+# 3. Create /path/to/file.sh that you can use to run it later.
+# 4. file.sh does a cd and runs the binary.  It is basically equivalent to running directly from ./bazel-bin.
+# NOTE: file.sh still relies on bazel-bin having been built - it is not a packaged binary for distribution.
 py_binary(
     name = "pyfile",
     srcs = ["pyfile.py"],

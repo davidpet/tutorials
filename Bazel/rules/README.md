@@ -105,22 +105,13 @@ In my testing, I found out the following things about proto and grpc in Python t
 
 Not available in Skylark. The closest you get is if you import Skylib for some string, collection, and path stuff. Also, the usual methods of str, list, etc. from Python are available.
 
+# Workspace Lock
+
+All bazel commands lock the whole workspace until they're done. `bazel run` will lock the whole workspace until the binary has exited. Thus, you cannot run two things at a time using bazel (eg. client and server). If you need that use case, you must execute the binaries directly from bazel-bin or using --script_path and running that script.
+
 # Other Possible Future Topics to Explore
 
 - caching
 - query language
 - build flags (built-in and custom)
 - configuration and select()
-
-# TODO
-
-- $(GENDIR), $(GENFILES), $$(realpath) [case sensitive?]
-- script_path parameter (to output script)
-- using binaries (from script_path or bazel-bin ) to avoid deadlock since bazel \* commands all lock the workspace (even during just running)
-- test and document usage of output file with $(location) for genrule with single output
-
-  - seems to only work with target name and not output file name, and works ok if only 1 output
-
-- consider moving some of the text-heavy comments from this tutorial into markdown files (such as this one itself)
-- try to find some of the reasons for the bugs listed in protos/bzl/subfolder/BUILD and send pull requests
-- defs in ~/repos/projects for docker and protobuf stuff I figured out here -> then resume turning SpaceBot into a gRPC system
