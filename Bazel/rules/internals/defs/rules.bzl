@@ -13,6 +13,7 @@
 # https://bazel.build/rules/lib/builtins/ctx
 # https://bazel.build/rules/lib/toplevel/attr
 # https://bazel.build/extending/depsets
+# https://bazel.build/rules/lib/builtins/actions
 # https://chat.openai.com/share/a9a30d13-5e99-4c90-a369-7d0e0a3a1dab
 # https://github.com/bazelbuild/examples/tree/main/rules
 
@@ -106,6 +107,11 @@ foo_attribute = rule(
 )
 
 # This rule demonstrates various ways to pass in dependencies.
+# NOTE: I used short_path here to make them paths workspace-relative,
+#       but that's probably not necessary (or desirable) as a general rule.
+#       At the time I did that, I forgot that when rules are chained,
+#       the files don't go back to workspace root but stay in bazel-out
+#       until the very end.
 def _foo_deps_impl(ctx):
     out = ctx.actions.declare_file(ctx.label.name)
 
@@ -201,5 +207,91 @@ foo_template = rule(
             allow_single_file = [".txt.tpl"],
             mandatory = True,
         ),
+    },
+)
+
+# This rule demonstrates running two actions with an intermediate file,
+# and also how to run shell commands like genrule does (roughly).
+# If you wanted to do your own genrule, you'd need logic to parse all
+# the special special symbols, escape the $, and stuff.
+def _foo_sandbox_impl(ctx):
+    # This is going to be an intermediate file used by the 2nd action.
+    # But it is also going to end up in bazel-bin at the end.
+    # It won't, however, be part of the set of files sent to
+    # downstream targets.
+    output_file1 = ctx.actions.declare_file(ctx.attr.name + "1.txt")
+    # This will be the true output of this rule.
+    # It will go to bazel-bin, and be in the sandbox of the next
+    # downstream target.
+    output_file2 = ctx.actions.declare_file(ctx.attr.name + "2.txt")
+
+    # Command we will run.
+    # Note that it is just a regular shell command.
+    # There is no $(location) or $@ or needing $$ because that
+    # stuff is all defined by genrule itself.
+    command = "(echo '-----' && echo $PATH && pwd && ls -R -1 && echo '------') > " + output_file1.path
+
+    # List the $PATH variable, cwd, and recursive contents into [name]1.txt.
+    # Overall, run_shell is like a more customizable genrule, without the special symbols.
+    # It has more things like environment variable setup, etc. that you can do.
+    ctx.actions.run_shell(
+        inputs=ctx.files.srcs,
+        outputs=[output_file1],
+        command=command,
+    )
+    # Second action copies in output from previous action and then does a cat and recursive list.
+    # Output is [name]2.txt.
+    # An important thing to know is that each action is SANDBOXED SEPARATELY, similarly to having
+    # multiple genrules in a macro.  Also, the outputs of all the actions go into bazel-bin at the
+    # end, not just the final output of the rule.
+    ctx.actions.run_shell(
+        inputs=[output_file1],
+        outputs=[output_file2],
+        command='(ls -R -1 && cat ' + output_file1.path + ') > ' + output_file2.path,
+    )
+
+    # Return the second output file as a DefaultInfo provider
+    return [DefaultInfo(files=depset([output_file2]))]
+
+foo_sandbox = rule(
+    implementation = _foo_sandbox_impl,
+    attrs = {
+        'srcs': attr.label_list(allow_files = True),
+    }
+)
+
+# This rule demonstrates how you can mimick genrule using a custom rule.
+# It doesn't do nearly all that genrule does but just shows the basic stuff.
+def _my_genrule_impl(ctx):
+    cmd = ctx.attr.cmd
+    srcs = ctx.files.srcs
+    # These are already "declared" as output files because of the attribte type.
+    outputs = ctx.outputs.outs
+
+    # Notice that run_shell already looks a lot like genrule.
+    ctx.actions.run_shell(
+        inputs=srcs,
+        outputs=outputs,
+        command=cmd,
+        # This is a hack I did as a POC for accessing srcs and outputs in the command.
+        # I just passed them all in as args so you can use $1, $2, etc.
+        arguments = [src.path for src in srcs] + [output.path for output in outputs],
+        # Without this, you don't have your PATH, and you can't access anything you
+        # rely on in the system.  This is the "correct hermetic" way, but it mismatches
+        # what genrule does, and in many cases is too restrictive.
+        # Setting this to true mimicks the genrule behavior in that regard.
+        use_default_shell_env = True,
+    )
+
+    return [DefaultInfo(files=depset(outputs))]
+
+my_genrule = rule(
+    implementation = _my_genrule_impl,
+    attrs = {
+        'cmd': attr.string(mandatory = True),
+        'srcs': attr.label_list(allow_files = True),
+
+        # Attribute type for a list of output files.
+        'outs': attr.output_list(mandatory = True),
     },
 )

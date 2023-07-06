@@ -1,7 +1,7 @@
 # Import bzl file relative to workspace and then pick function names from that file.
 load("//defs:macros.bzl", "probe_sandbox", "probe_sandbox_for_file", "probe_sandbox_with_hardcoded")
 load("//defs:variables.bzl", "MY_SRCES")  # You can import variables too.
-load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template")
+load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template", "foo_sandbox", "my_genrule")
 
 ##### MACROS ##########
 # call the macro like any other BUILD rule (actually a Starlark function).
@@ -96,4 +96,48 @@ foo_template(
     name = "using_template",
     username = "Alice",
     template = "file.txt.tpl",
+)
+
+# Creates checking_sandbox1.txt intermediate file (which goes to bazel-bin at end).
+#       That listing contains file.txt because we put it in the srcs of the first action.
+# Then it creates checking_sandbox2.txt output file (which also goes to bazel-bin at end).
+#       That listing does not contain file.txt because ACTIONS ARE SANDBOXED SEPARATELY.
+#       However, it does contain cchecking_sandbox1.txt becauese we pass that as an input.
+#       Just like with genrule, and counterintuitively, this intermediate file isn't
+#       where it is in bazel-bin at the end relative to the workspace - it's in a bazel-out
+#       subfolder. You need to rely on the File object in the rule to get the correct path. 
+foo_sandbox(
+    name = "checking_sandbox",
+    srcs = ["file.txt"],
+)
+
+# This rule shows that downstream rules only see the final output of the rule (from the provider).
+# In this case, only checking_sandbox2.txt goes into the sandbox (in bazel-out instead of the root).
+genrule(
+    name = "checking_sandbox_downstream",
+    srcs = [":checking_sandbox"],
+    outs = ["checking_sandbox_downstream_out.txt"],
+    cmd = "ls -R -1 > $@",
+)
+
+# This rule shows invoking my custom version of genrule similarly to how you invoke genrule.
+my_genrule(
+    name = "using_my_genrule",
+    srcs = ["file.txt", ":file2.txt"],
+    outs = ["using_my_genrule_out.txt"],
+    # Multiline commands work the same as single line commands because bash -c is already ok with them.
+    # Instead of the usual $@, we had to use the last parameter, which is $3 in this case.
+    # Instead of $(location file.txt), I used $1 here.
+    # Note that because I turned on using the host environment variables, I can run conda here.
+    # Also note that the environment variables printed here are not the full set from the host
+    # but just the ones Bazel copied (just like in genrule).
+    cmd = """
+        echo Hi There! > "$3"
+        echo >> "$3"
+        cat "$1" >> "$3"
+        echo >> "$3"
+        conda env list >> "$3"
+        echo >> "$3"
+        printenv >> "$3"
+    """
 )
