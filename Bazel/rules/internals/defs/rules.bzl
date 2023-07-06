@@ -295,3 +295,25 @@ my_genrule = rule(
         'outs': attr.output_list(mandatory = True),
     },
 )
+
+# This rule demonstrates running a single executable, as
+# would often be the case in compiler rules.
+def _touch_impl(ctx):
+    output = ctx.actions.declare_file(ctx.attr.name + "_out.txt")
+
+    # Similar to shell_run, but you run a specific excutable and pass args.
+    # You cannot redirect stdout, so this will only work for commands that
+    # create files a different way (as compilers do).
+    # I tried passing > and a file as args and it doesn't work.
+    ctx.actions.run(
+        outputs = [output],
+        executable = "touch",
+        use_default_shell_env = True,
+        arguments = [output.path],
+    )
+
+    return [DefaultInfo(files=depset([output]))]
+
+touch = rule(
+    implementation = _touch_impl,
+)

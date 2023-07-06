@@ -1,7 +1,7 @@
 # Import bzl file relative to workspace and then pick function names from that file.
 load("//defs:macros.bzl", "probe_sandbox", "probe_sandbox_for_file", "probe_sandbox_with_hardcoded")
 load("//defs:variables.bzl", "MY_SRCES")  # You can import variables too.
-load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template", "foo_sandbox", "my_genrule")
+load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template", "foo_sandbox", "my_genrule", "touch")
 
 ##### MACROS ##########
 # call the macro like any other BUILD rule (actually a Starlark function).
@@ -140,4 +140,9 @@ my_genrule(
         echo >> "$3"
         printenv >> "$3"
     """
+)
+
+# This rule shows running a single executable (in this case 'touch' to make an empty file).
+touch(
+    name = "using_touch",
 )
