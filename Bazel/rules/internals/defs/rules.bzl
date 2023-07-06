@@ -16,6 +16,9 @@
 # https://bazel.build/rules/lib/builtins/actions
 # https://chat.openai.com/share/a9a30d13-5e99-4c90-a369-7d0e0a3a1dab
 # https://github.com/bazelbuild/examples/tree/main/rules
+# https://github.com/bazelbuild/bazel/blob/a3095538d7b753bb52a72e1adce490babc92c242/src/main/starlark/builtins_bzl/common/proto/proto_library.bzl#L61
+# https://github.com/bazelbuild/bazel/blob/a3095538d7b753bb52a72e1adce490babc92c242/src/main/starlark/builtins_bzl/common/proto/proto_library.bzl#L61
+
 
 
 load("@bazel_skylib//lib:paths.bzl", "paths")
