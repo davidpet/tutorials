@@ -8,11 +8,13 @@
   - [shell](basic/subfolder/shell) - run_binary, sh_binary, sh_library, sh_test
 - [docker](docker) - basics of building and running docker images (without external imports)
 - [internals](internals) - .bzl files, macros, rules, variables
+  - this is an ongoing area of exploration and there are many links to continue in the rules.bzl file
 - [repositories](repositories) - repos and external dependencies
 - protobuf
   - [protos/bzl](protos/bzl) - protobuf stuff you can do based on rules you can declare in WORKSPACE
   - [protos/docker](protos/docker) - protobuf stuff using docker to get around conda dependency issues on Mac
   - [protos/conda](protos/conda) - protobuf stuff using a separate conda environment to get around the Mac dependency issue
+- [visibility](visibility) - visibility of targets and files between packages, subpackages, package groups, etc.
 
 # bazel-bin
 
@@ -90,31 +92,34 @@ In my testing, I found out the following things about proto and grpc in Python t
       1. Can't use glob() because it's on generated files, and can't expand the srcs in the place I need to.
    1. I realized after I got the docker stuff to work that in this particular case, just using a separate conda environment (which can be called out as a repo dependency) and then activating that in the genrule would replace having to use Docker. This wouldn't work in the general case of dependency hell, such as if apt/homebrew and npm are involved, but in a pure python conda/pip type situation, it works. I stayed away from it at first because it felt like conda activating in a bazel rule broke hermeticity, but I realized later that since it's a subprocess, it doesn't. I had to do some extra work to fake a $HOME directory in the sandbox so that conda would be willing to run.
       1. It's still good I got the docker stuff working because the conda way won't always be good enough, and I learned a LOT about bazel, docker, and protoc that I wouldn't have if I hadn't gone through that.
+1. After learning a bit about custom rules, I think a better way to go might be to do custom rules (based on conda instead of docker) that can take both DefaultInfo and ProtoInfo providers. That solves the output hardwiring issue and has the same functionality as a genrule macro but in a different way.
+
+# Formatted Strings in Starlark
+
+- YES: `"hello, {}.  {} to meet you".format('bob', 'nice')`
+- YES: `"hello, %s, %s to meet you" % ('bob', 'nice')`
+- YES: `"hello, " + "bob" + ...`
+- NO: `f"hello, {name}, {feeling} to meet you"`
+
+# Python Standard Library
+
+Not available in Skylark. The closest you get is if you import Skylib for some string, collection, and path stuff. Also, the usual methods of str, list, etc. from Python are available.
+
+# Other Possible Future Topics to Explore
+
+- caching
+- query language
+- build flags (built-in and custom)
+- configuration and select()
 
 # TODO
 
-- custom rules, toolchains, providers, platforms, etc.
-- run and test in command rules
-- specifying protoc output (pick solution and test it)
-
-- use of "".format() (even though f"" doesn't work in starlark)
-- lambdas and function objects in starlark (chatgpt said no, but custom rules use it)
-- alias() rule [esp. as a way to make macros more friendly]
-- visibility
-- export_files
-- this syntax: load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
-- this syntax: load("@rules_oci//oci:defs.bzl", ...)
-- $(GENDIR), $(GENFILES), $$(realpath)
+- $(GENDIR), $(GENFILES), $$(realpath) [case sensitive?]
 - script_path parameter (to output script)
 - using binaries (from script_path or bazel-bin ) to avoid deadlock since bazel \* commands all lock the workspace (even during just running)
-- SkyLib to provide python standard lib like stuff
 - test and document usage of output file with $(location) for genrule with single output
 
   - seems to only work with target name and not output file name, and works ok if only 1 output
-
-- bazel caching
-- bazel queries
-- build flags (built-in and custom)
 
 - consider moving some of the text-heavy comments from this tutorial into markdown files (such as this one itself)
 - try to find some of the reasons for the bugs listed in protos/bzl/subfolder/BUILD and send pull requests

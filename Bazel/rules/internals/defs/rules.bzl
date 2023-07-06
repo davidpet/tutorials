@@ -9,7 +9,7 @@
 # New languages are usually added via rules instead of macros.
 
 # https://bazel.build/extending/rules
-# https://bazel.build/extending/concepts - more topics like depsets, aspects, toolchains, configuration, etc.
+# https://bazel.build/extending/concepts - more topics like depsets, aspects, toolchains, configuration, platforms, run and test targets, etc.
 # https://bazel.build/rules/lib/builtins/ctx
 # https://bazel.build/rules/lib/toplevel/attr
 # https://bazel.build/extending/depsets

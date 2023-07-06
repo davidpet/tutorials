@@ -36,6 +36,12 @@ filegroup(
     ]),
 )
 
+# You can create aliases for targets with their own visibility and such.
+alias(
+    name = "text_files",
+    actual = ":text_files_all",
+)
+
 # bazel build //subfolder/subpackage:list_files
 #
 # Lists workspace-relative (not package relative) paths to all the src files (3 total) into
@@ -291,4 +297,7 @@ genrule(
 # $(SRCS)
 # $@
 # $(OUTS)
+# (GENDIR)
+# (GENFILES)
+# (REALPATH)
 # $$

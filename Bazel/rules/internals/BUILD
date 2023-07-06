@@ -3,6 +3,12 @@ load("//defs:macros.bzl", "probe_sandbox", "probe_sandbox_for_file", "probe_sand
 load("//defs:variables.bzl", "MY_SRCES")  # You can import variables too.
 load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template", "foo_sandbox", "my_genrule", "touch", "protoc_py")
 
+# More syntax:
+#load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
+#   lets you use a different name for a symbol within this file (the one on left of =)
+#load("@rules_oci//oci:defs.bzl", ...)
+#   lets you import all symbols from a defs file.
+
 ##### MACROS ##########
 # call the macro like any other BUILD rule (actually a Starlark function).
 # Since this is a genrule underneath, it must be run with 'bazel build //:my_probe'.
