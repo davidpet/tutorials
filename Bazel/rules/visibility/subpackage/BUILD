@@ -14,7 +14,7 @@ filegroup(
 )
 
 # Explicitly granting access to a specific package.
-# Note that if you use __subpackage__ instead, it will
+# Note that if you use __subpackages__ instead, it will
 # also grant to subpackages recursively.
 filegroup(
     name = "granted4",
