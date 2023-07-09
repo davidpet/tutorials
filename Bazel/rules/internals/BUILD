@@ -2,6 +2,7 @@
 load("//defs:macros.bzl", "probe_sandbox", "probe_sandbox_for_file", "probe_sandbox_with_hardcoded")
 load("//defs:variables.bzl", "MY_SRCES")  # You can import variables too.
 load("//defs:rules.bzl", "foo_empty", "foo_print", "foo_createfile", "foo_attribute", "foo_deps", "foo_template", "foo_sandbox", "my_genrule", "touch", "protoc_py")
+package(default_visibility = ["//visibility:public"])
 
 # More syntax:
 #load("@rules_proto_grpc//python:repositories.bzl", rules_proto_grpc_python_repos = "python_repos")
@@ -156,4 +157,5 @@ touch(
 protoc_py(
     # just look at the rule - it's not functional because I didn't set up dependencies.
     # Shows a few interesting concepts.
+    name = "using_protoc_py",
 )
