@@ -18,6 +18,8 @@ The concepts being explored here (via commit history) are inspired by these exam
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+To more specifically run for a given app, use `ng serve my-app`.
+
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
@@ -25,6 +27,8 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+To build a specific portion, use `ng build my-app` for instance.
 
 Run `ng build my-app -c production` to build a production/minified build - but you must have built the libraries first (my-lib and common-lib) with `ng build my-lib` and `ng build common-lib`.
 
