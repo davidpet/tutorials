@@ -10,27 +10,27 @@
           "style": "scss"
         }
       },
-      "root": "projects/my-app",
-      "sourceRoot": "projects/my-app/src",
+      "root": "apps/my-app",
+      "sourceRoot": "apps/my-app/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/my-app",
-            "index": "projects/my-app/src/index.html",
-            "main": "projects/my-app/src/main.ts",
+            "index": "apps/my-app/src/index.html",
+            "main": "apps/my-app/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/my-app/tsconfig.app.json",
+            "tsConfig": "apps/my-app/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/my-app/src/favicon.ico",
-              "projects/my-app/src/assets"
+              "apps/my-app/src/favicon.ico",
+              "apps/my-app/src/assets"
             ],
             "styles": [
-              "projects/my-app/src/styles.scss"
+              "apps/my-app/src/styles.scss"
             ],
             "scripts": []
           },
@@ -86,14 +86,14 @@
               "zone.js",
               "zone.js/testing"
             ],
-            "tsConfig": "projects/my-app/tsconfig.spec.json",
+            "tsConfig": "apps/my-app/tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/my-app/src/favicon.ico",
-              "projects/my-app/src/assets"
+              "apps/my-app/src/favicon.ico",
+              "apps/my-app/src/assets"
             ],
             "styles": [
-              "projects/my-app/src/styles.scss"
+              "apps/my-app/src/styles.scss"
             ],
             "scripts": []
           }
@@ -102,21 +102,21 @@
     },
     "my-lib": {
       "projectType": "library",
-      "root": "projects/my-lib",
-      "sourceRoot": "projects/my-lib/src",
+      "root": "libs/my-lib",
+      "sourceRoot": "libs/my-lib/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/my-lib/ng-package.json"
+            "project": "libs/my-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/my-lib/tsconfig.lib.prod.json"
+              "tsConfig": "libs/my-lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/my-lib/tsconfig.lib.json"
+              "tsConfig": "libs/my-lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -124,7 +124,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/my-lib/tsconfig.spec.json",
+            "tsConfig": "libs/my-lib/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -135,21 +135,21 @@
     },
     "common-lib": {
       "projectType": "library",
-      "root": "projects/common-lib",
-      "sourceRoot": "projects/common-lib/src",
+      "root": "libs/common-lib",
+      "sourceRoot": "libs/common-lib/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/common-lib/ng-package.json"
+            "project": "libs/common-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/common-lib/tsconfig.lib.prod.json"
+              "tsConfig": "libs/common-lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/common-lib/tsconfig.lib.json"
+              "tsConfig": "libs/common-lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -157,7 +157,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/common-lib/tsconfig.spec.json",
+            "tsConfig": "libs/common-lib/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
