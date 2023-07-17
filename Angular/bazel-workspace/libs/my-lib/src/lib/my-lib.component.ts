@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
     <p>
       my-lib works!!!
     </p>
+    <lib-common-lib></lib-common-lib>
   `,
   styles: [
   ]

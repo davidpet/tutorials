@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MyLibComponent } from './my-lib.component';
+import { CommonLibModule } from 'common-lib';
 
 
 
@@ -8,6 +9,7 @@ import { MyLibComponent } from './my-lib.component';
     MyLibComponent
   ],
   imports: [
+    CommonLibModule,
   ],
   exports: [
     MyLibComponent
