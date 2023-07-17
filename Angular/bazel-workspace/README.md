@@ -16,6 +16,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng build my-app -c production` to build a production/minified build - but you must have built the libraries first (my-lib and common-lib) with `ng build my-lib` and `ng build common-lib`.
 
+## Node Dependencies
+
+Notice that the node dependencies are at the angular workspace level, not at the individual app/lib level.  So you would npm install to the workspace, and those would become your common dependencies for everything.  One would presume/hope unnecessary dependencies won't make it into minified production builds of individual apps.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
