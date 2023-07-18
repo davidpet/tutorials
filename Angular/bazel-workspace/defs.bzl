@@ -36,7 +36,7 @@ COMMON_CONFIG = [
 # (used by ng_app macro)
 APPLICATION_CONFIG = [
     ":tsconfig.app.json",
-    ":package.json",
+    "//:package_json_jslib",
 ]
 # npm packages used by all angular application
 APPLICATION_DEPS = [
