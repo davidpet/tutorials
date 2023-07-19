@@ -60,5 +60,8 @@ Executing tests with `bazel test //...` currently fails on MacOS due to sandboxi
 
 # TODo
 
+- figure out where bazel artifacts for app are going
 - production build for app
+- buildifier integration from example
+- adding npm package used by my-app example (like the dragula one)
 - automatic execution of `pnpm import` in case of changing json package lock.
