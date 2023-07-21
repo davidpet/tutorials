@@ -12,5 +12,6 @@ ng_app(
     deps = [
         "//libs/my-lib",
         "//libs/common-lib",
+        "//:node_modules/ngx-spinner",
       ],
 )

@@ -70,7 +70,7 @@ See commits in the `Angular` example for how to add precommit hooks later when n
 
 # ToDo
 
-- adding npm package used by my-app example (like the dragula one)
+- ibazel and library change detection in build
 - automatic execution of `pnpm import` in case of changing json package lock.
 - tests
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)

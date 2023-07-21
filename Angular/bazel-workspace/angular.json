@@ -30,7 +30,8 @@
               "apps/my-app/src/assets"
             ],
             "styles": [
-              "apps/my-app/src/styles.scss"
+              "apps/my-app/src/styles.scss",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": []
           },
@@ -93,7 +94,8 @@
               "apps/my-app/src/assets"
             ],
             "styles": [
-              "apps/my-app/src/styles.scss"
+              "apps/my-app/src/styles.scss",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],
             "scripts": []
           }
