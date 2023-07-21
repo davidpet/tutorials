@@ -64,9 +64,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 Executing tests with `bazel test //...` currently fails on MacOS due to sandboxing issues. To debug tests run `bazel run //path/to:test`.
 
+# NOTE
+
+See commits in the `Angular` example for how to add precommit hooks later when needed. I didn't mess with that here.
+
 # ToDo
 
-- buildifier integration from example
 - adding npm package used by my-app example (like the dragula one)
 - automatic execution of `pnpm import` in case of changing json package lock.
 - tests
