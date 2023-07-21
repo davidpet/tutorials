@@ -60,6 +60,14 @@ Run `bazel test //...` to execute the unit tests using bazel.
 
 Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
+## Automatic Refresh on Code Changes
+
+When you run with `ng serve`, changes to the app itself, but not libraries it uses, will be picked up and cause the page to refresh fairly quickly.
+
+When you run with `bazel run`, no changes will be automatically picked up - you'd have to kill the process and start it again.
+
+You can install `ibazel` via npm globally and then `ibazel run` instead of bazel run. This will cause a reload if either the libraries or the app changes, so it's actually better than what you get with the Angular CLI. It seems to pick it up kind of slowly (5-10 seconds), but maybe the poll duration is configurable.
+
 # NOTE
 
 Executing tests with `bazel test //...` currently fails on MacOS due to sandboxing issues. To debug tests run `bazel run //path/to:test`.
@@ -70,7 +78,6 @@ See commits in the `Angular` example for how to add precommit hooks later when n
 
 # ToDo
 
-- ibazel and library change detection in build
 - automatic execution of `pnpm import` in case of changing json package lock.
 - tests
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
