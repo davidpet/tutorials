@@ -86,10 +86,12 @@ TEST_DEPS = LIBRARY_DEPS + [
     "//:node_modules/zone.js",
 ]
 
-# JQ expressions to update Angular project output paths from dist/* to libs/*/dist, presumably
-# because of sandbox outputs needing to be in the same package.
+# JQ expressions to update Angular project output paths to be in the bazel-bin output relative to the package.
+# If we don't do this, the output files will just be mysteriously missing with no error.
 # NOTE: I had to modify this from the original because I used 'libs' instead of 'projects'.
 JQ_DIST_REPLACE_TSCONFIG = ".compilerOptions.paths |= map_values(map(gsub(\"^dist/(?<p>.+)$\"; \"libs/\"+.p+\"/dist\")))"
+# NOTE: I had to make this one up myself because my app is not at the root.
+JQ_DIST_REPLACE_ANGULAR_JSON = ".projects |= with_entries( if .value.projectType == \"application\" then .value.architect.build.options.outputPath = \"apps/\" + .key + \"/dist/\" + .key else . end )"
 JQ_DIST_REPLACE_NG_PACKAGE = ".dest = \"dist\""
 
 # Macro to define a filegroup called ng-config containing angular.json (copied to output of sandbox
@@ -102,10 +104,12 @@ def ng_config(name):
       fail("NG config name must be 'ng-config'")
 
     # Root config files used throughout.
-    # Our angular.json is copied into bazel-bin via output portion of sandbox during build.
-    copy_to_bin(
+    # NOTE: The original example doesn't modify angular.json, but I had to because my app is not at
+    #       the root of the Angular workspace.
+    jq(
         name = "angular",
         srcs = ["angular.json"],
+        filter = JQ_DIST_REPLACE_ANGULAR_JSON,
     )
 
     # Replaces some fields in tsconfig.json for bazel build purposes because bazel builds to a different
