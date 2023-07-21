@@ -50,6 +50,20 @@ Also remember to `npm install` after syncing to bring down the npm packages for 
 
 In addition, in this workspace, after npm installing, you must run `pnpm import` to generate the pnpm lock file from the npm lock file. You need to have `pnpm` installed globally via npm to be able to do this.
 
+The example from Aspect Build uses pnpm as the package manager instead of npm, but since npm is the default for the Node ecosystem, I prefer not to have to change which package manager I use for individual projects, so having to run the pnpm import command is an OK compromise for now. A possible way to enforce this is to have a precommit hook that runs `pnpm import` and fails if pnpm-lock.yaml changes.
+
+## Summary of pnpm vs. npm
+
+In order to use pnpm instead of npm, you have to:
+
+1. Set cli.packageManager to pnpm in angular.json
+1. Delete package-lock.json and use pnpm-lock.yaml instead.
+1. Install packages using pnpm instead of npm.
+
+pnpm will use node_modules just like npm will, but it will use its own format. It is not recommended to mix the two in the same project.
+
+If you do the above steps and accidentally npm instead of pnpm install, package-lock.json will come back.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -68,6 +82,13 @@ When you run with `bazel run`, no changes will be automatically picked up - you'
 
 You can install `ibazel` via npm globally and then `ibazel run` instead of bazel run. This will cause a reload if either the libraries or the app changes, so it's actually better than what you get with the Angular CLI. It seems to pick it up kind of slowly (5-10 seconds), but maybe the poll duration is configurable.
 
+## Summary of Possible Precommit Hooks to Add
+
+1. Formatting - buildifier, prettier, etc.
+1. Linting - buildifier, eslint, etc.
+1. `pnpm import` - make sure pnpm-lock.yaml doesn't change
+1. Testing - affected tests (then run all tests in CI)
+
 # NOTE
 
 Executing tests with `bazel test //...` currently fails on MacOS due to sandboxing issues. To debug tests run `bazel run //path/to:test`.
@@ -78,6 +99,5 @@ See commits in the `Angular` example for how to add precommit hooks later when n
 
 # ToDo
 
-- automatic execution of `pnpm import` in case of changing json package lock.
 - tests
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
