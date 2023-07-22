@@ -92,4 +92,5 @@ See commits in the `Angular` example for how to add precommit hooks later when n
 # ToDo
 
 - better output/debugging experience for karma tests
+- look at remaining differences in angular.json and tsconfig.json from example
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
