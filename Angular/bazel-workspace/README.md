@@ -87,11 +87,14 @@ You can install `ibazel` via npm globally and then `ibazel run` instead of bazel
 1. `pnpm import` - make sure pnpm-lock.yaml doesn't change
 1. Testing - affected tests (then run all tests in CI)
 
+## Environment Differences
+
+See [the example](https://github.com/aspect-build/bazel-examples/tree/main/angular/src/environments) for how you can do environment differences within code.
+
 # NOTE
 
 See commits in the `Angular` example for how to add precommit hooks later when needed. I didn't mess with that here.
 
 # ToDo
 
-- look at remaining differences in angular.json and tsconfig.json from example
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
