@@ -16,3 +16,10 @@ js_library(
     name = "package_json_jslib",
     srcs = ["package.json"],
 )
+
+js_library(
+  name = "karma_conf_js",
+  srcs = [
+    "karma.conf.js",
+  ],
+)

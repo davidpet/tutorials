@@ -72,6 +72,7 @@ LIBRARY_DEPS = [
 TEST_CONFIG = [
     ":tsconfig.spec.json",
     ":karma.conf.js",
+    "//:karma_conf_js",
     "//:node_modules/@types/jasmine",
     "//:node_modules/karma-chrome-launcher",
     "//:node_modules/karma",
