@@ -31,6 +31,7 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    // Turn this to true to run in a browser.
     autoWatch: false,
     customLaunchers: {
       ChromeNoSandbox: {
@@ -38,7 +39,9 @@ module.exports = function (config) {
         flags: ['--no-sandbox'],
       },
     },
+    // Set this to 'Chrome' to run in a browser.
     browsers: ['ChromeNoSandbox'],
+    // Turn this to false to run in a browser.
     singleRun: true,
     restartOnFileChange: true,
   });

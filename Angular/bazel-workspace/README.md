@@ -70,6 +70,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `bazel test //...` to execute the unit tests using bazel.
 
+By changing 3 settings (see root karma.conf.js), you can run tests in the browser visually, but only when you run with `ng test` (it fails if you try it with bazel). Although you have to hardcode it, you can probably create multiple test targets and mutate karma.conf.js (the way angular.json is mutated) if you need both versions.
+
 ## Automatic Refresh on Code Changes
 
 When you run with `ng serve`, changes to the app itself, but not libraries it uses, will be picked up and cause the page to refresh fairly quickly.
@@ -91,6 +93,5 @@ See commits in the `Angular` example for how to add precommit hooks later when n
 
 # ToDo
 
-- better output/debugging experience for karma tests
 - look at remaining differences in angular.json and tsconfig.json from example
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
