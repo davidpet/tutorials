@@ -23,7 +23,7 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/common'),
+      dir: require('path').join(__dirname, './coverage/common-lib'),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],
     },
@@ -31,15 +31,15 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
+    autoWatch: true,
     customLaunchers: {
       ChromeNoSandbox: {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox'],
       },
     },
-    browsers: ['ChromeNoSandbox'],
-    singleRun: true,
+    browsers: ['Chrome'],
+    singleRun: false,
     restartOnFileChange: true,
   });
 };
