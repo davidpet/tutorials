@@ -66,13 +66,9 @@ If you do the above steps and accidentally npm instead of pnpm install, package-
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io). For instance, `ng test common-lib` to run unit tests for common-lib.
 
 Run `bazel test //...` to execute the unit tests using bazel.
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Automatic Refresh on Code Changes
 
@@ -91,13 +87,8 @@ You can install `ibazel` via npm globally and then `ibazel run` instead of bazel
 
 # NOTE
 
-Executing tests with `bazel test //...` currently fails on MacOS due to sandboxing issues. To debug tests run `bazel run //path/to:test`.
-
-# NOTE
-
 See commits in the `Angular` example for how to add precommit hooks later when needed. I didn't mess with that here.
 
 # ToDo
 
-- tests
 - snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)

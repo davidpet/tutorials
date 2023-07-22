@@ -11,8 +11,7 @@
 # general idea.
 load("@npm//:@angular-devkit/architect-cli/package_json.bzl", architect_cli = "bin")
 
-# These 3 are just direct imports from repos set up in WORKSPACE.
-load("@aspect_bazel_lib//lib:copy_to_bin.bzl", "copy_to_bin")
+# These are just direct imports from repos set up in WORKSPACE.
 load("@aspect_bazel_lib//lib:jq.bzl", "jq")
 load("@aspect_rules_js//js:defs.bzl", "js_library")
 
@@ -45,6 +44,7 @@ APPLICATION_DEPS = [
     "//:node_modules/@angular/router",
     "//:node_modules/@angular/platform-browser",
     "//:node_modules/@angular/platform-browser-dynamic",
+    "//:node_modules/@types/node",
     "//:node_modules/rxjs",
     "//:node_modules/tslib",
     "//:node_modules/zone.js",
@@ -62,6 +62,7 @@ LIBRARY_DEPS = [
     "//:node_modules/@angular/common",
     "//:node_modules/@angular/core",
     "//:node_modules/@angular/router",
+    "//:node_modules/@types/node",
     "//:node_modules/rxjs",
     "//:node_modules/tslib",
 ]
@@ -177,23 +178,12 @@ def ng_app(name, project_name = None, deps = [], test_deps = [], **kwargs):
         **kwargs
     )
 
-    # TODO: angular tests seem to be escaping the runfiles but not the sandbox leading to issues if
-    # some data files are not copied to bin. The js_binary behavior was changed to not always copy
-    # the entry point and data to bin in 1.0.0-rc4 since runfiles already flatten the source and
-    # output trees:
-    # https://github.com/aspect-build/rules_js/commit/b66ea37a0058e9fd88ce41b9400ca7995a9d254d.
-    # Some more investigation is needed to find out why this is happening.
-    copy_to_bin(
-        name = "test_data",
-        srcs = srcs + test_srcs,
-    )
-
     # :test target for the app.
     architect_cli.architect_test(
         name = "test",
         chdir = native.package_name(),
         args = ["%s:test" % project_name],
-        data = [":test_data"] + deps + test_deps + TEST_DEPS + TEST_CONFIG + COMMON_CONFIG,
+        data = srcs + test_srcs + deps + test_deps + TEST_DEPS + TEST_CONFIG + COMMON_CONFIG,
         log_level = "debug",
         **kwargs
     )
@@ -247,23 +237,12 @@ def ng_lib(name, project_name = None, deps = [], test_deps = [], **kwargs):
         **kwargs
     )
 
-# TODO: angular tests seem to be escaping the runfiles but not the sandbox leading to issues if
-    # some data files are not copied to bin. The js_binary behavior was changed to not always copy
-    # the entry point and data to bin in 1.0.0-rc4 since runfiles already flatten the source and
-    # output trees:
-    # https://github.com/aspect-build/rules_js/commit/b66ea37a0058e9fd88ce41b9400ca7995a9d254d.
-    # Some more investigation is needed to find out why this is happening.
-    copy_to_bin(
-        name = "test_data",
-        srcs = test_srcs,
-    )
-
     # Test target named :test.
     architect_cli.architect_test(
         name = "test",
         chdir = native.package_name(),
-        args = ["%s:test" % project_name],
-        data = [":test_data"] + deps + test_deps + TEST_DEPS + TEST_CONFIG + COMMON_CONFIG + [":ng-package"],
+        args = ["%s:test" % project_name, "--no-watch"],
+        data = test_srcs + deps + test_deps + TEST_DEPS + TEST_CONFIG + COMMON_CONFIG + [":ng-package"],
         log_level = "debug",
         **kwargs
     )
