@@ -94,7 +94,3 @@ See [the example](https://github.com/aspect-build/bazel-examples/tree/main/angul
 # NOTE
 
 See commits in the `Angular` example for how to add precommit hooks later when needed. I didn't mess with that here.
-
-# ToDo
-
-- snippets pointing to commits in this tutorial (and breaking down angular.json and bazel concepts)
