@@ -1,23 +1,28 @@
 import { Project } from './Project';
+import { useDispatch } from 'react-redux';
+import { saveProject } from './state/projectActions';
+import { ThunkDispatch } from 'redux-thunk';
+import { ProjectState } from './state/projectTypes';
+import { AnyAction } from 'redux';
 import { SyntheticEvent, useState } from 'react';
 
 interface ProjectFormProps {
-    onSave: (project: Project) => void;
     onCancel: () => void;
     project: Project;
 }
 
- function ProjectForm({ project: initialProject, onSave, onCancel }: ProjectFormProps) {
+ function ProjectForm({ project: initialProject, onCancel }: ProjectFormProps) {
   const [project, setProject] = useState(initialProject);
   const [errors, setErrors] = useState({
    name: '',
    description: '',
    budget: '',
   });
+  const dispatch = useDispatch<ThunkDispatch<ProjectState, any, AnyAction>>();
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     if (!isValid()) return;
-    onSave(project);
+    dispatch(saveProject(project));
   };
 
   const handleChange = (event: any) => {
