@@ -1,2 +1,3 @@
 .DS_Store
 .ipynb_checkpoints
+React/keeptrack/api/test/projects-*.http
