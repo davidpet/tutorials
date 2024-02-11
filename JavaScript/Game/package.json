@@ -9,10 +9,10 @@
   "scripts": {
     "clean": "rm -rf ./dist/*",
     "prebuild": "npm run clean && tsc",
-    "build": "bestzip package.zip ./dist index.html",
+    "build": "bestzip package.zip ./dist index.html index.css",
     "prestart": "tsc",
     "start": "http-server . -o",
-    "deploy": "shx rm -rf $npm_package_config_deployFolder/* && shx cp -r dist  $npm_package_config_deployFolder/dist && shx cp index.html  $npm_package_config_deployFolder/"
+    "deploy": "shx rm -rf $npm_package_config_deployFolder/* && shx cp -r dist  $npm_package_config_deployFolder/dist && shx cp index.html  $npm_package_config_deployFolder/&& shx cp index.css  $npm_package_config_deployFolder/"
   },
   "keywords": [],
   "author": "",
