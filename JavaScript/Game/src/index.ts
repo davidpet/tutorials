@@ -8,9 +8,50 @@ interface Shockwave {
 let shockwaves: Shockwave[] = [];
 
 const MAX_RADIUS = 100;
-const SHOCK_COLOR = "cyan";
+const SHOCK_COLOR = "black";
 const SHOCK_DURATION = 500; // 1/2 second
 const SHOCK_STROKE = 2;
+
+let time_coef = -0.03; // lower magnitude = slower
+const RADIUS_COEF = 0.1; // lower magnitude = smaller circles
+
+let COLORS: Array<{ r: number; g: number; b: number }> = [];
+calculateColors(); // technically unnecessary, but I don't like top-level loops
+
+function calculateColors() {
+  // red to yellow
+  for (let i = 0; i < 256; i++) {
+    COLORS.push({ r: 255, g: i, b: 0 });
+  }
+  // yellow to green
+  for (let i = 0; i < 256; i++) {
+    COLORS.push({ r: 255 - i, g: 255, b: 0 });
+  }
+  // green to blue
+  for (let i = 0; i < 256; i++) {
+    COLORS.push({ r: 0, g: 255 - i, b: i });
+  }
+  // blue to red
+  for (let i = 0; i < 256; i++) {
+    COLORS.push({ r: i, g: 0, b: 255 - i });
+  }
+}
+
+function setPixel(
+  imageData: ImageData,
+  x: number,
+  y: number,
+  r: number,
+  g: number,
+  b: number,
+  a: number
+) {
+  let index = (x + y * imageData.width) * 4;
+  imageData.data[index + 0] = r;
+  imageData.data[index + 1] = g;
+  imageData.data[index + 2] = b;
+  imageData.data[index + 3] = a;
+}
 
 function updateState(time: number) {
   shockwaves = shockwaves.filter((shockwave) => {
@@ -22,14 +63,34 @@ function updateState(time: number) {
   });
 }
 
+// simulated shader (could use the real thing but this is simpler)
+function shade(imageData: ImageData, x: number, y: number, time: number) {
+  const radius = Math.sqrt(
+    (x - imageData.width / 2) ** 2 + (y - imageData.height / 2) ** 2
+  );
+  const magnitude = Math.sin(time_coef * time + RADIUS_COEF * radius);
+
+  const index = Math.floor(((magnitude + 1) / 2) * (COLORS.length - 1));
+  const color = COLORS[index];
+
+  setPixel(imageData, x, y, color.r, color.g, color.b, 255);
+}
+
 function render(
   time: number,
   canvas: HTMLCanvasElement,
   ctx: CanvasRenderingContext2D
 ) {
-  ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  // background render
+  let imageData = ctx.createImageData(canvas.width, canvas.height);
+  for (let x = 0; x < canvas.width; x++) {
+    for (let y = 0; y < canvas.height; y++) {
+      shade(imageData, x, y, time);
+    }
+  }
+  ctx.putImageData(imageData, 0, 0);
 
+  // shockwave render
   shockwaves.forEach((shockwave) => {
     const progress = (time - shockwave.birth!) / SHOCK_DURATION;
     ctx.globalAlpha = 1 - progress;
@@ -54,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const y = event.clientY - rect.top;
 
     shockwaves.push({ x, y, color: SHOCK_COLOR });
+    time_coef *= -1;
   });
 
   function gameLoop(time: number) {
