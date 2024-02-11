@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "deployFolder": "docs/jsgame"
+  },
   "scripts": {
     "clean": "rm -rf ./dist/*",
     "prebuild": "npm run clean && tsc",
     "build": "bestzip package.zip ./dist index.html",
     "prestart": "tsc",
-    "start": "http-server ./dist -o"
+    "start": "http-server ./dist -o",
+    "deploy": "shx rm -rf $npm_package_config_deployFolder/* && shx cp -r dist  $npm_package_config_deployFolder/dist && shx cp index.html  $npm_package_config_deployFolder/"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +20,7 @@
   "devDependencies": {
     "bestzip": "^2.2.1",
     "http-server": "^14.1.1",
+    "shx": "^0.3.4",
     "typescript": "^5.3.3"
   }
 }
