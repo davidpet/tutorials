@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "deployFolder": "docs/jsgame"
+    "deployFolder": "../../docs/jsgame"
   },
   "scripts": {
     "clean": "rm -rf ./dist/*",
