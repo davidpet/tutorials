@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     circles.forEach((circle) => {
       ctx.fillStyle = circle.color;
       ctx.beginPath();
-      ctx.arc(circle.x, circle.y, 50, 0, Math.PI * 2);
+      ctx.arc(circle.x, circle.y, 20, 0, Math.PI * 2);
       ctx.fill();
     });
   }
