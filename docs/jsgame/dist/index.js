@@ -1,11 +1,16 @@
 "use strict";
 let shockwaves = [];
+// Tweak these
 const MAX_RADIUS = 100;
 const SHOCK_COLOR = "black";
 const SHOCK_DURATION = 500; // 1/2 second
 const SHOCK_STROKE = 2;
-let time_coef = -0.03; // lower magnitude = slower
-const RADIUS_COEF = 0.1; // lower magnitude = smaller circles
+const TIME_PERIOD = 1000; // ms
+const RADIUS_PERIOD = 100; // px
+// Don't tweak these
+const TIME_COEFFICIENT = (2 * Math.PI) / TIME_PERIOD;
+const RADIUS_COEFFICIENT = (2 * Math.PI) / RADIUS_PERIOD;
+let time_sign = -1;
 let COLORS = [];
 calculateColors(); // technically unnecessary, but I don't like top-level loops
 function calculateColors() {
@@ -45,7 +50,7 @@ function updateState(time) {
 // simulated shader (could use the real thing but this is simpler)
 function shade(imageData, x, y, time) {
     const radius = Math.sqrt((x - imageData.width / 2) ** 2 + (y - imageData.height / 2) ** 2);
-    const magnitude = Math.sin(time_coef * time + RADIUS_COEF * radius);
+    const magnitude = Math.sin(time_sign * TIME_COEFFICIENT * time + RADIUS_COEFFICIENT * radius);
     const index = Math.floor(((magnitude + 1) / 2) * (COLORS.length - 1));
     const color = COLORS[index];
     setPixel(imageData, x, y, color.r, color.g, color.b, 255);
@@ -79,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const x = event.clientX - rect.left;
         const y = event.clientY - rect.top;
         shockwaves.push({ x, y, color: SHOCK_COLOR });
-        time_coef *= -1;
+        time_sign *= -1;
     });
     function gameLoop(time) {
         updateState(time);
