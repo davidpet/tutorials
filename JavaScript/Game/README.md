@@ -1,0 +1,4 @@
+- To install: `npm install`
+- To compile: `npx tsc`
+- To run (must compile first): `npx http-server`
+- To run somewhere else: copy `dist/` folder and `index.html` (will do better process later)
