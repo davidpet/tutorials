@@ -1,3 +1,5 @@
+- Live Demo: https://davidpet.github.io/tutorials/jsgame/
+  - GitHub pages for Tutorials repo set to use MASTER branch and docs/ folder
 - To install: `npm install`
 - To run: `npm run start`
   - will run from `index.html` and `dist/` folder (built automatically)
