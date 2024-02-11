@@ -9,5 +9,8 @@
   - it will clear away the whole target folder and recopy the artifacts
   - you then have to go make a commit in Git to update the copy that is hosted
 - To clean the `dist/` folder: `npm run clean`
+- If you deploy and commit, but the JS changes don't show up, you need to do a **Hard Refresh**
+  - In Chrome, load chrome devtools
+  - just having devtools open unlocks a right-click menu for the refresh button that isn't normally there
 - If you clone this project and make a different version of it, you will need to change the stuff above `scripts` in `package.json`.
 - Explorations of future things to add with ChatGPT: https://chat.openai.com/share/657ae2b7-fa07-49f5-b698-5490945b5997
