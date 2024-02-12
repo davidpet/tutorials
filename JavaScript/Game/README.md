@@ -14,3 +14,8 @@
   - just having devtools open unlocks a right-click menu for the refresh button that isn't normally there
 - If you clone this project and make a different version of it, you will need to change the stuff above `scripts` in `package.json`.
 - Explorations of future things to add with ChatGPT: https://chat.openai.com/share/657ae2b7-fa07-49f5-b698-5490945b5997 and https://chat.openai.com/share/96deaa10-e077-4385-b20f-aa8bec6a4304
+- Possible enhancements:
+  - the phase is messed up when you reverse the direction by clicking - need to calculate a cumulative phase shift to sell the illusion
+  - it'd be nice to have it pause when the window is invisible (use visibilitychange event and cancelAnimationFrame)
+  - custom cursor by drawing image with transparency on pointermove (remove on pointerenter and pointerleave)
+  - background sound and click shockwave sound effects using Audio object
