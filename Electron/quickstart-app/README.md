@@ -1,3 +1,3 @@
 ## Running
 
-`npm start`
+`npm run start`
