@@ -1,15 +1,16 @@
 {
-"name": "quickstart-app",
-"version": "1.0.0",
-"description": "quickstart tutorial app",
-"main": "main.js",
-"scripts": {
-  "start": "electron .",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
-"author": "David Petrofsky",
-"license": "ISC",
-"devDependencies": {
-  "electron": "^33.2.1"
-}
+  "name": "quickstart-app",
+  "version": "1.0.0",
+  "description": "quickstart tutorial app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Petrofsky",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^33.2.1"
+  },
+  "type": "module"
 }
